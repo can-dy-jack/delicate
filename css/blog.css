@@ -1,0 +1,326 @@
+/*
+ * Globals
+ * 基本布局样式
+ */
+html{
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: #555;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    margin-top: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: #333;
+}
+
+
+/*
+ * Override Bootstrap's default container.
+ */
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1040px;
+    }
+}
+
+/* blog menu */
+.blog-menu {
+    font-family: JetBrains Mono,Helvetica,sans-serif;
+    -webkit-box-shadow: inset 0 -2px 6px rgba(0,0,0,.2);
+    box-shadow: inset 0 -2px 6px rgba(0,0,0,.2);
+    background-color: teal;
+}
+.blog-nav-item {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 500;
+    color: #fff;
+}
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+    color: #cdddeb;
+    text-decoration: none;
+}
+/* Active state gets a caret at the bottom */
+.blog-nav .active {
+    color: #fff;
+}
+.blog-nav .active:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -5px;
+    vertical-align: middle;
+    content: " ";
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid;
+    border-left: 5px solid transparent;
+}
+
+/* Blog name and description */
+.blog-header {
+    padding: 20px;
+    background-color: teal;
+    margin-bottom: 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: inset 0 -3px 8px rgba(0,0,0,.2),
+                inset 2px 0 6px rgba(0,0,0,.2),
+                inset -3px 0 8px rgba(0,0,0,.2);
+}
+.blog-title {
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 60px;
+    font-weight: normal;
+    color: white;
+}
+.blog-description {
+    font-size: 20px;
+    color: #eee;
+}
+
+/* blog body */
+
+.blog-main {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* .sidebar-to-top */
+.sidebar-to-top{
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #fff;
+    width: 48px;height: 48px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(10,30,100,.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.sidebar-to-top a{
+    text-decoration: none;
+    font-size: 30px;
+}
+@keyframes toTopMove {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(50px);
+    }
+}
+
+/* Pagination */
+.pagination{
+    justify-content: center;
+}
+
+/* 主页文章列表 */
+.blog-post {
+    margin-bottom: 60px;
+    background-color: #f0f8f8;
+    box-shadow: 0 0 10px rgba(0,128,128,.2);
+    border-radius: 10px;
+    padding: 15px 15px 5px 15px;
+}
+.blog-post:hover{
+    box-shadow: 0 0 22px rgba(0,128,128,.2);
+}
+.blog-post-title {
+    margin-bottom: 5px;
+    font-size: 40px;
+}
+.blog-post-meta {
+    margin-bottom: 20px;
+    color: #999;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* footer */
+
+.blog-footer {
+    padding: 40px 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+}
+.blog-footer p:last-child {
+    margin-bottom: 0;
+}
+
+/* 
+ * sidebar-about
+ */
+.sidebar-about{
+    background-color: #fff;
+    border: 1px solid #dff8f8;
+    padding: 5px 10px;
+    border-radius: 3px;
+    position: sticky;
+    top: 5px;left: 0;
+    width: 100%;
+    margin-bottom: 40px;
+    box-shadow: 0 0 6px rgba(0,128,128,.2);
+    font-family: microsoft yahei, sans-serif;
+}
+.sidebar-about .my-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sidebar-about .my-img>div{
+    width: 50%;
+    border-radius: 50%;
+    border: 2px dashed teal;
+    overflow: hidden;
+}
+.sidebar-about .my-img img{
+    width: 100%;
+    transform: scale(1.1);
+}
+.sidebar-about .my-img .name{
+    margin: 5px 0;
+    color: teal;
+    font-weight: bold;
+}
+.sidebar-about .my-logo{
+    color: #1b5a5a;
+    text-align: center;
+    margin: 5px 0 10px 0;
+}
+.sidebar-about .my-tag{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.sidebar-about .my-tag span{
+    padding: 3px 8px;
+    margin: 2px 3px;
+    background-color: rgba(191, 238, 238,.6);
+    border: 1px solid teal;
+    color: teal;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.sidebar-about .my-division{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.sidebar-about .my-division .division{
+    height: 1px;
+    width: 100%;
+    background-color: teal;
+    display: block;
+}
+.sidebar-about .my-division .text{
+    transform: translateY(-50%);
+    background-color: #fff;
+    padding: 2px 8px;
+    color: #111;
+}
+.sidebar-about .my-social-account{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.sidebar-about .my-social-account .icon-box{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 30px 10px;
+    position: relative;
+}
+.sidebar-about .my-social-account .icon-box a{
+    text-decoration: none;
+    
+}
+.sidebar-about .my-social-account .icon-box a svg{
+    fill: #aaa;
+}
+.sidebar-about .my-social-account .icon-box a:hover svg{
+    fill: teal;
+}
+.sidebar-about .my-social-account .icon-box a:hover + span{
+    opacity: 1;
+}
+.sidebar-about .my-social-account .icon-box span{
+    position: absolute;
+    display: block;
+    padding: 3px 8px;
+    background-color: #080808;
+    color: white;
+    top: 35px;
+    left: 0;
+    font-size: 12px;
+    border-radius: 4px;
+    text-align: center;
+    transform: translateX(-25%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+}
+.sidebar-about .my-social-account .icon-box span::before{
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 45%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #080808 transparent;
+}
+
+/* 标签及分类样式 */
+.blog-tags-container, .blog-categories-container {
+    margin-top: 30px;
+    font-size: 20px;
+}
+.blog-tags-container span.glyphicon, .blog-categories-container span.glyphicon {
+    margin-right: 20px;
+}
+
+.blog-archive-title {
+    margin-bottom: 50px;
+}.blog-archive-title {
+    margin-bottom: 50px;
+}
+.blog-post-title-archive {
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+/* 暂时-pre code */
+pre{
+    background-color: #f1f7a8;
+    /* border-left: 6px solid #90c5fa; */
+    padding: 6px 12px;
+    border-radius: 5px;
+}
+pre code .keyword{
+    color: rgb(35, 35, 197);
+}
+pre code .builtin{
+    color: rgb(230, 55, 55);
+}
