@@ -28,6 +28,9 @@
     
 <link rel="stylesheet" href="/delicate/css/comments.css">
 
+    
+<link rel="stylesheet" href="/delicate/css/markdown.css">
+
 
     <!-- 默认背景 -->
     
@@ -38,7 +41,6 @@
             }
         </style>
     
-
     <style type="text/css">
         .icon {
             width: 1.6em; height: 1.6em;
@@ -62,12 +64,18 @@
   
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="/delicate/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/delicate/archives/">Archives</a>
       </li>
+
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/delicate/page">Page</a>
+        </li>
+      
       <!--
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -108,6 +116,162 @@
 <div class="blog-post">
     <!-- Title -->
     <h2 class="blog-post-title">
+        <a href="/delicate/2021/11/14/markdown测试文件/">
+            markdown测试文件
+        </a>
+    </h2>
+    <!-- Date and Author -->
+    <p class="blog-post-meta">
+        2021-11-14
+        
+            by 陈科衡
+        
+    </p>
+    <!-- Content -->
+    <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">## 标题2</span><br><span class="hljs-section">### 标题3</span><br><span class="hljs-section">#### 标题4</span><br><span class="hljs-section">##### 标题5</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><hr>
+<p>文本样式</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-strong">**加粗**</span>  <span class="hljs-strong">__斜体__</span>  <span class="hljs-emphasis">_斜体_</span>  <span class="hljs-emphasis">*斜体*</span>  ~~划线~~  ~划线~<br><span class="hljs-quote">&gt; 引用文本</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>加粗</strong>  <strong>斜体</strong>  <em>斜体</em>  <em>斜体</em>  <del>划线</del>  <del>划线</del></p>
+<blockquote>
+<p>引用文本</p>
+</blockquote>
+<hr>
+<p>列表样式：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span> 列表<br><span class="hljs-bullet">*</span> 列表<br><span class="hljs-bullet">*</span> 列表<br><br><span class="hljs-bullet">-</span> 列表<br><span class="hljs-bullet">-</span> 列表<br><span class="hljs-bullet">-</span> 列表<br> <br><span class="hljs-bullet">+</span> 列表<br><span class="hljs-bullet">+</span> 列表<br><span class="hljs-bullet">+</span> 列表<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+</ul>
+<ul>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+</ul>
+<ul>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">-</span> 项目<br><span class="hljs-bullet">  *</span> 项目<br><span class="hljs-bullet">    +</span> 项目<br><br><span class="hljs-bullet">1.</span> 项目1<br><span class="hljs-bullet">2.</span> 项目2<br><span class="hljs-bullet">3.</span> 项目3<br><br><span class="hljs-bullet">-</span> [ ] 计划任务<br><span class="hljs-bullet">-</span> [x] 完成任务<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>项目<ul>
+<li>项目<ul>
+<li>项目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox"> 计划任务</li>
+<li><input checked="" disabled="" type="checkbox"> 完成任务</li>
+</ul>
+<hr>
+<p>链接和图片：<br><a target="_blank" rel="noopener" href="http://localhost:4000/delicate">link-delicate</a></p>
+<p><img src="https://z3.ax1x.com/2021/11/15/IgcqH0.jpg" alt="测试-付款码"></p>
+<hr>
+<p>内联代码块:<code>code</code></p>
+<p>代码块：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">var foo = &#x27;bar&#x27;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// An highlighted block</span><br><span class="hljs-keyword">var</span> foo = <span class="hljs-string">&#x27;bar&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+    <!-- Only display the Read More link if we are displaying an excerpt -->
+    
+</div>
+
+
+    
+<div class="blog-post">
+    <!-- Title -->
+    <h2 class="blog-post-title">
+        <a href="/delicate/2021/11/13/post页面测试/">
+            post页面测试
+        </a>
+    </h2>
+    <!-- Date and Author -->
+    <p class="blog-post-meta">
+        2021-11-13
+        
+    </p>
+    <!-- Content -->
+    <h2 id="post页面"><a href="#post页面" class="headerlink" title="post页面"></a>post页面</h2>
+    <!-- Only display the Read More link if we are displaying an excerpt -->
+    
+</div>
+
+
+    
+<div class="blog-post">
+    <!-- Title -->
+    <h2 class="blog-post-title">
+        <a href="/delicate/2021/11/12/code-test/">
+            测试代码文件
+        </a>
+    </h2>
+    <!-- Date and Author -->
+    <p class="blog-post-meta">
+        2021-11-12
+        
+            by 陈科衡
+        
+    </p>
+    <!-- Content -->
+    <blockquote>
+<p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
+</blockquote>
+<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;<br>content<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="没有提供参数，则只输出普通的-blockquote"><a href="#没有提供参数，则只输出普通的-blockquote" class="headerlink" title="没有提供参数，则只输出普通的 blockquote"></a>没有提供参数，则只输出普通的 blockquote</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote %&#125;<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
+</blockquote>
+
+<h3 id="引用书上的句子"><a href="#引用书上的句子" class="headerlink" title="引用书上的句子"></a>引用书上的句子</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote David Levithan, Wide Awake %&#125;<br>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+
+<h3 id="引用-Twitter"><a href="#引用-Twitter" class="headerlink" title="引用 Twitter"></a>引用 Twitter</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;<br>NEW: DevDocs now comes with syntax highlighting. http://devdocs.io<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a target="_blank" rel="noopener" href="http://devdocs.io/">http://devdocs.io</a></p>
+<footer><strong>@DevDocs</strong><cite><a target="_blank" rel="noopener" href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
+
+<h3 id="引用网络上的文章"><a href="#引用网络上的文章" class="headerlink" title="引用网络上的文章"></a>引用网络上的文章</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;<br>Every interaction is both precious and an opportunity to delight.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a target="_blank" rel="noopener" href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
+
+
+
+
+
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tkinter<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> a = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.code&#x27;</span>);<br>a.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;It&#x27;s test code.&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+    <!-- Only display the Read More link if we are displaying an excerpt -->
+    
+</div>
+
+
+    
+<div class="blog-post">
+    <!-- Title -->
+    <h2 class="blog-post-title">
         <a href="/delicate/2021/11/05/fish03/">
             捕捞学
         </a>
@@ -141,7 +305,7 @@
         <p>
             
             <a href="/delicate/2021/11/05/fish03/" class="btn btn-outline-primary">
-                阅读更多
+                more
             </a>
             
         </p>
@@ -174,96 +338,7 @@
         <p>
             
             <a href="/delicate/2021/11/05/fish02/" class="btn btn-outline-primary">
-                阅读更多
-            </a>
-            
-        </p>
-    
-</div>
-
-
-    
-<div class="blog-post">
-    <!-- Title -->
-    <h2 class="blog-post-title">
-        <a href="/delicate/2021/11/05/fish01/">
-            绪论、世界和国内现状
-        </a>
-    </h2>
-    <!-- Date and Author -->
-    <p class="blog-post-meta">
-        2021-11-05
-        
-            by 陈科衡
-        
-    </p>
-    <!-- Content -->
-    <h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><h3 id="1、渔业的定义"><a href="#1、渔业的定义" class="headerlink" title="1、渔业的定义"></a>1、渔业的定义</h3><p>渔业（fishery），也称水产业。</p>
-    <!-- Only display the Read More link if we are displaying an excerpt -->
-    
-        <p>
-            
-            <a href="/delicate/2021/11/05/fish01/" class="btn btn-outline-primary">
-                阅读更多
-            </a>
-            
-        </p>
-    
-</div>
-
-
-    
-<div class="blog-post">
-    <!-- Title -->
-    <h2 class="blog-post-title">
-        <a href="/delicate/2021/11/05/hexo-theme-delicate/">
-            hexo-theme-delicate
-        </a>
-    </h2>
-    <!-- Date and Author -->
-    <p class="blog-post-meta">
-        2021-11-05
-        
-            by 陈科衡
-        
-    </p>
-    <!-- Content -->
-    <h2 id="hexo-theme-delicate"><a href="#hexo-theme-delicate" class="headerlink" title="hexo-theme-delicate"></a>hexo-theme-delicate</h2><p><a target="_blank" rel="noopener" href="https://www.codeblocq.com/2016/03/Create-an-Hexo-Theme-Part-1-Index/">参考：</a></p>
-    <!-- Only display the Read More link if we are displaying an excerpt -->
-    
-        <p>
-            
-            <a href="/delicate/2021/11/05/hexo-theme-delicate/" class="btn btn-outline-primary">
-                阅读更多
-            </a>
-            
-        </p>
-    
-</div>
-
-
-    
-<div class="blog-post">
-    <!-- Title -->
-    <h2 class="blog-post-title">
-        <a href="/delicate/2021/11/04/hello-world/">
-            Hello World
-        </a>
-    </h2>
-    <!-- Date and Author -->
-    <p class="blog-post-meta">
-        2021-11-04
-        
-    </p>
-    <!-- Content -->
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
-    <!-- Only display the Read More link if we are displaying an excerpt -->
-    
-        <p>
-            
-            <a href="/delicate/2021/11/04/hello-world/" class="btn btn-outline-primary">
-                阅读更多
+                more
             </a>
             
         </p>
@@ -279,6 +354,8 @@
     <ul class="pagination">
         
         
+            <li class="page-item"><a class="page-link" href="/delicate/page/2/">Next</a></li>
+        
     </ul>
 </nav>
 
@@ -292,6 +369,31 @@
                 
 <div class="alert alert-info shadow-sm sidebar-top">
     <h3>置顶文章</h3>
+    
+        
+<div class="sidebar-top-part">
+    <div>
+        <a href="/delicate/2021/11/12/code-test/">
+            测试代码文件
+        </a>
+    </div>
+    <div>
+        
+        
+            
+                <span class="badge badge-pill badge-primary">测试文件</span>
+            
+                <span class="badge badge-pill badge-primary">code</span>
+            
+        
+    </div>
+    <div>
+        2021-11-12
+    </div>
+</div>
+
+
+
     
         
 <div class="sidebar-top-part">
@@ -348,10 +450,6 @@
 
     
         
-
-
-    
-        
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/04/hello-world/">
@@ -373,6 +471,39 @@
     </div>
 </div>
 
+
+
+    
+        
+
+
+    
+        
+<div class="sidebar-top-part">
+    <div>
+        <a href="/delicate/2021/11/14/markdown测试文件/">
+            markdown测试文件
+        </a>
+    </div>
+    <div>
+        
+        
+            
+                <span class="badge badge-pill badge-primary">测试文件</span>
+            
+                <span class="badge badge-pill badge-primary">code</span>
+            
+        
+    </div>
+    <div>
+        2021-11-14
+    </div>
+</div>
+
+
+
+    
+        
 
 
     
@@ -541,11 +672,11 @@
 
 
 
-
 <script src="/delicate/js/to_top.js"></script>
 
 
-<script src="https://at.alicdn.com/t/font_2918710_8kenv9okurb.js"></script>
+
+<script src="https://at.alicdn.com/t/font_2918710_f7bdcvf0tv5.js"></script>
 
 
 
@@ -556,6 +687,8 @@
 
 <script src="/delicate/js/archives.js"></script>
 
+
+<script src="/delicate/js/index.js"></script>
 
 
 </body>

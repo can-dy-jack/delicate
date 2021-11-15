@@ -111,38 +111,112 @@
         <div class="row">
 
             <div class="col-sm-8 blog-main">
-                <h2 class="post-archives-head">Archives <span class="badge badge-primary">8 </span></h2>
-<div class="alert alert-info" role="alert">
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/11/05/fish02/">
-        我国的渔业养殖
-    </a>
-    <span>
-        2021-11-05
+                
+
+<div class="blog-post">
+    <!-- Title -->
+    <h2 class="blog-post-title">
+        <a href="/delicate/2021/11/12/code-test/">
+            测试代码文件
+        </a>
+    </h2>
+    <!-- Date and Author -->
+    <p class="blog-post-meta">
+        2021-11-12
+        
+            by 陈科衡
+        
+    </p>
+    <!-- Content -->
+    <blockquote>
+<p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
+</blockquote>
+<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;<br>content<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="没有提供参数，则只输出普通的-blockquote"><a href="#没有提供参数，则只输出普通的-blockquote" class="headerlink" title="没有提供参数，则只输出普通的 blockquote"></a>没有提供参数，则只输出普通的 blockquote</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote %&#125;<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
+</blockquote>
+
+<h3 id="引用书上的句子"><a href="#引用书上的句子" class="headerlink" title="引用书上的句子"></a>引用书上的句子</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote David Levithan, Wide Awake %&#125;<br>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+
+<h3 id="引用-Twitter"><a href="#引用-Twitter" class="headerlink" title="引用 Twitter"></a>引用 Twitter</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;<br>NEW: DevDocs now comes with syntax highlighting. http://devdocs.io<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a target="_blank" rel="noopener" href="http://devdocs.io/">http://devdocs.io</a></p>
+<footer><strong>@DevDocs</strong><cite><a target="_blank" rel="noopener" href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
+
+<h3 id="引用网络上的文章"><a href="#引用网络上的文章" class="headerlink" title="引用网络上的文章"></a>引用网络上的文章</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;<br>Every interaction is both precious and an opportunity to delight.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a target="_blank" rel="noopener" href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
+
+
+
+
+
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tkinter<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> a = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.code&#x27;</span>);<br>a.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;It&#x27;s test code.&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+    <hr />
+    <!-- Tags and Categories links -->
+    <div class="blog-tag-and-cate">
+        
+
+<div class="blog-tags-container">
+    <span class="glyphicon glyphicon-tags">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-tag"></use>
+        </svg>
     </span>
+    
+        <span class="blog-text">
+        <a href="/delicate/tags/测试文件/">#测试文件</a>
+        </span>
+    
+        <span class="blog-text">
+        <a href="/delicate/tags/code/">#code</a>
+        </span>
+    
 </div>
 
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/11/05/fish01/">
-        绪论、世界和国内现状
-    </a>
-    <span>
-        2021-11-05
+
+        
+
+
+<div class="blog-categories-container">
+    <span class="glyphicon glyphicon-folder-open">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-categories"></use>
+        </svg>
     </span>
-</div>
-
+    
+        <span class="blog-text">
+            <a href="/delicate/categories/测试文件/">测试文件</a>
+        </span>
     
 </div>
 
-<nav aria-label="Page navigation">
-    <ul class="pagination">
+
+    </div>
+    <div class="alert alert-danger" style="margin: 15px 5px;">本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</div>
+
+    <div class="blog-post-change">
+        
+            <a class="blog-post-pre" href="/delicate/2021/11/13/post%E9%A1%B5%E9%9D%A2%E6%B5%8B%E8%AF%95/">&#8668;post页面测试</a>
         
         
-    </ul>
-</nav>
-
+        
+            <a class="blog-post-next" href="/delicate/2021/11/05/fish03/">捕捞学&#8669;</a>
+        
+    </div>
+    <hr>
+</div>
 
 
 
