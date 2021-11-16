@@ -183,6 +183,22 @@
         
     </div>
     <hr>
+    
+        <div id="gitalk-container"></div>
+<script>
+const gitalk = new Gitalk({
+  clientID: '40bf1e48c10c21aabbda',
+  clientSecret: 'fdc4482c982f1004c3b4efb436ba839da373723a', // 注意保存
+  repo: 'delicate',
+  owner: 'can-dy-jack',
+  admin: ['can-dy-jack'],
+  id: location.href, // 如果是每篇文章评论不一样：location.href
+  labels: 'gittalk',
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+    
 </div>
 
 
@@ -193,31 +209,6 @@
                 
 <div class="alert alert-info shadow-sm sidebar-top">
     <h3>置顶文章</h3>
-    
-        
-<div class="sidebar-top-part">
-    <div>
-        <a href="/delicate/2021/11/12/code-test/">
-            测试代码文件
-        </a>
-    </div>
-    <div>
-        
-        
-            
-                <span class="badge badge-pill badge-primary">测试文件</span>
-            
-                <span class="badge badge-pill badge-primary">code</span>
-            
-        
-    </div>
-    <div>
-        2021-11-12
-    </div>
-</div>
-
-
-
     
         
 <div class="sidebar-top-part">
@@ -247,6 +238,27 @@
 
     
         
+<div class="sidebar-top-part">
+    <div>
+        <a href="/delicate/2021/11/12/code-test/">
+            测试代码文件
+        </a>
+    </div>
+    <div>
+        
+        
+            
+                <span class="badge badge-pill badge-primary">测试文件</span>
+            
+                <span class="badge badge-pill badge-primary">code</span>
+            
+        
+    </div>
+    <div>
+        2021-11-12
+    </div>
+</div>
+
 
 
     
@@ -270,6 +282,10 @@
     </div>
 </div>
 
+
+
+    
+        
 
 
     
@@ -299,6 +315,14 @@
 
     
         
+
+
+    
+        
+
+
+    
+        
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/14/markdown测试文件/">
@@ -320,14 +344,6 @@
     </div>
 </div>
 
-
-
-    
-        
-
-
-    
-        
 
 
     
@@ -419,21 +435,6 @@
         </div>
     </div>
     <div class="container-fluid">
-    
-    
-        <div id="gitalk-container"></div>
-<script>
-const gitalk = new Gitalk({
-  clientID: '40bf1e48c10c21aabbda',
-  clientSecret: 'fdc4482c982f1004c3b4efb436ba839da373723a', // 注意保存
-  repo: 'delicate',
-  owner: 'can-dy-jack',
-  admin: ['can-dy-jack'],
-  id: location.href,
-  distractionFreeMode: false
-})
-gitalk.render('gitalk-container')
-</script>
     
     </div>
 <div class="float-box">
