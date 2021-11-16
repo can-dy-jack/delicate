@@ -49,6 +49,10 @@
             overflow: hidden;
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
@@ -134,7 +138,7 @@
         <p>
             
             <a href="/delicate/2021/11/05/fish01/" class="btn btn-outline-primary">
-                more
+                Read More
             </a>
             
         </p>
@@ -164,7 +168,7 @@
         <p>
             
             <a href="/delicate/2021/11/05/hexo-theme-delicate/" class="btn btn-outline-primary">
-                more
+                Read More
             </a>
             
         </p>
@@ -193,7 +197,7 @@
         <p>
             
             <a href="/delicate/2021/11/04/hello-world/" class="btn btn-outline-primary">
-                more
+                Read More
             </a>
             
         </p>
@@ -253,8 +257,8 @@
         
 <div class="sidebar-top-part">
     <div>
-        <a href="/delicate/2021/11/05/fish01/">
-            绪论、世界和国内现状
+        <a href="/delicate/2021/11/05/fish02/">
+            我国的渔业养殖
         </a>
     </div>
     <div>
@@ -262,10 +266,6 @@
         
             
                 <span class="badge badge-pill badge-primary">渔业导论</span>
-            
-                <span class="badge badge-pill badge-primary">渔业</span>
-            
-                <span class="badge badge-pill badge-primary">绪论</span>
             
         
     </div>
@@ -280,8 +280,8 @@
         
 <div class="sidebar-top-part">
     <div>
-        <a href="/delicate/2021/11/05/fish02/">
-            我国的渔业养殖
+        <a href="/delicate/2021/11/05/fish01/">
+            绪论、世界和国内现状
         </a>
     </div>
     <div>
@@ -289,6 +289,10 @@
         
             
                 <span class="badge badge-pill badge-primary">渔业导论</span>
+            
+                <span class="badge badge-pill badge-primary">渔业</span>
+            
+                <span class="badge badge-pill badge-primary">绪论</span>
             
         
     </div>
@@ -450,19 +454,22 @@
         </div>
     </div>
     <div class="container-fluid">
-        
-
-<section id="comments" class="comments">
-    <script src="https://utteranc.es/client.js"
-            repo="can-dy-jack/delicate"
-            issue-term="title"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-    </script>
-</section>
-
-
+    
+    
+        <div id="gitalk-container"></div>
+<script>
+const gitalk = new Gitalk({
+  clientID: '40bf1e48c10c21aabbda',
+  clientSecret: 'fdc4482c982f1004c3b4efb436ba839da373723a', // 注意保存
+  repo: 'delicate',
+  owner: 'can-dy-jack',
+  admin: ['can-dy-jack'],
+  id: location.pathname,
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+    
     </div>
 <div class="float-box">
     <div class="float-github" data-toggle="tooltip" data-placement="right" title="给个star~">
@@ -544,6 +551,10 @@
 
 
 <script src="/delicate/js/index.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
 
 </body>
