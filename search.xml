@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>测试代码文件</title>
+    <url>/delicate/2021/11/12/code-test/</url>
+    <content><![CDATA[<blockquote>
+<p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
+</blockquote>
+<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;<br>content<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="没有提供参数，则只输出普通的-blockquote"><a href="#没有提供参数，则只输出普通的-blockquote" class="headerlink" title="没有提供参数，则只输出普通的 blockquote"></a>没有提供参数，则只输出普通的 blockquote</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote %&#125;<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
+</blockquote>
+
+<h3 id="引用书上的句子"><a href="#引用书上的句子" class="headerlink" title="引用书上的句子"></a>引用书上的句子</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote David Levithan, Wide Awake %&#125;<br>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+
+<h3 id="引用-Twitter"><a href="#引用-Twitter" class="headerlink" title="引用 Twitter"></a>引用 Twitter</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;<br>NEW: DevDocs now comes with syntax highlighting. http://devdocs.io<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io/">http://devdocs.io</a></p>
+<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
+
+<h3 id="引用网络上的文章"><a href="#引用网络上的文章" class="headerlink" title="引用网络上的文章"></a>引用网络上的文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;<br>Every interaction is both precious and an opportunity to delight.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
+
+
+
+
+
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tkinter<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> a = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.code&#x27;</span>);<br>a.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;It&#x27;s test code.&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>测试文件</category>
+      </categories>
+      <tags>
+        <tag>测试文件</tag>
+        <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>绪论、世界和国内现状</title>
     <url>/delicate/2021/11/05/fish01/</url>
     <content><![CDATA[<h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><h3 id="1、渔业的定义"><a href="#1、渔业的定义" class="headerlink" title="1、渔业的定义"></a>1、渔业的定义</h3><p>渔业（fishery），也称水产业。</p>
@@ -276,52 +322,6 @@
         <tag>渔业导论</tag>
         <tag>渔业</tag>
         <tag>绪论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试代码文件</title>
-    <url>/delicate/2021/11/12/code-test/</url>
-    <content><![CDATA[<blockquote>
-<p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
-</blockquote>
-<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;<br>content<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="没有提供参数，则只输出普通的-blockquote"><a href="#没有提供参数，则只输出普通的-blockquote" class="headerlink" title="没有提供参数，则只输出普通的 blockquote"></a>没有提供参数，则只输出普通的 blockquote</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote %&#125;<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
-</blockquote>
-
-<h3 id="引用书上的句子"><a href="#引用书上的句子" class="headerlink" title="引用书上的句子"></a>引用书上的句子</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote David Levithan, Wide Awake %&#125;<br>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-
-<h3 id="引用-Twitter"><a href="#引用-Twitter" class="headerlink" title="引用 Twitter"></a>引用 Twitter</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;<br>NEW: DevDocs now comes with syntax highlighting. http://devdocs.io<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io/">http://devdocs.io</a></p>
-<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-
-<h3 id="引用网络上的文章"><a href="#引用网络上的文章" class="headerlink" title="引用网络上的文章"></a>引用网络上的文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;<br>Every interaction is both precious and an opportunity to delight.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
-<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
-
-
-
-
-
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tkinter<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> a = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.code&#x27;</span>);<br>a.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;It&#x27;s test code.&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>测试文件</category>
-      </categories>
-      <tags>
-        <tag>测试文件</tag>
-        <tag>code</tag>
       </tags>
   </entry>
   <entry>
@@ -736,6 +736,18 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo-theme-delicate</title>
+    <url>/delicate/2021/11/05/hexo-theme-delicate/</url>
+    <content><![CDATA[<h2 id="hexo-theme-delicate"><a href="#hexo-theme-delicate" class="headerlink" title="hexo-theme-delicate"></a>hexo-theme-delicate</h2><p><a href="https://www.codeblocq.com/2016/03/Create-an-Hexo-Theme-Part-1-Index/">参考：</a></p>
+<span id="more"></span>
+]]></content>
+      <tags>
+        <tag>hexo-theme-delicate</tag>
+        <tag>hexo</tag>
+        <tag>delicate</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/delicate/2021/11/04/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -757,23 +769,6 @@
         <tag>test</tag>
         <tag>first</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hexo-theme-delicate</title>
-    <url>/delicate/2021/11/05/hexo-theme-delicate/</url>
-    <content><![CDATA[<h2 id="hexo-theme-delicate"><a href="#hexo-theme-delicate" class="headerlink" title="hexo-theme-delicate"></a>hexo-theme-delicate</h2><p><a href="https://www.codeblocq.com/2016/03/Create-an-Hexo-Theme-Part-1-Index/">参考：</a></p>
-<span id="more"></span>
-]]></content>
-      <tags>
-        <tag>hexo-theme-delicate</tag>
-        <tag>hexo</tag>
-        <tag>delicate</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>post页面测试</title>
-    <url>/delicate/2021/11/13/post%E9%A1%B5%E9%9D%A2%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<h2 id="post页面"><a href="#post页面" class="headerlink" title="post页面"></a>post页面</h2>]]></content>
   </entry>
   <entry>
     <title>markdown测试文件</title>
@@ -878,5 +873,10 @@
         <tag>测试文件</tag>
         <tag>code</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>post页面测试</title>
+    <url>/delicate/2021/11/13/post%E9%A1%B5%E9%9D%A2%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<h2 id="post页面"><a href="#post页面" class="headerlink" title="post页面"></a>post页面</h2>]]></content>
   </entry>
 </search>
