@@ -31,12 +31,17 @@
     
 <link rel="stylesheet" href="/delicate/css/markdown.css">
 
+    
+<link rel="stylesheet" href="/delicate/css/plugins.css">
+
 
     <!-- 默认背景 -->
     
-        
-<link rel="stylesheet" href="/delicate/css/meditation.css">
-
+        <style>
+            body {
+                background-image: url('/delicate//img/line.png');
+            }
+        </style>
     
     <style type="text/css">
         .icon {
@@ -107,12 +112,11 @@
 
             <div class="col-sm-8 blog-main">
                 
-
 <div class="blog-post">
     <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/11/12/code-test/">
-            测试代码文件
+            标签插件（Tag Plugins）
         </a>
     </h2>
     <!-- Date and Author -->
@@ -126,6 +130,7 @@
     <blockquote>
 <p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
 </blockquote>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins">more</a></p>
 <span id="more"></span>
 
 <h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
@@ -151,14 +156,99 @@
 <blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
 <footer><strong>Seth Godin</strong><cite><a target="_blank" rel="noopener" href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
 
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><blockquote>
+<p>用法不同于markdown的代码块，但是hexo解析结果一致，所以样式一样。</p>
+</blockquote>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;<br>code snippet<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
 
+<h3 id="普通的代码块"><a href="#普通的代码块" class="headerlink" title="普通的代码块"></a>普通的代码块</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% codeblock %&#125;<br>alert(&#x27;Hello World!&#x27;);<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">alert(&#x27;Hello World!&#x27;);<br></code></pre></td></tr></table></figure>
 
+<h3 id="指定语言"><a href="#指定语言" class="headerlink" title="指定语言"></a>指定语言</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% codeblock lang:objc %&#125;<br>[rectangle setX: 10 y: 10 width: 20 height: 20];<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tkinter<br></code></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs objc">[rectangle setX: <span class="hljs-number">10</span> y: <span class="hljs-number">10</span> width: <span class="hljs-number">20</span> height: <span class="hljs-number">20</span>];<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> a = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.code&#x27;</span>);<br>a.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;It&#x27;s test code.&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="附加说明"><a href="#附加说明" class="headerlink" title="附加说明"></a>附加说明</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% codeblock Array.map %&#125;<br>array.map(callback[, thisArg])<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
 
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">array.map(callback[, thisArg])<br></code></pre></td></tr></table></figure>
+
+<h3 id="附加说明和网址"><a href="#附加说明和网址" class="headerlink" title="附加说明和网址"></a>附加说明和网址</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;<br>_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a target="_blank" rel="noopener" href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br></code></pre></td></tr></table></figure>
+
+<h2 id="Pull-Quote"><a href="#Pull-Quote" class="headerlink" title="Pull Quote"></a>Pull Quote</h2><h3 id="无class（默认样式）"><a href="#无class（默认样式）" class="headerlink" title="无class（默认样式）"></a>无class（默认样式）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% pullquote %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote"><p>文本内容</p>
+</blockquote>
+
+<h3 id="带有颜色"><a href="#带有颜色" class="headerlink" title="带有颜色"></a>带有颜色</h3><h4 id="information"><a href="#information" class="headerlink" title="information"></a>information</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% pullquote information %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote information"><p>文本内容</p>
+</blockquote>
+
+<h4 id="danger"><a href="#danger" class="headerlink" title="danger"></a>danger</h4><blockquote class="pullquote danger"><p>文本内容</p>
+</blockquote>
+
+<h4 id="red"><a href="#red" class="headerlink" title="red"></a>red</h4><blockquote class="pullquote red"><p>文本内容</p>
+</blockquote>
+
+<h4 id="blue"><a href="#blue" class="headerlink" title="blue"></a>blue</h4><blockquote class="pullquote blue"><p>文本内容</p>
+</blockquote>
+
+<h3 id="文字对中"><a href="#文字对中" class="headerlink" title="文字对中"></a>文字对中</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% pullquote [class] center %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote information center"><p>文本内容</p>
+</blockquote>
+
+<h2 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% iframe url [width] [height] %&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><blockquote>
+<p>在文章中插入指定大小的图片。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% img [class names] /path/to/image [width] [height] &#x27;&quot;title text&quot; &quot;alt text&quot;&#x27; %&#125;<br></code></pre></td></tr></table></figure>
+
+<img src="/delicate/img/avatar.png" class="" width="120" height="120" title="title text" alt="alt text">
+
+<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p>在文章中插入链接，并自动给外部链接添加 target=”_blank” 属性。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% link text url [external] [title] %&#125;<br></code></pre></td></tr></table></figure>
+
+<a href="https://kartjim.top/dellicate" title="" target="">我的博客</a>
+
+<h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><blockquote>
+<p>主题内置的tag<br>参考了 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">hexo-theme-fluid</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="note note-default">
+            <p>默认样式</p>
+          </div>
+<div class="note note-info">
+            <p>info</p>
+          </div>
+<div class="note note-primary">
+            <p>info</p>
+          </div>
+<div class="note note-success">
+            <p>success</p>
+          </div>
+<div class="note note-danger">
+            <p>danger</p>
+          </div>
+<div class="note note-warning">
+            <p>warning</p>
+          </div>
+<div class="note note-light">
+            <p>light</p>
+          </div>
+
+<div class="note note-cyan">
+            <p>cyan</p>
+          </div>
+<div class="note note-purple">
+            <p>purple</p>
+          </div>
 
     <hr />
     <!-- Tags and Categories links -->
@@ -228,7 +318,7 @@
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/12/code-test/">
-            测试代码文件
+            标签插件（Tag Plugins）
         </a>
     </div>
     <div>
