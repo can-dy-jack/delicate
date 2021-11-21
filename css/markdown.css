@@ -6,7 +6,7 @@ del {
 /* blockquote */
 blockquote p {
     border-left: 4px solid #aaa;
-    padding: 4px 10px;
+    padding: 0 10px;
     color: #999;
 }
 
