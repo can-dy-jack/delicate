@@ -248,14 +248,21 @@
             <p>purple</p>
           </div>
 
+<h3 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h3><div class="note note-default">
+            <ul><li>1</li><li>2</li><li>3<ul><li>31<ul><li>311</li></ul></li><li>32</li><li>33</li></ul></li></ul>
+          </div>
+<div class="note note-danger">
+            <p>一个note tag内只能有一个列表</p>
+          </div>
+
 <h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><blockquote>
 <p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
 </blockquote>
 <div class="note note-warning">
-            <p>需要注意的是，前面的颜色值和后面的文字中间不能有空格！<br>如果真的需要空格，那就使用两个及以上的color tag！</p>
+            <p>需要注意的是，前面的颜色值和后面的文字中间不能有空格！<br>如果文字真的需要空格，那就使用多个color tag！</p>
           </div>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% color [color] 文字 %&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% color [color] [文字] %&#125;<br></code></pre></td></tr></table></figure>
 
 <span style="color:blue;">蓝色</span>
 
@@ -264,6 +271,7 @@
 <span style="color:#ff3346;">HEX-#ff3346</span>
 
 <span style="color:hsl(300,100%,25%);">hsl(300,100%,25%)</span>
+
 
     <hr />
     <!-- Tags and Categories links -->
@@ -380,6 +388,10 @@
 
     
         
+
+
+    
+        
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/14/markdown测试文件/">
@@ -480,6 +492,15 @@
 
 
 
+
+    <div class="icon-box">
+        <a target="_blank" rel="noopener" href="http://localhost:4000">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-tieba"></use>
+            </svg>
+        </a>
+        <span>贴吧</span>
+    </div>
 
 
 
