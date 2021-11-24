@@ -15,6 +15,11 @@
 <link rel="stylesheet" href="/delicate/bootstrap/css/bootstrap.min.css">
 
 
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
     <!-- Custom styles for this template -->
     
 <link rel="stylesheet" href="/delicate/css/blog.css">
@@ -125,15 +130,38 @@
 </nav>
 
     <div class="container">
-        
         <div class="row">
-
             <div class="col-sm-8 blog-main">
                 <div class="blog-header">
     <h1 class="blog-title">delicate</h1>
     <p class="lead blog-description">
     依据bootstrap设计的一款hexo主题 
     </p>
+</div>
+
+
+    
+<div class="blog-post">
+    <!-- Title -->
+    <h2 class="blog-post-title">
+        <a href="/delicate/2021/11/24/二次元图片/">
+            二次元图片
+        </a>
+    </h2>
+    <!-- Date and Author -->
+    <p class="blog-post-meta">
+        2021-11-24
+        
+    </p>
+    <!-- Content -->
+    <h2 id="用于测试fancybox"><a href="#用于测试fancybox" class="headerlink" title="用于测试fancybox"></a>用于测试fancybox</h2><p><img src="https://i.loli.net/2021/11/24/RNpU2jbWQgCOcX5.jpg" alt="319817.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/bX1MO39BiLJ62e4.jpg" alt="2001462.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/9umzA8tlIL1KhYR.jpg" alt="9.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/8JZzFkah2UulAOW.jpg" alt="2013010.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/qWz2AuwGkbUrLce.png" alt="1479967107366.png"></p>
+
+    <!-- Only display the Read More link if we are displaying an excerpt -->
+    
 </div>
 
 
@@ -275,7 +303,6 @@
 
 
             </div>
-
             <div class="col-sm-4 col-sm-offset-1 blog-sidebar">
                 
 <div class="alert alert-info shadow-sm sidebar-top">
@@ -313,6 +340,31 @@
         
 <div class="sidebar-top-part">
     <div>
+        <a href="/delicate/2021/11/14/markdown测试文件/">
+            markdown测试文件
+        </a>
+    </div>
+    <div>
+        
+        
+            
+                <span class="badge badge-pill badge-primary">测试文件</span>
+            
+                <span class="badge badge-pill badge-primary">code</span>
+            
+        
+    </div>
+    <div>
+        2021-11-14
+    </div>
+</div>
+
+
+
+    
+        
+<div class="sidebar-top-part">
+    <div>
         <a href="/delicate/2021/11/04/hello-world/">
             Hello World
         </a>
@@ -338,22 +390,22 @@
         
 <div class="sidebar-top-part">
     <div>
-        <a href="/delicate/2021/11/14/markdown测试文件/">
-            markdown测试文件
+        <a href="/delicate/2021/11/24/二次元图片/">
+            二次元图片
         </a>
     </div>
     <div>
         
         
             
-                <span class="badge badge-pill badge-primary">测试文件</span>
+                <span class="badge badge-pill badge-primary">二次元</span>
             
-                <span class="badge badge-pill badge-primary">code</span>
+                <span class="badge badge-pill badge-primary">图片</span>
             
         
     </div>
     <div>
-        2021-11-14
+        2021-11-24
     </div>
 </div>
 
@@ -529,8 +581,6 @@
     <p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> &#9825; <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a></p>
 </footer>
 
-
-
     
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -553,6 +603,32 @@
 
 
 
+
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script>
+// fancybox
+/* 
+* 最笨的方法：用js给img套上a标签，得以使用fancybox。
+*/
+var imgs = document.querySelectorAll('.blog-post img');
+imgs.forEach(function (img){
+    var el = document.createElement('a');
+    el.className = 'fancybox-group';
+    el.setAttribute('data-fancybox','gallery');
+    el.href = img.getAttribute('src');
+    img.parentNode.replaceChild(el,img);
+    el.appendChild(img);
+})
+
+$(document).ready(function() {
+	/* This is basic - uses default settings */
+	$("a.fancybox-group").fancybox();
+});
+</script>
+
+
+
+
 <script src="/delicate/js/floatbar.js"></script>
 
 
@@ -560,8 +636,6 @@
 
 
 <script src="/delicate/js/index.js"></script>
-
-
 
 
 </body>
