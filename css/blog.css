@@ -319,45 +319,40 @@ nav.navbar {
     text-decoration: none;
     
 }
-.sidebar-about .my-social-account .icon-box a svg{
-    fill: #aaa;
-}
-.sidebar-about .my-social-account .icon-box a:hover svg{
-    fill: teal;
-}
-.sidebar-about .my-social-account .icon-box a:hover + span{
-    opacity: 1;
-    z-index: 10;
-}
-.sidebar-about .my-social-account .icon-box span{
-    position: absolute;
-    display: block;
-    padding: 3px 8px;
-    background-color: #080808;
-    color: white;
-    top: 35px;
-    left: 0;
-    font-size: 12px;
-    border-radius: 4px;
-    text-align: center;
-    transform: translateX(-25%);
-    opacity: 0;
-    transition: opacity 0.2s ease-in;
-}
-.sidebar-about .my-social-account .icon-box span::before{
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 45%;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent #080808 transparent;
-}
-
-
-
 
 .tag-box h3{
     text-align: center;
     margin: 15px 0;
 }
+
+.heart{
+    width: 16px;
+    height: 16px;
+    transform: translate(-50%,5px) rotate(-45deg);
+    position: absolute;
+    animation: heartMove cubic-bezier(0.62, 0.16, 0.37, 1.1) 1s forwards;
+}
+.heart::before{
+    content: '';
+    background-color: inherit;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;transform: translateY(-50%);
+    position: absolute;
+}
+.heart::after{
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;transform: translateX(50%);
+    position: absolute;
+    background-color: inherit;
+}
+@keyframes heartMove {
+
+    to{
+        transform: translate(-50%,-80px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+

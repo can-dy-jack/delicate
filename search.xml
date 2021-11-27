@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>标签插件（Tag Plugins）</title>
+    <title>Tag Plugins</title>
     <url>/delicate/2021/11/12/code-test/</url>
     <content><![CDATA[<blockquote>
 <p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
@@ -92,7 +92,7 @@
 
 <a href="https://kartjim.top/dellicate" title="" target="">我的博客</a>
 
-<h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><blockquote>
+<h2 id="本主题内置"><a href="#本主题内置" class="headerlink" title="本主题内置"></a>本主题内置</h2><h3 id="tags-note"><a href="#tags-note" class="headerlink" title="tags note"></a>tags note</h3><blockquote>
 <p>主题内置的tag<br>参考了 <a href="https://github.com/fluid-dev/hexo-theme-fluid">hexo-theme-fluid</a></p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
@@ -126,14 +126,14 @@
             <p>purple</p>
           </div>
 
-<h3 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h3><div class="note note-default">
+<h4 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h4><div class="note note-default">
             <ul><li>1</li><li>2</li><li>3<ul><li>31<ul><li>311</li></ul></li><li>32</li><li>33</li></ul></li></ul>
           </div>
 <div class="note note-danger">
             <p>一个note tag内只能有一个列表</p>
           </div>
 
-<h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><blockquote>
+<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><blockquote>
 <p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
 </blockquote>
 <div class="note note-warning">
@@ -150,6 +150,93 @@
 
 <span style="color:hsl(300,100%,25%);">hsl(300,100%,25%)</span>
 
+<h3 id="alert"><a href="#alert" class="headerlink" title="alert"></a>alert</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% alert [class] %&#125;<br>A simple primary alert—check it out!<br>&#123;% endalert %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="alert alert-primary">
+                <p>A simple primary alert—check it out!</p>
+            </div>
+<div class="alert alert-info">
+                <p>A simple info alert—check it out!</p>
+            </div>
+<div class="alert alert-success">
+                <p>A simple success alert—check it out!</p>
+            </div>
+<p>可选值：</p>
+<ul>
+<li>primary</li>
+<li>secondary</li>
+<li>success</li>
+<li>danger</li>
+<li>warning</li>
+<li>info</li>
+<li>light</li>
+<li>dark</li>
+</ul>
+<h3 id="collapse"><a href="#collapse" class="headerlink" title="collapse"></a>collapse</h3><blockquote>
+<p>bootstrap collapse</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% collapse [class] [按钮文字] [id] %&#125;<br>折叠内容<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
+
+<span style="color:red;">三个参数均不可少！</span>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">注意事项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">[class]</td>
+<td align="center">按钮的样式，选项为<a href="https://v4.bootcss.com/docs/components/buttons/">boostrap的按钮样式</a></td>
+</tr>
+<tr>
+<td align="center">[按钮文字]</td>
+<td align="center">按钮上面显示的文字</td>
+</tr>
+<tr>
+<td align="center">[id]</td>
+<td align="center">在同一篇文章里，每个collapse的id需要唯一，即每个collapse的id需要设定不同的值；值随意，不同就行。</td>
+</tr>
+</tbody></table>
+<div class="note note-danger">
+            <p>参数中如有空格，需要给参数加上引号！</p>
+          </div>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% collapse info &#x27;点击显示折叠内容&#x27; id1 %&#125;<br>这里写需要隐藏的文字。<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
+
+<div>
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#id1" aria-expanded="false" aria-controls="id1">
+                点击显示折叠内容
+            </button>
+            </div>
+            <div class="collapse" id="id1">
+                <div class="card card-body">
+                折叠内容并不支持太复杂的语法，列表、表格均不支持；但支持代码
+                </div>
+            </div>
+
+<p>more：</p>
+<div>
+            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#id2" aria-expanded="false" aria-controls="id2">
+                点击显示折叠内容
+            </button>
+            </div>
+            <div class="collapse" id="id2">
+                <div class="card card-body">
+                折叠内容
+                </div>
+            </div>
+
+<div>
+            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#id3" aria-expanded="false" aria-controls="id3">
+                点击显示折叠内容
+            </button>
+            </div>
+            <div class="collapse" id="id3">
+                <div class="card card-body">
+                折叠内容
+                </div>
+            </div>
 ]]></content>
       <categories>
         <category>测试文件</category>
@@ -291,6 +378,25 @@
       <tags>
         <tag>测试文件</tag>
         <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二次元图片</title>
+    <url>/delicate/2021/11/24/%E4%BA%8C%E6%AC%A1%E5%85%83%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<blockquote>
+<p>测试fancybox</p>
+</blockquote>
+<span id="more"></span>
+
+<p><img src="https://i.loli.net/2021/11/24/RNpU2jbWQgCOcX5.jpg" alt="319817.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/bX1MO39BiLJ62e4.jpg" alt="2001462.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/9umzA8tlIL1KhYR.jpg" alt="9.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/8JZzFkah2UulAOW.jpg" alt="2013010.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/qWz2AuwGkbUrLce.png" alt="1479967107366.png"></p>
+]]></content>
+      <tags>
+        <tag>二次元</tag>
+        <tag>图片</tag>
       </tags>
   </entry>
   <entry>
@@ -457,25 +563,6 @@
       <tags>
         <tag>php学习</tag>
         <tag>bug记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二次元图片</title>
-    <url>/delicate/2021/11/24/%E4%BA%8C%E6%AC%A1%E5%85%83%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<blockquote>
-<p>测试fancybox</p>
-</blockquote>
-<span id="more"></span>
-
-<p><img src="https://i.loli.net/2021/11/24/RNpU2jbWQgCOcX5.jpg" alt="319817.jpg"></p>
-<p><img src="https://i.loli.net/2021/11/24/bX1MO39BiLJ62e4.jpg" alt="2001462.jpg"></p>
-<p><img src="https://i.loli.net/2021/11/24/9umzA8tlIL1KhYR.jpg" alt="9.jpg"></p>
-<p><img src="https://i.loli.net/2021/11/24/8JZzFkah2UulAOW.jpg" alt="2013010.jpg"></p>
-<p><img src="https://i.loli.net/2021/11/24/qWz2AuwGkbUrLce.png" alt="1479967107366.png"></p>
-]]></content>
-      <tags>
-        <tag>二次元</tag>
-        <tag>图片</tag>
       </tags>
   </entry>
 </search>

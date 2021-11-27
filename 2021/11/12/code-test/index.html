@@ -61,6 +61,12 @@
             background-color: #fff;
             box-shadow: 2px 4px 18px rgba(30,30,30,.05);
         }
+        .sidebar-about .my-social-account .icon-box a svg{
+            fill: #999;
+        }
+        .sidebar-about .my-social-account .icon-box a:hover svg{
+            fill: #008080;
+        }
     </style>
     <!-- 背景 -->
     
@@ -137,7 +143,7 @@
     <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/11/12/code-test/">
-            标签插件（Tag Plugins）
+            Tag Plugins
         </a>
     </h2>
     <!-- Date and Author -->
@@ -237,7 +243,7 @@
 
 <a href="https://kartjim.top/dellicate" title="" target="">我的博客</a>
 
-<h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><blockquote>
+<h2 id="本主题内置"><a href="#本主题内置" class="headerlink" title="本主题内置"></a>本主题内置</h2><h3 id="tags-note"><a href="#tags-note" class="headerlink" title="tags note"></a>tags note</h3><blockquote>
 <p>主题内置的tag<br>参考了 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">hexo-theme-fluid</a></p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
@@ -271,14 +277,14 @@
             <p>purple</p>
           </div>
 
-<h3 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h3><div class="note note-default">
+<h4 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h4><div class="note note-default">
             <ul><li>1</li><li>2</li><li>3<ul><li>31<ul><li>311</li></ul></li><li>32</li><li>33</li></ul></li></ul>
           </div>
 <div class="note note-danger">
             <p>一个note tag内只能有一个列表</p>
           </div>
 
-<h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><blockquote>
+<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><blockquote>
 <p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
 </blockquote>
 <div class="note note-warning">
@@ -295,6 +301,93 @@
 
 <span style="color:hsl(300,100%,25%);">hsl(300,100%,25%)</span>
 
+<h3 id="alert"><a href="#alert" class="headerlink" title="alert"></a>alert</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% alert [class] %&#125;<br>A simple primary alert—check it out!<br>&#123;% endalert %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="alert alert-primary">
+                <p>A simple primary alert—check it out!</p>
+            </div>
+<div class="alert alert-info">
+                <p>A simple info alert—check it out!</p>
+            </div>
+<div class="alert alert-success">
+                <p>A simple success alert—check it out!</p>
+            </div>
+<p>可选值：</p>
+<ul>
+<li>primary</li>
+<li>secondary</li>
+<li>success</li>
+<li>danger</li>
+<li>warning</li>
+<li>info</li>
+<li>light</li>
+<li>dark</li>
+</ul>
+<h3 id="collapse"><a href="#collapse" class="headerlink" title="collapse"></a>collapse</h3><blockquote>
+<p>bootstrap collapse</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% collapse [class] [按钮文字] [id] %&#125;<br>折叠内容<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
+
+<span style="color:red;">三个参数均不可少！</span>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">注意事项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">[class]</td>
+<td align="center">按钮的样式，选项为<a target="_blank" rel="noopener" href="https://v4.bootcss.com/docs/components/buttons/">boostrap的按钮样式</a></td>
+</tr>
+<tr>
+<td align="center">[按钮文字]</td>
+<td align="center">按钮上面显示的文字</td>
+</tr>
+<tr>
+<td align="center">[id]</td>
+<td align="center">在同一篇文章里，每个collapse的id需要唯一，即每个collapse的id需要设定不同的值；值随意，不同就行。</td>
+</tr>
+</tbody></table>
+<div class="note note-danger">
+            <p>参数中如有空格，需要给参数加上引号！</p>
+          </div>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% collapse info &#x27;点击显示折叠内容&#x27; id1 %&#125;<br>这里写需要隐藏的文字。<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
+
+<div>
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#id1" aria-expanded="false" aria-controls="id1">
+                点击显示折叠内容
+            </button>
+            </div>
+            <div class="collapse" id="id1">
+                <div class="card card-body">
+                折叠内容并不支持太复杂的语法，列表、表格均不支持；但支持代码
+                </div>
+            </div>
+
+<p>more：</p>
+<div>
+            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#id2" aria-expanded="false" aria-controls="id2">
+                点击显示折叠内容
+            </button>
+            </div>
+            <div class="collapse" id="id2">
+                <div class="card card-body">
+                折叠内容
+                </div>
+            </div>
+
+<div>
+            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#id3" aria-expanded="false" aria-controls="id3">
+                点击显示折叠内容
+            </button>
+            </div>
+            <div class="collapse" id="id3">
+                <div class="card card-body">
+                折叠内容
+                </div>
+            </div>
 
     <hr />
     <!-- Tags and Categories links -->
@@ -363,7 +456,7 @@
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/12/code-test/">
-            标签插件（Tag Plugins）
+            Tag Plugins
         </a>
     </div>
     <div>
@@ -435,10 +528,6 @@
 
     
         
-
-
-    
-        
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/24/二次元图片/">
@@ -463,6 +552,10 @@
 
 
     
+        
+
+
+    
 </div>
 
 
@@ -482,9 +575,7 @@
         
             <span>front-end developer</span>
         
-            <span>hexo primary developer</span>
-        
-            <span>hexo-theme-delicate developer</span>
+            <span>hexo-theme-delicate</span>
         
     </div>
     <div class="my-division">
@@ -493,77 +584,63 @@
     </div>
     <div class="my-social-account">
         
-    <div class="icon-box">
-        <a target="_blank" rel="noopener" href="https://space.bilibili.com">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-bilibili-line"></use>
-            </svg>
-        </a>
-        <span>bilibili</span>
-    </div>
 
-
-    <div class="icon-box">
+    <div class="icon-box" data-toggle="tooltip" data-placement="bottom" title="Github">
         <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">
             <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-github"></use>
             </svg>
         </a>
-        <span>Github</span>
     </div>
 
 
-    <div class="icon-box">
-        <a target="_blank" rel="noopener" href="https://twitter.com">
+    <div class="icon-box" data-toggle="tooltip" data-placement="bottom" title="twitter">
+        <a target="_blank" rel="noopener" href="http://localhost:4000">
             <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-tuite"></use>
             </svg>
         </a>
-        <span>twitter</span>
     </div>
 
 
-
-
-    <div class="icon-box">
-        <a target="_blank" rel="noopener" href="http://localhost:4000">
+    <div class="icon-box" data-toggle="tooltip" data-placement="bottom" title="CSDN">
+        <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46590483?spm=1001.2100.3001.5343">
             <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-google"></use>
+                <use xlink:href="#icon-csdn1"></use>
             </svg>
         </a>
-        <span>Google</span>
     </div>
 
 
 
 
-
-
-
-    <div class="icon-box">
+    <div class="icon-box" data-toggle="tooltip" data-placement="bottom" title="facebook">
         <a target="_blank" rel="noopener" href="http://localhost:4000">
             <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-tieba"></use>
+                <use xlink:href="#icon-facebookfacebook52"></use>
             </svg>
         </a>
-        <span>贴吧</span>
     </div>
 
 
 
 
-
-
-
-
-    <div class="icon-box">
+    <div class="icon-box" data-toggle="tooltip" data-placement="bottom" title="instagram">
         <a target="_blank" rel="noopener" href="http://localhost:4000">
             <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-slack"></use>
+                <use xlink:href="#icon-instagram"></use>
             </svg>
         </a>
-        <span>slack</span>
     </div>
+
+
+
+
+
+
+
+
+
 
     </div>
 </div>
@@ -632,8 +709,7 @@
     <p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> &#9825; <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a></p>
 </footer>
 
-    
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 <script src="/delicate/bootstrap/js/bootstrap.min.js"></script>
@@ -679,7 +755,6 @@ $(document).ready(function() {
 
 
 
-
 <script src="/delicate/js/floatbar.js"></script>
 
 
@@ -687,6 +762,12 @@ $(document).ready(function() {
 
 
 <script src="/delicate/js/index.js"></script>
+
+
+
+
+    
+<script src="/delicate/js/show_heart.js"></script>
 
 
 </body>

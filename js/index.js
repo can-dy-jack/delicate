@@ -26,6 +26,11 @@ pre.forEach(function(item){
 
     item.appendChild(span);
 })
-$('.code-span').tooltip();
 
+/**
+ *  tooltip
+ * */
+$('.code-span').tooltip();
+// siderbar-icon
+$('.icon-box').tooltip();
 
