@@ -70,10 +70,6 @@
     </style>
     <!-- 背景 -->
     
-        
-<link rel="stylesheet" href="/delicate/css/meditation.css">
-
-    
     <style type="text/css">
         .icon {
             width: 1.6em; height: 1.6em;
@@ -146,7 +142,6 @@
             二次元图片
         </a>
     </h2>
-    <!-- Date and Author -->
     <p class="blog-post-meta">
         <span>2021-11-24</span>
         <span>
@@ -332,6 +327,74 @@
 
 
 
+
+
+    <div class="shadow widget-poem">
+    <div id="jinrishici-sentence">正在加载今日诗词....</div>
+    <div id="poem-more">
+        <div id="poem-more-da" class="text-center"></div>
+        <div id="poem-more-title" class="text-center"></div>
+    </div>
+    <div class="poem-btn text-right">
+        <button class="btn btn-outline-dark btn-sm" type="button" data-toggle="collapse" data-target="#poetry" aria-expanded="false" aria-controls="poetry">全文</button>
+    </div>
+    <div class="collapse" id="poetry">
+        <div class="card card-body" id="all-poem" style="color:#1d1d1d;"></div>
+    </div>
+</div>
+<style>
+.widget-poem{
+    margin-bottom: 20px;
+    padding: 15px 10px 5px 10px;
+    border-radius: 10px;
+    position: relative;
+}
+.widget-poem #jinrishici-sentence{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+#poem-more div,{
+    font-size: 13px;
+}
+#all-poem{
+    font-size: 15px;
+}
+
+</style>
+
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+const poemSpan = document.querySelector('.widget-poem');
+var poemTextColor = '#1d1d1d';
+let r = Math.floor(Math.random()*255);
+let g = Math.floor(Math.random()*255);
+let b = Math.floor(Math.random()*255);
+if(r<128 || g<128 || b<128){
+    poemTextColor = 'white';
+}
+poemColor = 'rgba(' + r + ',' + g + ',' + b + ')';
+
+poemSpan.style.backgroundColor = poemColor;
+poemSpan.style.color = poemTextColor;
+
+var poemMore1 = document.querySelector("#poem-more-da");
+var poemMore2 = document.querySelector("#poem-more-title");
+var allpoem = document.querySelector("#all-poem");
+
+jinrishici.load(function(result) {
+    let dynasty = '【' + result.data.origin.dynasty + '】';
+    let author = result.data.origin.author;
+    let title = '《' + result.data.origin.title + '》';
+    let allContent = result.data.origin.content;
+    poemMore1.innerText = dynasty + author;
+    poemMore2.innerText = title;
+    allpoem.innerText = allContent.join('\n');
+});
+</script>
+
+
+
 <div class="sidebar-about">
     <div class="my-img">
         <div><img src="/delicate/favicon/logo2-128.ico" alt="Fluid-img"></div>
@@ -474,6 +537,7 @@
 
 
 <footer class="blog-footer">
+    <p><span id="times">载入时间...</span></p>
     <p>According to <a target="_blank" rel="noopener" href="http://getbootstrap.com">Bootstrap v4.6.1</a> by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">@can-dy-jack</a>.</p>
     <p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> &#9825; <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a></p>
 </footer>
@@ -532,12 +596,19 @@ $(document).ready(function() {
 
 <script src="/delicate/js/index.js"></script>
 
+<script>
+    calculateTime("2021-11-01T00:00:00");
+</script>
 
 
 
     
 <script src="/delicate/js/show_heart.js"></script>
 
+
+
+
+<script>
 
 </body>
 </html>
