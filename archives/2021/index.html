@@ -11,6 +11,9 @@
     <link rel="icon" href="/delicate//favicon/logo2.ico">
 
     <title>delicate</title>
+    
+<link rel="stylesheet" href="/delicate/css/blog.css">
+
     <!-- Bootstrap core CSS -->
     
 <link rel="stylesheet" href="/delicate/bootstrap/css/bootstrap.min.css">
@@ -22,12 +25,6 @@
     
 
     <!-- Custom styles for this template -->
-    
-<link rel="stylesheet" href="/delicate/css/blog.css">
-
-    
-<link rel="stylesheet" href="/delicate/css/floatbar.css">
-
     
 <link rel="stylesheet" href="/delicate/css/archive.css">
 
@@ -70,6 +67,14 @@
         }
     </style>
     <!-- 背景 -->
+    
+    
+        <style>
+            body {
+                background-image: url('/delicate//img/line2.png');
+                background-size: 30px 30px;
+            }
+        </style>
     
     <style type="text/css">
         .icon {
@@ -135,8 +140,18 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 blog-main">
-                <h2 class="post-archives-head">Archives <span class="badge badge-primary">5 </span></h2>
+                <h2 class="post-archives-head">Archives <span class="badge badge-primary">6 </span></h2>
 <div class="alert alert-info" role="alert">
+    
+        <div class="post-archives">
+    <a href="/delicate/2021/12/03/rgb2hsv/">
+        RGB和HSV
+    </a>
+    <span>
+        2021-12-03
+    </span>
+</div>
+
     
         <div class="post-archives">
     <a href="/delicate/2021/11/25/php01/">
@@ -285,6 +300,10 @@
 
     
         
+
+
+    
+        
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/24/二次元图片/">
@@ -315,56 +334,68 @@
 
 
 
-
-
-
-
-    <div class="shadow widget-music">
-<div class="widget-music-back"></div>
-
-
-
-
-    <h4 style="text-shadow: 2px 2px #ed1c24;">网易云音乐</h4>
-
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" 
-        width=100% 
-        height=86 
-        src="//music.163.com/outchain/player?type=2&id=1457707546&auto=0&height=66">
-    </iframe>
-
-
-    
-
-
-
-
-    <h4 style="text-shadow: 1px -1px #0eaf52,2px 2px #f8cc18;">QQ音乐</h4>
-    <div class="control-info">
-        <div id="qqMusic-info">点击右边播放...</div>
-        <div class="control">
-            <button id="play" class="btn btn-success">播放</button>
-            <button id="parse" class="btn btn-warning">暂停</button>
-        </div>
+    <div class="shadow widget-poem">
+    <div id="jinrishici-sentence">正在加载今日诗词....</div>
+    <div id="poem-more">
+        <div id="poem-more-da" class="text-center"></div>
+        <div id="poem-more-title" class="text-center"></div>
     </div>
-<script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000"></script>
+    <div class="poem-btn text-right">
+        <button class="btn btn-outline-light btn-sm" type="button" data-toggle="collapse" data-target="#poetry" aria-expanded="false" aria-controls="poetry">全文</button>
+    </div>
+    <div class="collapse" id="poetry">
+        <div class="card card-body" id="all-poem" style="color:#1d1d1d;"></div>
+    </div>
+</div>
+<style>
+.widget-poem{
+    margin-bottom: 20px;
+    padding: 15px 10px 5px 10px;
+    border-radius: 10px;
+    position: relative;
+}
+.widget-poem #jinrishici-sentence{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+#poem-more div,{
+    font-size: 13px;
+}
+#all-poem{
+    font-size: 15px;
+}
+
+</style>
+
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 <script>
-const qqMusicInfo = document.getElementById('qqMusic-info');
-var player = new QMplayer();
-player.on("play", function (e) {
-    console.log('QQ音乐 success!');
-    qqMusicInfo.innerText = e.song.name;
-})
-const play = document.getElementById('play');
-const parse = document.getElementById('parse');
-play.addEventListener('click',()=>{
-    console.log('play');
-    player.play("003vHUPK1DKmFv"); // 003IPDsn4ZWb5H 只能用免费的音乐
-})
-parse.addEventListener('click',()=>{
-    // console.log('pause');
-    player.pause();
-})
+const poemSpan = document.querySelector('.widget-poem');
+var poemTextColor = '#1d1d1d';
+let r = Math.floor(Math.random()*255);
+let g = Math.floor(Math.random()*255);
+let b = Math.floor(Math.random()*255);
+if(r<128 || g<128 || b<128){
+    poemTextColor = 'white';
+}
+poemColor = 'rgba(' + r + ',' + g + ',' + b + ')';
+
+poemSpan.style.backgroundColor = poemColor;
+poemSpan.style.color = poemTextColor;
+
+var poemMore1 = document.querySelector("#poem-more-da");
+var poemMore2 = document.querySelector("#poem-more-title");
+var allpoem = document.querySelector("#all-poem");
+
+jinrishici.load(function(result) {
+    let dynasty = '【' + result.data.origin.dynasty + '】';
+    let author = result.data.origin.author;
+    let title = '《' + result.data.origin.title + '》';
+    let allContent = result.data.origin.content;
+    poemMore1.innerText = dynasty + author;
+    poemMore2.innerText = title;
+    allpoem.innerText = allContent.join('\n');
+});
 </script>
 
 
@@ -374,58 +405,8 @@ parse.addEventListener('click',()=>{
 
 
 
-</div>
 
-
-
-
-
-    <div class="shadow widget-carousel">
-
-<div id="CEC" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#CEC" data-slide-to="0" class="active"></li>
-    <li data-target="#CEC" data-slide-to="1"></li>
-    <li data-target="#CEC" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://i.loli.net/2021/12/01/KOUbM67fjIShi5r.jpg" class="d-block w-100" alt="img1">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>first slide</h5>
-        <p>content for the first slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="https://i.loli.net/2021/12/01/A3fyD1zwqti4JPB.jpg" class="d-block w-100" alt="img2">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>content for the second slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="https://i.loli.net/2021/12/01/X1pkv9ShmeDWZ25.jpg" class="d-block w-100" alt="img3">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>content for the third slide.</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-target="#CEC" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-target="#CEC" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </button>
-</div>
-
-
-</div>
-
-
-<div class="sidebar-about">
+<div class="shadow-sm sidebar-about">
     <div class="my-img">
         <div><img src="/delicate/favicon/logo2-128.ico" alt="Fluid-img"></div>
         <span class="name">Kart · Jim</span>
@@ -508,7 +489,7 @@ parse.addEventListener('click',()=>{
 </div>
 
 
-<div class="sidebar-to-top" id="sidebar-to-top">
+<div id="sidebar-to-top">
     <a href="#" id="to_top">&#128285;</a>
 </div>
             </div>
@@ -518,26 +499,19 @@ parse.addEventListener('click',()=>{
     
     
     </div>
-<div class="float-box">
-    <div class="float-github" data-toggle="tooltip" data-placement="right" title="给个star~">
-        <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-github"></use>
-            </svg>
-        </a>
-    </div>
-    <div class="float-reward" >
-        <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-dashang"></use>
-        </svg>
-        <div class="float-mark"><img src="/delicate//img/reward.jpg" alt="打赏二维码"></div>
-    </div>
-    <div class="float-feedback" data-toggle="tooltip" data-placement="right" title="反馈">
-        <svg class="icon" aria-hidden="true" data-toggle="modal" data-target="#staticBackdrop">
-            <use xlink:href="#icon-yijianfankui"></use>
-        </svg>
-    </div>
-</div>
+
+<footer class="blog-footer">
+    <p><span id="times">载入时间...</span></p>
+    <p>According to <a target="_blank" rel="noopener" href="http://getbootstrap.com">Bootstrap v4.6.1</a> by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">@can-dy-jack</a>.</p>
+    
+    <p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> &#9825; <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a></p>
+    <p>
+        Copyright &#9400; 2021 can-dy-jack. All rights reserved. |  
+        <span id="feedback" data-toggle="tooltip" data-placement="top" title="feedback">
+            <a href="#" aria-hidden="true" data-toggle="modal" data-target="#staticBackdrop">feedback</a>
+        </span>
+    </p>
+</footer>
 
 
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -565,13 +539,6 @@ parse.addEventListener('click',()=>{
   </div>
 </div>
 
-
-<footer class="blog-footer">
-    <p><span id="times">载入时间...</span></p>
-    <p>According to <a target="_blank" rel="noopener" href="http://getbootstrap.com">Bootstrap v4.6.1</a> by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">@can-dy-jack</a>.</p>
-    <p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> &#9825; <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a></p>
-</footer>
-
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -589,7 +556,6 @@ parse.addEventListener('click',()=>{
 
 
 <script src="https://at.alicdn.com/t/font_2918710_jucubmd07u.js"></script>
-
 
 
 
@@ -619,9 +585,6 @@ $(document).ready(function() {
 
 
 
-<script src="/delicate/js/floatbar.js"></script>
-
-
 <script src="/delicate/js/archives.js"></script>
 
 
@@ -633,9 +596,10 @@ $(document).ready(function() {
 
 
 
-    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
     
-<script src="/delicate/js/firework.js"></script>
+    
+<script src="/delicate/js/show_text.js" text="富强,民主,文明,和谐,美丽" id="showText" color="red"></script>
+
 
 
 
