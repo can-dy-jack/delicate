@@ -134,6 +134,7 @@ nav.navbar {
 }
 .blog-post img{
     max-width: 100% !important; /* 解决图片溢出 */
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 /* 文章下的标签 和 分类*/
 .blog-tag-and-cate{
@@ -157,13 +158,10 @@ nav.navbar {
 }
 .blog-tags-container .blog-text,
 .blog-categories-container .blog-text{
-    margin-right: 0;
+    margin-right: 5px;
     font-size: 16px;
     padding: 5px 10px;
     border-radius: 5px;
-}
-.blog-tags-container .blog-text:hover,
-.blog-categories-container .blog-text:hover{
     background-color: #f2f4f6;
 }
 

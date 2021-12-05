@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/delicate/2021/11/04/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
+        <tag>first</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tag Plugins</title>
     <url>/delicate/2021/11/12/code-test/</url>
     <content><![CDATA[<blockquote>
@@ -247,29 +270,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/delicate/2021/11/04/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>test</tag>
-        <tag>first</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>markdown测试文件</title>
     <url>/delicate/2021/11/14/markdown%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">## 标题2</span><br><span class="hljs-section">### 标题3</span><br><span class="hljs-section">#### 标题4</span><br><span class="hljs-section">##### 标题5</span><br></code></pre></td></tr></table></figure>
@@ -325,7 +325,7 @@
 </ul>
 <hr>
 <p>链接和图片：<br><a href="http://localhost:4000/delicate">link-delicate</a></p>
-<p><img src="https://z3.ax1x.com/2021/11/15/IgcqH0.jpg" alt="测试-付款码"></p>
+<p><img src="https://i.loli.net/2021/12/01/X1pkv9ShmeDWZ25.jpg" alt="测试-付款码"></p>
 <hr>
 <p>内联代码块:<code>code</code></p>
 <p>代码块：</p>
@@ -369,8 +369,6 @@
 <p>常用于记录代码或文字的更替</p>
 </blockquote>
 <figure class="highlight diff"><table><tr><td class="code"><pre><code class="hljs diff"><span class="hljs-addition">+ this will be highlighted in green</span><br><span class="hljs-deletion">- this will be highlighted in red</span><br></code></pre></td></tr></table></figure>
-
-<input type="color" value="#fff233">
 ]]></content>
       <categories>
         <category>测试文件</category>
@@ -608,6 +606,286 @@
       <tags>
         <tag>二次元</tag>
         <tag>图片</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AJAX学习笔记</title>
+    <url>/delicate/2021/12/05/AJAX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<div class="alert alert-warning">
+                <p>本文大部分摘抄自<a href="https://www.runoob.com/ajax/">菜鸟教程</a>，仅作学习使用。</p>
+            </div>
+
+<h2 id="AJAX简介"><a href="#AJAX简介" class="headerlink" title="AJAX简介"></a>AJAX简介</h2><div class="note note-info">
+            <ul><li>AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。  </li><li>AJAX 不是新的编程语言，而是一种使用现有标准的新方法。  </li><li>AJAX 最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。  </li><li>AJAX 不需要任何浏览器插件，但需要用户允许JavaScript在浏览器上执行。  </li></ul>
+          </div>
+
+<p><img src="https://s2.loli.net/2021/12/05/1UKmAWpJhS7Ebex.png" alt="ajax.png"></p>
+<span id="more"></span>
+
+<h2 id="ajax使用"><a href="#ajax使用" class="headerlink" title="ajax使用"></a>ajax使用</h2><h3 id="ajax基本使用"><a href="#ajax基本使用" class="headerlink" title="ajax基本使用"></a>ajax基本使用</h3><span style="color:rgb(101,220,45);">ajax基本使用分为四步：</span>
+
+<h4 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h4><blockquote>
+<p>XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。<br>所有现代浏览器都支持XMLHttpRequest对象。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> XHR = <span class="hljs-keyword">new</span> XMLHttpRequest();<br></code></pre></td></tr></table></figure>
+
+<h4 id="向服务器发送请求"><a href="#向服务器发送请求" class="headerlink" title="向服务器发送请求"></a>向服务器发送请求</h4><p>如需将请求发送到服务器，需使用 XMLHttpRequest 对象的 open() 和 send() 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">XHR.open(<span class="hljs-string">&quot;GET&quot;</span>,<span class="hljs-string">&quot;ajax_info.txt&quot;</span>,<span class="hljs-literal">true</span>);<br>XHR.send();<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">open(method,url,async)</td>
+<td align="center">规定请求的类型、URL 以及是否异步处理请求。<br>method：请求的类型；GET 或 POST<br>url：文件在服务器上的位置<br>async：true（异步）或 false（同步）</td>
+</tr>
+<tr>
+<td align="center">send(string)</td>
+<td align="center">将请求发送到服务器。<br>string：仅用于 POST 请求</td>
+</tr>
+</tbody></table>
+<h5 id="get和post的选择"><a href="#get和post的选择" class="headerlink" title="get和post的选择"></a>get和post的选择</h5><p>与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。<br>然而，在以下情况中，请使用 POST 请求：</p>
+<ul>
+<li>不愿使用缓存文件（更新服务器上的文件或数据库）</li>
+<li>向服务器发送大量数据（POST 没有数据量限制）</li>
+<li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li>
+</ul>
+<h4 id="获取服务器响应"><a href="#获取服务器响应" class="headerlink" title="获取服务器响应"></a>获取服务器响应</h4><blockquote class="pullquote information"><p>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">responseText</td>
+<td align="center">获得字符串形式的响应数据。</td>
+</tr>
+<tr>
+<td align="center">responseXML</td>
+<td align="center">获得 XML 形式的响应数据。</td>
+</tr>
+</tbody></table>
+<p>您可以将获取的数据写入html：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;.box&quot;</span>).innerText = XHR.responseText;<br></code></pre></td></tr></table></figure>
+
+<h4 id="onreadystatechange-事件"><a href="#onreadystatechange-事件" class="headerlink" title="onreadystatechange 事件"></a>onreadystatechange 事件</h4><blockquote>
+<p>当请求被发送到服务器时，我们需要执行一些基于响应的任务。<br>每当 readyState 改变时，就会触发 onreadystatechange 事件。<br>readyState 属性存有 XMLHttpRequest 的状态信息。  </p>
+</blockquote>
+<p>下面是 XMLHttpRequest 对象的三个重要的属性：</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">onreadystatechange</td>
+<td>存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</td>
+</tr>
+<tr>
+<td align="center">readyState</td>
+<td>存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。<br>0: 请求未初始化<br>1: 服务器连接已建立<br>2: 请求已接收<br>3: 请求处理中<br>4: 请求已完成，且响应已就绪</td>
+</tr>
+<tr>
+<td align="center">status</td>
+<td>200: “OK”<br>404: 未找到页面</td>
+</tr>
+</tbody></table>
+<p>在 onreadystatechange 事件中，我们规定当服务器响应已做好被处理的准备时所执行的任务。<br>当 readyState 等于 4 且 status 为 200 时，表示响应已就绪；</p>
+<p>我们可以将第三步的代码</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;.box&quot;</span>).innerText = XHR.responseText;<br></code></pre></td></tr></table></figure>
+
+<p>改一下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> box = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;.box&quot;</span>);<br>XHR.onreadystatechange=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (XHR.readyState==<span class="hljs-number">4</span> &amp;&amp; XHR.status==<span class="hljs-number">200</span>)<br>    &#123;<br>        box.innerText = XHR.responseText;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="note note-primary">
+            <p>注意： onreadystatechange 事件被触发 4 次（0 - 4）, 分别是： 0-1、1-2、2-3、3-4，对应着 readyState 的每个变化。</p>
+          </div>
+
+<span style="color:red;">到此基本的ajax已完成！</span>
+
+<h4 id="使用回调函数"><a href="#使用回调函数" class="headerlink" title="使用回调函数"></a>使用回调函数</h4><p>回调函数是一种以参数形式传递给另一个函数的函数。</p>
+<p>如果您的网站上存在多个 AJAX 任务，那么您应该为创建 XMLHttpRequest 对象编写一个标准的函数，并为每个 AJAX 任务调用该函数。</p>
+<p>该函数调用应该包含 URL 以及发生 onreadystatechange 事件时执行的任务（<span style="color:#aaa;">例子来自菜鸟教程</span>）：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">var</span> xmlhttp;</span><br><span class="javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadXMLDoc</span>(<span class="hljs-params">url,cfunc</span>)</span>&#123;</span><br><span class="javascript">    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="javascript">        xmlhttp=<span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="javascript">    &#125;</span><br><span class="javascript">    <span class="hljs-keyword">else</span>&#123;<span class="hljs-comment">// IE6, IE5 代码</span></span><br><span class="javascript">        xmlhttp=<span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>);</span><br><span class="javascript">    &#125;</span><br><span class="javascript">    xmlhttp.onreadystatechange=cfunc;</span><br><span class="javascript">    xmlhttp.open(<span class="hljs-string">&quot;GET&quot;</span>,url,<span class="hljs-literal">true</span>);</span><br><span class="javascript">    xmlhttp.send();</span><br><span class="javascript">&#125;</span><br><span class="javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="javascript">    loadXMLDoc(<span class="hljs-string">&quot;https://www.runoob.com/try/ajax/ajax_info.txt&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="javascript">        <span class="hljs-keyword">if</span> (xmlhttp.readyState==<span class="hljs-number">4</span> &amp;&amp; xmlhttp.status==<span class="hljs-number">200</span>)&#123;</span><br><span class="javascript">            <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;myDiv&quot;</span>).innerHTML=xmlhttp.responseText;</span><br><span class="javascript">        &#125;</span><br><span class="javascript">    &#125;);</span><br><span class="javascript">&#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myDiv&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>使用 AJAX 修改文本内容<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;myFunction()&quot;</span>&gt;</span>修改内容<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="ASP-PHP"><a href="#ASP-PHP" class="headerlink" title="ASP/PHP"></a>ASP/PHP</h3><p>即在调用<code>open()</code>函数的时候，传入的<code>url</code>参数后面加上<code>?q=</code>，再加个变量：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">str = <span class="hljs-string">&#x27;a&#x27;</span>;<br>xmlhttp.open(<span class="hljs-string">&quot;GET&quot;</span>,<span class="hljs-string">&#x27;gethint.php?q=&#x27;</span>+str,<span class="hljs-literal">true</span>);<br></code></pre></td></tr></table></figure>
+
+<div>
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#xhr" aria-expanded="false" aria-controls="xhr">
+                xmlhttp.status的值及解释
+            </button>
+            </div>
+            <div class="collapse" id="xhr">
+                <div class="card card-body">
+                菜鸟教程网友补充: https://www.runoob.com/ajax/ajax-asp-php.html<br>
+xmlhttp.readyState的值及解释：<br>
+0：请求未初始化（还没有调用 open()）。<br>
+1：请求已经建立，但是还没有发送（还没有调用 send()）。<br>  
+2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。<br>  
+3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。<br>  
+4：响应已完成；您可以获取并使用服务器的响应了。<br>  
+xmlhttp.status的值及解释：<br>  
+100——客户必须继续发出请求 <br> 
+101——客户要求服务器根据请求转换HTTP协议版本<br>  
+200——交易成功  <br>
+201——提示知道新文件的URL  <br>
+202——接受和处理、但处理未完成  <br>
+203——返回信息不确定或不完整  <br>
+204——请求收到，但返回信息为空  <br>
+205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件  <br>
+206——服务器已经完成了部分用户的GET请求  <br>
+300——请求的资源可在多处得到  <br>
+301——删除请求数据  <br>
+302——在其他地址发现了请求数据  <br>
+303——建议客户访问其他URL或访问方式  <br>
+304——客户端已经执行了GET，但文件未变化  <br>
+305——请求的资源必须从服务器指定的地址得到  <br>
+306——前一版本HTTP中使用的代码，现行版本中不再使用  <br>
+307——申明请求的资源临时性删除  <br>
+400——错误请求，如语法错误  <br>
+401——请求授权失败  <br>
+402——保留有效ChargeTo头响应 <br> 
+403——请求不允许  <br>
+404——没有发现文件、查询或URl  <br>
+405——用户在Request-Line字段定义的方法不允许<br>  
+406——根据用户发送的Accept拖，请求资源不可访问  <br>
+407——类似401，用户必须首先在代理服务器上得到授权  <br>
+408——客户端没有在用户指定的饿时间内完成请求  <br>
+409——对当前资源状态，请求不能完成  <br>
+410——服务器上不再有此资源且无进一步的参考地址  <br>
+411——服务器拒绝用户定义的Content-Length属性请求  <br>
+412——一个或多个请求头字段在当前请求中错误  <br>
+413——请求的资源大于服务器允许的大小  <br>
+414——请求的资源URL长于服务器允许的长度  <br>
+415——请求资源不支持请求项目格式  <br>
+416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段  <br>
+417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求<br>
+500——服务器产生内部错误  <br>
+501——服务器不支持请求的函数  <br>
+502——服务器暂时不可用，有时是为了防止发生系统过载  <br>
+503——服务器过载或暂停维修  <br>
+504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长  <br>
+505——服务器不支持或拒绝支请求头中指定的HTTP版本  <br>
+1xx:信息响应类，表示接收到请求并且继续处理  <br>
+2xx:处理成功响应类，表示动作被成功接收、理解和接受  <br>
+3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理  <br>
+4xx:客户端错误，客户请求包含语法错误或者是不能正确执行  <br>
+5xx:服务端错误，服务器不能正确执行一个正确的请求  <br>
+xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功返回。<br>
+                </div>
+            </div>
+
+<h3 id="AJAX-可用来与数据库进行动态通信"><a href="#AJAX-可用来与数据库进行动态通信" class="headerlink" title="AJAX 可用来与数据库进行动态通信"></a>AJAX 可用来与数据库进行动态通信</h3><p>其实就是通过PHP文件与数据库进行交互。</p>
+<h3 id="使用-AJAX-来读取来自-XML-文件的信息"><a href="#使用-AJAX-来读取来自-XML-文件的信息" class="headerlink" title="使用 AJAX 来读取来自 XML 文件的信息"></a>使用 AJAX 来读取来自 XML 文件的信息</h3><p>菜鸟教程上的例子：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span><br><span class="css"><span class="hljs-selector-tag">table</span>,<span class="hljs-selector-tag">th</span>,<span class="hljs-selector-tag">td</span> &#123;</span><br><span class="css">  <span class="hljs-attribute">border</span> : <span class="hljs-number">1px</span> solid black;</span><br><span class="css">  <span class="hljs-attribute">border-collapse</span>: collapse;</span><br><span class="css">&#125;</span><br><span class="css"><span class="hljs-selector-tag">th</span>,<span class="hljs-selector-tag">td</span> &#123;</span><br><span class="css">  <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span>;</span><br><span class="css">&#125;</span><br><span class="css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>XMLHttpRequest 对象<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;loadXMLDoc()&quot;</span>&gt;</span>获取我收藏的 CD<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;demo&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadXMLDoc</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> xhttp = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="javascript">  xhttp.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.readyState == <span class="hljs-number">4</span> &amp;&amp; <span class="hljs-built_in">this</span>.status == <span class="hljs-number">200</span>) &#123;</span><br><span class="javascript">      myFunction(<span class="hljs-built_in">this</span>);</span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;;</span><br><span class="javascript">  xhttp.open(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;cd_catalog.xml&quot;</span>, <span class="hljs-literal">true</span>);</span><br><span class="javascript">  xhttp.send();</span><br><span class="javascript">&#125;</span><br><span class="javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span>(<span class="hljs-params">xml</span>) </span>&#123;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> i;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> xmlDoc = xml.responseXML;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> table=<span class="hljs-string">&quot;&lt;tr&gt;&lt;th&gt;Artist&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;/tr&gt;&quot;</span>;</span><br><span class="javascript">  <span class="hljs-keyword">var</span> x = xmlDoc.getElementsByTagName(<span class="hljs-string">&quot;CD&quot;</span>);</span><br><span class="javascript">  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt;x.length; i++) &#123;</span><br><span class="javascript">    table += <span class="hljs-string">&quot;&lt;tr&gt;&lt;td&gt;&quot;</span> +</span><br><span class="javascript">    x[i].getElementsByTagName(<span class="hljs-string">&quot;ARTIST&quot;</span>)[<span class="hljs-number">0</span>].childNodes[<span class="hljs-number">0</span>].nodeValue +</span><br><span class="javascript">    <span class="hljs-string">&quot;&lt;/td&gt;&lt;td&gt;&quot;</span> +</span><br><span class="javascript">    x[i].getElementsByTagName(<span class="hljs-string">&quot;TITLE&quot;</span>)[<span class="hljs-number">0</span>].childNodes[<span class="hljs-number">0</span>].nodeValue +</span><br><span class="javascript">    <span class="hljs-string">&quot;&lt;/td&gt;&lt;/tr&gt;&quot;</span>;</span><br><span class="javascript">  &#125;</span><br><span class="javascript">  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;demo&quot;</span>).innerHTML = table;</span><br><span class="javascript">&#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://www.runoob.com/ajax/ajax-examples.html">ajax示例</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/AJAX">AJAX进阶-MDN</a></li>
+</ul>
+<h2 id="Fetch-API"><a href="#Fetch-API" class="headerlink" title="Fetch API"></a>Fetch API</h2><div class="alert alert-secondary">
+                <p>这部分笔记来自<a href="https://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html">阮一峰的网络日志</a></p>
+            </div>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API">【MDN - Fetch API】</a>  </p>
+<div class="note note-success">
+            <p><code>fetch()</code>是 <code>XMLHttpRequest</code> 的升级版，用于在 <code>JavaScript</code> 脚本里面发出 HTTP 请求。<br>浏览器原生提供这个对象。</p>
+          </div>
+
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>fetch()的功能与 XMLHttpRequest 基本相同，但有三个主要的差异：</p>
+<blockquote><p>1、<code>fetch()</code>使用 Promise，不使用回调函数，因此大大简化了写法，写起来更简洁。<br>2、<code>fetch()</code>采用模块化设计，API 分散在多个对象上（<code>Response 对象</code>、<code>Request 对象</code>、<code>Headers 对象</code>），更合理一些；相比之下，<code>XMLHttpRequest</code> 的 API 设计并不是很好，输入、输出、状态都在同一个接口管理，容易写出非常混乱的代码。<br>3、<code>fetch()</code>通过数据流（Stream 对象）处理数据，可以分块读取，有利于提高网站性能表现，减少内存占用，对于请求大文件或者网速慢的场景相当有用。XMLHttpRequest 对象不支持数据流，所有的数据必须放在缓存里，不支持分块读取，必须等待全部拿到后，再一次性吐出来。</p>
+<footer><strong>阮一峰</strong><cite><a href="https://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html">Fetch API 教程</a></cite></footer></blockquote>
+
+<p>在用法上，fetch()接受一个 URL 字符串作为参数，默认向该网址发出 GET 请求，返回一个 Promise 对象。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">fetch(url)<br>  .then(...)<br>  .catch(...)<br></code></pre></td></tr></table></figure>
+
+<p>例子，从服务器获取json：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">fetch(<span class="hljs-string">&#x27;https://api.github.com/users/can-dy-jack&#x27;</span>)<br>  .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.json())<br>  .then(<span class="hljs-function"><span class="hljs-params">json</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(json))<br>  .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Request Failed&#x27;</span>, error));<br></code></pre></td></tr></table></figure>
+
+<p><code>fetch()</code>接收到的<code>response</code>是一个 <code>Stream 对象</code>，<code>response.json()</code>是一个<code>异步操作</code>，取出所有内容，并将其转为 JSON 对象。</p>
+<p>注：Promise 对象用于表示一个异步操作的最终完成 (或失败)及其结果值。</p>
+<p>Promise 可以使用 await 语法改写，使得语义更清晰。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getJSON</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> url = <span class="hljs-string">&#x27;https://api.github.com/users/ruanyf&#x27;</span>;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">let</span> response = <span class="hljs-keyword">await</span> fetch(url);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> response.json();<br>    &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Request Failed&#x27;</span>, error);<br>    &#125;<br>&#125;<br><span class="hljs-built_in">console</span>.log(getJSON()); <span class="hljs-comment">// 调用getJSON()，并输出获取到的Promise</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>await语句必须放在try…catch里面，这样才能捕捉异步操作中可能发生的错误。</strong></p>
+<h3 id="Response-对象"><a href="#Response-对象" class="headerlink" title="Response 对象"></a>Response 对象</h3><blockquote>
+<p>Response 对象：处理 HTTP 回应。</p>
+</blockquote>
+<h4 id="Response-对象的同步属性"><a href="#Response-对象的同步属性" class="headerlink" title="Response 对象的同步属性"></a>Response 对象的同步属性</h4><p>fetch()请求成功以后，得到的是一个 Response 对象。它对应服务器的 HTTP 回应。</p>
+<p><code>Response</code>包含的数据通过 Stream 接口异步读取，但是它还包含一些同步属性，对应 HTTP 回应的标头信息（Headers），可以立即读取。<br>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchText</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;/readme.txt&#x27;</span>);<br>  <span class="hljs-built_in">console</span>.log(response.status); <br>  <span class="hljs-built_in">console</span>.log(response.statusText);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>response.status</code>和<code>response.statusText</code>就是 <code>Response</code> 的同步属性，可以立即读取。</p>
+<p>标头信息属性有下面这些（more: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">MDN-API/Response</a> | <a href="https://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html">Response 对象</a>）：</p>
+<ul>
+<li>Response.ok</li>
+<li>Response.statusText</li>
+<li>Response.status</li>
+<li>Response.url</li>
+<li>Response.type</li>
+<li>… …</li>
+</ul>
+<h4 id="判断请求是否成功"><a href="#判断请求是否成功" class="headerlink" title="判断请求是否成功"></a>判断请求是否成功</h4><p>fetch()发出请求以后，只有网络错误，或者无法连接时，fetch()才会报错，其他情况都不会报错，而是认为请求成功。</p>
+<p>这就是说，即使服务器返回的状态码是 <code>4xx</code> 或 <code>5xx</code>，fetch()也不会报错（即 Promise 不会变为 <code>rejected状态</code>）。</p>
+<p>只有通过<code>Response.status</code>属性，得到 HTTP 回应的真实状态码，才能判断请求是否成功。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchText</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;https://api.github.com/users/can-dy-jack&#x27;</span>);<br>  <span class="hljs-keyword">if</span> (response.status &gt;= <span class="hljs-number">200</span> &amp;&amp; response.status &lt; <span class="hljs-number">300</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> response.text();<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(response.statusText);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><em>另一种方法是判断<code>Response.oK</code>是否为true。</em></p>
+<h4 id="Response-headers-属性"><a href="#Response-headers-属性" class="headerlink" title="Response.headers 属性"></a>Response.headers 属性</h4><p>Response 对象还有一个Response.headers属性，指向一个 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers">Headers 对象</a>，对应 HTTP 回应的所有标头。</p>
+<p>Headers 对象可以使用<code>for...of</code>循环进行遍历。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;https://api.github.com/users/ruanyf&#x27;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> [key, value] <span class="hljs-keyword">of</span> response.headers) &#123; <br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span> : <span class="hljs-subst">$&#123;value&#125;</span>`</span>);  <br>    &#125;<br>    <span class="hljs-comment">// 或者</span><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    for (let [key, value] of response.headers.entries()) &#123; </span><br><span class="hljs-comment">    console.log(`$&#123;key&#125; : $&#123;value&#125;`);  </span><br><span class="hljs-comment">    &#125;</span><br><span class="hljs-comment">    */</span><br>&#125;<br>test();<br></code></pre></td></tr></table></figure>
+
+<p><strong>Headers 对象提供了以下方法，用来操作标头。</strong></p>
+<h4 id="读取内容的方法"><a href="#读取内容的方法" class="headerlink" title="读取内容的方法"></a>读取内容的方法</h4><p>Response对象根据服务器返回的不同类型的数据，提供了不同的读取方法。</p>
+<ul>
+<li>response.text()：得到文本字符串。</li>
+<li>response.json()：得到 JSON 对象。</li>
+<li>response.blob()：得到二进制 Blob 对象。</li>
+<li>response.formData()：得到 FormData 表单对象。</li>
+<li>response.arrayBuffer()：得到二进制 ArrayBuffer 对象。</li>
+</ul>
+<div class="note note-default">
+            <p>上面5个读取方法都是异步的，返回的都是 Promise 对象。必须等到异步操作结束，才能得到服务器返回的完整数据。</p>
+          </div>
+
+<span style="color:red;">Stream 对象只能读取一次，读取完就没了。这意味着，前一节的五个读取方法，只能使用一个，否则会报错。</span>
+
+<p>Response 对象提供Response.clone()方法，创建Response对象的副本，实现多次读取。</p>
+<h4 id="Response-body-属性"><a href="#Response-body-属性" class="headerlink" title="Response.body 属性"></a>Response.body 属性</h4><p><code>Response.body</code>属性是 Response 对象暴露出的底层接口，返回一个 <code>ReadableStream 对象</code>，供用户操作。</p>
+<p>它可以用来分块读取内容，应用之一就是<a href=""><strong>显示下载的进度</strong></a>。</p>
+<h3 id="fetch-的第二个参数：定制-HTTP-请求"><a href="#fetch-的第二个参数：定制-HTTP-请求" class="headerlink" title="fetch()的第二个参数：定制 HTTP 请求"></a>fetch()的第二个参数：定制 HTTP 请求</h3><p>fetch()的第一个参数是 URL，还可以接受第二个参数，作为配置对象，定制发出的 HTTP 请求。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">fetch(url, optionObj)<br></code></pre></td></tr></table></figure>
+
+<p>HTTP 请求的方法、标头、数据体都在这个对象里面设置。</p>
+<h4 id="Post请求"><a href="#Post请求" class="headerlink" title="Post请求"></a>Post请求</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(url, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>  <span class="hljs-attr">headers</span>: &#123;<br>    <span class="hljs-string">&quot;Content-type&quot;</span>: <span class="hljs-string">&quot;application/x-www-form-urlencoded; charset=UTF-8&quot;</span>,<br>  &#125;,<br>  <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;foo=bar&amp;lorem=ipsum&#x27;</span>,<br>&#125;);<br><br><span class="hljs-keyword">const</span> json = <span class="hljs-keyword">await</span> response.json();<br></code></pre></td></tr></table></figure>
+
+<h4 id="提交json数据"><a href="#提交json数据" class="headerlink" title="提交json数据"></a>提交json数据</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> user =  &#123; <span class="hljs-attr">name</span>:  <span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-attr">surname</span>:  <span class="hljs-string">&#x27;Smith&#x27;</span>  &#125;;<br><span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;/article/fetch/post/user&#x27;</span>, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>  <span class="hljs-attr">headers</span>: &#123;<br>   <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json;charset=utf-8&#x27;</span><br>  &#125;, <br>  <span class="hljs-attr">body</span>: <span class="hljs-built_in">JSON</span>.stringify(user) <br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a>提交表单</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> form = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;form&#x27;</span>);<br><br><span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;/users&#x27;</span>, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>  <span class="hljs-attr">body</span>: <span class="hljs-keyword">new</span> FormData(form)<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h4 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> input = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;input[type=&quot;file&quot;]&#x27;</span>);<br><br><span class="hljs-keyword">const</span> data = <span class="hljs-keyword">new</span> FormData();<br>data.append(<span class="hljs-string">&#x27;file&#x27;</span>, input.files[<span class="hljs-number">0</span>]);<br>data.append(<span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-string">&#x27;foo&#x27;</span>);<br><br>fetch(<span class="hljs-string">&#x27;/avatars&#x27;</span>, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>  <span class="hljs-attr">body</span>: data<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="直接上传二进制文件"><a href="#直接上传二进制文件" class="headerlink" title="直接上传二进制文件"></a>直接上传二进制文件</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> blob = <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span>   <br>  canvasElem.toBlob(resolve,  <span class="hljs-string">&#x27;image/png&#x27;</span>)<br>);<br><br><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&#x27;/article/fetch/post/image&#x27;</span>, &#123;<br>  <span class="hljs-attr">method</span>:  <span class="hljs-string">&#x27;POST&#x27;</span>,<br>  <span class="hljs-attr">body</span>: blob<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="fetch-第二个参数配置对象的完整-API"><a href="#fetch-第二个参数配置对象的完整-API" class="headerlink" title="fetch()第二个参数配置对象的完整 API"></a>fetch()第二个参数配置对象的完整 API</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> response = fetch(url, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>  <span class="hljs-attr">headers</span>: &#123;<br>    <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;text/plain;charset=UTF-8&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">body</span>: <span class="hljs-literal">undefined</span>,<br>  <span class="hljs-attr">referrer</span>: <span class="hljs-string">&quot;about:client&quot;</span>,<br>  <span class="hljs-attr">referrerPolicy</span>: <span class="hljs-string">&quot;no-referrer-when-downgrade&quot;</span>,<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;cors&quot;</span>, <br>  <span class="hljs-attr">credentials</span>: <span class="hljs-string">&quot;same-origin&quot;</span>,<br>  <span class="hljs-attr">cache</span>: <span class="hljs-string">&quot;default&quot;</span>,<br>  <span class="hljs-attr">redirect</span>: <span class="hljs-string">&quot;follow&quot;</span>,<br>  <span class="hljs-attr">integrity</span>: <span class="hljs-string">&quot;&quot;</span>,<br>  <span class="hljs-attr">keepalive</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">signal</span>: <span class="hljs-literal">undefined</span><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>AJAX</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
 </search>

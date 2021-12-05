@@ -4,8 +4,6 @@ figure figcaption{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* test */
-    /* background-color: bisque; */
     padding: 5px 10px;
     border-bottom: 1px solid #ddd;
 }
@@ -144,4 +142,9 @@ blockquote.blue p{
     background-color: rgb(252, 232, 252);
     color: hsl(300, 100%, 25%);
     border-color: purple;
+}
+
+/* alert */
+.alert p{
+    margin-bottom: 0;
 }
