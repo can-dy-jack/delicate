@@ -85,8 +85,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
-    
-<nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
   <a class="navbar-brand" href="/delicate/">
     <img src="/delicate/favicon/logo2-128.ico" width="30" height="30" alt="logo">
     delicate
@@ -97,13 +96,49 @@
   
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      
       <li class="nav-item">
-        <a class="nav-link" href="/delicate/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/delicate//">主页</a>
       </li>
+      
       <li class="nav-item">
-        <a class="nav-link" href="/delicate/archives/">Archives</a>
+        <a class="nav-link" href="/delicate//archives">存档</a>
       </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/delicate//about">关于</a>
+      </li>
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Friend
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            
+          
+            
+            <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+            
+          
+            
+            <div class="dropdown-divider"></div>
+            
+          
+            
+            <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/">GitHub</a>
+            
+          
+            
+            <a class="dropdown-item" target="_blank" rel="noopener" href="https://gitlab.com/">GitLab</a>
+            
+          
+        </div>
+      </li>
+      
     </ul>
+    
   </div>
 </nav>
 
@@ -395,7 +430,7 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 
 <h3 id="fetch-第二个参数配置对象的完整-API"><a href="#fetch-第二个参数配置对象的完整-API" class="headerlink" title="fetch()第二个参数配置对象的完整 API"></a>fetch()第二个参数配置对象的完整 API</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> response = fetch(url, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>  <span class="hljs-attr">headers</span>: &#123;<br>    <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;text/plain;charset=UTF-8&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">body</span>: <span class="hljs-literal">undefined</span>,<br>  <span class="hljs-attr">referrer</span>: <span class="hljs-string">&quot;about:client&quot;</span>,<br>  <span class="hljs-attr">referrerPolicy</span>: <span class="hljs-string">&quot;no-referrer-when-downgrade&quot;</span>,<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;cors&quot;</span>, <br>  <span class="hljs-attr">credentials</span>: <span class="hljs-string">&quot;same-origin&quot;</span>,<br>  <span class="hljs-attr">cache</span>: <span class="hljs-string">&quot;default&quot;</span>,<br>  <span class="hljs-attr">redirect</span>: <span class="hljs-string">&quot;follow&quot;</span>,<br>  <span class="hljs-attr">integrity</span>: <span class="hljs-string">&quot;&quot;</span>,<br>  <span class="hljs-attr">keepalive</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">signal</span>: <span class="hljs-literal">undefined</span><br>&#125;);<br></code></pre></td></tr></table></figure>
 
-
+<h2 id="ajax库"><a href="#ajax库" class="headerlink" title="ajax库"></a>ajax库</h2><h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2>
     <hr />
     <!-- Tags and Categories links -->
     <div class="blog-tag-and-cate">
@@ -465,31 +500,6 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
         
 <div class="sidebar-top-part">
     <div>
-        <a href="/delicate/2021/11/04/hello-world/">
-            Hello World
-        </a>
-    </div>
-    <div>
-        
-        
-            
-                <span class="badge badge-pill badge-primary">test</span>
-            
-                <span class="badge badge-pill badge-primary">first</span>
-            
-        
-    </div>
-    <div>
-        2021-11-04
-    </div>
-</div>
-
-
-
-    
-        
-<div class="sidebar-top-part">
-    <div>
         <a href="/delicate/2021/11/12/code-test/">
             Tag Plugins
         </a>
@@ -506,6 +516,31 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
     </div>
     <div>
         2021-11-12
+    </div>
+</div>
+
+
+
+    
+        
+<div class="sidebar-top-part">
+    <div>
+        <a href="/delicate/2021/11/04/hello-world/">
+            Hello World
+        </a>
+    </div>
+    <div>
+        
+        
+            
+                <span class="badge badge-pill badge-primary">test</span>
+            
+                <span class="badge badge-pill badge-primary">first</span>
+            
+        
+    </div>
+    <div>
+        2021-11-04
     </div>
 </div>
 

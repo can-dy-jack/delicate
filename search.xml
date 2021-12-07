@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/delicate/2021/11/04/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>test</tag>
-        <tag>first</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tag Plugins</title>
     <url>/delicate/2021/11/12/code-test/</url>
     <content><![CDATA[<blockquote>
@@ -267,6 +244,29 @@
       <tags>
         <tag>测试文件</tag>
         <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/delicate/2021/11/04/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
+        <tag>first</tag>
       </tags>
   </entry>
   <entry>
@@ -879,7 +879,7 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 
 <h3 id="fetch-第二个参数配置对象的完整-API"><a href="#fetch-第二个参数配置对象的完整-API" class="headerlink" title="fetch()第二个参数配置对象的完整 API"></a>fetch()第二个参数配置对象的完整 API</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> response = fetch(url, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>  <span class="hljs-attr">headers</span>: &#123;<br>    <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;text/plain;charset=UTF-8&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">body</span>: <span class="hljs-literal">undefined</span>,<br>  <span class="hljs-attr">referrer</span>: <span class="hljs-string">&quot;about:client&quot;</span>,<br>  <span class="hljs-attr">referrerPolicy</span>: <span class="hljs-string">&quot;no-referrer-when-downgrade&quot;</span>,<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;cors&quot;</span>, <br>  <span class="hljs-attr">credentials</span>: <span class="hljs-string">&quot;same-origin&quot;</span>,<br>  <span class="hljs-attr">cache</span>: <span class="hljs-string">&quot;default&quot;</span>,<br>  <span class="hljs-attr">redirect</span>: <span class="hljs-string">&quot;follow&quot;</span>,<br>  <span class="hljs-attr">integrity</span>: <span class="hljs-string">&quot;&quot;</span>,<br>  <span class="hljs-attr">keepalive</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">signal</span>: <span class="hljs-literal">undefined</span><br>&#125;);<br></code></pre></td></tr></table></figure>
 
-]]></content>
+<h2 id="ajax库"><a href="#ajax库" class="headerlink" title="ajax库"></a>ajax库</h2><h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2>]]></content>
       <categories>
         <category>网络</category>
       </categories>
