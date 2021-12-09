@@ -237,6 +237,21 @@
                 折叠内容
                 </div>
             </div>
+
+<h3 id="description"><a href="#description" class="headerlink" title="description"></a>description</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% description dark 提示 %&#125;<br>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。<br>&#123;% enddescription %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class='description dark'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description info'><span class='description-title'>信息</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+<div class='description success'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+<div class='description danger'><span class='description-title'>危险</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<ul>
+<li>danger</li>
+<li>info</li>
+<li>success</li>
+<li>dark</li>
+</ul>
 ]]></content>
       <categories>
         <category>测试文件</category>
@@ -250,8 +265,7 @@
     <title>Hello World</title>
     <url>/delicate/2021/11/04/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
@@ -274,9 +288,7 @@
     <url>/delicate/2021/11/14/markdown%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">## 标题2</span><br><span class="hljs-section">### 标题3</span><br><span class="hljs-section">#### 标题4</span><br><span class="hljs-section">##### 标题5</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><span id="more"></span>
-
-<hr>
+<h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><hr>
 <p>文本样式</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-strong">**加粗**</span>  <span class="hljs-strong">__斜体__</span>  <span class="hljs-emphasis">_斜体_</span>  <span class="hljs-emphasis">*斜体*</span>  ~~划线~~  ~划线~<br><span class="hljs-quote">&gt; 引用文本</span><br></code></pre></td></tr></table></figure>
 
@@ -384,11 +396,12 @@
     <content><![CDATA[<div class="note note-danger">
             <p>本文首发在<a href="https://kartjim.top/delicate">个人博客</a>；</p>
           </div>
-<span id="more"></span>
 
 <h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><div class="note note-purple">
             <p>解析和执行PHP脚本，需要安装PHP运行环境；<br>PHP既可以独立运行，也可以作为Apache的模块运行；本文主要介绍PHP为apache的模块运行。</p>
           </div>
+
+<span id="more"></span>
 
 <h3 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h3><h4 id="获取apache"><a href="#获取apache" class="headerlink" title="获取apache"></a>获取apache</h4><p>去官网可获取apache的源码：<a href="https://httpd.apache.org/">apache</a>，但没有提供编译后的apache。<br>我们可以从apache官网上找到第三方打包后的apache，比如说：<a href="https://www.apachelounge.com/">Apache Lounge</a>：<br><img src="https://i.loli.net/2021/11/26/ryjfbPYU1l4SEmv.png" alt="1.png"><br>这里我选择<code>httpd-2.4.51-win64-VS16.zip</code>下载。</p>
 <p>下载好之后解压文件，准备好一个文件夹把解压得到的文件放里面。<br>我就存放在f盘下：<code>F:\PHP\LAMP\apache\Apache24</code>，其中目录结构如下图：<br><img src="https://i.loli.net/2021/11/26/MfbIwcVlma5o3Ng.png" alt="f"><br>其中：</p>
@@ -595,10 +608,8 @@
     <content><![CDATA[<blockquote>
 <p>测试fancybox</p>
 </blockquote>
-<span id="more"></span>
-
-<p><img src="https://i.loli.net/2021/11/24/RNpU2jbWQgCOcX5.jpg" alt="319817.jpg"></p>
-<p><img src="https://i.loli.net/2021/11/24/bX1MO39BiLJ62e4.jpg" alt="2001462.jpg"></p>
+<p><img src="https://i.loli.net/2021/12/01/A3fyD1zwqti4JPB.jpg" alt="319817.jpg"></p>
+<p><img src="https://i.loli.net/2021/12/01/X1pkv9ShmeDWZ25.jpg" alt="2001462.jpg"></p>
 <p><img src="https://i.loli.net/2021/11/24/9umzA8tlIL1KhYR.jpg" alt="9.jpg"></p>
 <p><img src="https://i.loli.net/2021/11/24/8JZzFkah2UulAOW.jpg" alt="2013010.jpg"></p>
 <p><img src="https://i.loli.net/2021/11/24/qWz2AuwGkbUrLce.png" alt="1479967107366.png"></p>
