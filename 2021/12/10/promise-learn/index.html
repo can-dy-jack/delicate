@@ -145,47 +145,154 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 blog-main">
-                <h2 class="post-archives-head">Archives <span class="badge badge-primary">8 </span></h2>
-<div class="alert alert-info" role="alert">
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/12/10/promise-learn/">
-        promise学习
-    </a>
-    <span>
-        2021-12-10
-    </span>
-</div>
+                
+<div class="blog-post">
+    <!-- 文章标题导航栏 -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+        <div class="toast-header">
+            <span class="toast-color"></span>
+            <strong class="mr-auto">promise学习</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Promise"><span class="toc-number">1.</span> <span class="toc-text">使用 Promise</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A6%E5%AE%9A"><span class="toc-number">1.1.</span> <span class="toc-text">约定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E5%BC%8F%E8%B0%83%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">链式调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0-amp-More"><span class="toc-number">2.</span> <span class="toc-text">参考文章 &amp; More</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async-await-%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="toc-number">3.</span> <span class="toc-text">async&#x2F;await 语法糖</span></a></li></ol>
+        </div>
+    </div>
+    <!-- Title -->
+    <h2 class="blog-post-title">
+        <a href="/delicate/2021/12/10/promise-learn/">
+            promise学习
+        </a>
+        <span id="toc" title="显示目录导航">
+            <svg id="icon" aria-hidden="true">
+                <use xlink:href="#icon-caidan"></use>
+            </svg>
+        </span>
+    </h2>
+    <p class="blog-post-meta">
+        <span>2021-12-10</span>
+        <span>
+            
+        </span>
+        <span class="post-count">962字</span>
+        <span class="post-count">3分钟</span>
+    </p>
+    <!-- Content -->
+    <div class="alert alert-warning">
+                <p>本文大部分摘抄自<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises">MDN - Using_promises</a>，仅作学习使用。</p>
+            </div>
 
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/12/05/AJAX学习笔记/">
-        AJAX学习笔记
-    </a>
-    <span>
-        2021-12-05
-    </span>
-</div>
+<div class='description dark'><span class='description-title'>ES6原生提供了Promise对象</span><div><p>Promise 是一个对象，它代表了一个异步操作的最终完成或者失败。</p></div></div>
 
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/12/03/rgb2hsv/">
-        RGB和HSV
-    </a>
-    <span>
-        2021-12-03
-    </span>
-</div>
+<p>控制台输入<code>console.dir(Promise)</code>查看 promise 是什么：</p>
+<p><img src="https://s2.loli.net/2021/12/10/yIuXmMBpifwUP73.png" alt="Promise"></p>
+<span id="more"></span>
+<h2 id="使用-Promise"><a href="#使用-Promise" class="headerlink" title="使用 Promise"></a>使用 Promise</h2><div class="note note-info">
+            <p>本质上 Promise 是一个函数返回的对象，我们可以在它上面绑定回调函数，这样我们就不需要在一开始把回调函数作为参数传入这个函数了。</p>
+          </div>
 
-    
-</div>
-<nav aria-label="Page navigation">
-    <ul class="pagination">
+<p>假设现在有一个名为 createAudioFileAsync() 的函数，它接收一些配置和两个回调函数，然后异步地生成音频文件。一个回调函数在文件成功创建时被调用，另一个则在出现异常时被调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 成功的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successCallback</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建成功: &quot;</span> + result);<br>&#125;<br><span class="hljs-comment">// 失败的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">failureCallback</span>(<span class="hljs-params">error</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建失败: &quot;</span> + error);<br>&#125;<br>createAudioFileAsync(audioSettings, successCallback, failureCallback)<br></code></pre></td></tr></table></figure>
+
+<p>如果函数 <code>createAudioFileAsync()</code> 被重写为返回 Promise 的形式，那么我们可以像下面这样简单地调用它：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">createAudioFileAsync(audioSettings)<br>    .then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>我们把这个称为 <code>异步函数调用</code> ，这种形式有若干优点。</p>
+<h3 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h3><p>不同于“老式”的传入回调，在使用 Promise 时，会有以下约定：</p>
+<ul>
+<li>在本轮 事件循环 运行完成之前，回调函数是不会被调用的。</li>
+<li>即使异步操作已经完成（成功或失败），在这之后通过 then() 添加的回调函数也会被调用。</li>
+<li>通过多次调用 then() 可以添加多个回调函数，它们会按照插入顺序进行执行。</li>
+</ul>
+<p>Promise 很棒的一点就是<code>链式调用（chaining）</code>。</p>
+<h3 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h3><p>连续执行两个或者多个异步操作是一个常见的需求，在上一个操作执行成功之后，开始下一个的操作，并带着上一步操作所返回的结果。我们可以通过创造一个 Promise 链来实现这种需求。</p>
+<blockquote>
+<p>then() 函数会返回一个和原来不同的新的 Promise</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise2 = doSomething().then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>promise2 不仅表示 <em>doSomething()</em> 函数的完成，也代表了你传入的 <em>successCallback</em> 或者 <em>failureCallback</em> 的完成，这两个函数也可以返回一个 Promise 对象，从而形成另一个异步操作，这样的话，在 promise2 上新增的回调函数会排在这个 Promise 对象的后面。</p>
+<p>基本上，每一个 Promise 都代表了链中另一个异步过程的完成。</p>
+<p>在过去，要想做多重的异步操作，会导致经典的回调地狱：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript">doSomething(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  doSomethingElse(result, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>    doThirdThing(newResult, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>    &#125;, failureCallback);<br>  &#125;, failureCallback);<br>&#125;, failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>现在，我们可以把回调绑定到返回的 Promise 上，形成一个 Promise 链：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript">doSomething().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doSomethingElse(result);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doThirdThing(newResult);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>then 里的参数是可选的，catch(failureCallback) 是 then(null, failureCallback) 的缩略形式。</p>
+<p>如下所示，我们也可以用箭头函数来表示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript">doSomething()<br>.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> doSomethingElse(result))<br>.then(<span class="hljs-function"><span class="hljs-params">newResult</span> =&gt;</span> doThirdThing(newResult))<br>.then(<span class="hljs-function"><span class="hljs-params">finalResult</span> =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Got the final result: <span class="hljs-subst">$&#123;finalResult&#125;</span>`</span>);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
+
+<div class='description success'><span class='description-title'>注意</span><div><p>一定要有返回值，否则，callback 将无法获取上一个 Promise 的结果。(如果使用箭头函数，() =&gt; x 比 () =&gt; { return x; } 更简洁一些，但后一种保留 return 的写法才支持使用多个语句。）。</p></div></div>
+
+<h2 id="参考文章-amp-More"><a href="#参考文章-amp-More" class="headerlink" title="参考文章 &amp; More"></a>参考文章 &amp; More</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN - Promise</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises">MDN - Using_promises</a></li>
+<li><a target="_blank" rel="noopener" href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/promise.html">Generator 函数 | ECMAScript 6入门</a></li>
+</ul>
+<h2 id="async-await-语法糖"><a href="#async-await-语法糖" class="headerlink" title="async/await 语法糖"></a>async/await 语法糖</h2><blockquote class="pullquote blue"><p>async函数是使用async关键字声明的函数。 async函数是AsyncFunction构造函数的实例， 并且其中允许使用await关键字。async和await关键字让我们可以用一种更简洁的方式写出基于Promise的异步行为，而无需刻意地链式调用promise。</p>
+</blockquote>
+
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function">more</a></p>
+
+    <hr />
+    <!-- Tags and Categories links -->
+    <div class="blog-tag-and-cate">
         
-        
-    </ul>
-</nav>
 
+<div class="blog-tags-container">
+    <span class="glyphicon glyphicon-tags">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-tag"></use>
+        </svg>
+    </span>
+    
+        <span class="blog-text">
+        <a href="/delicate/tags/promise/">#promise</a>
+        </span>
+    
+        <span class="blog-text">
+        <a href="/delicate/tags/JavaScript/">#JavaScript</a>
+        </span>
+    
+</div>
+
+
+        
+
+
+<div class="blog-categories-container">
+    <span class="glyphicon glyphicon-folder-open">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-categories"></use>
+        </svg>
+    </span>
+    
+        <span class="blog-text">
+            <a href="/delicate/categories/网络/">网络</a>
+        </span>
+    
+</div>
+
+
+    </div>
+    <div class="alert alert-danger" style="margin: 15px 5px;">本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</div>
+
+    <div class="blog-post-change">
+        <div class="blog-post-pre">
+            
+        </div>
+        <div class="blog-post-next">
+            
+                <a href="/delicate/2021/12/05/AJAX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> AJAX学习笔记</a>
+                <span class="blog-post-next-icon">&#62;</span>
+            
+        </div>
+    </div>
+    <hr>
+</div>
 
 
 

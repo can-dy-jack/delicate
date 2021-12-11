@@ -147,11 +147,29 @@
             <div class="col-sm-8 blog-main">
                 
 <div class="blog-post">
+    <!-- 文章标题导航栏 -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+        <div class="toast-header">
+            <span class="toast-color"></span>
+            <strong class="mr-auto">AJAX学习笔记</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">AJAX简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">ajax使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">ajax基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASP-PHP"><span class="toc-number">2.2.</span> <span class="toc-text">ASP&#x2F;PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX-%E5%8F%AF%E7%94%A8%E6%9D%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E5%8A%A8%E6%80%81%E9%80%9A%E4%BF%A1"><span class="toc-number">2.3.</span> <span class="toc-text">AJAX 可用来与数据库进行动态通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-AJAX-%E6%9D%A5%E8%AF%BB%E5%8F%96%E6%9D%A5%E8%87%AA-XML-%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">2.4.</span> <span class="toc-text">使用 AJAX 来读取来自 XML 文件的信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fetch-API"><span class="toc-number">3.</span> <span class="toc-text">Fetch API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response-%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.2.</span> <span class="toc-text">Response 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch-%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%9A%E5%AE%9A%E5%88%B6-HTTP-%E8%AF%B7%E6%B1%82"><span class="toc-number">3.3.</span> <span class="toc-text">fetch()的第二个参数：定制 HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch-%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%8C%E6%95%B4-API"><span class="toc-number">3.4.</span> <span class="toc-text">fetch()第二个参数配置对象的完整 API</span></a></li></ol></li></ol>
+        </div>
+    </div>
     <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/12/05/AJAX学习笔记/">
             AJAX学习笔记
         </a>
+        <span id="toc" title="显示目录导航">
+            <svg id="icon" aria-hidden="true">
+                <use xlink:href="#icon-caidan"></use>
+            </svg>
+        </span>
     </h2>
     <p class="blog-post-meta">
         <span>2021-12-05</span>
@@ -430,7 +448,6 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 
 <h3 id="fetch-第二个参数配置对象的完整-API"><a href="#fetch-第二个参数配置对象的完整-API" class="headerlink" title="fetch()第二个参数配置对象的完整 API"></a>fetch()第二个参数配置对象的完整 API</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> response = fetch(url, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>  <span class="hljs-attr">headers</span>: &#123;<br>    <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;text/plain;charset=UTF-8&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">body</span>: <span class="hljs-literal">undefined</span>,<br>  <span class="hljs-attr">referrer</span>: <span class="hljs-string">&quot;about:client&quot;</span>,<br>  <span class="hljs-attr">referrerPolicy</span>: <span class="hljs-string">&quot;no-referrer-when-downgrade&quot;</span>,<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;cors&quot;</span>, <br>  <span class="hljs-attr">credentials</span>: <span class="hljs-string">&quot;same-origin&quot;</span>,<br>  <span class="hljs-attr">cache</span>: <span class="hljs-string">&quot;default&quot;</span>,<br>  <span class="hljs-attr">redirect</span>: <span class="hljs-string">&quot;follow&quot;</span>,<br>  <span class="hljs-attr">integrity</span>: <span class="hljs-string">&quot;&quot;</span>,<br>  <span class="hljs-attr">keepalive</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">signal</span>: <span class="hljs-literal">undefined</span><br>&#125;);<br></code></pre></td></tr></table></figure>
 
-<h2 id="ajax库"><a href="#ajax库" class="headerlink" title="ajax库"></a>ajax库</h2><h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2>
     <hr />
     <!-- Tags and Categories links -->
     <div class="blog-tag-and-cate">
@@ -444,11 +461,11 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
     </span>
     
         <span class="blog-text">
-        <a href="/delicate/tags/AJAX/">#AJAX</a>
+        <a href="/delicate/tags/JavaScript/">#JavaScript</a>
         </span>
     
         <span class="blog-text">
-        <a href="/delicate/tags/JavaScript/">#JavaScript</a>
+        <a href="/delicate/tags/AJAX/">#AJAX</a>
         </span>
     
 </div>
@@ -476,6 +493,9 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 
     <div class="blog-post-change">
         <div class="blog-post-pre">
+            
+                <span class="blog-post-pre-icon">&#60;</span>
+                <a href="/delicate/2021/12/10/promise-learn/"> promise学习</a>
             
         </div>
         <div class="blog-post-next">
@@ -581,6 +601,10 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 
     
         
+
+
+    
+        
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/24/二次元图片/">
@@ -616,9 +640,9 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
         
         
             
-                <span class="badge badge-pill badge-primary">AJAX</span>
-            
                 <span class="badge badge-pill badge-primary">JavaScript</span>
+            
+                <span class="badge badge-pill badge-primary">AJAX</span>
             
         
     </div>
@@ -855,7 +879,7 @@ jinrishici.load(function(result) {
 
 
 
-<script src="https://at.alicdn.com/t/font_2918710_jucubmd07u.js"></script>
+<script src="//at.alicdn.com/t/font_2918710_naseliyedfg.js"></script>
 
 
 

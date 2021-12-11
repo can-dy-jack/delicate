@@ -56,6 +56,39 @@ nav.navbar .nav-item .nav-link:hover::after{
         transform: translateY(0);
     }
 }
+/* toc */
+#toc{
+    height: 24px;width: 24px;
+}
+#toc svg{
+    width: 24px;height: 24px;
+    cursor: pointer;
+    fill: #ddd;
+    transition: fill 0.2s linear;
+}
+#toc svg:hover{
+    fill: #333;
+}
+.toast{
+    position: sticky;
+    top: 10px;float: right;
+    /* position: fixed;
+    right: 50px;top: 100px; */
+    z-index: 800;
+}
+.toast .toast-header{
+    cursor: move;
+}
+.toast .toast-color{
+    width:20px;height:20px;
+    background-color: #007aff;
+    border-radius:4px;
+    margin-right: 10px;
+}
+.toast .toast-body ol{
+    margin: 0 10px;padding-left: 15px;
+    list-style: none;
+}
 
 /* Active state gets a caret at the bottom */
 .blog-nav .active {
@@ -194,8 +227,12 @@ nav.navbar .nav-item .nav-link:hover::after{
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.blog-post-change .blog-post-pre{
+.blog-post-change .blog-post-pre,
+.blog-post-change .blog-post-next{
     margin: 5px 0;
+    border-radius: 2px;
+    padding: 0 5px;
+    transition: all 0.2s linear;
 }
 .blog-post-change .blog-post-pre:hover a,
 .blog-post-change .blog-post-next:hover a{
@@ -203,23 +240,23 @@ nav.navbar .nav-item .nav-link:hover::after{
     text-decoration: none;
     cursor: pointer;
 }
-.blog-post-change .blog-post-next{
-    margin: 5px 0;
-}
 .blog-post-change .blog-post-pre a
 ,.blog-post-change .blog-post-next a{
-    color: #1d1d1d;
-    transition: all 0.2s ease;
+    color: #007bff;
 }
 .blog-post-pre-icon,.blog-post-next-icon{
     font-size: 20px;
     font-weight: 900;
-    color: #1d1d1d;
-    transition: all 0.2s ease;
-}
-.blog-post-next:hover .blog-post-next-icon,
-.blog-post-pre:hover .blog-post-pre-icon{
     color: #007bff;
+}
+.blog-post-next:hover,
+.blog-post-pre:hover{
+    background-color: rgba(0, 123, 255, .2);
+    transform: scale(1.02);
+}
+.blog-post-next:active,
+.blog-post-pre:active{
+    transform: scale(0.99);
 }
 /* footer */
 
@@ -301,8 +338,8 @@ nav.navbar .nav-item .nav-link:hover::after{
 .sidebar-about .my-tag span{
     padding: 3px 8px;
     margin: 2px 3px;
-    background-color: rgba(191, 238, 238,.6);
-    border: 1px solid teal;
+    background-color: rgba(191, 238, 238,.2);
+    border: 1px dashed teal;
     color: teal;
     font-size: 14px;
     border-radius: 4px;
