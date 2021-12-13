@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/delicate/2021/11/04/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
+        <tag>first</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tag Plugins</title>
     <url>/delicate/2021/11/12/code-test/</url>
     <content><![CDATA[<blockquote>
@@ -259,28 +281,6 @@
       <tags>
         <tag>测试文件</tag>
         <tag>code</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/delicate/2021/11/04/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>test</tag>
-        <tag>first</tag>
       </tags>
   </entry>
   <entry>
@@ -558,6 +558,102 @@
       </tags>
   </entry>
   <entry>
+    <title>promise学习笔记</title>
+    <url>/delicate/2021/12/10/promise-learn/</url>
+    <content><![CDATA[<div class='description dark'><span class='description-title'>ES6原生提供了Promise对象</span><div><p>Promise 是一个对象，它代表了一个异步操作的最终完成或者失败。<br>Promise能够很好的避免回调函数的嵌套，让函数更具可读性和维护性。</p></div></div>
+
+<p>控制台输入<code>console.dir(Promise)</code>查看 promise 是什么：</p>
+<p><img src="https://s2.loli.net/2021/12/10/yIuXmMBpifwUP73.png" alt="Promise"></p>
+<span id="more"></span>
+<h2 id="使用-Promise"><a href="#使用-Promise" class="headerlink" title="使用 Promise"></a>使用 Promise</h2><div class="note note-info">
+            <p>本质上 Promise 是一个函数返回的对象，我们可以在它上面绑定回调函数，这样我们就不需要在一开始把回调函数作为参数传入这个函数了。</p>
+          </div>
+
+<p>假设现在有一个名为 createAudioFileAsync() 的函数，它接收一些配置和两个回调函数，然后异步地生成音频文件。一个回调函数在文件成功创建时被调用，另一个则在出现异常时被调用。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 成功的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successCallback</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建成功: &quot;</span> + result);<br>&#125;<br><span class="hljs-comment">// 失败的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">failureCallback</span>(<span class="hljs-params">error</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建失败: &quot;</span> + error);<br>&#125;<br>createAudioFileAsync(audioSettings, successCallback, failureCallback)<br></code></pre></td></tr></table></figure>
+
+<p>如果函数 <code>createAudioFileAsync()</code> 被重写为返回 Promise 的形式，那么我们可以像下面这样简单地调用它：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">createAudioFileAsync(audioSettings)<br>    .then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>我们把这个称为 <code>异步函数调用</code> ，这种形式有若干优点。</p>
+<h3 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h3><p>不同于“老式”的传入回调，在使用 Promise 时，会有以下约定：</p>
+<ul>
+<li>在本轮 事件循环 运行完成之前，回调函数是不会被调用的。</li>
+<li>即使异步操作已经完成（成功或失败），在这之后通过 then() 添加的回调函数也会被调用。</li>
+<li>通过多次调用 then() 可以添加多个回调函数，它们会按照插入顺序进行执行。</li>
+</ul>
+<p>Promise 很棒的一点就是<code>链式调用（chaining）</code>。</p>
+<h3 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h3><p>连续执行两个或者多个异步操作是一个常见的需求，在上一个操作执行成功之后，开始下一个的操作，并带着上一步操作所返回的结果。我们可以通过创造一个 Promise 链来实现这种需求。</p>
+<blockquote>
+<p>then() 函数会返回一个和原来不同的新的 Promise</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise2 = doSomething().then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>promise2 不仅表示 <em>doSomething()</em> 函数的完成，也代表了你传入的 <em>successCallback</em> 或者 <em>failureCallback</em> 的完成，这两个函数也可以返回一个 Promise 对象，从而形成另一个异步操作，这样的话，在 promise2 上新增的回调函数会排在这个 Promise 对象的后面。</p>
+<p>基本上，每一个 Promise 都代表了链中另一个异步过程的完成。</p>
+<p>在过去，要想做多重的异步操作，会导致经典的回调地狱：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  doSomethingElse(result, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>    doThirdThing(newResult, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>    &#125;, failureCallback);<br>  &#125;, failureCallback);<br>&#125;, failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>现在，我们可以把回调绑定到返回的 Promise 上，形成一个 Promise 链：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doSomethingElse(result);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doThirdThing(newResult);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>then 里的参数是可选的，catch(failureCallback) 是 then(null, failureCallback) 的缩略形式。</p>
+<p>如下所示，我们也可以用箭头函数来表示：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething()<br>.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> doSomethingElse(result))<br>.then(<span class="hljs-function"><span class="hljs-params">newResult</span> =&gt;</span> doThirdThing(newResult))<br>.then(<span class="hljs-function"><span class="hljs-params">finalResult</span> =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Got the final result: <span class="hljs-subst">$&#123;finalResult&#125;</span>`</span>);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
+
+<div class='description success'><span class='description-title'>注意</span><div><p>一定要有返回值，否则，callback 将无法获取上一个 Promise 的结果。(如果使用箭头函数，() =&gt; x 比 () =&gt; { return x; } 更简洁一些，但后一种保留 return 的写法才支持使用多个语句。）。</p></div></div>
+
+<h2 id="resolve-amp-reject"><a href="#resolve-amp-reject" class="headerlink" title="resolve &amp; reject"></a>resolve &amp; reject</h2><blockquote>
+<p>Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve方法和reject方法。<br>如果异步操作成功，则用resolve方法将Promise对象的状态变为“成功”（即从pending变为resolved）；<br>如果异步操作失败，则用reject方法将状态变为“失败”（即从pending变为rejected）。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-comment">/* 异步操作成功 */</span>)&#123;<br>    resolve(value);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    reject(error);<br>  &#125;<br>&#125;);<br><br>promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;<br>  <span class="hljs-comment">// success</span><br>&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;<br>  <span class="hljs-comment">// failure</span><br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Promise.prototype.then</code>方法返回的是一个新的Promise对象，因此可以采用链式写法。</li>
+<li><code>Promise.prototype.catch</code>方法是<code>Promise.prototype.then(null, rejection)</code>的别名，用于指定发生错误时的回调函数。<ul>
+<li>Promise对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。</li>
+</ul>
+</li>
+<li><code>Promise.all</code>和<code>Promise.race</code>方法方法用于将多个Promise实例，包装成一个新的Promise实例。</li>
+</ul>
+<h2 id="参考文章-amp-More"><a href="#参考文章-amp-More" class="headerlink" title="参考文章 &amp; More"></a>参考文章 &amp; More</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN - Promise</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises">MDN - Using_promises</a></li>
+<li><a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/promise.html">Generator 函数 | ECMAScript 6入门</a></li>
+</ul>
+<h2 id="async-await-语法糖"><a href="#async-await-语法糖" class="headerlink" title="async/await 语法糖"></a>async/await 语法糖</h2><blockquote>
+<p>async函数是使用async关键字声明的函数。async和await关键字让我们可以用一种更简洁的方式写出基于Promise的异步行为，而无需刻意地链式调用promise。</p>
+</blockquote>
+<p>async函数是用来取代回调函数的另一种方法。</p>
+<p>只要函数名之前加上async关键字，就表明该函数内部有异步操作。该异步操作应该返回一个Promise对象，前面用await关键字注明。当函数执行的时候，一旦遇到await就会先返回，等到触发的异步操作完成，再接着执行函数体内后面的语句。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function">more</a></p>
+]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>promise</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二次元图片</title>
+    <url>/delicate/2021/11/24/%E4%BA%8C%E6%AC%A1%E5%85%83%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<blockquote>
+<p>测试fancybox</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/12/01/A3fyD1zwqti4JPB.jpg" alt="319817.jpg"></p>
+<p><img src="https://i.loli.net/2021/12/01/X1pkv9ShmeDWZ25.jpg" alt="2001462.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/9umzA8tlIL1KhYR.jpg" alt="9.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/8JZzFkah2UulAOW.jpg" alt="2013010.jpg"></p>
+<p><img src="https://i.loli.net/2021/11/24/qWz2AuwGkbUrLce.png" alt="1479967107366.png"></p>
+]]></content>
+      <tags>
+        <tag>二次元</tag>
+        <tag>图片</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>RGB和HSV</title>
     <url>/delicate/2021/12/03/rgb2hsv/</url>
     <content><![CDATA[<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><blockquote class="pullquote information"><p>在图像处理中，最常用的颜色空间是RGB模型，常用于颜色显示和图像处理。</p>
@@ -601,23 +697,6 @@
             <p>::: tip 百度百科<br>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V=S=1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。<br>增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。例如，要得到深蓝色，V=0.4 S=1 H=240度。要得到淡蓝色，V=1 S=0.4 H=240度。</p>
           </div>
 ]]></content>
-  </entry>
-  <entry>
-    <title>二次元图片</title>
-    <url>/delicate/2021/11/24/%E4%BA%8C%E6%AC%A1%E5%85%83%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<blockquote>
-<p>测试fancybox</p>
-</blockquote>
-<p><img src="https://i.loli.net/2021/12/01/A3fyD1zwqti4JPB.jpg" alt="319817.jpg"></p>
-<p><img src="https://i.loli.net/2021/12/01/X1pkv9ShmeDWZ25.jpg" alt="2001462.jpg"></p>
-<p><img src="https://i.loli.net/2021/11/24/9umzA8tlIL1KhYR.jpg" alt="9.jpg"></p>
-<p><img src="https://i.loli.net/2021/11/24/8JZzFkah2UulAOW.jpg" alt="2013010.jpg"></p>
-<p><img src="https://i.loli.net/2021/11/24/qWz2AuwGkbUrLce.png" alt="1479967107366.png"></p>
-]]></content>
-      <tags>
-        <tag>二次元</tag>
-        <tag>图片</tag>
-      </tags>
   </entry>
   <entry>
     <title>AJAX学习笔记</title>
@@ -894,87 +973,8 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
         <category>网络</category>
       </categories>
       <tags>
+        <tag>JavaScript</tag>
         <tag>AJAX</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>promise学习笔记</title>
-    <url>/delicate/2021/12/10/promise-learn/</url>
-    <content><![CDATA[<div class='description dark'><span class='description-title'>ES6原生提供了Promise对象</span><div><p>Promise 是一个对象，它代表了一个异步操作的最终完成或者失败。<br>Promise能够很好的避免回调函数的嵌套，让函数更具可读性和维护性。</p></div></div>
-
-<p>控制台输入<code>console.dir(Promise)</code>查看 promise 是什么：</p>
-<p><img src="https://s2.loli.net/2021/12/10/yIuXmMBpifwUP73.png" alt="Promise"></p>
-<span id="more"></span>
-<h2 id="使用-Promise"><a href="#使用-Promise" class="headerlink" title="使用 Promise"></a>使用 Promise</h2><div class="note note-info">
-            <p>本质上 Promise 是一个函数返回的对象，我们可以在它上面绑定回调函数，这样我们就不需要在一开始把回调函数作为参数传入这个函数了。</p>
-          </div>
-
-<p>假设现在有一个名为 createAudioFileAsync() 的函数，它接收一些配置和两个回调函数，然后异步地生成音频文件。一个回调函数在文件成功创建时被调用，另一个则在出现异常时被调用。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 成功的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successCallback</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建成功: &quot;</span> + result);<br>&#125;<br><span class="hljs-comment">// 失败的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">failureCallback</span>(<span class="hljs-params">error</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建失败: &quot;</span> + error);<br>&#125;<br>createAudioFileAsync(audioSettings, successCallback, failureCallback)<br></code></pre></td></tr></table></figure>
-
-<p>如果函数 <code>createAudioFileAsync()</code> 被重写为返回 Promise 的形式，那么我们可以像下面这样简单地调用它：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">createAudioFileAsync(audioSettings)<br>    .then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
-
-<p>我们把这个称为 <code>异步函数调用</code> ，这种形式有若干优点。</p>
-<h3 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h3><p>不同于“老式”的传入回调，在使用 Promise 时，会有以下约定：</p>
-<ul>
-<li>在本轮 事件循环 运行完成之前，回调函数是不会被调用的。</li>
-<li>即使异步操作已经完成（成功或失败），在这之后通过 then() 添加的回调函数也会被调用。</li>
-<li>通过多次调用 then() 可以添加多个回调函数，它们会按照插入顺序进行执行。</li>
-</ul>
-<p>Promise 很棒的一点就是<code>链式调用（chaining）</code>。</p>
-<h3 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h3><p>连续执行两个或者多个异步操作是一个常见的需求，在上一个操作执行成功之后，开始下一个的操作，并带着上一步操作所返回的结果。我们可以通过创造一个 Promise 链来实现这种需求。</p>
-<blockquote>
-<p>then() 函数会返回一个和原来不同的新的 Promise</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise2 = doSomething().then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
-
-<p>promise2 不仅表示 <em>doSomething()</em> 函数的完成，也代表了你传入的 <em>successCallback</em> 或者 <em>failureCallback</em> 的完成，这两个函数也可以返回一个 Promise 对象，从而形成另一个异步操作，这样的话，在 promise2 上新增的回调函数会排在这个 Promise 对象的后面。</p>
-<p>基本上，每一个 Promise 都代表了链中另一个异步过程的完成。</p>
-<p>在过去，要想做多重的异步操作，会导致经典的回调地狱：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  doSomethingElse(result, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>    doThirdThing(newResult, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>    &#125;, failureCallback);<br>  &#125;, failureCallback);<br>&#125;, failureCallback);<br></code></pre></td></tr></table></figure>
-
-<p>现在，我们可以把回调绑定到返回的 Promise 上，形成一个 Promise 链：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doSomethingElse(result);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doThirdThing(newResult);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
-
-<p>then 里的参数是可选的，catch(failureCallback) 是 then(null, failureCallback) 的缩略形式。</p>
-<p>如下所示，我们也可以用箭头函数来表示：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething()<br>.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> doSomethingElse(result))<br>.then(<span class="hljs-function"><span class="hljs-params">newResult</span> =&gt;</span> doThirdThing(newResult))<br>.then(<span class="hljs-function"><span class="hljs-params">finalResult</span> =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Got the final result: <span class="hljs-subst">$&#123;finalResult&#125;</span>`</span>);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
-
-<div class='description success'><span class='description-title'>注意</span><div><p>一定要有返回值，否则，callback 将无法获取上一个 Promise 的结果。(如果使用箭头函数，() =&gt; x 比 () =&gt; { return x; } 更简洁一些，但后一种保留 return 的写法才支持使用多个语句。）。</p></div></div>
-
-<h2 id="resolve-amp-reject"><a href="#resolve-amp-reject" class="headerlink" title="resolve &amp; reject"></a>resolve &amp; reject</h2><blockquote>
-<p>Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve方法和reject方法。<br>如果异步操作成功，则用resolve方法将Promise对象的状态变为“成功”（即从pending变为resolved）；<br>如果异步操作失败，则用reject方法将状态变为“失败”（即从pending变为rejected）。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-comment">/* 异步操作成功 */</span>)&#123;<br>    resolve(value);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    reject(error);<br>  &#125;<br>&#125;);<br><br>promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;<br>  <span class="hljs-comment">// success</span><br>&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;<br>  <span class="hljs-comment">// failure</span><br>&#125;)<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><code>Promise.prototype.then</code>方法返回的是一个新的Promise对象，因此可以采用链式写法。</li>
-<li><code>Promise.prototype.catch</code>方法是<code>Promise.prototype.then(null, rejection)</code>的别名，用于指定发生错误时的回调函数。<ul>
-<li>Promise对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。</li>
-</ul>
-</li>
-<li><code>Promise.all</code>和<code>Promise.race</code>方法方法用于将多个Promise实例，包装成一个新的Promise实例。</li>
-</ul>
-<h2 id="参考文章-amp-More"><a href="#参考文章-amp-More" class="headerlink" title="参考文章 &amp; More"></a>参考文章 &amp; More</h2><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN - Promise</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises">MDN - Using_promises</a></li>
-<li><a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/promise.html">Generator 函数 | ECMAScript 6入门</a></li>
-</ul>
-<h2 id="async-await-语法糖"><a href="#async-await-语法糖" class="headerlink" title="async/await 语法糖"></a>async/await 语法糖</h2><blockquote>
-<p>async函数是使用async关键字声明的函数。async和await关键字让我们可以用一种更简洁的方式写出基于Promise的异步行为，而无需刻意地链式调用promise。</p>
-</blockquote>
-<p>async函数是用来取代回调函数的另一种方法。</p>
-<p>只要函数名之前加上async关键字，就表明该函数内部有异步操作。该异步操作应该返回一个Promise对象，前面用await关键字注明。当函数执行的时候，一旦遇到await就会先返回，等到触发的异步操作完成，再接着执行函数体内后面的语句。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function">more</a></p>
-]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>promise</tag>
       </tags>
   </entry>
 </search>
