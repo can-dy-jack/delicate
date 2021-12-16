@@ -148,67 +148,145 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 blog-main">
-                <h2 class="post-archives-head">Archives <span class="badge badge-primary">10 </span></h2>
-<div class="alert alert-info" role="alert">
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/11/25/php01/">
-        php环境配置
-    </a>
-    <span>
-        2021-11-25
-    </span>
-</div>
+                
+<div class="blog-post">
+    <!-- 文章标题导航栏 -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+        <div class="toast-header">
+            <span class="toast-color"></span>
+            <strong class="mr-auto">XSS攻击</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E5%9E%8BXSS"><span class="toc-number">1.</span> <span class="toc-text">反射型XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%A8%E5%AD%98%E5%9E%8BXSS"><span class="toc-number">2.</span> <span class="toc-text">储存型XSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B1%E5%AE%B3"><span class="toc-number"></span> <span class="toc-text">危害</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%83%E5%8F%96%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E4%B8%AD%E7%9A%84cookie%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">窃取网页浏览中的cookie值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%AB%E6%8C%81%E6%B5%81%E9%87%8F%E5%AE%9E%E7%8E%B0%E6%81%B6%E6%84%8F%E8%B7%B3%E8%BD%AC"><span class="toc-number">2.</span> <span class="toc-text">劫持流量实现恶意跳转</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%BF%E5%85%8DXSS%E6%94%BB%E5%87%BB"><span class="toc-number"></span> <span class="toc-text">避免XSS攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">参考文章</span></a>
+        </div>
+    </div>
+    <!-- Title -->
+    <h2 class="blog-post-title">
+        <a href="/delicate/2021/12/16/XSS攻击/">
+            XSS攻击
+        </a>
+        <span id="toc" data-toggle="tooltip" data-placement="right" title="显示目录导航">
+            <svg id="icon" aria-hidden="true">
+                <use xlink:href="#icon-caidan"></use>
+            </svg>
+        </span>
+    </h2>
+    <p class="blog-post-meta">
+        <span>2021-12-16</span>
+        <span>
+            
+        </span>
+        <span class="post-count">982字</span>
+        <span class="post-count">3分钟</span>
 
     
-        <div class="post-archives">
-    <a href="/delicate/2021/11/24/二次元图片/">
-        二次元图片
-    </a>
-    <span>
-        2021-11-24
-    </span>
-</div>
-
+        <span class="not-origin">搬运</span>
     
-        <div class="post-archives">
-    <a href="/delicate/2021/11/14/markdown测试文件/">
-        markdown测试文件
-    </a>
-    <span>
-        2021-11-14
-    </span>
-</div>
 
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/11/12/code-test/">
-        Tag Plugins
-    </a>
-    <span>
-        2021-11-12
-    </span>
-</div>
+    </p>
+    <!-- Content -->
+    <div class='description dark'><span class='description-title'>百度百科</span><div><ul><li>人们经常将跨站脚本攻击（Cross Site Scripting）缩写为CSS，但这会与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。  </li><li>跨站脚本攻击（XSS），是最普遍的Web应用安全漏洞。这类漏洞能够使得攻击者嵌入恶意脚本代码到正常用户会访问到的页面中，当正常用户访问该页面时，则可导致嵌入的恶意脚本代码的执行，从而达到恶意攻击用户的目的。</li><li>在Web安全威胁前10位中，XSS排名第2，仅次于代码注入（Injection）。</li></ul><blockquote><p>HTML是一种超文本标记语言，通过将一些字符特殊地对待来区别文本和标记，<br>例如，小于符号（&lt;）被看作是HTML标签的开始，<code>&lt;title&gt;</code>与<code>&lt;/title&gt;</code>之间的字符是页面的标题等等。当动态页面中插入的内容含有这些特殊字符（如&lt;）时，<br>用户浏览器会将其误认为是插入了HTML标签，当这些HTML标签引入了一段JavaScript脚本时，这些脚本程序就将会在用户浏览器中执行。<br>所以，当这些特殊字符不能被动态页面检查或检查出现失误时，就将会产生XSS漏洞。</p></blockquote></div></div>
 
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/11/04/hello-world/">
-        Hello World
-    </a>
-    <span>
-        2021-11-04
-    </span>
-</div>
+<span id="more"></span>
 
-    
-</div>
-<nav aria-label="Page navigation">
-    <ul class="pagination">
+<h4 id="XSS攻击大致上分为两类："><a href="#XSS攻击大致上分为两类：" class="headerlink" title="XSS攻击大致上分为两类："></a>XSS攻击大致上分为两类：</h4><ul>
+<li>一类是反射型XSS，又称非持久型XSS。</li>
+<li>一类是储存型XSS，也就是持久型XSS。</li>
+</ul>
+<h3 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h3><blockquote>
+<p>攻击相对于访问者而言是一次性的</p>
+</blockquote>
+<h3 id="储存型XSS"><a href="#储存型XSS" class="headerlink" title="储存型XSS"></a>储存型XSS</h3><blockquote>
+<p>将攻击代价储存到数据库中，然后当我们再次访问相同页面时，将恶意脚本从数据库中取出并返回给浏览器执行。这就意味着只要访问了这个页面的访客，都有可能会执行这段恶意脚本，因此储存型XSS的危害会更大。</p>
+</blockquote>
+<h2 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h2><p>XSS的攻击方式就是想办法通过插入js代码，使用户的浏览器去执行一些这个网页中原本不存在的前端代码。</p>
+<h3 id="窃取网页浏览中的cookie值"><a href="#窃取网页浏览中的cookie值" class="headerlink" title="窃取网页浏览中的cookie值"></a>窃取网页浏览中的cookie值</h3><p>在网页浏览中我们常常涉及到用户登录，登录完毕之后服务端会返回一个cookie值。这个cookie值相当于一个令牌，拿着这张令牌就等同于证明了你是某个用户。<br>如果你的cookie值被窃取，那么攻击者很可能能够直接利用你的这张令牌不用密码就登录你的账户。<br>如果想要通过script脚本获得当前页面的cookie值，通常会用到document.cookie。</p>
+<h3 id="劫持流量实现恶意跳转"><a href="#劫持流量实现恶意跳转" class="headerlink" title="劫持流量实现恶意跳转"></a>劫持流量实现恶意跳转</h3><p>就是在网页中想办法插入一句像这样的语句：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-built_in">window</span>.location.href=<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>那么所访问的网站就会被跳转到百度的首页。</p>
+<h2 id="避免XSS攻击"><a href="#避免XSS攻击" class="headerlink" title="避免XSS攻击"></a>避免XSS攻击</h2><ul>
+<li>过滤<ul>
+<li>有的时候，服务器往往会对代码中的关键字（如<code>alert</code>）进行过滤，这个时候我们可以尝试将关键字进行编码后再插入，不过直接显示编码是不能被浏览器执行的，我们可以用val（）来实现, <code>eval()</code>会将编码过的语句解码后再执行。</li>
+<li>对诸如<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;a&gt;</code>等标签进行过滤。</li>
+</ul>
+</li>
+<li>编码<ul>
+<li>像一些常见的符号，如&lt;&gt;在输入的时候要对其进行转换编码，这样做浏览器是不会对该标签进行解释执行的，同时也不影响显示效果。</li>
+</ul>
+</li>
+<li>限制<ul>
+<li>通过以上的案例我们不难发现xss攻击要能达成往往需要较长的字符串，因此对于一些可以预期的输入可以通过限制长度强制截断来进行防御。</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26177815">知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/XSS%E6%94%BB%E5%87%BB/954065?fr=aladdin">百度百科</a></li>
+</ul>
+
+    <hr />
+    <!-- Tags and Categories links -->
+    <div class="blog-tag-and-cate">
         
-        
-    </ul>
-</nav>
 
+<div class="blog-tags-container">
+    <span class="glyphicon glyphicon-tags">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-tag"></use>
+        </svg>
+    </span>
+    
+        <span class="blog-text">
+        <a href="/delicate/tags/网络安全/">#网络安全</a>
+        </span>
+    
+        <span class="blog-text">
+        <a href="/delicate/tags/XSS/">#XSS</a>
+        </span>
+    
+</div>
+
+
+        
+
+
+<div class="blog-categories-container">
+    <span class="glyphicon glyphicon-folder-open">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-categories"></use>
+        </svg>
+    </span>
+    
+        <span class="blog-text">
+            <a href="/delicate/categories/网络安全/">网络安全</a>
+        </span>
+    
+</div>
+
+
+    </div>
+    <div class="alert alert-danger" style="margin: 15px 5px;">本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</div>
+
+    <div class="blog-post-change">
+        <div class="blog-post-pre">
+            
+                <span class="blog-post-pre-icon">&#60;</span>
+                <a href="/delicate/2021/12/16/cookie/"> cookie</a>
+            
+        </div>
+        <div class="blog-post-next">
+            
+                <a href="/delicate/2021/12/10/promise-learn/"> promise学习笔记</a>
+                <span class="blog-post-next-icon">&#62;</span>
+            
+        </div>
+    </div>
+    <hr>
+</div>
 
 
 

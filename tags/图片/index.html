@@ -152,7 +152,7 @@
 <div class="alert alert-light shadow tag-box">
     <h3>标签</h3>
 
-    <a href="/delicate/tags/AJAX/" style="font-size: 16px; color: #a00">AJAX</a> <a href="/delicate/tags/JavaScript/" style="font-size: 35px; color: #a0a">JavaScript</a> <a href="/delicate/tags/bug%E8%AE%B0%E5%BD%95/" style="font-size: 16px; color: #a00">bug记录</a> <a href="/delicate/tags/code/" style="font-size: 35px; color: #a0a">code</a> <a href="/delicate/tags/first/" style="font-size: 16px; color: #a00">first</a> <a href="/delicate/tags/php%E5%AD%A6%E4%B9%A0/" style="font-size: 16px; color: #a00">php学习</a> <a href="/delicate/tags/promise/" style="font-size: 16px; color: #a00">promise</a> <a href="/delicate/tags/test/" style="font-size: 16px; color: #a00">test</a> <a href="/delicate/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/" style="font-size: 16px; color: #a00">二次元</a> <a href="/delicate/tags/%E5%9B%BE%E7%89%87/" style="font-size: 16px; color: #a00">图片</a> <a href="/delicate/tags/%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/" style="font-size: 35px; color: #a0a">测试文件</a>
+    <a href="/delicate/tags/AJAX/" style="font-size: 16px; color: #a00">AJAX</a> <a href="/delicate/tags/JavaScript/" style="font-size: 35px; color: #a0a">JavaScript</a> <a href="/delicate/tags/XSS/" style="font-size: 16px; color: #a00">XSS</a> <a href="/delicate/tags/bug%E8%AE%B0%E5%BD%95/" style="font-size: 16px; color: #a00">bug记录</a> <a href="/delicate/tags/code/" style="font-size: 35px; color: #a0a">code</a> <a href="/delicate/tags/cookie/" style="font-size: 16px; color: #a00">cookie</a> <a href="/delicate/tags/first/" style="font-size: 16px; color: #a00">first</a> <a href="/delicate/tags/front-end/" style="font-size: 16px; color: #a00">front-end</a> <a href="/delicate/tags/php%E5%AD%A6%E4%B9%A0/" style="font-size: 16px; color: #a00">php学习</a> <a href="/delicate/tags/promise/" style="font-size: 16px; color: #a00">promise</a> <a href="/delicate/tags/test/" style="font-size: 16px; color: #a00">test</a> <a href="/delicate/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/" style="font-size: 16px; color: #a00">二次元</a> <a href="/delicate/tags/%E5%9B%BE%E7%89%87/" style="font-size: 16px; color: #a00">图片</a> <a href="/delicate/tags/%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/" style="font-size: 35px; color: #a0a">测试文件</a> <a href="/delicate/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 16px; color: #a00">网络安全</a>
 </div>
 
             </div>
@@ -161,6 +161,35 @@
 
 <div class="alert alert-light shadow-sm sidebar-top">
     <h3>置顶文章</h3>
+    
+        
+<div class="sidebar-top-part">
+    <div>
+        <a href="/delicate/2021/11/12/code-test/">
+            Tag Plugins
+        </a>
+    </div>
+    <div>
+        
+        
+            
+                <span class="badge badge-pill badge-primary">测试文件</span>
+            
+                <span class="badge badge-pill badge-primary">code</span>
+            
+        
+    </div>
+    <div>
+        2021-11-12
+    </div>
+</div>
+
+
+
+    
+        
+
+
     
         
 <div class="sidebar-top-part">
@@ -188,27 +217,6 @@
 
     
         
-<div class="sidebar-top-part">
-    <div>
-        <a href="/delicate/2021/11/12/code-test/">
-            Tag Plugins
-        </a>
-    </div>
-    <div>
-        
-        
-            
-                <span class="badge badge-pill badge-primary">测试文件</span>
-            
-                <span class="badge badge-pill badge-primary">code</span>
-            
-        
-    </div>
-    <div>
-        2021-11-12
-    </div>
-</div>
-
 
 
     
@@ -246,6 +254,10 @@
 
     
         
+
+
+    
+        
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/24/二次元图片/">
@@ -267,10 +279,6 @@
     </div>
 </div>
 
-
-
-    
-        
 
 
     
@@ -533,7 +541,7 @@ jinrishici.load(function(result) {
         <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
 // fancybox
-/* 
+/*
 * 最笨的方法：用js给img套上a标签，得以使用fancybox。
 */
 var imgs = document.querySelectorAll('.blog-post img');
@@ -570,6 +578,17 @@ $(document).ready(function() {
 <script src="/delicate/js/show_text.js" text="富强,民主,文明,和谐,美丽" id="showText" color="red"></script>
 
 
+
+
+
+
+
+
+
+<script src='https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js'></script>
+<script>
+    mermaid.initialize({startOnLoad:true});
+</script>
 
 
 

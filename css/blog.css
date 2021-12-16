@@ -4,7 +4,7 @@ html{
 }
 
 body {
-    font-family: 'PTSans', 'JetBrains Mono',microsoft yahei, serif;
+    font-family: Roboto Mono, 'PTSans', 'JetBrains Mono',microsoft yahei, serif;
 }
 h1, .h1,
 h2, .h2,
@@ -17,7 +17,6 @@ h6, .h6 {
     font-weight: normal;
     color: #333;
 }
-
 /*
  * Override Bootstrap's default container.
  */
@@ -290,7 +289,7 @@ nav.navbar .nav-item .nav-link:hover::after{
     margin-bottom: 0;
 }
 
-/* 
+/*
  * sidebar
  */
 .sidebar-top{
@@ -393,7 +392,7 @@ nav.navbar .nav-item .nav-link:hover::after{
 }
 .sidebar-about .my-social-account .icon-box a{
     text-decoration: none;
-    
+
 }
 
 .tag-box h3{
@@ -532,5 +531,13 @@ nav.navbar .nav-item .nav-link:hover::after{
     background-color: #fff;
 }
 
-/* snow */
-
+/* mermaid and mathjax */
+.mermaid svg{
+    max-width: none !important;
+    max-height: 400px;
+}
+.has-jax{
+    max-width: 100%;
+    overflow: auto;
+    /*background-color: #fafafa;*/
+}

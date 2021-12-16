@@ -148,67 +148,148 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 blog-main">
-                <h2 class="post-archives-head">Archives <span class="badge badge-primary">10 </span></h2>
-<div class="alert alert-info" role="alert">
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/11/25/php01/">
-        php环境配置
-    </a>
-    <span>
-        2021-11-25
-    </span>
-</div>
+                
+<div class="blog-post">
+    <!-- 文章标题导航栏 -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+        <div class="toast-header">
+            <span class="toast-color"></span>
+            <strong class="mr-auto">cookie</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">cookie是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-number">1.1.</span> <span class="toc-text">组成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">cookie工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8js%E6%93%8D%E4%BD%9Ccookie"><span class="toc-number">3.</span> <span class="toc-text">使用js操作cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0-amp-%E6%9B%B4%E5%A4%9A"><span class="toc-number">4.</span> <span class="toc-text">参考文章 &amp; 更多</span></a></li></ol>
+        </div>
+    </div>
+    <!-- Title -->
+    <h2 class="blog-post-title">
+        <a href="/delicate/2021/12/16/cookie/">
+            cookie
+        </a>
+        <span id="toc" data-toggle="tooltip" data-placement="right" title="显示目录导航">
+            <svg id="icon" aria-hidden="true">
+                <use xlink:href="#icon-caidan"></use>
+            </svg>
+        </span>
+    </h2>
+    <p class="blog-post-meta">
+        <span>2021-12-16</span>
+        <span>
+            
+        </span>
+        <span class="post-count">625字</span>
+        <span class="post-count">2分钟</span>
 
     
-        <div class="post-archives">
-    <a href="/delicate/2021/11/24/二次元图片/">
-        二次元图片
-    </a>
-    <span>
-        2021-11-24
-    </span>
-</div>
 
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/11/14/markdown测试文件/">
-        markdown测试文件
-    </a>
-    <span>
-        2021-11-14
-    </span>
-</div>
+    </p>
+    <!-- Content -->
+    <h2 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h2><div class='description dark'><span class='description-title'>百度百科</span><div><p>cookie是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web 文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。<br>由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序</p></div></div>
 
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/11/12/code-test/">
-        Tag Plugins
-    </a>
-    <span>
-        2021-11-12
-    </span>
-</div>
+<p>HTTP协议本身是无状态的，即服务器无法判断用户身份。Cookie实际上是一小段的文本信息（key-value格式）。<br>一个 Web 站点可能会为每一个访问者产生一个唯一的ID, 然后以 Cookie 文件的形式保存在每个用户的机器上。</p>
+<span id="more"></span>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><p>Cookie是一段不超过4KB的小型文本数据，由一个名称（Name）、一个值（Value）和其它几个用于控制Cookie有效期、安全性、使用范围的可选属性组成。</p>
+<ul>
+<li><strong>Name/Value</strong><ul>
+<li>设置Cookie的名称及相对应的值，对于认证Cookie；Value值包括Web服务器所提供的访问令牌。</li>
+</ul>
+</li>
+<li>Expires属性<ul>
+<li>设置Cookie的生存期。有两种存储类型的Cookie：会话性与持久性。Expires属性缺省时，为会话性Cookie，仅保存在客户端内存中，并在用户关闭浏览器时失效；持久性Cookie会保存在用户的硬盘中，直至生存期到或用户直接在网页中单击“注销”等按钮结束会话时才会失效。</li>
+</ul>
+</li>
+<li>Path属性<ul>
+<li>定义了Web站点上可以访问该Cookie的目录。</li>
+</ul>
+</li>
+<li>Domain属性<ul>
+<li>指定了可以访问该 Cookie 的 Web 站点或域。Cookie 机制并未遵循严格的同源策略，允许一个子域可以设置或获取其父域的 Cookie。</li>
+</ul>
+</li>
+<li>Secure属性<ul>
+<li>指定是否使用HTTPS安全协议发送Cookie。</li>
+</ul>
+</li>
+<li>HTTPOnly属性<ul>
+<li>用于防止客户端脚本通过document.cookie属性访问Cookie，有助于保护Cookie不被跨站脚本攻击窃取或篡改。</li>
+</ul>
+</li>
+</ul>
+<h2 id="cookie工作流程"><a href="#cookie工作流程" class="headerlink" title="cookie工作流程"></a>cookie工作流程</h2><pre class="mermaid">sequenceDiagram;
+    Web Client->>+WebServer: ① HTTP Request;
+    WebServer-->>-Web Client: ② HTTP Response + Set-Cookie;
+    Web Client->>+WebServer: ③ HTTP Request + Cookie;
+    WebServer-->>-Web Client: ④ HTTP Response;</pre>
 
-    
-        <div class="post-archives">
-    <a href="/delicate/2021/11/04/hello-world/">
-        Hello World
-    </a>
-    <span>
-        2021-11-04
-    </span>
-</div>
+<h2 id="使用js操作cookie"><a href="#使用js操作cookie" class="headerlink" title="使用js操作cookie"></a>使用js操作cookie</h2><blockquote>
+<p>JavaScript 可以使用 document.cookie 属性来创建 、读取、及删除 cookie。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.cookie=<span class="hljs-string">&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;</span>;<br></code></pre></td></tr></table></figure>
 
-    
-</div>
-<nav aria-label="Page navigation">
-    <ul class="pagination">
+<h2 id="参考文章-amp-更多"><a href="#参考文章-amp-更多" class="headerlink" title="参考文章 &amp; 更多"></a>参考文章 &amp; 更多</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/cookie/1119?fr=aladdin">百度百科 - cookie</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6fc9cea6daa2">简书</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/js/js-cookies.html">使用js操作cookie</a></li>
+</ul>
+
+    <hr />
+    <!-- Tags and Categories links -->
+    <div class="blog-tag-and-cate">
         
-        
-    </ul>
-</nav>
 
+<div class="blog-tags-container">
+    <span class="glyphicon glyphicon-tags">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-tag"></use>
+        </svg>
+    </span>
+    
+        <span class="blog-text">
+        <a href="/delicate/tags/cookie/">#cookie</a>
+        </span>
+    
+        <span class="blog-text">
+        <a href="/delicate/tags/front-end/">#front-end</a>
+        </span>
+    
+</div>
+
+
+        
+
+
+<div class="blog-categories-container">
+    <span class="glyphicon glyphicon-folder-open">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-categories"></use>
+        </svg>
+    </span>
+    
+        <span class="blog-text">
+            <a href="/delicate/categories/网络/">网络</a>
+        </span>
+    
+</div>
+
+
+    </div>
+    <div class="alert alert-danger" style="margin: 15px 5px;">本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</div>
+
+    <div class="blog-post-change">
+        <div class="blog-post-pre">
+            
+        </div>
+        <div class="blog-post-next">
+            
+                <a href="/delicate/2021/12/16/XSS%E6%94%BB%E5%87%BB/"> XSS攻击</a>
+                <span class="blog-post-next-icon">&#62;</span>
+            
+        </div>
+    </div>
+    <hr>
+</div>
 
 
 
