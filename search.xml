@@ -52,267 +52,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tag Plugins</title>
-    <url>/delicate/2021/11/12/code-test/</url>
-    <content><![CDATA[<blockquote>
-<p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
-</blockquote>
-<p><a href="https://hexo.io/zh-cn/docs/tag-plugins">more</a></p>
-<span id="more"></span>
-
-<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;<br>content<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="没有提供参数，则只输出普通的-blockquote"><a href="#没有提供参数，则只输出普通的-blockquote" class="headerlink" title="没有提供参数，则只输出普通的 blockquote"></a>没有提供参数，则只输出普通的 blockquote</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote %&#125;<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
-</blockquote>
-
-<h3 id="引用书上的句子"><a href="#引用书上的句子" class="headerlink" title="引用书上的句子"></a>引用书上的句子</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote David Levithan, Wide Awake %&#125;<br>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-
-<h3 id="引用-Twitter"><a href="#引用-Twitter" class="headerlink" title="引用 Twitter"></a>引用 Twitter</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;<br>NEW: DevDocs now comes with syntax highlighting. http://devdocs.io<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io/">http://devdocs.io</a></p>
-<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-
-<h3 id="引用网络上的文章"><a href="#引用网络上的文章" class="headerlink" title="引用网络上的文章"></a>引用网络上的文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;<br>Every interaction is both precious and an opportunity to delight.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
-<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
-
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><blockquote>
-<p>用法不同于markdown的代码块，但是hexo解析结果一致，所以样式一样。</p>
-</blockquote>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;<br>code snippet<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="普通的代码块"><a href="#普通的代码块" class="headerlink" title="普通的代码块"></a>普通的代码块</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock %&#125;<br>alert(&#x27;Hello World!&#x27;);<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">alert(&#x27;Hello World!&#x27;);<br></code></pre></td></tr></table></figure>
-
-<h3 id="指定语言"><a href="#指定语言" class="headerlink" title="指定语言"></a>指定语言</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock lang:objc %&#125;<br>[rectangle setX: 10 y: 10 width: 20 height: 20];<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><code class="hljs objc">[rectangle setX: <span class="hljs-number">10</span> y: <span class="hljs-number">10</span> width: <span class="hljs-number">20</span> height: <span class="hljs-number">20</span>];<br></code></pre></td></tr></table></figure>
-
-<h3 id="附加说明"><a href="#附加说明" class="headerlink" title="附加说明"></a>附加说明</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock Array.map %&#125;<br>array.map(callback[, thisArg])<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><code class="hljs plaintext">array.map(callback[, thisArg])<br></code></pre></td></tr></table></figure>
-
-<h3 id="附加说明和网址"><a href="#附加说明和网址" class="headerlink" title="附加说明和网址"></a>附加说明和网址</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;<br>_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><code class="hljs plaintext">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br></code></pre></td></tr></table></figure>
-
-<h2 id="Pull-Quote"><a href="#Pull-Quote" class="headerlink" title="Pull Quote"></a>Pull Quote</h2><h3 id="无class（默认样式）"><a href="#无class（默认样式）" class="headerlink" title="无class（默认样式）"></a>无class（默认样式）</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote class="pullquote"><p>文本内容</p>
-</blockquote>
-
-<h3 id="带有颜色"><a href="#带有颜色" class="headerlink" title="带有颜色"></a>带有颜色</h3><h4 id="information"><a href="#information" class="headerlink" title="information"></a>information</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote information %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote class="pullquote information"><p>文本内容</p>
-</blockquote>
-
-<h4 id="danger"><a href="#danger" class="headerlink" title="danger"></a>danger</h4><blockquote class="pullquote danger"><p>文本内容</p>
-</blockquote>
-
-<h4 id="red"><a href="#red" class="headerlink" title="red"></a>red</h4><blockquote class="pullquote red"><p>文本内容</p>
-</blockquote>
-
-<h4 id="blue"><a href="#blue" class="headerlink" title="blue"></a>blue</h4><blockquote class="pullquote blue"><p>文本内容</p>
-</blockquote>
-
-<h3 id="文字对中"><a href="#文字对中" class="headerlink" title="文字对中"></a>文字对中</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote [class] center %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote class="pullquote information center"><p>文本内容</p>
-</blockquote>
-
-<h2 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% iframe url [width] [height] %&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><blockquote>
-<p>在文章中插入指定大小的图片。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% img [class names] /path/to/image [width] [height] &#x27;&quot;title text&quot; &quot;alt text&quot;&#x27; %&#125;<br></code></pre></td></tr></table></figure>
-
-<img src="/delicate/img/avatar.png" class="" width="120" height="120" title="title text" alt="alt text">
-
-<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p>在文章中插入链接，并自动给外部链接添加 target=”_blank” 属性。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% link text url [external] [title] %&#125;<br></code></pre></td></tr></table></figure>
-
-<a href="https://kartjim.top/dellicate" title="" target="">我的博客</a>
-
-<h2 id="本主题内置"><a href="#本主题内置" class="headerlink" title="本主题内置"></a>本主题内置</h2><h3 id="tags-note"><a href="#tags-note" class="headerlink" title="tags note"></a>tags note</h3><blockquote>
-<p>主题内置的tag<br>参考了 <a href="https://github.com/fluid-dev/hexo-theme-fluid">hexo-theme-fluid</a></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
-
-<div class="note note-default">
-            <p>默认样式</p>
-          </div>
-<div class="note note-info">
-            <p>info</p>
-          </div>
-<div class="note note-primary">
-            <p>primary</p>
-          </div>
-<div class="note note-success">
-            <p>success</p>
-          </div>
-<div class="note note-danger">
-            <p>danger</p>
-          </div>
-<div class="note note-warning">
-            <p>warning</p>
-          </div>
-<div class="note note-light">
-            <p>light</p>
-          </div>
-
-<div class="note note-cyan">
-            <p>cyan</p>
-          </div>
-<div class="note note-purple">
-            <p>purple</p>
-          </div>
-
-<h4 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h4><div class="note note-default">
-            <ul><li>1</li><li>2</li><li>3<ul><li>31<ul><li>311</li></ul></li><li>32</li><li>33</li></ul></li></ul>
-          </div>
-<div class="note note-danger">
-            <p>一个note tag内只能有一个列表</p>
-          </div>
-
-<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><blockquote>
-<p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
-</blockquote>
-<div class="note note-warning">
-            <p>需要注意的是，前面的颜色值和后面的文字中间不能有空格！<br>如果文字真的需要空格，那就使用多个color tag！</p>
-          </div>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% color [color] [文字] %&#125;<br></code></pre></td></tr></table></figure>
-
-<span style="color:blue;">蓝色</span>
-
-<span style="color:rgb(128,128,64);">rgb(128,64,64)</span>
-
-<span style="color:#ff3346;">HEX-#ff3346</span>
-
-<span style="color:hsl(300,100%,25%);">hsl(300,100%,25%)</span>
-
-<h3 id="alert"><a href="#alert" class="headerlink" title="alert"></a>alert</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% alert [class] %&#125;<br>A simple primary alert—check it out!<br>&#123;% endalert %&#125;<br></code></pre></td></tr></table></figure>
-
-<div class="alert alert-primary">
-                <p>A simple primary alert—check it out!</p>
-            </div>
-<div class="alert alert-info">
-                <p>A simple info alert—check it out!</p>
-            </div>
-<div class="alert alert-success">
-                <p>A simple success alert—check it out!</p>
-            </div>
-<p>可选值：</p>
-<ul>
-<li>primary</li>
-<li>secondary</li>
-<li>success</li>
-<li>danger</li>
-<li>warning</li>
-<li>info</li>
-<li>light</li>
-<li>dark</li>
-</ul>
-<h3 id="collapse"><a href="#collapse" class="headerlink" title="collapse"></a>collapse</h3><blockquote>
-<p>bootstrap collapse</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% collapse [class] [按钮文字] [id] %&#125;<br>折叠内容<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
-
-<span style="color:red;">三个参数均不可少！</span>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">注意事项</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">[class]</td>
-<td align="center">按钮的样式，选项为<a href="https://v4.bootcss.com/docs/components/buttons/">boostrap的按钮样式</a></td>
-</tr>
-<tr>
-<td align="center">[按钮文字]</td>
-<td align="center">按钮上面显示的文字</td>
-</tr>
-<tr>
-<td align="center">[id]</td>
-<td align="center">在同一篇文章里，每个collapse的id需要唯一，即每个collapse的id需要设定不同的值；值随意，不同就行。</td>
-</tr>
-</tbody></table>
-<div class="note note-danger">
-            <p>参数中如有空格，需要给参数加上引号！</p>
-          </div>
-<p>例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% collapse info &#x27;点击显示折叠内容&#x27; id1 %&#125;<br>这里写需要隐藏的文字。<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
-
-<div>
-            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#id1" aria-expanded="false" aria-controls="id1">
-                点击显示折叠内容
-            </button>
-            </div>
-            <div class="collapse" id="id1">
-                <div class="card card-body">
-                折叠内容并不支持太复杂的语法，列表、表格均不支持；但支持代码
-                </div>
-            </div>
-
-<p>more：</p>
-<div>
-            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#id2" aria-expanded="false" aria-controls="id2">
-                点击显示折叠内容
-            </button>
-            </div>
-            <div class="collapse" id="id2">
-                <div class="card card-body">
-                折叠内容
-                </div>
-            </div>
-
-<div>
-            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#id3" aria-expanded="false" aria-controls="id3">
-                点击显示折叠内容
-            </button>
-            </div>
-            <div class="collapse" id="id3">
-                <div class="card card-body">
-                折叠内容
-                </div>
-            </div>
-
-<h3 id="description"><a href="#description" class="headerlink" title="description"></a>description</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% description dark 提示 %&#125;<br>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。<br>&#123;% enddescription %&#125;<br></code></pre></td></tr></table></figure>
-
-<div class='description dark'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<div class='description info'><span class='description-title'>信息</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-<div class='description success'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-<div class='description danger'><span class='description-title'>危险</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<ul>
-<li>danger</li>
-<li>info</li>
-<li>success</li>
-<li>dark</li>
-</ul>
-]]></content>
-      <categories>
-        <category>测试文件</category>
-      </categories>
-      <tags>
-        <tag>测试文件</tag>
-        <tag>code</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cookie</title>
     <url>/delicate/2021/12/16/cookie/</url>
     <content><![CDATA[<h2 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h2><div class='description dark'><span class='description-title'>百度百科</span><div><p>cookie是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web 文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。<br>由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序</p></div></div>
@@ -800,6 +539,267 @@
             <p>::: tip 百度百科<br>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V=S=1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。<br>增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。例如，要得到深蓝色，V=0.4 S=1 H=240度。要得到淡蓝色，V=1 S=0.4 H=240度。</p>
           </div>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Tag Plugins</title>
+    <url>/delicate/2021/11/12/code-test/</url>
+    <content><![CDATA[<blockquote>
+<p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
+</blockquote>
+<p><a href="https://hexo.io/zh-cn/docs/tag-plugins">more</a></p>
+<span id="more"></span>
+
+<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;<br>content<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="没有提供参数，则只输出普通的-blockquote"><a href="#没有提供参数，则只输出普通的-blockquote" class="headerlink" title="没有提供参数，则只输出普通的 blockquote"></a>没有提供参数，则只输出普通的 blockquote</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote %&#125;<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
+</blockquote>
+
+<h3 id="引用书上的句子"><a href="#引用书上的句子" class="headerlink" title="引用书上的句子"></a>引用书上的句子</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote David Levithan, Wide Awake %&#125;<br>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+
+<h3 id="引用-Twitter"><a href="#引用-Twitter" class="headerlink" title="引用 Twitter"></a>引用 Twitter</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;<br>NEW: DevDocs now comes with syntax highlighting. http://devdocs.io<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io/">http://devdocs.io</a></p>
+<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
+
+<h3 id="引用网络上的文章"><a href="#引用网络上的文章" class="headerlink" title="引用网络上的文章"></a>引用网络上的文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;<br>Every interaction is both precious and an opportunity to delight.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
+
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><blockquote>
+<p>用法不同于markdown的代码块，但是hexo解析结果一致，所以样式一样。</p>
+</blockquote>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;<br>code snippet<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="普通的代码块"><a href="#普通的代码块" class="headerlink" title="普通的代码块"></a>普通的代码块</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock %&#125;<br>alert(&#x27;Hello World!&#x27;);<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">alert(&#x27;Hello World!&#x27;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="指定语言"><a href="#指定语言" class="headerlink" title="指定语言"></a>指定语言</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock lang:objc %&#125;<br>[rectangle setX: 10 y: 10 width: 20 height: 20];<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><code class="hljs objc">[rectangle setX: <span class="hljs-number">10</span> y: <span class="hljs-number">10</span> width: <span class="hljs-number">20</span> height: <span class="hljs-number">20</span>];<br></code></pre></td></tr></table></figure>
+
+<h3 id="附加说明"><a href="#附加说明" class="headerlink" title="附加说明"></a>附加说明</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock Array.map %&#125;<br>array.map(callback[, thisArg])<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><code class="hljs plaintext">array.map(callback[, thisArg])<br></code></pre></td></tr></table></figure>
+
+<h3 id="附加说明和网址"><a href="#附加说明和网址" class="headerlink" title="附加说明和网址"></a>附加说明和网址</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;<br>_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><code class="hljs plaintext">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br></code></pre></td></tr></table></figure>
+
+<h2 id="Pull-Quote"><a href="#Pull-Quote" class="headerlink" title="Pull Quote"></a>Pull Quote</h2><h3 id="无class（默认样式）"><a href="#无class（默认样式）" class="headerlink" title="无class（默认样式）"></a>无class（默认样式）</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote"><p>文本内容</p>
+</blockquote>
+
+<h3 id="带有颜色"><a href="#带有颜色" class="headerlink" title="带有颜色"></a>带有颜色</h3><h4 id="information"><a href="#information" class="headerlink" title="information"></a>information</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote information %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote information"><p>文本内容</p>
+</blockquote>
+
+<h4 id="danger"><a href="#danger" class="headerlink" title="danger"></a>danger</h4><blockquote class="pullquote danger"><p>文本内容</p>
+</blockquote>
+
+<h4 id="red"><a href="#red" class="headerlink" title="red"></a>red</h4><blockquote class="pullquote red"><p>文本内容</p>
+</blockquote>
+
+<h4 id="blue"><a href="#blue" class="headerlink" title="blue"></a>blue</h4><blockquote class="pullquote blue"><p>文本内容</p>
+</blockquote>
+
+<h3 id="文字对中"><a href="#文字对中" class="headerlink" title="文字对中"></a>文字对中</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote [class] center %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote information center"><p>文本内容</p>
+</blockquote>
+
+<h2 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% iframe url [width] [height] %&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><blockquote>
+<p>在文章中插入指定大小的图片。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% img [class names] /path/to/image [width] [height] &#x27;&quot;title text&quot; &quot;alt text&quot;&#x27; %&#125;<br></code></pre></td></tr></table></figure>
+
+<img src="/delicate/img/avatar.png" class="" width="120" height="120" title="title text" alt="alt text">
+
+<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p>在文章中插入链接，并自动给外部链接添加 target=”_blank” 属性。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% link text url [external] [title] %&#125;<br></code></pre></td></tr></table></figure>
+
+<a href="https://kartjim.top/dellicate" title="" target="">我的博客</a>
+
+<h2 id="本主题内置"><a href="#本主题内置" class="headerlink" title="本主题内置"></a>本主题内置</h2><h3 id="tags-note"><a href="#tags-note" class="headerlink" title="tags note"></a>tags note</h3><blockquote>
+<p>主题内置的tag<br>参考了 <a href="https://github.com/fluid-dev/hexo-theme-fluid">hexo-theme-fluid</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="note note-default">
+            <p>默认样式</p>
+          </div>
+<div class="note note-info">
+            <p>info</p>
+          </div>
+<div class="note note-primary">
+            <p>primary</p>
+          </div>
+<div class="note note-success">
+            <p>success</p>
+          </div>
+<div class="note note-danger">
+            <p>danger</p>
+          </div>
+<div class="note note-warning">
+            <p>warning</p>
+          </div>
+<div class="note note-light">
+            <p>light</p>
+          </div>
+
+<div class="note note-cyan">
+            <p>cyan</p>
+          </div>
+<div class="note note-purple">
+            <p>purple</p>
+          </div>
+
+<h4 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h4><div class="note note-default">
+            <ul><li>1</li><li>2</li><li>3<ul><li>31<ul><li>311</li></ul></li><li>32</li><li>33</li></ul></li></ul>
+          </div>
+<div class="note note-danger">
+            <p>一个note tag内只能有一个列表</p>
+          </div>
+
+<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><blockquote>
+<p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
+</blockquote>
+<div class="note note-warning">
+            <p>需要注意的是，前面的颜色值和后面的文字中间不能有空格！<br>如果文字真的需要空格，那就使用多个color tag！</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% color [color] [文字] %&#125;<br></code></pre></td></tr></table></figure>
+
+<span style="color:blue;">蓝色</span>
+
+<span style="color:rgb(128,128,64);">rgb(128,64,64)</span>
+
+<span style="color:#ff3346;">HEX-#ff3346</span>
+
+<span style="color:hsl(300,100%,25%);">hsl(300,100%,25%)</span>
+
+<h3 id="alert"><a href="#alert" class="headerlink" title="alert"></a>alert</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% alert [class] %&#125;<br>A simple primary alert—check it out!<br>&#123;% endalert %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="alert alert-primary">
+                <p>A simple primary alert—check it out!</p>
+            </div>
+<div class="alert alert-info">
+                <p>A simple info alert—check it out!</p>
+            </div>
+<div class="alert alert-success">
+                <p>A simple success alert—check it out!</p>
+            </div>
+<p>可选值：</p>
+<ul>
+<li>primary</li>
+<li>secondary</li>
+<li>success</li>
+<li>danger</li>
+<li>warning</li>
+<li>info</li>
+<li>light</li>
+<li>dark</li>
+</ul>
+<h3 id="collapse"><a href="#collapse" class="headerlink" title="collapse"></a>collapse</h3><blockquote>
+<p>bootstrap collapse</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% collapse [class] [按钮文字] [id] %&#125;<br>折叠内容<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
+
+<span style="color:red;">三个参数均不可少！</span>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">注意事项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">[class]</td>
+<td align="center">按钮的样式，选项为<a href="https://v4.bootcss.com/docs/components/buttons/">boostrap的按钮样式</a></td>
+</tr>
+<tr>
+<td align="center">[按钮文字]</td>
+<td align="center">按钮上面显示的文字</td>
+</tr>
+<tr>
+<td align="center">[id]</td>
+<td align="center">在同一篇文章里，每个collapse的id需要唯一，即每个collapse的id需要设定不同的值；值随意，不同就行。</td>
+</tr>
+</tbody></table>
+<div class="note note-danger">
+            <p>参数中如有空格，需要给参数加上引号！</p>
+          </div>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% collapse info &#x27;点击显示折叠内容&#x27; id1 %&#125;<br>这里写需要隐藏的文字。<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
+
+<div>
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#id1" aria-expanded="false" aria-controls="id1">
+                点击显示折叠内容
+            </button>
+            </div>
+            <div class="collapse" id="id1">
+                <div class="card card-body">
+                折叠内容并不支持太复杂的语法，列表、表格均不支持；但支持代码
+                </div>
+            </div>
+
+<p>more：</p>
+<div>
+            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#id2" aria-expanded="false" aria-controls="id2">
+                点击显示折叠内容
+            </button>
+            </div>
+            <div class="collapse" id="id2">
+                <div class="card card-body">
+                折叠内容
+                </div>
+            </div>
+
+<div>
+            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#id3" aria-expanded="false" aria-controls="id3">
+                点击显示折叠内容
+            </button>
+            </div>
+            <div class="collapse" id="id3">
+                <div class="card card-body">
+                折叠内容
+                </div>
+            </div>
+
+<h3 id="description"><a href="#description" class="headerlink" title="description"></a>description</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% description dark 提示 %&#125;<br>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。<br>&#123;% enddescription %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class='description dark'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description info'><span class='description-title'>信息</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+<div class='description success'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+<div class='description danger'><span class='description-title'>危险</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<ul>
+<li>danger</li>
+<li>info</li>
+<li>success</li>
+<li>dark</li>
+</ul>
+]]></content>
+      <categories>
+        <category>测试文件</category>
+      </categories>
+      <tags>
+        <tag>测试文件</tag>
+        <tag>code</tag>
+      </tags>
   </entry>
   <entry>
     <title>二次元图片</title>
