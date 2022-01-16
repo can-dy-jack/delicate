@@ -2,10 +2,6 @@
 html{
     scroll-behavior: smooth;
 }
-
-body {
-    font-family: Roboto Mono, 'PTSans', 'JetBrains Mono',microsoft yahei, serif;
-}
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -481,12 +477,13 @@ nav.navbar .nav-item .nav-link:hover::after{
     margin: 3px 10px;
     overflow: hidden;
     position: relative;
+    user-select: none;
 }
 .weather-info .weather-info-text span{
     position: absolute;
     left: 10px;
     top: 0;
-    animation: weatherInfo 10s linear 1s infinite;
+    animation: weatherInfo 10s ease-in-out 1s infinite;
 }
 @keyframes weatherInfo {
     0%{
@@ -522,6 +519,10 @@ nav.navbar .nav-item .nav-link:hover::after{
 .widget-music .control-info #qqMusic-info{
     font-size: 20px;
     color: rgb(11, 104, 91);
+}
+.widget-music .song-info{
+    display: flex;
+    justify-content: space-around;
 }
 
 /* widget-carousel */

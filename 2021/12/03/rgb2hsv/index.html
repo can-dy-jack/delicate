@@ -1,5 +1,4 @@
-
-<html lang="zh">
+<html>
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +19,7 @@
     <!-- Bootstrap 图标 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
-    
+    <!-- fancybox -->
     
         <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
     
@@ -44,6 +43,7 @@
     <style>
         body {
             background-color: #fafafa;
+            font-family: Roboto Mono,JetBrains Mono,microsoft yahei, serif;
         }
         /* blog menu */
         nav.navbar {
@@ -97,23 +97,19 @@
   
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      
       <li class="nav-item">
-        <a class="nav-link" href="/delicate/">主页</a>
+        <a class="nav-link" href="/delicate/">home</a>
       </li>
-      
       <li class="nav-item">
-        <a class="nav-link" href="/delicate//archives">存档</a>
+        <a class="nav-link" href="/delicate/archives">archives</a>
       </li>
-      
       <li class="nav-item">
-        <a class="nav-link" href="/delicate//about">关于</a>
+        <a class="nav-link" href="/delicate/about">about</a>
       </li>
-      
       
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-          Friend
+          friend
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           
@@ -265,9 +261,34 @@
                 
 
 <div class="alert alert-light shadow-sm sidebar-top">
-    <h3>置顶文章</h3>
+    <h3>Sticky Posts</h3>
     
         
+
+
+    
+        
+<div class="sidebar-top-part">
+    <div>
+        <a href="/delicate/2021/11/12/code-test/">
+            Tag Plugins
+        </a>
+    </div>
+    <div>
+        
+        
+            
+                <span class="badge badge-pill badge-primary">测试文件</span>
+            
+                <span class="badge badge-pill badge-primary">code</span>
+            
+        
+    </div>
+    <div>
+        2021-11-12
+    </div>
+</div>
+
 
 
     
@@ -334,31 +355,6 @@
 
     
         
-
-
-    
-        
-<div class="sidebar-top-part">
-    <div>
-        <a href="/delicate/2021/11/12/code-test/">
-            Tag Plugins
-        </a>
-    </div>
-    <div>
-        
-        
-            
-                <span class="badge badge-pill badge-primary">测试文件</span>
-            
-                <span class="badge badge-pill badge-primary">code</span>
-            
-        
-    </div>
-    <div>
-        2021-11-12
-    </div>
-</div>
-
 
 
     
@@ -485,6 +481,56 @@ jinrishici.load(function(result) {
 
 
 
+    <div class="shadow widget-music">
+<div class="widget-music-back"></div>
+
+
+
+
+
+
+    <h4 style="text-shadow: 1px -1px #0eaf52,2px 2px #f8cc18;">QQ音乐</h4>
+    <div class="control-info">
+        <div id="qqMusic-info">点击右边播放...</div>
+        <div class="control">
+            <button id="play" class="btn btn-success">播放</button>
+            <button id="parse" class="btn btn-warning">暂停</button>
+        </div>
+    </div>
+    <div class="song-info">
+        <button id="prev" class="btn btn-sm btn-outline-primary">上一首</button>
+        <button id="next" class="btn btn-sm btn-outline-primary">下一首</button>
+    </div>
+<script src="//y.gtimg.cn/music/h5/player/player.js?max_age=2592000"></script>
+<script>
+const qqMusicInfo = document.getElementById('qqMusic-info');
+var player = new QMplayer();
+player.on("play", function (e) {
+    qqMusicInfo.innerText = e.song.name + ' - ' + e.song.singer[0].name;
+})
+const play = document.getElementById('play');
+const parse = document.getElementById('parse');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+play.addEventListener('click',()=>{
+    player.play("000iDpGB4NlS0D,004aupsp1RFXAN,0029dqHX0nuawd");
+})
+parse.addEventListener('click',()=>{
+    player.pause();
+})
+prev.addEventListener('click',()=>{
+    player.playPrev();
+})
+next.addEventListener('click',()=>{
+    player.playNext();
+})
+</script>
+
+
+</div>
+
+
+
 
 
 
@@ -505,7 +551,7 @@ jinrishici.load(function(result) {
     </div>
     <div class="my-division">
         <span class="division"></span>
-        <span class="text">社交账号</span>
+        <span class="text">Social Account</span>
     </div>
     <div class="my-social-account">
         
@@ -658,9 +704,6 @@ $(document).ready(function() {
 });
 </script>
 
-
-
-<script src="/delicate/js/archives.js"></script>
 
 
 <script src="/delicate/js/index.js"></script>

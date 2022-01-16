@@ -52,495 +52,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cookie</title>
-    <url>/delicate/2021/12/16/cookie/</url>
-    <content><![CDATA[<h2 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h2><div class='description dark'><span class='description-title'>百度百科</span><div><p>cookie是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web 文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。<br>由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序</p></div></div>
-
-<p>HTTP协议本身是无状态的，即服务器无法判断用户身份。Cookie实际上是一小段的文本信息（key-value格式）。<br>一个 Web 站点可能会为每一个访问者产生一个唯一的ID, 然后以 Cookie 文件的形式保存在每个用户的机器上。</p>
-<span id="more"></span>
-<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><p>Cookie是一段不超过4KB的小型文本数据，由一个名称（Name）、一个值（Value）和其它几个用于控制Cookie有效期、安全性、使用范围的可选属性组成。</p>
-<ul>
-<li><strong>Name/Value</strong><ul>
-<li>设置Cookie的名称及相对应的值，对于认证Cookie；Value值包括Web服务器所提供的访问令牌。</li>
-</ul>
-</li>
-<li>Expires属性<ul>
-<li>设置Cookie的生存期。有两种存储类型的Cookie：会话性与持久性。Expires属性缺省时，为会话性Cookie，仅保存在客户端内存中，并在用户关闭浏览器时失效；持久性Cookie会保存在用户的硬盘中，直至生存期到或用户直接在网页中单击“注销”等按钮结束会话时才会失效。</li>
-</ul>
-</li>
-<li>Path属性<ul>
-<li>定义了Web站点上可以访问该Cookie的目录。</li>
-</ul>
-</li>
-<li>Domain属性<ul>
-<li>指定了可以访问该 Cookie 的 Web 站点或域。Cookie 机制并未遵循严格的同源策略，允许一个子域可以设置或获取其父域的 Cookie。</li>
-</ul>
-</li>
-<li>Secure属性<ul>
-<li>指定是否使用HTTPS安全协议发送Cookie。</li>
-</ul>
-</li>
-<li>HTTPOnly属性<ul>
-<li>用于防止客户端脚本通过document.cookie属性访问Cookie，有助于保护Cookie不被跨站脚本攻击窃取或篡改。</li>
-</ul>
-</li>
-</ul>
-<h2 id="cookie工作流程"><a href="#cookie工作流程" class="headerlink" title="cookie工作流程"></a>cookie工作流程</h2><pre class="mermaid">sequenceDiagram;
-    Web Client->>+WebServer: ① HTTP Request;
-    WebServer-->>-Web Client: ② HTTP Response + Set-Cookie;
-    Web Client->>+WebServer: ③ HTTP Request + Cookie;
-    WebServer-->>-Web Client: ④ HTTP Response;</pre>
-
-<h2 id="使用js操作cookie"><a href="#使用js操作cookie" class="headerlink" title="使用js操作cookie"></a>使用js操作cookie</h2><blockquote>
-<p>JavaScript 可以使用 document.cookie 属性来创建 、读取、及删除 cookie。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.cookie=<span class="hljs-string">&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;</span>;<br></code></pre></td></tr></table></figure>
-
-<h2 id="参考文章-amp-更多"><a href="#参考文章-amp-更多" class="headerlink" title="参考文章 &amp; 更多"></a>参考文章 &amp; 更多</h2><ul>
-<li><a href="https://baike.baidu.com/item/cookie/1119?fr=aladdin">百度百科 - cookie</a></li>
-<li><a href="https://www.jianshu.com/p/6fc9cea6daa2">简书</a></li>
-<li><a href="https://www.runoob.com/js/js-cookies.html">使用js操作cookie</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>cookie</tag>
-        <tag>front-end</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/delicate/2021/11/04/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>test</tag>
-        <tag>first</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>markdown测试文件</title>
-    <url>/delicate/2021/11/14/markdown%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">## 标题2</span><br><span class="hljs-section">### 标题3</span><br><span class="hljs-section">#### 标题4</span><br><span class="hljs-section">##### 标题5</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><hr>
-<p>文本样式</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-strong">**加粗**</span>  <span class="hljs-strong">__斜体__</span>  <span class="hljs-emphasis">_斜体_</span>  <span class="hljs-emphasis">*斜体*</span>  ~~划线~~  ~划线~<br><span class="hljs-quote">&gt; 引用文本</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>加粗</strong>  <strong>斜体</strong>  <em>斜体</em>  <em>斜体</em>  <del>划线</del>  <del>划线</del></p>
-<blockquote>
-<p>引用文本</p>
-</blockquote>
-<hr>
-<p>列表样式：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span> 列表<br><span class="hljs-bullet">*</span> 列表<br><span class="hljs-bullet">*</span> 列表<br><br><span class="hljs-bullet">-</span> 列表<br><span class="hljs-bullet">-</span> 列表<br><span class="hljs-bullet">-</span> 列表<br> <br><span class="hljs-bullet">+</span> 列表<br><span class="hljs-bullet">+</span> 列表<br><span class="hljs-bullet">+</span> 列表<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>列表</li>
-<li>列表</li>
-<li>列表</li>
-</ul>
-<ul>
-<li>列表</li>
-<li>列表</li>
-<li>列表</li>
-</ul>
-<ul>
-<li>列表</li>
-<li>列表</li>
-<li>列表</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">-</span> 项目<br><span class="hljs-bullet">  *</span> 项目<br><span class="hljs-bullet">    +</span> 项目<br><br><span class="hljs-bullet">1.</span> 项目1<br><span class="hljs-bullet">2.</span> 项目2<br><span class="hljs-bullet">3.</span> 项目3<br><br><span class="hljs-bullet">-</span> [ ] 计划任务<br><span class="hljs-bullet">-</span> [x] 完成任务<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>项目<ul>
-<li>项目<ul>
-<li>项目</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li>项目1</li>
-<li>项目2</li>
-<li>项目3</li>
-</ol>
-<ul>
-<li><input disabled="" type="checkbox"> 计划任务</li>
-<li><input checked="" disabled="" type="checkbox"> 完成任务</li>
-</ul>
-<hr>
-<p>链接和图片：<br><a href="http://localhost:4000/delicate">link-delicate</a></p>
-<p><img src="https://i.loli.net/2021/12/01/X1pkv9ShmeDWZ25.jpg" alt="测试-付款码"></p>
-<hr>
-<p>内联代码块:<code>code</code></p>
-<p>代码块：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">var foo = &#x27;bar&#x27;;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// An highlighted block</span><br><span class="hljs-keyword">var</span> foo = <span class="hljs-string">&#x27;bar&#x27;</span>;<br></code></pre></td></tr></table></figure>
-
-<hr>
-<p>表格：</p>
-<div class="note note-warning">
-            <p>表格与上下文字需要隔一行。</p>
-          </div>
-
-<table>
-<thead>
-<tr>
-<th align="center">Column 1</th>
-<th align="right">Column 2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">centered 文本居中</td>
-<td align="right">right-aligned 文本居右</td>
-</tr>
-<tr>
-<td align="center">centered 文本居中</td>
-<td align="right">right-aligned 文本居右</td>
-</tr>
-<tr>
-<td align="center">centered 文本居中</td>
-<td align="right">right-aligned 文本居右</td>
-</tr>
-<tr>
-<td align="center">centered 文本居中</td>
-<td align="right">right-aligned 文本居右</td>
-</tr>
-</tbody></table>
-<hr>
-<p>代码里的code颜色</p>
-<blockquote>
-<p>常用于记录代码或文字的更替</p>
-</blockquote>
-<figure class="highlight diff"><table><tr><td class="code"><pre><code class="hljs diff"><span class="hljs-addition">+ this will be highlighted in green</span><br><span class="hljs-deletion">- this will be highlighted in red</span><br></code></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="公式-MathJax"><a href="#公式-MathJax" class="headerlink" title="公式-MathJax"></a>公式-MathJax</h3><p>需要 front-matter 添加 <code>mathjax: true</code></p>
-<blockquote>
-<p>语法参考官网：<a href="https://www.mathjax.org/">mathjax</a></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs text">直接在markdown文件中添加下面的语句即可，即包含在 $$ 内的文字会被解析为数学公式<br>$$x = &#123;-b \pm \sqrt&#123;b^2-4ac&#125; \over 2a&#125;.$$<br></code></pre></td></tr></table></figure>
-
-<p>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
-<p>有公式才加载MathJax，没有公式仍然加载js渲染公式，会影响页面加载速度。</p>
-]]></content>
-      <categories>
-        <category>测试文件</category>
-      </categories>
-      <tags>
-        <tag>测试文件</tag>
-        <tag>code</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>php环境配置</title>
-    <url>/delicate/2021/11/25/php01/</url>
-    <content><![CDATA[<div class="note note-danger">
-            <p>本文首发在<a href="https://kartjim.top/delicate">个人博客</a>；</p>
-          </div>
-
-<h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><div class="note note-purple">
-            <p>解析和执行PHP脚本，需要安装PHP运行环境；<br>PHP既可以独立运行，也可以作为Apache的模块运行；本文主要介绍PHP为apache的模块运行。</p>
-          </div>
-
-<span id="more"></span>
-
-<h3 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h3><h4 id="获取apache"><a href="#获取apache" class="headerlink" title="获取apache"></a>获取apache</h4><p>去官网可获取apache的源码：<a href="https://httpd.apache.org/">apache</a>，但没有提供编译后的apache。<br>我们可以从apache官网上找到第三方打包后的apache，比如说：<a href="https://www.apachelounge.com/">Apache Lounge</a>：<br><img src="https://i.loli.net/2021/11/26/ryjfbPYU1l4SEmv.png" alt="1.png"><br>这里我选择<code>httpd-2.4.51-win64-VS16.zip</code>下载。</p>
-<p>下载好之后解压文件，准备好一个文件夹把解压得到的文件放里面。<br>我就存放在f盘下：<code>F:\PHP\LAMP\apache\Apache24</code>，其中目录结构如下图：<br><img src="https://i.loli.net/2021/11/26/MfbIwcVlma5o3Ng.png" alt="f"><br>其中：</p>
-<table>
-<thead>
-<tr>
-<th align="center">文件夹</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">bin</td>
-<td align="center">存放Apache应用程序</td>
-</tr>
-<tr>
-<td align="center">conf</td>
-<td align="center">存放配置文件</td>
-</tr>
-<tr>
-<td align="center">htdocs</td>
-<td align="center">默认的网站根目录</td>
-</tr>
-<tr>
-<td align="center">modules</td>
-<td align="center">存放模块</td>
-</tr>
-</tbody></table>
-<h4 id="配置Apache"><a href="#配置Apache" class="headerlink" title="配置Apache"></a>配置Apache</h4><p>打开apache配置文件（conf文件夹下的httpd.conf）</p>
-<blockquote>
-<p>在<code>httpd.conf</code>里，”#” 是注释符</p>
-</blockquote>
-<p>（1）、配置Apache安装路径<br>把<code>Define SRVROOT &quot;c:/apache24&quot;</code>改为：（大概第37行）</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">Define SRVROOT <span class="hljs-string">&quot;F:/PHP/LAMP/apache/Apache24&quot;</span> <span class="hljs-comment"># 后面填上你自己的apache路径！</span><br></code></pre></td></tr></table></figure>
-
-<p>（2）、配置服务器域名<br>搜索<code>ServerName</code>，找到<code>#ServerName www.example.com:80</code><br>因为暂时没有域名，所以取消注释即可（<span style="color:#ef0105;">不取消注释之后会报错</span>）。</p>
-<h4 id="安装apache"><a href="#安装apache" class="headerlink" title="安装apache"></a>安装apache</h4><p>以管理员身份运行cmd，并切换到apache的bin目录之下，输入一下命令进行安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">httpd -k install -n apacheName<br></code></pre></td></tr></table></figure>
-
-<p><code>-n</code>之后是apache的名称，任意取。</p>
-<p>如果需要卸载：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">httpd -k uninstall -n apacheName<br></code></pre></td></tr></table></figure>
-
-<h4 id="启动apache"><a href="#启动apache" class="headerlink" title="启动apache"></a>启动apache</h4><p>在安装好apache之后，去bin目录下找到程序<code>ApacheMonitor.exe</code>，双击即可启动。</p>
-<blockquote>
-<p>这是会发现任务栏里会有图标；<br>可以单击管理程序的开始与停止。</p>
-</blockquote>
-<p>启动之后，打开浏览器，输入<code>http://localhost/</code>即可看到apache已经成功启动。</p>
-<p>上面提到过<code>htdocs</code>文件夹是默认的网站根目录，里面有一个<code>index.html</code>文件，上面你看到的页面就是这个文件。</p>
-<div class="note note-success">
-            <p>现在你可以随意修改它，并且在浏览器查看效果！</p>
-          </div>
-<p><img src="https://i.loli.net/2021/11/26/N5nAfeTLpOPd3iB.png" alt="image.png"></p>
-<div class="note note-primary">
-            <p>你甚至可以在其它设备的浏览器 通过你的电脑的IP地址 查看效果！</p>
-          </div>
-
-<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><h4 id="PHP的优势"><a href="#PHP的优势" class="headerlink" title="PHP的优势"></a>PHP的优势</h4><ul>
-<li>开源免费</li>
-<li>跨平台型</li>
-<li>面向对象</li>
-<li>支持多种数据库</li>
-<li>快捷性</li>
-</ul>
-<div class="note note-cyan">
-            <p>语法与使用方式十分接近 本博客框架使用的语言 ejs</p>
-          </div>
-
-<blockquote>
-<p>尽管PHP的优势现在已经不太明显，但还是有必要学一下；<br>有利于理解后端的知识，并在学习的过程中掌握更多网络相关的知识，不只是PHP；</p>
-</blockquote>
-<h4 id="获取PHP"><a href="#获取PHP" class="headerlink" title="获取PHP"></a>获取PHP</h4><p>你可以去<a href="https://www.php.net/">PHP官网</a>找到最新版的PHP。</p>
-<div class="note note-default">
-            <p>但是，在下载之前你需要特别注意apache支持的PHP版本；如果你下载最新版本的PHP，但是你使用的apache并不支持，就会报错。</p>
-          </div>
-<p>还有，PHP官网会提供两种版本的PHP，一个是<code>&#39;Thread Safe&#39;（线程安全）</code>版本，一个是<code>&#39;Non Thread Safe&#39;（非线程安全）</code>版本；<br>如果你使用apache运行PHP，则必须下载<code>&#39;Thread Safe&#39;（线程安全）</code>版本！</p>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>解压下载好的PHP，放进准备好的文件夹，这里我放在f盘：<code>F:\PHP\LAMP\php7.3</code>;文件目录结构如下：<br><img src="https://i.loli.net/2021/11/26/gumVS3yGfpFZjX1.png" alt="image.png"></p>
-<table>
-<thead>
-<tr>
-<th align="center">文件/目录</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">ext/</td>
-<td align="center">拓展文件存放</td>
-</tr>
-<tr>
-<td align="center">php.exe</td>
-<td align="center">PHP程序</td>
-</tr>
-<tr>
-<td align="center">php7apache2_4.dll</td>
-<td align="center">用于apache的Dll模块</td>
-</tr>
-<tr>
-<td align="center">libssh2.dll</td>
-<td align="center">用于apache的Dll模块</td>
-</tr>
-</tbody></table>
-<p>PHP配置文件是<code>php.ini</code>，但是默认是没有的，只有<code>php.ini-development</code>和<code>php.ini-production</code>两个示例配置文件。<br>从名字上来看，很容易理解这两个文件的作用，<code>php.ini-development</code>用于开发阶段，而<code>php.ini-production</code>用于生产阶段。</p>
-<p>所以我们暂时使用<code>php.ini-development</code>，新建<code>php.ini</code>文件，将<code>php.ini-development</code>复制一份到<code>php.ini</code>。</p>
-<blockquote>
-<p>注：在<code>php.ini</code>里，<code>;</code>是注释符。</p>
-</blockquote>
-<p>修改以下：<br>（1）、搜索<code>extension_dir</code>找到<code>;extension_dir = &quot;ext&quot;</code>,修改为</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">extension_dir</span> = <span class="hljs-string">&quot;F:\PHP\LAMP\php7.3\ext&quot;</span> <br></code></pre></td></tr></table></figure>
-<p>后面填写你的 php中的ext 所在目录</p>
-<p>（2）、查找<code>date.timezone</code>,将<code>;date.timezone</code>,修改为：</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">date.timezone</span> = UTC<br></code></pre></td></tr></table></figure>
-<p>后面填 <code>UTC</code>（世界时）、 <code>PRC</code> （中国时区）或 <code>Asia/Shanghai</code>（上海） 等时区。</p>
-<h4 id="在Apache中引用PHP模块"><a href="#在Apache中引用PHP模块" class="headerlink" title="在Apache中引用PHP模块"></a>在Apache中引用PHP模块</h4><p>回到apache配置文件，在大约186行，引入PHP模块；<br>在其中插入以下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs conf">LoadModule php7_module &quot;F:/PHP/LAMP/php7.3/php7apache2_4.dll&quot;<br>&lt;FilesMatch &quot;\.php$&quot;&gt;<br>    setHandler application/x-httpd-php<br>&lt;/FilesMatch&gt;<br>PHPIniDir &quot;F:/PHP/LAMP/php7.3&quot;<br>LoadFile &quot;F:/PHP/LAMP/php7.3/libssh2.dll&quot;<br></code></pre></td></tr></table></figure>
-
-<div class="note note-default">
-            <p>注意需要将后面的路径换成你自己的！</p>
-          </div>
-
-<p>之后查找<code>dir_module</code>,将</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs conf">&lt;IfModule dir_module&gt;<br>    DirectoryIndex index.html<br>&lt;/IfModule&gt;<br></code></pre></td></tr></table></figure>
-
-<p>改为：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs conf">&lt;IfModule dir_module&gt;<br>    DirectoryIndex index.html index.php<br>&lt;/IfModule&gt;<br></code></pre></td></tr></table></figure>
-
-<p>即，把<code>index.php</code>当做第二默认文件。</p>
-<div class="note note-default">
-            <p>点击apache图标，重新启动apache（Restart）。<br><img src="https://i.loli.net/2021/11/26/yELObGFx1twVn5S.png" alt="image.png"><br>如果没有报错，即为配置成功！</p>
-          </div>
-
-<h4 id="测试PHP模块"><a href="#测试PHP模块" class="headerlink" title="测试PHP模块"></a>测试PHP模块</h4><p>在<code>htdocs</code>目录下新建<code>index.php</code>，删去<code>index.html</code>；<br>打开<code>index.php</code>，写入：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>  <span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;Hello PHP!&#x27;</span>;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>打开浏览器，访问<code>http://localhost/</code>，即可看到运行成功：<br><img src="https://i.loli.net/2021/11/26/VDUcdplnmg3vJSN.png" alt="image.png"></p>
-<h2 id="bug解决"><a href="#bug解决" class="headerlink" title="bug解决"></a>bug解决</h2><h3 id="the-requested-operation-has-failed"><a href="#the-requested-operation-has-failed" class="headerlink" title="the requested operation has failed"></a>the requested operation has failed</h3><p>造成<code>the requested operation has failed</code>的原因有很多：</p>
-<ol>
-<li>你使用的apache版本并不支持你使用的PHP版本</li>
-</ol>
-<p>简单来讲就是你使用的PHP版本不在 apache支持的PHP版本 </p>
-<p>这个时候需要去百度你使用的apache版本支持哪个版本的PHP，然后重新安装PHP环境与配置。</p>
-<div class="note note-info">
-            <p>例如，我使用的是Apache/2.4.51 (Win64) ，第一次下载的PHP是7.4版本的，报错。之后改用PHP7.3就成功运行。</p>
-          </div>
-
-<ol start="2">
-<li>你下载的PHP不是’Thread Safe’（线程安全）版本</li>
-</ol>
-]]></content>
-      <categories>
-        <category>php</category>
-      </categories>
-      <tags>
-        <tag>php学习</tag>
-        <tag>bug记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>promise学习笔记</title>
-    <url>/delicate/2021/12/10/promise-learn/</url>
-    <content><![CDATA[<div class='description dark'><span class='description-title'>ES6原生提供了Promise对象</span><div><p>Promise 是一个对象，它代表了一个异步操作的最终完成或者失败。<br>Promise能够很好的避免回调函数的嵌套，让函数更具可读性和维护性。</p></div></div>
-
-<p>控制台输入<code>console.dir(Promise)</code>查看 promise 是什么：</p>
-<p><img src="https://s2.loli.net/2021/12/10/yIuXmMBpifwUP73.png" alt="Promise"></p>
-<span id="more"></span>
-<h2 id="使用-Promise"><a href="#使用-Promise" class="headerlink" title="使用 Promise"></a>使用 Promise</h2><div class="note note-info">
-            <p>本质上 Promise 是一个函数返回的对象，我们可以在它上面绑定回调函数，这样我们就不需要在一开始把回调函数作为参数传入这个函数了。</p>
-          </div>
-
-<p>假设现在有一个名为 createAudioFileAsync() 的函数，它接收一些配置和两个回调函数，然后异步地生成音频文件。一个回调函数在文件成功创建时被调用，另一个则在出现异常时被调用。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 成功的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successCallback</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建成功: &quot;</span> + result);<br>&#125;<br><span class="hljs-comment">// 失败的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">failureCallback</span>(<span class="hljs-params">error</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建失败: &quot;</span> + error);<br>&#125;<br>createAudioFileAsync(audioSettings, successCallback, failureCallback)<br></code></pre></td></tr></table></figure>
-
-<p>如果函数 <code>createAudioFileAsync()</code> 被重写为返回 Promise 的形式，那么我们可以像下面这样简单地调用它：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">createAudioFileAsync(audioSettings)<br>    .then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
-
-<p>我们把这个称为 <code>异步函数调用</code> ，这种形式有若干优点。</p>
-<h3 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h3><p>不同于“老式”的传入回调，在使用 Promise 时，会有以下约定：</p>
-<ul>
-<li>在本轮 事件循环 运行完成之前，回调函数是不会被调用的。</li>
-<li>即使异步操作已经完成（成功或失败），在这之后通过 then() 添加的回调函数也会被调用。</li>
-<li>通过多次调用 then() 可以添加多个回调函数，它们会按照插入顺序进行执行。</li>
-</ul>
-<p>Promise 很棒的一点就是<code>链式调用（chaining）</code>。</p>
-<h3 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h3><p>连续执行两个或者多个异步操作是一个常见的需求，在上一个操作执行成功之后，开始下一个的操作，并带着上一步操作所返回的结果。我们可以通过创造一个 Promise 链来实现这种需求。</p>
-<blockquote>
-<p>then() 函数会返回一个和原来不同的新的 Promise</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise2 = doSomething().then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
-
-<p>promise2 不仅表示 <em>doSomething()</em> 函数的完成，也代表了你传入的 <em>successCallback</em> 或者 <em>failureCallback</em> 的完成，这两个函数也可以返回一个 Promise 对象，从而形成另一个异步操作，这样的话，在 promise2 上新增的回调函数会排在这个 Promise 对象的后面。</p>
-<p>基本上，每一个 Promise 都代表了链中另一个异步过程的完成。</p>
-<p>在过去，要想做多重的异步操作，会导致经典的回调地狱：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  doSomethingElse(result, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>    doThirdThing(newResult, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>    &#125;, failureCallback);<br>  &#125;, failureCallback);<br>&#125;, failureCallback);<br></code></pre></td></tr></table></figure>
-
-<p>现在，我们可以把回调绑定到返回的 Promise 上，形成一个 Promise 链：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doSomethingElse(result);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doThirdThing(newResult);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
-
-<p>then 里的参数是可选的，catch(failureCallback) 是 then(null, failureCallback) 的缩略形式。</p>
-<p>如下所示，我们也可以用箭头函数来表示：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething()<br>.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> doSomethingElse(result))<br>.then(<span class="hljs-function"><span class="hljs-params">newResult</span> =&gt;</span> doThirdThing(newResult))<br>.then(<span class="hljs-function"><span class="hljs-params">finalResult</span> =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Got the final result: <span class="hljs-subst">$&#123;finalResult&#125;</span>`</span>);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
-
-<div class='description success'><span class='description-title'>注意</span><div><p>一定要有返回值，否则，callback 将无法获取上一个 Promise 的结果。(如果使用箭头函数，() =&gt; x 比 () =&gt; { return x; } 更简洁一些，但后一种保留 return 的写法才支持使用多个语句。）。</p></div></div>
-
-<h2 id="resolve-amp-reject"><a href="#resolve-amp-reject" class="headerlink" title="resolve &amp; reject"></a>resolve &amp; reject</h2><blockquote>
-<p>Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve方法和reject方法。<br>如果异步操作成功，则用resolve方法将Promise对象的状态变为“成功”（即从pending变为resolved）；<br>如果异步操作失败，则用reject方法将状态变为“失败”（即从pending变为rejected）。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-comment">/* 异步操作成功 */</span>)&#123;<br>    resolve(value);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    reject(error);<br>  &#125;<br>&#125;);<br><br>promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;<br>  <span class="hljs-comment">// success</span><br>&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;<br>  <span class="hljs-comment">// failure</span><br>&#125;)<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><code>Promise.prototype.then</code>方法返回的是一个新的Promise对象，因此可以采用链式写法。</li>
-<li><code>Promise.prototype.catch</code>方法是<code>Promise.prototype.then(null, rejection)</code>的别名，用于指定发生错误时的回调函数。<ul>
-<li>Promise对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。</li>
-</ul>
-</li>
-<li><code>Promise.all</code>和<code>Promise.race</code>方法方法用于将多个Promise实例，包装成一个新的Promise实例。</li>
-</ul>
-<h2 id="参考文章-amp-More"><a href="#参考文章-amp-More" class="headerlink" title="参考文章 &amp; More"></a>参考文章 &amp; More</h2><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN - Promise</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises">MDN - Using_promises</a></li>
-<li><a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/promise.html">Generator 函数 | ECMAScript 6入门</a></li>
-</ul>
-<h2 id="async-await-语法糖"><a href="#async-await-语法糖" class="headerlink" title="async/await 语法糖"></a>async/await 语法糖</h2><blockquote>
-<p>async函数是使用async关键字声明的函数。async和await关键字让我们可以用一种更简洁的方式写出基于Promise的异步行为，而无需刻意地链式调用promise。</p>
-</blockquote>
-<p>async函数是用来取代回调函数的另一种方法。</p>
-<p>只要函数名之前加上async关键字，就表明该函数内部有异步操作。该异步操作应该返回一个Promise对象，前面用await关键字注明。当函数执行的时候，一旦遇到await就会先返回，等到触发的异步操作完成，再接着执行函数体内后面的语句。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function">more</a></p>
-]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>promise</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RGB和HSV</title>
-    <url>/delicate/2021/12/03/rgb2hsv/</url>
-    <content><![CDATA[<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><blockquote class="pullquote information"><p>在图像处理中，最常用的颜色空间是RGB模型，常用于颜色显示和图像处理。</p>
-</blockquote>
-
-<p><img src="https://i.loli.net/2021/12/03/CoXvkQt5OlziMjH.jpg" alt="rgb.jpeg"></p>
-<p>原点到白色顶点的中轴线是灰度线，r、g、b三分量相等，强度可以由三分量的向量表示。<br>用RGB来理解色彩、深浅、明暗变化：</p>
-<ul>
-<li>色彩变化：三个坐标轴RGB最大分量顶点与黄紫青YMC色顶点的连线。</li>
-<li>深浅变化：RGB顶点和CMY顶点到原点和白色顶点的中轴线的距离。</li>
-<li>明暗变化：中轴线的点的位置，到原点，就偏暗，到白色顶点就偏亮。</li>
-</ul>
-<div class="note note-primary">
-            <p>三原色RGB混合能形成其他的颜色<br>并不是说物理上其他颜色的光是由三原色的光混合形成的， 每种单色光都有自己独特的光谱，如黄光是一种单色光，但红色与绿色混合能形成黄色，原因是人的感官系统所致，与人的生理系统有关。</p>
-          </div>
-
-<h3 id="RGB的局限性"><a href="#RGB的局限性" class="headerlink" title="RGB的局限性"></a>RGB的局限性</h3><p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
-<p>RGB颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间,比较容易理解;却并不适合于图像处理。</p>
-<h2 id="HSV-and-HSL"><a href="#HSV-and-HSL" class="headerlink" title="HSV and HSL"></a>HSV and HSL</h2><h3 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a>HSV</h3><blockquote>
-<p>而HSV模型，是针对用户观感的一种颜色模型，侧重于色彩表示，什么颜色、深浅如何、明暗如何。</p>
-</blockquote>
-<p><img src="https://i.loli.net/2021/12/03/a3Ysr9FGu7yVtxA.jpg" alt="HSV.jpg"><br>这个模型就是按色彩、深浅、明暗来描述的。  </p>
-<ul>
-<li>Hue（色调、色相）</li>
-<li>Saturation（饱和度、色彩纯净度）</li>
-<li>Value（明度）</li>
-</ul>
-<blockquote>
-<p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
-</blockquote>
-<h3 id="HSL"><a href="#HSL" class="headerlink" title="HSL"></a>HSL</h3><p><img src="https://i.loli.net/2021/12/03/B1zhpP6s2ukH9CR.jpg" alt="HSL.jpg"></p>
-<blockquote>
-<p>HLS 和 HSV 比较类似,HLS 也有三个分量，hue（色相）、saturation（饱和度）、lightness（亮度）。</p>
-</blockquote>
-<p>HLS 和 HSV 的区别就是最后一个分量不同，HLS 的是 light（亮度），HSV 的是 value（明度）。HLS 中的 L 分量为亮度，亮度为100，表示白色，亮度为0，表示黑色；HSV 中的 V 分量为明度，明度为100，表示光谱色，明度为0，表示黑色。</p>
-<div class="note note-info">
-            <p>提取白色物体时，使用 HLS 更方便，因为 HSV 中的Hue里没有白色，白色需要由S和V共同决定（S=0, V=100）。<br>而在 HLS 中，白色仅由亮度L一个分量决定。所以检测白色时使用 HSL 颜色空间更准确。</p>
-          </div>
-
-<h2 id="HSV-and-RGB"><a href="#HSV-and-RGB" class="headerlink" title="HSV and RGB"></a>HSV and RGB</h2><div class="note note-cyan">
-            <p>::: tip 百度百科<br>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V=S=1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。<br>增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。例如，要得到深蓝色，V=0.4 S=1 H=240度。要得到淡蓝色，V=1 S=0.4 H=240度。</p>
-          </div>
-]]></content>
-  </entry>
-  <entry>
     <title>Tag Plugins</title>
     <url>/delicate/2021/11/12/code-test/</url>
     <content><![CDATA[<blockquote>
@@ -800,6 +311,495 @@
         <tag>测试文件</tag>
         <tag>code</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>cookie</title>
+    <url>/delicate/2021/12/16/cookie/</url>
+    <content><![CDATA[<h2 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h2><div class='description dark'><span class='description-title'>百度百科</span><div><p>cookie是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web 文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。<br>由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序</p></div></div>
+
+<p>HTTP协议本身是无状态的，即服务器无法判断用户身份。Cookie实际上是一小段的文本信息（key-value格式）。<br>一个 Web 站点可能会为每一个访问者产生一个唯一的ID, 然后以 Cookie 文件的形式保存在每个用户的机器上。</p>
+<span id="more"></span>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><p>Cookie是一段不超过4KB的小型文本数据，由一个名称（Name）、一个值（Value）和其它几个用于控制Cookie有效期、安全性、使用范围的可选属性组成。</p>
+<ul>
+<li><strong>Name/Value</strong><ul>
+<li>设置Cookie的名称及相对应的值，对于认证Cookie；Value值包括Web服务器所提供的访问令牌。</li>
+</ul>
+</li>
+<li>Expires属性<ul>
+<li>设置Cookie的生存期。有两种存储类型的Cookie：会话性与持久性。Expires属性缺省时，为会话性Cookie，仅保存在客户端内存中，并在用户关闭浏览器时失效；持久性Cookie会保存在用户的硬盘中，直至生存期到或用户直接在网页中单击“注销”等按钮结束会话时才会失效。</li>
+</ul>
+</li>
+<li>Path属性<ul>
+<li>定义了Web站点上可以访问该Cookie的目录。</li>
+</ul>
+</li>
+<li>Domain属性<ul>
+<li>指定了可以访问该 Cookie 的 Web 站点或域。Cookie 机制并未遵循严格的同源策略，允许一个子域可以设置或获取其父域的 Cookie。</li>
+</ul>
+</li>
+<li>Secure属性<ul>
+<li>指定是否使用HTTPS安全协议发送Cookie。</li>
+</ul>
+</li>
+<li>HTTPOnly属性<ul>
+<li>用于防止客户端脚本通过document.cookie属性访问Cookie，有助于保护Cookie不被跨站脚本攻击窃取或篡改。</li>
+</ul>
+</li>
+</ul>
+<h2 id="cookie工作流程"><a href="#cookie工作流程" class="headerlink" title="cookie工作流程"></a>cookie工作流程</h2><pre class="mermaid">sequenceDiagram;
+    Web Client->>+WebServer: ① HTTP Request;
+    WebServer-->>-Web Client: ② HTTP Response + Set-Cookie;
+    Web Client->>+WebServer: ③ HTTP Request + Cookie;
+    WebServer-->>-Web Client: ④ HTTP Response;</pre>
+
+<h2 id="使用js操作cookie"><a href="#使用js操作cookie" class="headerlink" title="使用js操作cookie"></a>使用js操作cookie</h2><blockquote>
+<p>JavaScript 可以使用 document.cookie 属性来创建 、读取、及删除 cookie。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.cookie=<span class="hljs-string">&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="参考文章-amp-更多"><a href="#参考文章-amp-更多" class="headerlink" title="参考文章 &amp; 更多"></a>参考文章 &amp; 更多</h2><ul>
+<li><a href="https://baike.baidu.com/item/cookie/1119?fr=aladdin">百度百科 - cookie</a></li>
+<li><a href="https://www.jianshu.com/p/6fc9cea6daa2">简书</a></li>
+<li><a href="https://www.runoob.com/js/js-cookies.html">使用js操作cookie</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>cookie</tag>
+        <tag>front-end</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/delicate/2021/11/04/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
+        <tag>first</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown测试文件</title>
+    <url>/delicate/2021/11/14/markdown%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">## 标题2</span><br><span class="hljs-section">### 标题3</span><br><span class="hljs-section">#### 标题4</span><br><span class="hljs-section">##### 标题5</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><hr>
+<p>文本样式</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-strong">**加粗**</span>  <span class="hljs-strong">__斜体__</span>  <span class="hljs-emphasis">_斜体_</span>  <span class="hljs-emphasis">*斜体*</span>  ~~划线~~  ~划线~<br><span class="hljs-quote">&gt; 引用文本</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>加粗</strong>  <strong>斜体</strong>  <em>斜体</em>  <em>斜体</em>  <del>划线</del>  <del>划线</del></p>
+<blockquote>
+<p>引用文本</p>
+</blockquote>
+<hr>
+<p>列表样式：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span> 列表<br><span class="hljs-bullet">*</span> 列表<br><span class="hljs-bullet">*</span> 列表<br><br><span class="hljs-bullet">-</span> 列表<br><span class="hljs-bullet">-</span> 列表<br><span class="hljs-bullet">-</span> 列表<br> <br><span class="hljs-bullet">+</span> 列表<br><span class="hljs-bullet">+</span> 列表<br><span class="hljs-bullet">+</span> 列表<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+</ul>
+<ul>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+</ul>
+<ul>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">-</span> 项目<br><span class="hljs-bullet">  *</span> 项目<br><span class="hljs-bullet">    +</span> 项目<br><br><span class="hljs-bullet">1.</span> 项目1<br><span class="hljs-bullet">2.</span> 项目2<br><span class="hljs-bullet">3.</span> 项目3<br><br><span class="hljs-bullet">-</span> [ ] 计划任务<br><span class="hljs-bullet">-</span> [x] 完成任务<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>项目<ul>
+<li>项目<ul>
+<li>项目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox"> 计划任务</li>
+<li><input checked="" disabled="" type="checkbox"> 完成任务</li>
+</ul>
+<hr>
+<p>链接和图片：<br><a href="http://localhost:4000/delicate">link-delicate</a></p>
+<p><img src="https://i.loli.net/2021/12/01/X1pkv9ShmeDWZ25.jpg" alt="测试-付款码"></p>
+<hr>
+<p>内联代码块:<code>code</code></p>
+<p>代码块：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">var foo = &#x27;bar&#x27;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// An highlighted block</span><br><span class="hljs-keyword">var</span> foo = <span class="hljs-string">&#x27;bar&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>表格：</p>
+<div class="note note-warning">
+            <p>表格与上下文字需要隔一行。</p>
+          </div>
+
+<table>
+<thead>
+<tr>
+<th align="center">Column 1</th>
+<th align="right">Column 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">centered 文本居中</td>
+<td align="right">right-aligned 文本居右</td>
+</tr>
+<tr>
+<td align="center">centered 文本居中</td>
+<td align="right">right-aligned 文本居右</td>
+</tr>
+<tr>
+<td align="center">centered 文本居中</td>
+<td align="right">right-aligned 文本居右</td>
+</tr>
+<tr>
+<td align="center">centered 文本居中</td>
+<td align="right">right-aligned 文本居右</td>
+</tr>
+</tbody></table>
+<hr>
+<p>代码里的code颜色</p>
+<blockquote>
+<p>常用于记录代码或文字的更替</p>
+</blockquote>
+<figure class="highlight diff"><table><tr><td class="code"><pre><code class="hljs diff"><span class="hljs-addition">+ this will be highlighted in green</span><br><span class="hljs-deletion">- this will be highlighted in red</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="公式-MathJax"><a href="#公式-MathJax" class="headerlink" title="公式-MathJax"></a>公式-MathJax</h3><p>需要 front-matter 添加 <code>mathjax: true</code></p>
+<blockquote>
+<p>语法参考官网：<a href="https://www.mathjax.org/">mathjax</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs text">直接在markdown文件中添加下面的语句即可，即包含在 $$ 内的文字会被解析为数学公式<br>$$x = &#123;-b \pm \sqrt&#123;b^2-4ac&#125; \over 2a&#125;.$$<br></code></pre></td></tr></table></figure>
+
+<p>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
+<p>有公式才加载MathJax，没有公式仍然加载js渲染公式，会影响页面加载速度。</p>
+]]></content>
+      <categories>
+        <category>测试文件</category>
+      </categories>
+      <tags>
+        <tag>测试文件</tag>
+        <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>promise学习笔记</title>
+    <url>/delicate/2021/12/10/promise-learn/</url>
+    <content><![CDATA[<div class='description dark'><span class='description-title'>ES6原生提供了Promise对象</span><div><p>Promise 是一个对象，它代表了一个异步操作的最终完成或者失败。<br>Promise能够很好的避免回调函数的嵌套，让函数更具可读性和维护性。</p></div></div>
+
+<p>控制台输入<code>console.dir(Promise)</code>查看 promise 是什么：</p>
+<p><img src="https://s2.loli.net/2021/12/10/yIuXmMBpifwUP73.png" alt="Promise"></p>
+<span id="more"></span>
+<h2 id="使用-Promise"><a href="#使用-Promise" class="headerlink" title="使用 Promise"></a>使用 Promise</h2><div class="note note-info">
+            <p>本质上 Promise 是一个函数返回的对象，我们可以在它上面绑定回调函数，这样我们就不需要在一开始把回调函数作为参数传入这个函数了。</p>
+          </div>
+
+<p>假设现在有一个名为 createAudioFileAsync() 的函数，它接收一些配置和两个回调函数，然后异步地生成音频文件。一个回调函数在文件成功创建时被调用，另一个则在出现异常时被调用。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 成功的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successCallback</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建成功: &quot;</span> + result);<br>&#125;<br><span class="hljs-comment">// 失败的回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">failureCallback</span>(<span class="hljs-params">error</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;音频文件创建失败: &quot;</span> + error);<br>&#125;<br>createAudioFileAsync(audioSettings, successCallback, failureCallback)<br></code></pre></td></tr></table></figure>
+
+<p>如果函数 <code>createAudioFileAsync()</code> 被重写为返回 Promise 的形式，那么我们可以像下面这样简单地调用它：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">createAudioFileAsync(audioSettings)<br>    .then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>我们把这个称为 <code>异步函数调用</code> ，这种形式有若干优点。</p>
+<h3 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h3><p>不同于“老式”的传入回调，在使用 Promise 时，会有以下约定：</p>
+<ul>
+<li>在本轮 事件循环 运行完成之前，回调函数是不会被调用的。</li>
+<li>即使异步操作已经完成（成功或失败），在这之后通过 then() 添加的回调函数也会被调用。</li>
+<li>通过多次调用 then() 可以添加多个回调函数，它们会按照插入顺序进行执行。</li>
+</ul>
+<p>Promise 很棒的一点就是<code>链式调用（chaining）</code>。</p>
+<h3 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h3><p>连续执行两个或者多个异步操作是一个常见的需求，在上一个操作执行成功之后，开始下一个的操作，并带着上一步操作所返回的结果。我们可以通过创造一个 Promise 链来实现这种需求。</p>
+<blockquote>
+<p>then() 函数会返回一个和原来不同的新的 Promise</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise2 = doSomething().then(successCallback, failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>promise2 不仅表示 <em>doSomething()</em> 函数的完成，也代表了你传入的 <em>successCallback</em> 或者 <em>failureCallback</em> 的完成，这两个函数也可以返回一个 Promise 对象，从而形成另一个异步操作，这样的话，在 promise2 上新增的回调函数会排在这个 Promise 对象的后面。</p>
+<p>基本上，每一个 Promise 都代表了链中另一个异步过程的完成。</p>
+<p>在过去，要想做多重的异步操作，会导致经典的回调地狱：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  doSomethingElse(result, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>    doThirdThing(newResult, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>    &#125;, failureCallback);<br>  &#125;, failureCallback);<br>&#125;, failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>现在，我们可以把回调绑定到返回的 Promise 上，形成一个 Promise 链：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doSomethingElse(result);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newResult</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> doThirdThing(newResult);<br>&#125;)<br>.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">finalResult</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Got the final result: &#x27;</span> + finalResult);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
+
+<p>then 里的参数是可选的，catch(failureCallback) 是 then(null, failureCallback) 的缩略形式。</p>
+<p>如下所示，我们也可以用箭头函数来表示：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">doSomething()<br>.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> doSomethingElse(result))<br>.then(<span class="hljs-function"><span class="hljs-params">newResult</span> =&gt;</span> doThirdThing(newResult))<br>.then(<span class="hljs-function"><span class="hljs-params">finalResult</span> =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Got the final result: <span class="hljs-subst">$&#123;finalResult&#125;</span>`</span>);<br>&#125;)<br>.catch(failureCallback);<br></code></pre></td></tr></table></figure>
+
+<div class='description success'><span class='description-title'>注意</span><div><p>一定要有返回值，否则，callback 将无法获取上一个 Promise 的结果。(如果使用箭头函数，() =&gt; x 比 () =&gt; { return x; } 更简洁一些，但后一种保留 return 的写法才支持使用多个语句。）。</p></div></div>
+
+<h2 id="resolve-amp-reject"><a href="#resolve-amp-reject" class="headerlink" title="resolve &amp; reject"></a>resolve &amp; reject</h2><blockquote>
+<p>Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve方法和reject方法。<br>如果异步操作成功，则用resolve方法将Promise对象的状态变为“成功”（即从pending变为resolved）；<br>如果异步操作失败，则用reject方法将状态变为“失败”（即从pending变为rejected）。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-comment">/* 异步操作成功 */</span>)&#123;<br>    resolve(value);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    reject(error);<br>  &#125;<br>&#125;);<br><br>promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;<br>  <span class="hljs-comment">// success</span><br>&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;<br>  <span class="hljs-comment">// failure</span><br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Promise.prototype.then</code>方法返回的是一个新的Promise对象，因此可以采用链式写法。</li>
+<li><code>Promise.prototype.catch</code>方法是<code>Promise.prototype.then(null, rejection)</code>的别名，用于指定发生错误时的回调函数。<ul>
+<li>Promise对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。</li>
+</ul>
+</li>
+<li><code>Promise.all</code>和<code>Promise.race</code>方法方法用于将多个Promise实例，包装成一个新的Promise实例。</li>
+</ul>
+<h2 id="参考文章-amp-More"><a href="#参考文章-amp-More" class="headerlink" title="参考文章 &amp; More"></a>参考文章 &amp; More</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN - Promise</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises">MDN - Using_promises</a></li>
+<li><a href="https://wohugb.gitbooks.io/ecmascript-6/content/docs/promise.html">Generator 函数 | ECMAScript 6入门</a></li>
+</ul>
+<h2 id="async-await-语法糖"><a href="#async-await-语法糖" class="headerlink" title="async/await 语法糖"></a>async/await 语法糖</h2><blockquote>
+<p>async函数是使用async关键字声明的函数。async和await关键字让我们可以用一种更简洁的方式写出基于Promise的异步行为，而无需刻意地链式调用promise。</p>
+</blockquote>
+<p>async函数是用来取代回调函数的另一种方法。</p>
+<p>只要函数名之前加上async关键字，就表明该函数内部有异步操作。该异步操作应该返回一个Promise对象，前面用await关键字注明。当函数执行的时候，一旦遇到await就会先返回，等到触发的异步操作完成，再接着执行函数体内后面的语句。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function">more</a></p>
+]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>promise</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>php环境配置</title>
+    <url>/delicate/2021/11/25/php01/</url>
+    <content><![CDATA[<div class="note note-danger">
+            <p>本文首发在<a href="https://kartjim.top/delicate">个人博客</a>；</p>
+          </div>
+
+<h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><div class="note note-purple">
+            <p>解析和执行PHP脚本，需要安装PHP运行环境；<br>PHP既可以独立运行，也可以作为Apache的模块运行；本文主要介绍PHP为apache的模块运行。</p>
+          </div>
+
+<span id="more"></span>
+
+<h3 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h3><h4 id="获取apache"><a href="#获取apache" class="headerlink" title="获取apache"></a>获取apache</h4><p>去官网可获取apache的源码：<a href="https://httpd.apache.org/">apache</a>，但没有提供编译后的apache。<br>我们可以从apache官网上找到第三方打包后的apache，比如说：<a href="https://www.apachelounge.com/">Apache Lounge</a>：<br><img src="https://i.loli.net/2021/11/26/ryjfbPYU1l4SEmv.png" alt="1.png"><br>这里我选择<code>httpd-2.4.51-win64-VS16.zip</code>下载。</p>
+<p>下载好之后解压文件，准备好一个文件夹把解压得到的文件放里面。<br>我就存放在f盘下：<code>F:\PHP\LAMP\apache\Apache24</code>，其中目录结构如下图：<br><img src="https://i.loli.net/2021/11/26/MfbIwcVlma5o3Ng.png" alt="f"><br>其中：</p>
+<table>
+<thead>
+<tr>
+<th align="center">文件夹</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">bin</td>
+<td align="center">存放Apache应用程序</td>
+</tr>
+<tr>
+<td align="center">conf</td>
+<td align="center">存放配置文件</td>
+</tr>
+<tr>
+<td align="center">htdocs</td>
+<td align="center">默认的网站根目录</td>
+</tr>
+<tr>
+<td align="center">modules</td>
+<td align="center">存放模块</td>
+</tr>
+</tbody></table>
+<h4 id="配置Apache"><a href="#配置Apache" class="headerlink" title="配置Apache"></a>配置Apache</h4><p>打开apache配置文件（conf文件夹下的httpd.conf）</p>
+<blockquote>
+<p>在<code>httpd.conf</code>里，”#” 是注释符</p>
+</blockquote>
+<p>（1）、配置Apache安装路径<br>把<code>Define SRVROOT &quot;c:/apache24&quot;</code>改为：（大概第37行）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">Define SRVROOT <span class="hljs-string">&quot;F:/PHP/LAMP/apache/Apache24&quot;</span> <span class="hljs-comment"># 后面填上你自己的apache路径！</span><br></code></pre></td></tr></table></figure>
+
+<p>（2）、配置服务器域名<br>搜索<code>ServerName</code>，找到<code>#ServerName www.example.com:80</code><br>因为暂时没有域名，所以取消注释即可（<span style="color:#ef0105;">不取消注释之后会报错</span>）。</p>
+<h4 id="安装apache"><a href="#安装apache" class="headerlink" title="安装apache"></a>安装apache</h4><p>以管理员身份运行cmd，并切换到apache的bin目录之下，输入一下命令进行安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">httpd -k install -n apacheName<br></code></pre></td></tr></table></figure>
+
+<p><code>-n</code>之后是apache的名称，任意取。</p>
+<p>如果需要卸载：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">httpd -k uninstall -n apacheName<br></code></pre></td></tr></table></figure>
+
+<h4 id="启动apache"><a href="#启动apache" class="headerlink" title="启动apache"></a>启动apache</h4><p>在安装好apache之后，去bin目录下找到程序<code>ApacheMonitor.exe</code>，双击即可启动。</p>
+<blockquote>
+<p>这是会发现任务栏里会有图标；<br>可以单击管理程序的开始与停止。</p>
+</blockquote>
+<p>启动之后，打开浏览器，输入<code>http://localhost/</code>即可看到apache已经成功启动。</p>
+<p>上面提到过<code>htdocs</code>文件夹是默认的网站根目录，里面有一个<code>index.html</code>文件，上面你看到的页面就是这个文件。</p>
+<div class="note note-success">
+            <p>现在你可以随意修改它，并且在浏览器查看效果！</p>
+          </div>
+<p><img src="https://i.loli.net/2021/11/26/N5nAfeTLpOPd3iB.png" alt="image.png"></p>
+<div class="note note-primary">
+            <p>你甚至可以在其它设备的浏览器 通过你的电脑的IP地址 查看效果！</p>
+          </div>
+
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><h4 id="PHP的优势"><a href="#PHP的优势" class="headerlink" title="PHP的优势"></a>PHP的优势</h4><ul>
+<li>开源免费</li>
+<li>跨平台型</li>
+<li>面向对象</li>
+<li>支持多种数据库</li>
+<li>快捷性</li>
+</ul>
+<div class="note note-cyan">
+            <p>语法与使用方式十分接近 本博客框架使用的语言 ejs</p>
+          </div>
+
+<blockquote>
+<p>尽管PHP的优势现在已经不太明显，但还是有必要学一下；<br>有利于理解后端的知识，并在学习的过程中掌握更多网络相关的知识，不只是PHP；</p>
+</blockquote>
+<h4 id="获取PHP"><a href="#获取PHP" class="headerlink" title="获取PHP"></a>获取PHP</h4><p>你可以去<a href="https://www.php.net/">PHP官网</a>找到最新版的PHP。</p>
+<div class="note note-default">
+            <p>但是，在下载之前你需要特别注意apache支持的PHP版本；如果你下载最新版本的PHP，但是你使用的apache并不支持，就会报错。</p>
+          </div>
+<p>还有，PHP官网会提供两种版本的PHP，一个是<code>&#39;Thread Safe&#39;（线程安全）</code>版本，一个是<code>&#39;Non Thread Safe&#39;（非线程安全）</code>版本；<br>如果你使用apache运行PHP，则必须下载<code>&#39;Thread Safe&#39;（线程安全）</code>版本！</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>解压下载好的PHP，放进准备好的文件夹，这里我放在f盘：<code>F:\PHP\LAMP\php7.3</code>;文件目录结构如下：<br><img src="https://i.loli.net/2021/11/26/gumVS3yGfpFZjX1.png" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th align="center">文件/目录</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ext/</td>
+<td align="center">拓展文件存放</td>
+</tr>
+<tr>
+<td align="center">php.exe</td>
+<td align="center">PHP程序</td>
+</tr>
+<tr>
+<td align="center">php7apache2_4.dll</td>
+<td align="center">用于apache的Dll模块</td>
+</tr>
+<tr>
+<td align="center">libssh2.dll</td>
+<td align="center">用于apache的Dll模块</td>
+</tr>
+</tbody></table>
+<p>PHP配置文件是<code>php.ini</code>，但是默认是没有的，只有<code>php.ini-development</code>和<code>php.ini-production</code>两个示例配置文件。<br>从名字上来看，很容易理解这两个文件的作用，<code>php.ini-development</code>用于开发阶段，而<code>php.ini-production</code>用于生产阶段。</p>
+<p>所以我们暂时使用<code>php.ini-development</code>，新建<code>php.ini</code>文件，将<code>php.ini-development</code>复制一份到<code>php.ini</code>。</p>
+<blockquote>
+<p>注：在<code>php.ini</code>里，<code>;</code>是注释符。</p>
+</blockquote>
+<p>修改以下：<br>（1）、搜索<code>extension_dir</code>找到<code>;extension_dir = &quot;ext&quot;</code>,修改为</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">extension_dir</span> = <span class="hljs-string">&quot;F:\PHP\LAMP\php7.3\ext&quot;</span> <br></code></pre></td></tr></table></figure>
+<p>后面填写你的 php中的ext 所在目录</p>
+<p>（2）、查找<code>date.timezone</code>,将<code>;date.timezone</code>,修改为：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">date.timezone</span> = UTC<br></code></pre></td></tr></table></figure>
+<p>后面填 <code>UTC</code>（世界时）、 <code>PRC</code> （中国时区）或 <code>Asia/Shanghai</code>（上海） 等时区。</p>
+<h4 id="在Apache中引用PHP模块"><a href="#在Apache中引用PHP模块" class="headerlink" title="在Apache中引用PHP模块"></a>在Apache中引用PHP模块</h4><p>回到apache配置文件，在大约186行，引入PHP模块；<br>在其中插入以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs conf">LoadModule php7_module &quot;F:/PHP/LAMP/php7.3/php7apache2_4.dll&quot;<br>&lt;FilesMatch &quot;\.php$&quot;&gt;<br>    setHandler application/x-httpd-php<br>&lt;/FilesMatch&gt;<br>PHPIniDir &quot;F:/PHP/LAMP/php7.3&quot;<br>LoadFile &quot;F:/PHP/LAMP/php7.3/libssh2.dll&quot;<br></code></pre></td></tr></table></figure>
+
+<div class="note note-default">
+            <p>注意需要将后面的路径换成你自己的！</p>
+          </div>
+
+<p>之后查找<code>dir_module</code>,将</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs conf">&lt;IfModule dir_module&gt;<br>    DirectoryIndex index.html<br>&lt;/IfModule&gt;<br></code></pre></td></tr></table></figure>
+
+<p>改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs conf">&lt;IfModule dir_module&gt;<br>    DirectoryIndex index.html index.php<br>&lt;/IfModule&gt;<br></code></pre></td></tr></table></figure>
+
+<p>即，把<code>index.php</code>当做第二默认文件。</p>
+<div class="note note-default">
+            <p>点击apache图标，重新启动apache（Restart）。<br><img src="https://i.loli.net/2021/11/26/yELObGFx1twVn5S.png" alt="image.png"><br>如果没有报错，即为配置成功！</p>
+          </div>
+
+<h4 id="测试PHP模块"><a href="#测试PHP模块" class="headerlink" title="测试PHP模块"></a>测试PHP模块</h4><p>在<code>htdocs</code>目录下新建<code>index.php</code>，删去<code>index.html</code>；<br>打开<code>index.php</code>，写入：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>  <span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;Hello PHP!&#x27;</span>;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>打开浏览器，访问<code>http://localhost/</code>，即可看到运行成功：<br><img src="https://i.loli.net/2021/11/26/VDUcdplnmg3vJSN.png" alt="image.png"></p>
+<h2 id="bug解决"><a href="#bug解决" class="headerlink" title="bug解决"></a>bug解决</h2><h3 id="the-requested-operation-has-failed"><a href="#the-requested-operation-has-failed" class="headerlink" title="the requested operation has failed"></a>the requested operation has failed</h3><p>造成<code>the requested operation has failed</code>的原因有很多：</p>
+<ol>
+<li>你使用的apache版本并不支持你使用的PHP版本</li>
+</ol>
+<p>简单来讲就是你使用的PHP版本不在 apache支持的PHP版本 </p>
+<p>这个时候需要去百度你使用的apache版本支持哪个版本的PHP，然后重新安装PHP环境与配置。</p>
+<div class="note note-info">
+            <p>例如，我使用的是Apache/2.4.51 (Win64) ，第一次下载的PHP是7.4版本的，报错。之后改用PHP7.3就成功运行。</p>
+          </div>
+
+<ol start="2">
+<li>你下载的PHP不是’Thread Safe’（线程安全）版本</li>
+</ol>
+]]></content>
+      <categories>
+        <category>php</category>
+      </categories>
+      <tags>
+        <tag>php学习</tag>
+        <tag>bug记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RGB和HSV</title>
+    <url>/delicate/2021/12/03/rgb2hsv/</url>
+    <content><![CDATA[<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><blockquote class="pullquote information"><p>在图像处理中，最常用的颜色空间是RGB模型，常用于颜色显示和图像处理。</p>
+</blockquote>
+
+<p><img src="https://i.loli.net/2021/12/03/CoXvkQt5OlziMjH.jpg" alt="rgb.jpeg"></p>
+<p>原点到白色顶点的中轴线是灰度线，r、g、b三分量相等，强度可以由三分量的向量表示。<br>用RGB来理解色彩、深浅、明暗变化：</p>
+<ul>
+<li>色彩变化：三个坐标轴RGB最大分量顶点与黄紫青YMC色顶点的连线。</li>
+<li>深浅变化：RGB顶点和CMY顶点到原点和白色顶点的中轴线的距离。</li>
+<li>明暗变化：中轴线的点的位置，到原点，就偏暗，到白色顶点就偏亮。</li>
+</ul>
+<div class="note note-primary">
+            <p>三原色RGB混合能形成其他的颜色<br>并不是说物理上其他颜色的光是由三原色的光混合形成的， 每种单色光都有自己独特的光谱，如黄光是一种单色光，但红色与绿色混合能形成黄色，原因是人的感官系统所致，与人的生理系统有关。</p>
+          </div>
+
+<h3 id="RGB的局限性"><a href="#RGB的局限性" class="headerlink" title="RGB的局限性"></a>RGB的局限性</h3><p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
+<p>RGB颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间,比较容易理解;却并不适合于图像处理。</p>
+<h2 id="HSV-and-HSL"><a href="#HSV-and-HSL" class="headerlink" title="HSV and HSL"></a>HSV and HSL</h2><h3 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a>HSV</h3><blockquote>
+<p>而HSV模型，是针对用户观感的一种颜色模型，侧重于色彩表示，什么颜色、深浅如何、明暗如何。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/12/03/a3Ysr9FGu7yVtxA.jpg" alt="HSV.jpg"><br>这个模型就是按色彩、深浅、明暗来描述的。  </p>
+<ul>
+<li>Hue（色调、色相）</li>
+<li>Saturation（饱和度、色彩纯净度）</li>
+<li>Value（明度）</li>
+</ul>
+<blockquote>
+<p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
+</blockquote>
+<h3 id="HSL"><a href="#HSL" class="headerlink" title="HSL"></a>HSL</h3><p><img src="https://i.loli.net/2021/12/03/B1zhpP6s2ukH9CR.jpg" alt="HSL.jpg"></p>
+<blockquote>
+<p>HLS 和 HSV 比较类似,HLS 也有三个分量，hue（色相）、saturation（饱和度）、lightness（亮度）。</p>
+</blockquote>
+<p>HLS 和 HSV 的区别就是最后一个分量不同，HLS 的是 light（亮度），HSV 的是 value（明度）。HLS 中的 L 分量为亮度，亮度为100，表示白色，亮度为0，表示黑色；HSV 中的 V 分量为明度，明度为100，表示光谱色，明度为0，表示黑色。</p>
+<div class="note note-info">
+            <p>提取白色物体时，使用 HLS 更方便，因为 HSV 中的Hue里没有白色，白色需要由S和V共同决定（S=0, V=100）。<br>而在 HLS 中，白色仅由亮度L一个分量决定。所以检测白色时使用 HSL 颜色空间更准确。</p>
+          </div>
+
+<h2 id="HSV-and-RGB"><a href="#HSV-and-RGB" class="headerlink" title="HSV and RGB"></a>HSV and RGB</h2><div class="note note-cyan">
+            <p>::: tip 百度百科<br>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V=S=1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。<br>增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。例如，要得到深蓝色，V=0.4 S=1 H=240度。要得到淡蓝色，V=1 S=0.4 H=240度。</p>
+          </div>
+]]></content>
   </entry>
   <entry>
     <title>二次元图片</title>
