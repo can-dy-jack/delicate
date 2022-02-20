@@ -147,29 +147,16 @@
             <div class="col-sm-8 blog-main">
                 
 <div class="blog-post">
-    <!-- 文章标题导航栏 -->
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
-        <div class="toast-header">
-            <span class="toast-color"></span>
-            <strong class="mr-auto">XSS攻击</strong>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E5%9E%8BXSS"><span class="toc-number">1.</span> <span class="toc-text">反射型XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%A8%E5%AD%98%E5%9E%8BXSS"><span class="toc-number">2.</span> <span class="toc-text">储存型XSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B1%E5%AE%B3"><span class="toc-number"></span> <span class="toc-text">危害</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%83%E5%8F%96%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E4%B8%AD%E7%9A%84cookie%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">窃取网页浏览中的cookie值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%AB%E6%8C%81%E6%B5%81%E9%87%8F%E5%AE%9E%E7%8E%B0%E6%81%B6%E6%84%8F%E8%B7%B3%E8%BD%AC"><span class="toc-number">2.</span> <span class="toc-text">劫持流量实现恶意跳转</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%BF%E5%85%8DXSS%E6%94%BB%E5%87%BB"><span class="toc-number"></span> <span class="toc-text">避免XSS攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">参考文章</span></a>
-        </div>
+    <!-- TOC -->
+    <div class="toc-box">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E5%9E%8BXSS"><span class="toc-number">1.</span> <span class="toc-text">反射型XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%A8%E5%AD%98%E5%9E%8BXSS"><span class="toc-number">2.</span> <span class="toc-text">储存型XSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B1%E5%AE%B3"><span class="toc-number"></span> <span class="toc-text">危害</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%83%E5%8F%96%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E4%B8%AD%E7%9A%84cookie%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">窃取网页浏览中的cookie值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%AB%E6%8C%81%E6%B5%81%E9%87%8F%E5%AE%9E%E7%8E%B0%E6%81%B6%E6%84%8F%E8%B7%B3%E8%BD%AC"><span class="toc-number">2.</span> <span class="toc-text">劫持流量实现恶意跳转</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%BF%E5%85%8DXSS%E6%94%BB%E5%87%BB"><span class="toc-number"></span> <span class="toc-text">避免XSS攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text">参考文章</span></a>
+        <span class="arrow">></span>
     </div>
     <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/12/16/XSS攻击/">
             XSS攻击
         </a>
-        <span id="toc" data-toggle="tooltip" data-placement="right" title="显示目录导航">
-            <svg id="icon" aria-hidden="true">
-                <use xlink:href="#icon-caidan"></use>
-            </svg>
-        </span>
     </h2>
     <p class="blog-post-meta">
         <span>2021-12-16</span>
@@ -299,6 +286,10 @@
 
     
         
+
+
+    
+        
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/12/code-test/">
@@ -324,6 +315,27 @@
 
     
         
+<div class="sidebar-top-part">
+    <div>
+        <a href="/delicate/2021/11/14/markdown测试文件/">
+            markdown测试文件
+        </a>
+    </div>
+    <div>
+        
+        
+            
+                <span class="badge badge-pill badge-primary">测试文件</span>
+            
+                <span class="badge badge-pill badge-primary">code</span>
+            
+        
+    </div>
+    <div>
+        2021-11-14
+    </div>
+</div>
+
 
 
     
@@ -346,31 +358,6 @@
     </div>
     <div>
         2021-11-04
-    </div>
-</div>
-
-
-
-    
-        
-<div class="sidebar-top-part">
-    <div>
-        <a href="/delicate/2021/11/14/markdown测试文件/">
-            markdown测试文件
-        </a>
-    </div>
-    <div>
-        
-        
-            
-                <span class="badge badge-pill badge-primary">测试文件</span>
-            
-                <span class="badge badge-pill badge-primary">code</span>
-            
-        
-    </div>
-    <div>
-        2021-11-14
     </div>
 </div>
 
