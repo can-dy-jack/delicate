@@ -148,10 +148,128 @@
                 
 <div class="blog-post">
     <!-- TOC -->
-    <div class="toc-box">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">AJAX简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">ajax使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">ajax基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASP-PHP"><span class="toc-number">2.2.</span> <span class="toc-text">ASP&#x2F;PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX-%E5%8F%AF%E7%94%A8%E6%9D%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E5%8A%A8%E6%80%81%E9%80%9A%E4%BF%A1"><span class="toc-number">2.3.</span> <span class="toc-text">AJAX 可用来与数据库进行动态通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-AJAX-%E6%9D%A5%E8%AF%BB%E5%8F%96%E6%9D%A5%E8%87%AA-XML-%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">2.4.</span> <span class="toc-text">使用 AJAX 来读取来自 XML 文件的信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fetch-API"><span class="toc-number">3.</span> <span class="toc-text">Fetch API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response-%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.2.</span> <span class="toc-text">Response 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch-%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%9A%E5%AE%9A%E5%88%B6-HTTP-%E8%AF%B7%E6%B1%82"><span class="toc-number">3.3.</span> <span class="toc-text">fetch()的第二个参数：定制 HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch-%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%8C%E6%95%B4-API"><span class="toc-number">3.4.</span> <span class="toc-text">fetch()第二个参数配置对象的完整 API</span></a></li></ol></li></ol>
-        <span class="arrow">></span>
+    <!-- Web Components -->
+<template id="tocTemplate">
+<style scoped>
+    :host{
+        display: block;
+        z-index: 800;
+        border-radius: 5px;
+        position: sticky;top: 5px;
+        width: calc(100% + 20px);
+        transform: translateX(-10px);
+        box-shadow: 0 0 8px rgba(0,0,0,.05);
+    }
+    ::-webkit-scrollbar{
+        width: 10px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-clip: padding-box; /* important */
+        width: 6px;
+        background-color: rgba(120, 134, 150, 0.6);
+        border-radius: 10px;
+        border: 2px solid transparent;
+    }
+    .toc-header{
+        user-select: none;
+        background-color: rgba(240, 240, 240, .5);
+        backdrop-filter: blur(20px);
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #eee;
+        color: #3594d8;
+        padding: 0 15px;
+        border-radius: 5px;
+    }
+    .toc-header .toc-arrow{
+        display: block;height: 40px;width: 40px;
+        cursor: pointer;
+        font-size: 26px;line-height: 40px;
+        text-align: center;
+        z-index: 801;
+        transition: transform 300ms linear;
+    }
+    .toc-body {
+        background-color: #fefefe99;
+        backdrop-filter: blur(20px);
+        border-radius: 0 0 5px 5px;
+        transition: height 300ms linear;
+        height: 0;
+        overflow: hidden;
+        position: absolute;top:41px;left:0;right:0;
+    }
+    .toc-body ol {
+        list-style: none;
+        padding: 0 10px 5px 20px;
+        margin-bottom: 0;
+    }
+    .toc-body::selection{
+        background-color: rgba(90, 150, 190);
+        color: #fff;
+    }
+    a{
+        text-decoration: none;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    .open{
+        height: 240px;
+        overflow: auto;
+        border: 1px solid #efefef;
+        box-shadow: 0 4px 4px rgba(0,0,0,.04);
+    }
+    .border{
+        border-radius: 5px 5px 0 0;
+        border-bottom-color: transparent;
+    }
+</style>
+    <div class="toc-header">
+        <div class="toc-currentText"> 目    录 </div>
+        <div class="toc-arrow" style="transform: rotate(90deg);"> > </div>
     </div>
+    <div class="toc-body">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">AJAX简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">ajax使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">ajax基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ASP-PHP"><span class="toc-number">2.2.</span> <span class="toc-text">ASP&#x2F;PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX-%E5%8F%AF%E7%94%A8%E6%9D%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E5%8A%A8%E6%80%81%E9%80%9A%E4%BF%A1"><span class="toc-number">2.3.</span> <span class="toc-text">AJAX 可用来与数据库进行动态通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-AJAX-%E6%9D%A5%E8%AF%BB%E5%8F%96%E6%9D%A5%E8%87%AA-XML-%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">2.4.</span> <span class="toc-text">使用 AJAX 来读取来自 XML 文件的信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fetch-API"><span class="toc-number">3.</span> <span class="toc-text">Fetch API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response-%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.2.</span> <span class="toc-text">Response 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch-%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%9A%E5%AE%9A%E5%88%B6-HTTP-%E8%AF%B7%E6%B1%82"><span class="toc-number">3.3.</span> <span class="toc-text">fetch()的第二个参数：定制 HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch-%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%8C%E6%95%B4-API"><span class="toc-number">3.4.</span> <span class="toc-text">fetch()第二个参数配置对象的完整 API</span></a></li></ol></li></ol>
+    </div>
+</template>
+
+<!-- TOC -->
+<delicate-toc></delicate-toc>
+
+<script>
+class delicateTOC extends HTMLElement{
+    constructor () {
+        super();
+        this.shadow = this.attachShadow({mode: 'open'});
+        const tocTemplate = document.getElementById("tocTemplate");
+        this.shadow.appendChild(tocTemplate.content);
+
+        const body = this.shadow.querySelector('.toc-body');
+        const head = this.shadow.querySelector('.toc-header');
+        const arrow = this.shadow.querySelector('.toc-arrow');
+        let arrowOpen = true;
+        arrow.addEventListener('click',function(){
+            if(arrowOpen){
+                arrowOpen = false;
+                body.classList.add('open');
+                head.classList.add('border');
+                arrow.style.transform = 'rotate(-90deg)';
+            } else {
+                arrowOpen = true;
+                body.classList.remove('open');
+                head.classList.remove('border');
+                arrow.style.transform = 'rotate(90deg)';
+            }
+        })
+    }
+}
+customElements.define("delicate-toc", delicateTOC);
+
+</script>
+
     <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/12/05/AJAX学习笔记/">
@@ -512,10 +630,6 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 
     
         
-
-
-    
-        
 <div class="sidebar-top-part">
     <div>
         <a href="/delicate/2021/11/12/code-test/">
@@ -541,27 +655,6 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 
     
         
-<div class="sidebar-top-part">
-    <div>
-        <a href="/delicate/2021/11/14/markdown测试文件/">
-            markdown测试文件
-        </a>
-    </div>
-    <div>
-        
-        
-            
-                <span class="badge badge-pill badge-primary">测试文件</span>
-            
-                <span class="badge badge-pill badge-primary">code</span>
-            
-        
-    </div>
-    <div>
-        2021-11-14
-    </div>
-</div>
-
 
 
     
@@ -584,6 +677,31 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
     </div>
     <div>
         2021-11-04
+    </div>
+</div>
+
+
+
+    
+        
+<div class="sidebar-top-part">
+    <div>
+        <a href="/delicate/2021/11/14/markdown测试文件/">
+            markdown测试文件
+        </a>
+    </div>
+    <div>
+        
+        
+            
+                <span class="badge badge-pill badge-primary">测试文件</span>
+            
+                <span class="badge badge-pill badge-primary">code</span>
+            
+        
+    </div>
+    <div>
+        2021-11-14
     </div>
 </div>
 
@@ -871,46 +989,12 @@ next.addEventListener('click',()=>{
     
     
     </div>
-
 <footer class="blog-footer">
     <p><span id="times">载入时间...</span></p>
     <p>According to <a target="_blank" rel="noopener" href="http://getbootstrap.com">Bootstrap v4.6.1</a> by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">@can-dy-jack</a>.</p>
-    
     <p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> &#9825; <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a></p>
-    <p>
-        Copyright &#9400; 2021 can-dy-jack. All rights reserved. |  
-        <span id="feedback" data-toggle="tooltip" data-placement="top" title="feedback">
-            <a href="#" aria-hidden="true" data-toggle="modal" data-target="#staticBackdrop">feedback</a>
-        </span>
-    </p>
+    <p>Copyright &#9400; 2021 can-dy-jack. All rights reserved.</p>
 </footer>
-
-
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">吐槽 / 建议</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <script src="https://utteranc.es/client.js"
-                repo="can-dy-jack/hexo-theme-delicate"
-                issue-term="反馈"
-                theme="github-light"
-                crossorigin="anonymous"
-                async>
-        </script>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
