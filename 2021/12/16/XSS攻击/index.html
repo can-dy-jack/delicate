@@ -147,7 +147,6 @@
             <div class="col-sm-8 blog-main">
                 
 <div class="blog-post">
-    <!-- TOC -->
     <!-- Web Components -->
 <template id="tocTemplate">
 <style scoped>
@@ -331,7 +330,6 @@ customElements.define("delicate-toc", delicateTOC);
 </ul>
 
     <hr />
-    <!-- Tags and Categories links -->
     <div class="blog-tag-and-cate">
         
 
@@ -387,7 +385,31 @@ customElements.define("delicate-toc", delicateTOC);
             
         </div>
     </div>
-    <hr>
+    
+        <section class="comment-valine">
+        <!-- valine评论,基于LeanCloud -->
+            <div id="/delicate/2021/12/16/XSS%E6%94%BB%E5%87%BB/" class="leancloud_visitors" data-flag-title="Your Article Title">
+    <span class="post-meta-item-text">阅读量 </span>
+    <i class="leancloud-visitors-count">---</i>
+</div>
+<hr>
+<div class="comment-head">评论：</div>
+<div id="comment-body"></div>
+
+<script src="https://unpkg.com/valine@1.4.16/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#comment-body',
+        appId: 'hdaW9uaYaxJSxUV25qnTklcl-gzGzoHsz',
+        appKey: 'LNVM14E2XykcTyqqYyxbIswp',
+        placeholder: "请发表您的意见和建议（支持 markdown 语法）",
+        pageSize: 5,
+        lang: "zh-CN",
+        visitor: true, // 阅读量统计
+    })
+</script>
+        </section>
+    
 </div>
 
 
@@ -398,10 +420,6 @@ customElements.define("delicate-toc", delicateTOC);
 
 <div class="alert alert-light shadow-sm sidebar-top">
     <h3>Sticky Posts</h3>
-    
-        
-
-
     
         
 <div class="sidebar-top-part">
@@ -425,6 +443,10 @@ customElements.define("delicate-toc", delicateTOC);
     </div>
 </div>
 
+
+
+    
+        
 
 
     

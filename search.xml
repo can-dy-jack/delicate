@@ -1,57 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>XSS攻击</title>
-    <url>/delicate/2021/12/16/XSS%E6%94%BB%E5%87%BB/</url>
-    <content><![CDATA[<div class='description dark'><span class='description-title'>百度百科</span><div><ul><li>人们经常将跨站脚本攻击（Cross Site Scripting）缩写为CSS，但这会与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。  </li><li>跨站脚本攻击（XSS），是最普遍的Web应用安全漏洞。这类漏洞能够使得攻击者嵌入恶意脚本代码到正常用户会访问到的页面中，当正常用户访问该页面时，则可导致嵌入的恶意脚本代码的执行，从而达到恶意攻击用户的目的。</li><li>在Web安全威胁前10位中，XSS排名第2，仅次于代码注入（Injection）。</li></ul><blockquote><p>HTML是一种超文本标记语言，通过将一些字符特殊地对待来区别文本和标记，<br>例如，小于符号（&lt;）被看作是HTML标签的开始，<code>&lt;title&gt;</code>与<code>&lt;/title&gt;</code>之间的字符是页面的标题等等。当动态页面中插入的内容含有这些特殊字符（如&lt;）时，<br>用户浏览器会将其误认为是插入了HTML标签，当这些HTML标签引入了一段JavaScript脚本时，这些脚本程序就将会在用户浏览器中执行。<br>所以，当这些特殊字符不能被动态页面检查或检查出现失误时，就将会产生XSS漏洞。</p></blockquote></div></div>
-
-<span id="more"></span>
-
-<h4 id="XSS攻击大致上分为两类："><a href="#XSS攻击大致上分为两类：" class="headerlink" title="XSS攻击大致上分为两类："></a>XSS攻击大致上分为两类：</h4><ul>
-<li>一类是反射型XSS，又称非持久型XSS。</li>
-<li>一类是储存型XSS，也就是持久型XSS。</li>
-</ul>
-<h3 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h3><blockquote>
-<p>攻击相对于访问者而言是一次性的</p>
-</blockquote>
-<h3 id="储存型XSS"><a href="#储存型XSS" class="headerlink" title="储存型XSS"></a>储存型XSS</h3><blockquote>
-<p>将攻击代价储存到数据库中，然后当我们再次访问相同页面时，将恶意脚本从数据库中取出并返回给浏览器执行。这就意味着只要访问了这个页面的访客，都有可能会执行这段恶意脚本，因此储存型XSS的危害会更大。</p>
-</blockquote>
-<h2 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h2><p>XSS的攻击方式就是想办法通过插入js代码，使用户的浏览器去执行一些这个网页中原本不存在的前端代码。</p>
-<h3 id="窃取网页浏览中的cookie值"><a href="#窃取网页浏览中的cookie值" class="headerlink" title="窃取网页浏览中的cookie值"></a>窃取网页浏览中的cookie值</h3><p>在网页浏览中我们常常涉及到用户登录，登录完毕之后服务端会返回一个cookie值。这个cookie值相当于一个令牌，拿着这张令牌就等同于证明了你是某个用户。<br>如果你的cookie值被窃取，那么攻击者很可能能够直接利用你的这张令牌不用密码就登录你的账户。<br>如果想要通过script脚本获得当前页面的cookie值，通常会用到document.cookie。</p>
-<h3 id="劫持流量实现恶意跳转"><a href="#劫持流量实现恶意跳转" class="headerlink" title="劫持流量实现恶意跳转"></a>劫持流量实现恶意跳转</h3><p>就是在网页中想办法插入一句像这样的语句：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-built_in">window</span>.location.href=<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>那么所访问的网站就会被跳转到百度的首页。</p>
-<h2 id="避免XSS攻击"><a href="#避免XSS攻击" class="headerlink" title="避免XSS攻击"></a>避免XSS攻击</h2><ul>
-<li>过滤<ul>
-<li>有的时候，服务器往往会对代码中的关键字（如<code>alert</code>）进行过滤，这个时候我们可以尝试将关键字进行编码后再插入，不过直接显示编码是不能被浏览器执行的，我们可以用val（）来实现, <code>eval()</code>会将编码过的语句解码后再执行。</li>
-<li>对诸如<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;a&gt;</code>等标签进行过滤。</li>
-</ul>
-</li>
-<li>编码<ul>
-<li>像一些常见的符号，如&lt;&gt;在输入的时候要对其进行转换编码，这样做浏览器是不会对该标签进行解释执行的，同时也不影响显示效果。</li>
-</ul>
-</li>
-<li>限制<ul>
-<li>通过以上的案例我们不难发现xss攻击要能达成往往需要较长的字符串，因此对于一些可以预期的输入可以通过限制长度强制截断来进行防御。</li>
-</ul>
-</li>
-</ul>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/26177815">知乎</a></li>
-<li><a href="https://baike.baidu.com/item/XSS%E6%94%BB%E5%87%BB/954065?fr=aladdin">百度百科</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>网络安全</category>
-      </categories>
-      <tags>
-        <tag>网络安全</tag>
-        <tag>XSS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tag Plugins</title>
     <url>/delicate/2021/11/12/code-test/</url>
     <content><![CDATA[<blockquote>
@@ -310,6 +259,57 @@
       <tags>
         <tag>测试文件</tag>
         <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XSS攻击</title>
+    <url>/delicate/2021/12/16/XSS%E6%94%BB%E5%87%BB/</url>
+    <content><![CDATA[<div class='description dark'><span class='description-title'>百度百科</span><div><ul><li>人们经常将跨站脚本攻击（Cross Site Scripting）缩写为CSS，但这会与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。  </li><li>跨站脚本攻击（XSS），是最普遍的Web应用安全漏洞。这类漏洞能够使得攻击者嵌入恶意脚本代码到正常用户会访问到的页面中，当正常用户访问该页面时，则可导致嵌入的恶意脚本代码的执行，从而达到恶意攻击用户的目的。</li><li>在Web安全威胁前10位中，XSS排名第2，仅次于代码注入（Injection）。</li></ul><blockquote><p>HTML是一种超文本标记语言，通过将一些字符特殊地对待来区别文本和标记，<br>例如，小于符号（&lt;）被看作是HTML标签的开始，<code>&lt;title&gt;</code>与<code>&lt;/title&gt;</code>之间的字符是页面的标题等等。当动态页面中插入的内容含有这些特殊字符（如&lt;）时，<br>用户浏览器会将其误认为是插入了HTML标签，当这些HTML标签引入了一段JavaScript脚本时，这些脚本程序就将会在用户浏览器中执行。<br>所以，当这些特殊字符不能被动态页面检查或检查出现失误时，就将会产生XSS漏洞。</p></blockquote></div></div>
+
+<span id="more"></span>
+
+<h4 id="XSS攻击大致上分为两类："><a href="#XSS攻击大致上分为两类：" class="headerlink" title="XSS攻击大致上分为两类："></a>XSS攻击大致上分为两类：</h4><ul>
+<li>一类是反射型XSS，又称非持久型XSS。</li>
+<li>一类是储存型XSS，也就是持久型XSS。</li>
+</ul>
+<h3 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h3><blockquote>
+<p>攻击相对于访问者而言是一次性的</p>
+</blockquote>
+<h3 id="储存型XSS"><a href="#储存型XSS" class="headerlink" title="储存型XSS"></a>储存型XSS</h3><blockquote>
+<p>将攻击代价储存到数据库中，然后当我们再次访问相同页面时，将恶意脚本从数据库中取出并返回给浏览器执行。这就意味着只要访问了这个页面的访客，都有可能会执行这段恶意脚本，因此储存型XSS的危害会更大。</p>
+</blockquote>
+<h2 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h2><p>XSS的攻击方式就是想办法通过插入js代码，使用户的浏览器去执行一些这个网页中原本不存在的前端代码。</p>
+<h3 id="窃取网页浏览中的cookie值"><a href="#窃取网页浏览中的cookie值" class="headerlink" title="窃取网页浏览中的cookie值"></a>窃取网页浏览中的cookie值</h3><p>在网页浏览中我们常常涉及到用户登录，登录完毕之后服务端会返回一个cookie值。这个cookie值相当于一个令牌，拿着这张令牌就等同于证明了你是某个用户。<br>如果你的cookie值被窃取，那么攻击者很可能能够直接利用你的这张令牌不用密码就登录你的账户。<br>如果想要通过script脚本获得当前页面的cookie值，通常会用到document.cookie。</p>
+<h3 id="劫持流量实现恶意跳转"><a href="#劫持流量实现恶意跳转" class="headerlink" title="劫持流量实现恶意跳转"></a>劫持流量实现恶意跳转</h3><p>就是在网页中想办法插入一句像这样的语句：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-built_in">window</span>.location.href=<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>那么所访问的网站就会被跳转到百度的首页。</p>
+<h2 id="避免XSS攻击"><a href="#避免XSS攻击" class="headerlink" title="避免XSS攻击"></a>避免XSS攻击</h2><ul>
+<li>过滤<ul>
+<li>有的时候，服务器往往会对代码中的关键字（如<code>alert</code>）进行过滤，这个时候我们可以尝试将关键字进行编码后再插入，不过直接显示编码是不能被浏览器执行的，我们可以用val（）来实现, <code>eval()</code>会将编码过的语句解码后再执行。</li>
+<li>对诸如<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;a&gt;</code>等标签进行过滤。</li>
+</ul>
+</li>
+<li>编码<ul>
+<li>像一些常见的符号，如&lt;&gt;在输入的时候要对其进行转换编码，这样做浏览器是不会对该标签进行解释执行的，同时也不影响显示效果。</li>
+</ul>
+</li>
+<li>限制<ul>
+<li>通过以上的案例我们不难发现xss攻击要能达成往往需要较长的字符串，因此对于一些可以预期的输入可以通过限制长度强制截断来进行防御。</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/26177815">知乎</a></li>
+<li><a href="https://baike.baidu.com/item/XSS%E6%94%BB%E5%87%BB/954065?fr=aladdin">百度百科</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>网络安全</category>
+      </categories>
+      <tags>
+        <tag>网络安全</tag>
+        <tag>XSS</tag>
       </tags>
   </entry>
   <entry>

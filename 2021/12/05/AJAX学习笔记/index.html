@@ -147,7 +147,6 @@
             <div class="col-sm-8 blog-main">
                 
 <div class="blog-post">
-    <!-- TOC -->
     <!-- Web Components -->
 <template id="tocTemplate">
 <style scoped>
@@ -557,7 +556,6 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 <h3 id="fetch-第二个参数配置对象的完整-API"><a href="#fetch-第二个参数配置对象的完整-API" class="headerlink" title="fetch()第二个参数配置对象的完整 API"></a>fetch()第二个参数配置对象的完整 API</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> response = fetch(url, &#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>  <span class="hljs-attr">headers</span>: &#123;<br>    <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;text/plain;charset=UTF-8&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">body</span>: <span class="hljs-literal">undefined</span>,<br>  <span class="hljs-attr">referrer</span>: <span class="hljs-string">&quot;about:client&quot;</span>,<br>  <span class="hljs-attr">referrerPolicy</span>: <span class="hljs-string">&quot;no-referrer-when-downgrade&quot;</span>,<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;cors&quot;</span>, <br>  <span class="hljs-attr">credentials</span>: <span class="hljs-string">&quot;same-origin&quot;</span>,<br>  <span class="hljs-attr">cache</span>: <span class="hljs-string">&quot;default&quot;</span>,<br>  <span class="hljs-attr">redirect</span>: <span class="hljs-string">&quot;follow&quot;</span>,<br>  <span class="hljs-attr">integrity</span>: <span class="hljs-string">&quot;&quot;</span>,<br>  <span class="hljs-attr">keepalive</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">signal</span>: <span class="hljs-literal">undefined</span><br>&#125;);<br></code></pre></td></tr></table></figure>
 
     <hr />
-    <!-- Tags and Categories links -->
     <div class="blog-tag-and-cate">
         
 
@@ -613,7 +611,31 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
             
         </div>
     </div>
-    <hr>
+    
+        <section class="comment-valine">
+        <!-- valine评论,基于LeanCloud -->
+            <div id="/delicate/2021/12/05/AJAX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="leancloud_visitors" data-flag-title="Your Article Title">
+    <span class="post-meta-item-text">阅读量 </span>
+    <i class="leancloud-visitors-count">---</i>
+</div>
+<hr>
+<div class="comment-head">评论：</div>
+<div id="comment-body"></div>
+
+<script src="https://unpkg.com/valine@1.4.16/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#comment-body',
+        appId: 'hdaW9uaYaxJSxUV25qnTklcl-gzGzoHsz',
+        appKey: 'LNVM14E2XykcTyqqYyxbIswp',
+        placeholder: "请发表您的意见和建议（支持 markdown 语法）",
+        pageSize: 5,
+        lang: "zh-CN",
+        visitor: true, // 阅读量统计
+    })
+</script>
+        </section>
+    
 </div>
 
 
@@ -624,10 +646,6 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 
 <div class="alert alert-light shadow-sm sidebar-top">
     <h3>Sticky Posts</h3>
-    
-        
-
-
     
         
 <div class="sidebar-top-part">
@@ -651,6 +669,10 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
     </div>
 </div>
 
+
+
+    
+        
 
 
     
