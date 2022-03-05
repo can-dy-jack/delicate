@@ -3,7 +3,9 @@
   <entry>
     <title>XSS攻击</title>
     <url>/delicate/2021/12/16/XSS%E6%94%BB%E5%87%BB/</url>
-    <content><![CDATA[<div class='description dark'><span class='description-title'>百度百科</span><div><ul><li>人们经常将跨站脚本攻击（Cross Site Scripting）缩写为CSS，但这会与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。  </li><li>跨站脚本攻击（XSS），是最普遍的Web应用安全漏洞。这类漏洞能够使得攻击者嵌入恶意脚本代码到正常用户会访问到的页面中，当正常用户访问该页面时，则可导致嵌入的恶意脚本代码的执行，从而达到恶意攻击用户的目的。</li><li>在Web安全威胁前10位中，XSS排名第2，仅次于代码注入（Injection）。</li></ul><blockquote><p>HTML是一种超文本标记语言，通过将一些字符特殊地对待来区别文本和标记，<br>例如，小于符号（&lt;）被看作是HTML标签的开始，<code>&lt;title&gt;</code>与<code>&lt;/title&gt;</code>之间的字符是页面的标题等等。当动态页面中插入的内容含有这些特殊字符（如&lt;）时，<br>用户浏览器会将其误认为是插入了HTML标签，当这些HTML标签引入了一段JavaScript脚本时，这些脚本程序就将会在用户浏览器中执行。<br>所以，当这些特殊字符不能被动态页面检查或检查出现失误时，就将会产生XSS漏洞。</p></blockquote></div></div>
+    <content><![CDATA[<div class="toasts toasts-note"><div class="toasts-title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-info"></use></svg>百度百科</div> <div class="toasts-content"><ul><li>人们经常将跨站脚本攻击（Cross Site Scripting）缩写为CSS，但这会与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。  </li><li>跨站脚本攻击（XSS），是最普遍的Web应用安全漏洞。这类漏洞能够使得攻击者嵌入恶意脚本代码到正常用户会访问到的页面中，当正常用户访问该页面时，则可导致嵌入的恶意脚本代码的执行，从而达到恶意攻击用户的目的。</li><li>在Web安全威胁前10位中，XSS排名第2，仅次于代码注入（Injection）。</li></ul></div></div>
+
+<div class="toasts toasts-tip"><div class="toasts-title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-tiptxt"></use></svg>tip</div> <div class="toasts-content"><p>HTML是一种超文本标记语言，通过将一些字符特殊地对待来区别文本和标记，<br>例如，小于符号（&lt;）被看作是HTML标签的开始，<code>&lt;title&gt;</code>与<code>&lt;/title&gt;</code>之间的字符是页面的标题等等。当动态页面中插入的内容含有这些特殊字符（如&lt;）时，<br>用户浏览器会将其误认为是插入了HTML标签，当这些HTML标签引入了一段JavaScript脚本时，这些脚本程序就将会在用户浏览器中执行。<br>所以，当这些特殊字符不能被动态页面检查或检查出现失误时，就将会产生XSS漏洞。</p></div></div>
 
 <span id="more"></span>
 
@@ -303,6 +305,20 @@
 <li>success</li>
 <li>dark</li>
 </ul>
+<h3 id="toasts"><a href="#toasts" class="headerlink" title="toasts"></a>toasts</h3><div class="toasts toasts-tip"><div class="toasts-title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-tiptxt"></use></svg>提示</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-note"><div class="toasts-title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-info"></use></svg>信息</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-danger"><div class="toasts-title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-tip"></use></svg>危险</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-warning"><div class="toasts-title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-danger"></use></svg>警告</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<ul>
+<li>tip</li>
+<li>note</li>
+<li>danger</li>
+<li>warning</li>
+</ul>
 ]]></content>
       <categories>
         <category>测试文件</category>
@@ -310,6 +326,28 @@
       <tags>
         <tag>测试文件</tag>
         <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/delicate/2021/11/04/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
+        <tag>first</tag>
       </tags>
   </entry>
   <entry>
@@ -369,28 +407,6 @@
       <tags>
         <tag>cookie</tag>
         <tag>front-end</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/delicate/2021/11/04/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>test</tag>
-        <tag>first</tag>
       </tags>
   </entry>
   <entry>
@@ -509,51 +525,6 @@
         <tag>测试文件</tag>
         <tag>code</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>RGB和HSV</title>
-    <url>/delicate/2021/12/03/rgb2hsv/</url>
-    <content><![CDATA[<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><blockquote class="pullquote information"><p>在图像处理中，最常用的颜色空间是RGB模型，常用于颜色显示和图像处理。</p>
-</blockquote>
-
-<p><img src="https://i.loli.net/2021/12/03/CoXvkQt5OlziMjH.jpg" alt="rgb.jpeg"></p>
-<p>原点到白色顶点的中轴线是灰度线，r、g、b三分量相等，强度可以由三分量的向量表示。<br>用RGB来理解色彩、深浅、明暗变化：</p>
-<ul>
-<li>色彩变化：三个坐标轴RGB最大分量顶点与黄紫青YMC色顶点的连线。</li>
-<li>深浅变化：RGB顶点和CMY顶点到原点和白色顶点的中轴线的距离。</li>
-<li>明暗变化：中轴线的点的位置，到原点，就偏暗，到白色顶点就偏亮。</li>
-</ul>
-<div class="note note-primary">
-            <p>三原色RGB混合能形成其他的颜色<br>并不是说物理上其他颜色的光是由三原色的光混合形成的， 每种单色光都有自己独特的光谱，如黄光是一种单色光，但红色与绿色混合能形成黄色，原因是人的感官系统所致，与人的生理系统有关。</p>
-          </div>
-
-<h3 id="RGB的局限性"><a href="#RGB的局限性" class="headerlink" title="RGB的局限性"></a>RGB的局限性</h3><p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
-<p>RGB颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间,比较容易理解;却并不适合于图像处理。</p>
-<h2 id="HSV-and-HSL"><a href="#HSV-and-HSL" class="headerlink" title="HSV and HSL"></a>HSV and HSL</h2><h3 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a>HSV</h3><blockquote>
-<p>而HSV模型，是针对用户观感的一种颜色模型，侧重于色彩表示，什么颜色、深浅如何、明暗如何。</p>
-</blockquote>
-<p><img src="https://i.loli.net/2021/12/03/a3Ysr9FGu7yVtxA.jpg" alt="HSV.jpg"><br>这个模型就是按色彩、深浅、明暗来描述的。  </p>
-<ul>
-<li>Hue（色调、色相）</li>
-<li>Saturation（饱和度、色彩纯净度）</li>
-<li>Value（明度）</li>
-</ul>
-<blockquote>
-<p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
-</blockquote>
-<h3 id="HSL"><a href="#HSL" class="headerlink" title="HSL"></a>HSL</h3><p><img src="https://i.loli.net/2021/12/03/B1zhpP6s2ukH9CR.jpg" alt="HSL.jpg"></p>
-<blockquote>
-<p>HLS 和 HSV 比较类似,HLS 也有三个分量，hue（色相）、saturation（饱和度）、lightness（亮度）。</p>
-</blockquote>
-<p>HLS 和 HSV 的区别就是最后一个分量不同，HLS 的是 light（亮度），HSV 的是 value（明度）。HLS 中的 L 分量为亮度，亮度为100，表示白色，亮度为0，表示黑色；HSV 中的 V 分量为明度，明度为100，表示光谱色，明度为0，表示黑色。</p>
-<div class="note note-info">
-            <p>提取白色物体时，使用 HLS 更方便，因为 HSV 中的Hue里没有白色，白色需要由S和V共同决定（S=0, V=100）。<br>而在 HLS 中，白色仅由亮度L一个分量决定。所以检测白色时使用 HSL 颜色空间更准确。</p>
-          </div>
-
-<h2 id="HSV-and-RGB"><a href="#HSV-and-RGB" class="headerlink" title="HSV and RGB"></a>HSV and RGB</h2><div class="note note-cyan">
-            <p>::: tip 百度百科<br>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V=S=1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。<br>增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。例如，要得到深蓝色，V=0.4 S=1 H=240度。要得到淡蓝色，V=1 S=0.4 H=240度。</p>
-          </div>
-]]></content>
   </entry>
   <entry>
     <title>php环境配置</title>
@@ -800,6 +771,51 @@
         <tag>promise</tag>
         <tag>JavaScript</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>RGB和HSV</title>
+    <url>/delicate/2021/12/03/rgb2hsv/</url>
+    <content><![CDATA[<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><blockquote class="pullquote information"><p>在图像处理中，最常用的颜色空间是RGB模型，常用于颜色显示和图像处理。</p>
+</blockquote>
+
+<p><img src="https://i.loli.net/2021/12/03/CoXvkQt5OlziMjH.jpg" alt="rgb.jpeg"></p>
+<p>原点到白色顶点的中轴线是灰度线，r、g、b三分量相等，强度可以由三分量的向量表示。<br>用RGB来理解色彩、深浅、明暗变化：</p>
+<ul>
+<li>色彩变化：三个坐标轴RGB最大分量顶点与黄紫青YMC色顶点的连线。</li>
+<li>深浅变化：RGB顶点和CMY顶点到原点和白色顶点的中轴线的距离。</li>
+<li>明暗变化：中轴线的点的位置，到原点，就偏暗，到白色顶点就偏亮。</li>
+</ul>
+<div class="note note-primary">
+            <p>三原色RGB混合能形成其他的颜色<br>并不是说物理上其他颜色的光是由三原色的光混合形成的， 每种单色光都有自己独特的光谱，如黄光是一种单色光，但红色与绿色混合能形成黄色，原因是人的感官系统所致，与人的生理系统有关。</p>
+          </div>
+
+<h3 id="RGB的局限性"><a href="#RGB的局限性" class="headerlink" title="RGB的局限性"></a>RGB的局限性</h3><p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
+<p>RGB颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间,比较容易理解;却并不适合于图像处理。</p>
+<h2 id="HSV-and-HSL"><a href="#HSV-and-HSL" class="headerlink" title="HSV and HSL"></a>HSV and HSL</h2><h3 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a>HSV</h3><blockquote>
+<p>而HSV模型，是针对用户观感的一种颜色模型，侧重于色彩表示，什么颜色、深浅如何、明暗如何。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/12/03/a3Ysr9FGu7yVtxA.jpg" alt="HSV.jpg"><br>这个模型就是按色彩、深浅、明暗来描述的。  </p>
+<ul>
+<li>Hue（色调、色相）</li>
+<li>Saturation（饱和度、色彩纯净度）</li>
+<li>Value（明度）</li>
+</ul>
+<blockquote>
+<p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
+</blockquote>
+<h3 id="HSL"><a href="#HSL" class="headerlink" title="HSL"></a>HSL</h3><p><img src="https://i.loli.net/2021/12/03/B1zhpP6s2ukH9CR.jpg" alt="HSL.jpg"></p>
+<blockquote>
+<p>HLS 和 HSV 比较类似,HLS 也有三个分量，hue（色相）、saturation（饱和度）、lightness（亮度）。</p>
+</blockquote>
+<p>HLS 和 HSV 的区别就是最后一个分量不同，HLS 的是 light（亮度），HSV 的是 value（明度）。HLS 中的 L 分量为亮度，亮度为100，表示白色，亮度为0，表示黑色；HSV 中的 V 分量为明度，明度为100，表示光谱色，明度为0，表示黑色。</p>
+<div class="note note-info">
+            <p>提取白色物体时，使用 HLS 更方便，因为 HSV 中的Hue里没有白色，白色需要由S和V共同决定（S=0, V=100）。<br>而在 HLS 中，白色仅由亮度L一个分量决定。所以检测白色时使用 HSL 颜色空间更准确。</p>
+          </div>
+
+<h2 id="HSV-and-RGB"><a href="#HSV-and-RGB" class="headerlink" title="HSV and RGB"></a>HSV and RGB</h2><div class="note note-cyan">
+            <p>::: tip 百度百科<br>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V=S=1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。<br>增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。例如，要得到深蓝色，V=0.4 S=1 H=240度。要得到淡蓝色，V=1 S=0.4 H=240度。</p>
+          </div>
+]]></content>
   </entry>
   <entry>
     <title>二次元图片</title>
