@@ -1,13 +1,13 @@
 <html>
-    <head>
+    <head lang="zh">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta name="description" content="依据bootstrap设计的一款hexo主题">
     <meta name="author" content="kart jim">
-    <link rel="icon" href="/delicate//favicon/logo2.ico">
-    <title>delicate </title>
-    
-<link rel="stylesheet" href="/delicate/css/blog.css">
+
+    <link rel="icon" href="/delicate/favicon/logo2.ico">
+    <title>delicate</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- fancybox -->
@@ -15,40 +15,15 @@
         <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
     
     
+<link rel="stylesheet" href="/delicate/css/blog.css">
+
+    <link rel="stylesheet" href="/delicate/css/light.css" id="theme-link">
+    
 <link rel="stylesheet" href="/delicate/css/markdown.css">
 
     
 <link rel="stylesheet" href="/delicate/css/plugins.css">
 
-    <!-- 默认背景 -->
-    
-    <style>
-        body {
-            background-color: #fafafa;
-            font-family: Roboto Mono,JetBrains Mono,microsoft yahei, serif;
-        }
-        /* blog menu */
-        nav.navbar {
-            -webkit-box-shadow: 0 -2px 12px 2px rgba(0,0,0,.1);
-            box-shadow: 0 -2px 12px 2px rgba(0,0,0,.1);
-            background-color: #fff;
-        }
-        .blog-header {
-            background-color: #fff;
-            border-radius: 0;
-            box-shadow: none;
-        }
-        .blog-post {
-            background-color: #fff;
-            box-shadow: 2px 4px 18px rgba(30,30,30,.05);
-        }
-        .sidebar-about .my-social-account .icon-box a svg{
-            fill: #999;
-        }
-        .sidebar-about .my-social-account .icon-box a:hover svg{
-            fill: #008080;
-        }
-    </style>
     <!-- 背景 -->
     
     <style type="text/css">
@@ -67,8 +42,7 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/delicate/atom.xml" title="delicate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -119,6 +93,15 @@
         </div>
       </li>
       
+      
+        <li class="nav-item" id="theme-toggle">
+          <a class="nav-link" href="#">
+            <svg class="icon" aria-hidden="true" id="theme" style='transition: transform 0.3s ease;'>
+              <use xlink:href="#icon-light"></use>
+            </svg>
+          </a>
+        </li>
+      
       <li class="nav-item">
         <a class="nav-link" href="/delicate/atom.xml">
           <svg class="icon" aria-hidden="true">
@@ -149,31 +132,25 @@
 
     
 <div class="blog-post">
-    <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/12/16/cookie/">
             cookie
         </a>
     </h2>
-    <!-- Date and Author -->
     <p class="blog-post-meta">
         <span>2021-12-16</span>
         <span>
             
         </span>
     </p>
-    <!-- Content -->
     <h2 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h2><div class='description dark'><span class='description-title'>百度百科</span><div><p>cookie是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web 文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。<br>由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序</p></div></div>
 
 <p>HTTP协议本身是无状态的，即服务器无法判断用户身份。Cookie实际上是一小段的文本信息（key-value格式）。<br>一个 Web 站点可能会为每一个访问者产生一个唯一的ID, 然后以 Cookie 文件的形式保存在每个用户的机器上。</p>
-    <!-- Only display the Read More link if we are displaying an excerpt -->
     
         <p>
-            
             <a href="/delicate/2021/12/16/cookie/" class="btn btn-outline-primary">
                 Read More
             </a>
-            
         </p>
     
 </div>
@@ -181,31 +158,25 @@
 
     
 <div class="blog-post">
-    <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/12/16/XSS攻击/">
             XSS攻击
         </a>
     </h2>
-    <!-- Date and Author -->
     <p class="blog-post-meta">
         <span>2021-12-16</span>
         <span>
             
         </span>
     </p>
-    <!-- Content -->
     <div class="toasts toasts-note"><div class="toasts-title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-info"></use></svg>百度百科</div> <div class="toasts-content"><ul><li>人们经常将跨站脚本攻击（Cross Site Scripting）缩写为CSS，但这会与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，有人将跨站脚本攻击缩写为XSS。  </li><li>跨站脚本攻击（XSS），是最普遍的Web应用安全漏洞。这类漏洞能够使得攻击者嵌入恶意脚本代码到正常用户会访问到的页面中，当正常用户访问该页面时，则可导致嵌入的恶意脚本代码的执行，从而达到恶意攻击用户的目的。</li><li>在Web安全威胁前10位中，XSS排名第2，仅次于代码注入（Injection）。</li></ul></div></div>
 
 <div class="toasts toasts-tip"><div class="toasts-title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-tiptxt"></use></svg>tip</div> <div class="toasts-content"><p>HTML是一种超文本标记语言，通过将一些字符特殊地对待来区别文本和标记，<br>例如，小于符号（&lt;）被看作是HTML标签的开始，<code>&lt;title&gt;</code>与<code>&lt;/title&gt;</code>之间的字符是页面的标题等等。当动态页面中插入的内容含有这些特殊字符（如&lt;）时，<br>用户浏览器会将其误认为是插入了HTML标签，当这些HTML标签引入了一段JavaScript脚本时，这些脚本程序就将会在用户浏览器中执行。<br>所以，当这些特殊字符不能被动态页面检查或检查出现失误时，就将会产生XSS漏洞。</p></div></div>
-    <!-- Only display the Read More link if we are displaying an excerpt -->
     
         <p>
-            
             <a href="/delicate/2021/12/16/XSS攻击/" class="btn btn-outline-primary">
                 Read More
             </a>
-            
         </p>
     
 </div>
@@ -213,32 +184,26 @@
 
     
 <div class="blog-post">
-    <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/12/10/promise-learn/">
             promise学习笔记
         </a>
     </h2>
-    <!-- Date and Author -->
     <p class="blog-post-meta">
         <span>2021-12-10</span>
         <span>
             
         </span>
     </p>
-    <!-- Content -->
     <div class='description dark'><span class='description-title'>ES6原生提供了Promise对象</span><div><p>Promise 是一个对象，它代表了一个异步操作的最终完成或者失败。<br>Promise能够很好的避免回调函数的嵌套，让函数更具可读性和维护性。</p></div></div>
 
 <p>控制台输入<code>console.dir(Promise)</code>查看 promise 是什么：</p>
 <p><img src="https://s2.loli.net/2021/12/10/yIuXmMBpifwUP73.png" alt="Promise"></p>
-    <!-- Only display the Read More link if we are displaying an excerpt -->
     
         <p>
-            
             <a href="/delicate/2021/12/10/promise-learn/" class="btn btn-outline-primary">
                 Read More
             </a>
-            
         </p>
     
 </div>
@@ -246,20 +211,17 @@
 
     
 <div class="blog-post">
-    <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/12/05/AJAX学习笔记/">
             AJAX学习笔记
         </a>
     </h2>
-    <!-- Date and Author -->
     <p class="blog-post-meta">
         <span>2021-12-05</span>
         <span>
             
         </span>
     </p>
-    <!-- Content -->
     <div class="alert alert-warning">
                 <p>本文大部分摘抄自<a target="_blank" rel="noopener" href="https://www.runoob.com/ajax/">菜鸟教程</a>，仅作学习使用。</p>
             </div>
@@ -269,14 +231,11 @@
           </div>
 
 <p><img src="https://s2.loli.net/2021/12/05/1UKmAWpJhS7Ebex.png" alt="ajax.png"></p>
-    <!-- Only display the Read More link if we are displaying an excerpt -->
     
         <p>
-            
             <a href="/delicate/2021/12/05/AJAX学习笔记/" class="btn btn-outline-primary">
                 Read More
             </a>
-            
         </p>
     
 </div>
@@ -284,13 +243,11 @@
 
     
 <div class="blog-post">
-    <!-- Title -->
     <h2 class="blog-post-title">
         <a href="/delicate/2021/12/03/rgb2hsv/">
             RGB和HSV
         </a>
     </h2>
-    <!-- Date and Author -->
     <p class="blog-post-meta">
         <span>2021-12-03</span>
         <span>
@@ -299,16 +256,12 @@
             
         </span>
     </p>
-    <!-- Content -->
     RGB - HSV - HSL之间的差别与联系
-    <!-- Only display the Read More link if we are displaying an excerpt -->
     
         <p>
-            
             <a href="/delicate/2021/12/03/rgb2hsv/" class="btn btn-outline-primary">
                 Read More
             </a>
-            
         </p>
     
 </div>
@@ -712,7 +665,7 @@ next.addEventListener('click',()=>{
 
 
 
-<script src="//at.alicdn.com/t/font_2918710_886m98l121b.js"></script>
+<script src="//at.alicdn.com/t/font_2918710_cr339d9g1wv.js"></script>
 
 
 
@@ -748,10 +701,6 @@ $(document).ready(function() {
     calculateTime("2021-11-01T00:00:00");
 </script>
 
-
-
-    
-<script src="/delicate/js/show_heart.js"></script>
 
 
 
