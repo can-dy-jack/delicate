@@ -425,12 +425,13 @@
 
 <h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><hr>
 <p>文本样式</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-strong">**加粗**</span>  <span class="hljs-strong">__斜体__</span>  <span class="hljs-emphasis">_斜体_</span>  <span class="hljs-emphasis">*斜体*</span>  ~~划线~~  ~划线~<br><span class="hljs-quote">&gt; 引用文本</span><br>上标<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">sup</span>&gt;</span></span>2<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">sup</span>&gt;</span></span><br>下标<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span></span>2<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-strong">**加粗**</span>  <span class="hljs-strong">__斜体__</span>  <span class="hljs-emphasis">_斜体_</span>  <span class="hljs-emphasis">*斜体*</span>  ~~划线~~  ~划线~ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">u</span>&gt;</span></span>下划线<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">u</span>&gt;</span></span><br><span class="hljs-quote">&gt; 引用文本</span><br>上标<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">sup</span>&gt;</span></span>2<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">sup</span>&gt;</span></span><br>下标<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span></span>2<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 
 <p><strong>加粗</strong>  <strong>斜体</strong>  <em>斜体</em>  <em>斜体</em>  <del>划线</del>  <del>划线</del></p>
 <blockquote>
 <p>引用文本</p>
 </blockquote>
+<p><u>下划线</u></p>
 <p>上标<sup>2</sup><br>下标<sub>2</sub></p>
 <hr>
 <p>列表样式：</p>
@@ -526,7 +527,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs text">直接在markdown文件中添加下面的语句即可，即包含在 $$ 内的文字会被解析为数学公式<br>$$x = &#123;-b \pm \sqrt&#123;b^2-4ac&#125; \over 2a&#125;.$$<br></code></pre></td></tr></table></figure>
 
 <p>$$x &#x3D; {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
-<p>有公式才加载MathJax，没有公式仍然加载js渲染公式，会影响页面加载速度。</p>
+<p>有公式才加载MathJax，没有<u>公式</u>仍然加载js渲染公式，会影响页面加载速度。</p>
 ]]></content>
       <categories>
         <category>测试文件</category>
@@ -704,6 +705,51 @@
       </tags>
   </entry>
   <entry>
+    <title>RGB和HSV</title>
+    <url>/delicate/2021/12/03/rgb2hsv/</url>
+    <content><![CDATA[<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><blockquote class="pullquote information"><p>在图像处理中，最常用的颜色空间是RGB模型，常用于颜色显示和图像处理。</p>
+</blockquote>
+
+<p><img src="https://i.loli.net/2021/12/03/CoXvkQt5OlziMjH.jpg" alt="rgb.jpeg"></p>
+<p>原点到白色顶点的中轴线是灰度线，r、g、b三分量相等，强度可以由三分量的向量表示。<br>用RGB来理解色彩、深浅、明暗变化：</p>
+<ul>
+<li>色彩变化：三个坐标轴RGB最大分量顶点与黄紫青YMC色顶点的连线。</li>
+<li>深浅变化：RGB顶点和CMY顶点到原点和白色顶点的中轴线的距离。</li>
+<li>明暗变化：中轴线的点的位置，到原点，就偏暗，到白色顶点就偏亮。</li>
+</ul>
+<div class="note note-primary">
+            <p>三原色RGB混合能形成其他的颜色<br>并不是说物理上其他颜色的光是由三原色的光混合形成的， 每种单色光都有自己独特的光谱，如黄光是一种单色光，但红色与绿色混合能形成黄色，原因是人的感官系统所致，与人的生理系统有关。</p>
+          </div>
+
+<h3 id="RGB的局限性"><a href="#RGB的局限性" class="headerlink" title="RGB的局限性"></a>RGB的局限性</h3><p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
+<p>RGB颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间,比较容易理解;却并不适合于图像处理。</p>
+<h2 id="HSV-and-HSL"><a href="#HSV-and-HSL" class="headerlink" title="HSV and HSL"></a>HSV and HSL</h2><h3 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a>HSV</h3><blockquote>
+<p>而HSV模型，是针对用户观感的一种颜色模型，侧重于色彩表示，什么颜色、深浅如何、明暗如何。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/12/03/a3Ysr9FGu7yVtxA.jpg" alt="HSV.jpg"><br>这个模型就是按色彩、深浅、明暗来描述的。  </p>
+<ul>
+<li>Hue（色调、色相）</li>
+<li>Saturation（饱和度、色彩纯净度）</li>
+<li>Value（明度）</li>
+</ul>
+<blockquote>
+<p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
+</blockquote>
+<h3 id="HSL"><a href="#HSL" class="headerlink" title="HSL"></a>HSL</h3><p><img src="https://i.loli.net/2021/12/03/B1zhpP6s2ukH9CR.jpg" alt="HSL.jpg"></p>
+<blockquote>
+<p>HLS 和 HSV 比较类似,HLS 也有三个分量，hue（色相）、saturation（饱和度）、lightness（亮度）。</p>
+</blockquote>
+<p>HLS 和 HSV 的区别就是最后一个分量不同，HLS 的是 light（亮度），HSV 的是 value（明度）。HLS 中的 L 分量为亮度，亮度为100，表示白色，亮度为0，表示黑色；HSV 中的 V 分量为明度，明度为100，表示光谱色，明度为0，表示黑色。</p>
+<div class="note note-info">
+            <p>提取白色物体时，使用 HLS 更方便，因为 HSV 中的Hue里没有白色，白色需要由S和V共同决定（S&#x3D;0, V&#x3D;100）。<br>而在 HLS 中，白色仅由亮度L一个分量决定。所以检测白色时使用 HSL 颜色空间更准确。</p>
+          </div>
+
+<h2 id="HSV-and-RGB"><a href="#HSV-and-RGB" class="headerlink" title="HSV and RGB"></a>HSV and RGB</h2><div class="note note-cyan">
+            <p>::: tip 百度百科<br>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V&#x3D;S&#x3D;1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。<br>增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。例如，要得到深蓝色，V&#x3D;0.4 S&#x3D;1 H&#x3D;240度。要得到淡蓝色，V&#x3D;1 S&#x3D;0.4 H&#x3D;240度。</p>
+          </div>
+]]></content>
+  </entry>
+  <entry>
     <title>promise学习笔记</title>
     <url>/delicate/2021/12/10/promise-learn/</url>
     <content><![CDATA[<div class='description dark'><span class='description-title'>ES6原生提供了Promise对象</span><div><p>Promise 是一个对象，它代表了一个异步操作的最终完成或者失败。<br>Promise能够很好的避免回调函数的嵌套，让函数更具可读性和维护性。</p></div></div>
@@ -781,51 +827,6 @@
         <tag>promise</tag>
         <tag>JavaScript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>RGB和HSV</title>
-    <url>/delicate/2021/12/03/rgb2hsv/</url>
-    <content><![CDATA[<h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a>RGB</h2><blockquote class="pullquote information"><p>在图像处理中，最常用的颜色空间是RGB模型，常用于颜色显示和图像处理。</p>
-</blockquote>
-
-<p><img src="https://i.loli.net/2021/12/03/CoXvkQt5OlziMjH.jpg" alt="rgb.jpeg"></p>
-<p>原点到白色顶点的中轴线是灰度线，r、g、b三分量相等，强度可以由三分量的向量表示。<br>用RGB来理解色彩、深浅、明暗变化：</p>
-<ul>
-<li>色彩变化：三个坐标轴RGB最大分量顶点与黄紫青YMC色顶点的连线。</li>
-<li>深浅变化：RGB顶点和CMY顶点到原点和白色顶点的中轴线的距离。</li>
-<li>明暗变化：中轴线的点的位置，到原点，就偏暗，到白色顶点就偏亮。</li>
-</ul>
-<div class="note note-primary">
-            <p>三原色RGB混合能形成其他的颜色<br>并不是说物理上其他颜色的光是由三原色的光混合形成的， 每种单色光都有自己独特的光谱，如黄光是一种单色光，但红色与绿色混合能形成黄色，原因是人的感官系统所致，与人的生理系统有关。</p>
-          </div>
-
-<h3 id="RGB的局限性"><a href="#RGB的局限性" class="headerlink" title="RGB的局限性"></a>RGB的局限性</h3><p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
-<p>RGB颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间,比较容易理解;却并不适合于图像处理。</p>
-<h2 id="HSV-and-HSL"><a href="#HSV-and-HSL" class="headerlink" title="HSV and HSL"></a>HSV and HSL</h2><h3 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a>HSV</h3><blockquote>
-<p>而HSV模型，是针对用户观感的一种颜色模型，侧重于色彩表示，什么颜色、深浅如何、明暗如何。</p>
-</blockquote>
-<p><img src="https://i.loli.net/2021/12/03/a3Ysr9FGu7yVtxA.jpg" alt="HSV.jpg"><br>这个模型就是按色彩、深浅、明暗来描述的。  </p>
-<ul>
-<li>Hue（色调、色相）</li>
-<li>Saturation（饱和度、色彩纯净度）</li>
-<li>Value（明度）</li>
-</ul>
-<blockquote>
-<p>在图像处理中使用较多的是 HSV 颜色空间，它比 RGB 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
-</blockquote>
-<h3 id="HSL"><a href="#HSL" class="headerlink" title="HSL"></a>HSL</h3><p><img src="https://i.loli.net/2021/12/03/B1zhpP6s2ukH9CR.jpg" alt="HSL.jpg"></p>
-<blockquote>
-<p>HLS 和 HSV 比较类似,HLS 也有三个分量，hue（色相）、saturation（饱和度）、lightness（亮度）。</p>
-</blockquote>
-<p>HLS 和 HSV 的区别就是最后一个分量不同，HLS 的是 light（亮度），HSV 的是 value（明度）。HLS 中的 L 分量为亮度，亮度为100，表示白色，亮度为0，表示黑色；HSV 中的 V 分量为明度，明度为100，表示光谱色，明度为0，表示黑色。</p>
-<div class="note note-info">
-            <p>提取白色物体时，使用 HLS 更方便，因为 HSV 中的Hue里没有白色，白色需要由S和V共同决定（S&#x3D;0, V&#x3D;100）。<br>而在 HLS 中，白色仅由亮度L一个分量决定。所以检测白色时使用 HSL 颜色空间更准确。</p>
-          </div>
-
-<h2 id="HSV-and-RGB"><a href="#HSV-and-RGB" class="headerlink" title="HSV and RGB"></a>HSV and RGB</h2><div class="note note-cyan">
-            <p>::: tip 百度百科<br>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V&#x3D;S&#x3D;1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。<br>增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。例如，要得到深蓝色，V&#x3D;0.4 S&#x3D;1 H&#x3D;240度。要得到淡蓝色，V&#x3D;1 S&#x3D;0.4 H&#x3D;240度。</p>
-          </div>
-]]></content>
   </entry>
   <entry>
     <title>二次元图片</title>
