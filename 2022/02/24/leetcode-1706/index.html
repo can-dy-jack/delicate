@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-cn,en,default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="delicate but simple theme for Hexo">
+  <meta name="keywords" content="hexo,delicate,hexo-theme,hexo-theme-delicate">
+  <meta name="author" content="kart jim">
+
+  <meta name="generator" content="hexo">
+  <meta name="theme-color" content="#fafafa">
+
+  <meta name="color-scheme" content="light dark">
+
+  <meta name="creator" content="">
+  <meta name="publisher" content="">
+
+  
+  <title>LeetCode每日一题-1706. 球会落何处（2022-2-24）</title>
+  
+  <link rel="shortcut icon" href="/delicate/img/logo.ico">
+
+  
+  
+<link rel="stylesheet" href="/delicate/css/index.css">
+
+
+  
+  <style>
+    .post>table thead {
+      background-color: rgb(248, 229, 175);
+    }
+
+    .post>table tr td,
+    .post>table tr th {
+      border: 1px solid rgba(248, 229, 175);
+    }
+
+    .post>table tbody tr:nth-child(2n) {
+      background-color: rgba(248, 229, 175, .1);
+    }
+  </style>
+
+<link rel="alternate" href="/delicate/atom.xml" title="hexo-theme-delicate" type="application/atom+xml">
+</head>
+
+<body>
+  <nav>
+    <div class="navbar">
+  <div class="nav-left">
+    <div class="nav-brand">
+      <a href="/delicate/">
+        <img src="/delicate//img/logo128.ico" width="30" height="30" alt="logo">
+        <span class="nav-brand-text">hexo-theme-delicate</span>
+      </a>
+    </div>
+    <div class="nav-link">
+      <a href="/delicate/" class="nav-item">
+        主页
+      </a>
+      <a href="/delicate/archives" class="nav-item">
+        存档
+      </a>
+
+      
+      <a href="/delicate/tags" class="nav-item">
+        标签
+      </a>
+      
+      
+      <a href="/delicate/categories" class="nav-item">
+        分类
+      </a>
+      
+    </div>
+  </div>
+
+  <div class="nav-right friends-link">
+  
+    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+      github
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <a target="_blank" rel="noopener" href="https://leetcode-cn.com/u/kartjim/">
+      LeetCode
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46590483">
+      CSDN
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <a target="_blank" rel="noopener" href="https://juejin.cn/user/1389392813630526">
+      掘金
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <a target="_blank" rel="noopener" href="https://weibo.com/p/1005057198677513/home">
+      微博
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <span class="friends-more transition" id="friends-more">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20">
+        <path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/>
+      </svg>
+    </span>
+  </div>
+</div>
+
+<div id="phone-nav-link" class="transition">
+
+  <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+    github
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+  <a target="_blank" rel="noopener" href="https://leetcode-cn.com/u/kartjim/">
+    LeetCode
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+  <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46590483">
+    CSDN
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+  <a target="_blank" rel="noopener" href="https://juejin.cn/user/1389392813630526">
+    掘金
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+  <a target="_blank" rel="noopener" href="https://weibo.com/p/1005057198677513/home">
+    微博
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+</div>
+
+
+
+
+  </nav>
+  <main>
+    <div class="post-body">
+     
+    <section class="post">
+        <div class="post-title">
+            LeetCode每日一题-1706. 球会落何处（2022-2-24）
+        </div>
+
+        <p class="blog-post-info">
+        <span>2022-02-24</span>
+        
+            <span>陈科衡</span>  
+        
+        <span class="post-count">931字</span>
+        <span class="post-count">3分钟</span>
+        </p>
+
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-info"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m-114.176-310.954667a53.333333 53.333333 0 0 0 75.434667 0l323.328-323.328a53.333333 53.333333 0 1 0-75.434667-75.434666l-287.914667 283.306666-128.853333-128.853333a53.333333 53.333333 0 1 0-75.434667 75.434667l168.874667 168.874666z"></path></svg>题目</div> <div class="toasts-content"><p>用一个大小为 m x n 的二维网格 grid 表示一个箱子。你有 n 颗球。箱子的顶部和底部都是开着的。<br>箱子中的每个单元格都有一个对角线挡板，跨过单元格的两个角，可以将球导向左侧或者右侧。</p><ul><li>将球导向右侧的挡板跨过左上角和右下角，在网格中用 1 表示。</li><li>将球导向左侧的挡板跨过右上角和左下角，在网格中用 -1 表示。</li></ul><p>在箱子每一列的顶端各放一颗球。每颗球都可能卡在箱子里或从底部掉出来。如果球恰好卡在两块挡板之间的 “V” 形图案，或者被一块挡导向到箱子的任意一侧边上，就会卡住。</p><p>返回一个大小为 n 的数组 answer ，其中 answer[i] 是球放在顶部的第 i 列后从底部掉出来的那一列对应的下标，如果球卡在盒子里，则返回 -1 。</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/where-will-the-ball-fall">https://leetcode-cn.com/problems/where-will-the-ball-fall</a><br>著作权归领扣网络所有。</p></blockquote></div></div>
+
+<p>示例：</p>
+<blockquote>
+<p>输入：grid &#x3D; [[1,1,1,1,1,1],[-1,-1,-1,-1,-1,-1],[1,1,1,1,1,1],[-1,-1,-1,-1,-1,-1]]<br>输出：[0,1,2,3,4,-1]</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>使用DFS模拟球落下的过程：<br>首先，需要将每个小球分别进行模拟。所以，需要使用循环从 <code>0</code> 到 <code>grid[0].length</code> 的球；循环内将进行<code>dfs</code>查找，将查找的结果存入数组 <code>re</code> ；</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f02d309bca64233b87ccbedadf30a6fb.png" alt="image.png"></p>
+<p>dfs函数：</p>
+<ul>
+<li>接收两个参数，第一个是开始的行数（从第一行开始 - 即为0），第二个是开始的列数。</li>
+<li>返回查到的小球出去的列数。<ul>
+<li>当行数 <code>row</code> 大于等于<code>grid</code>的行数时，就证明小球掉出来了，返回此时的列数；</li>
+</ul>
+</li>
+<li>小球一共有三种情况：<ul>
+<li>小球位于第一列<ul>
+<li>此时，小球能否出来就看这个格子和右边的那个格子；</li>
+<li><code>|\\</code>，此时小球可以进入右下角的那个格子。即递归调用： <code>return dfs(row+1,col+1)</code> </li>
+<li><code>|\/</code>、<code>|/\</code> 或 <code>|//</code>，此时小球都会卡住，此时 <code>return -1</code> 即可</li>
+</ul>
+</li>
+<li>小球位于最后一列<ul>
+<li>此时，小球能否出来就看这个格子和左边的那个格子；</li>
+<li><code>//|</code>，此时小球可以进入左下角的那个格子。即递归调用： <code>return dfs(row+1,col-1)</code> </li>
+<li><code>\/|</code>、<code>\\|</code> 或 <code>/\|</code>，此时小球都会卡住，此时 <code>return -1</code> 即可</li>
+</ul>
+</li>
+<li>小球处于一般位置</li>
+<li>分两种情况：<ul>
+<li>本格子为 -1 ,即<code>/</code>:</li>
+<li>此时，小球能否出来就看这个格子和左边的那个格子；<ul>
+<li><code>//</code>，此时小球可以进入左下角的那个格子。即递归调用： <code>return dfs(row+1,col-1)</code> </li>
+<li><code>\/</code>此时小球都会卡住，此时 <code>return -1</code> 即可</li>
+</ul>
+</li>
+<li>本格子为 1，即 <code>\</code>：<ul>
+<li>此时，小球能否出来就看这个格子和右边的那个格子；</li>
+<li><code>\\</code>，此时小球可以进入右下角的那个格子。即递归调用： <code>return dfs(row+1,col+1)</code> </li>
+<li><code>\/</code>，此时小球都会卡住，此时 <code>return -1</code> 即可</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> findBall = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(grid[<span class="hljs-number">0</span>].length === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> [-<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">let</span> re = [];<br>    <span class="hljs-keyword">const</span> dfs = <span class="hljs-function">(<span class="hljs-params">row,col</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span>(row &gt;= grid.length) <span class="hljs-keyword">return</span> col;<br>        <span class="hljs-keyword">if</span>(col === <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span> || grid[row][col+<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(col === grid[<span class="hljs-number">0</span>].length-<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span> || grid[row][col-<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\|&quot;</span><br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col+<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\\&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col-<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;//&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;grid[<span class="hljs-number">0</span>].length;++i)&#123;<br>        re.push(dfs(<span class="hljs-number">0</span>,i));<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+
+
+        <div class="post-share">
+        分享文章:
+            
+            <span class="post-share-qq">
+                <a rel="share noopener" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://can-dy-jack.github.io/delicate/2022/02/24/leetcode-1706/index.html&title=hexo-theme-delicate&summary=LeetCode每日一题-1706. 球会落何处（2022-2-24）">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em"><path fill-rule="evenodd" d="M4.869 10.997c-.06-.142-.091-.335-.091-.581 0-.149.041-.331.125-.547a1.81 1.81 0 0 1 .273-.503c-.007-.163.021-.36.086-.59.065-.231.15-.391.256-.48 0-1.035.352-2.108 1.054-3.22.702-1.113 1.528-1.893 2.477-2.34C10.105 2.247 11.335 2 12.74 2c1.01 0 2.02.205 3.03.614.373.156.714.335 1.026.535.31.201.58.41.808.625.228.216.437.47.627.76.19.29.349.564.478.825.13.26.253.575.37.943a18.116 18.116 0 0 1 .541 2.093l.011.055c.418.618.627 1.176.627 1.675 0 .104-.034.253-.103.446-.068.193-.103.335-.103.424 0 .008.006.02.018.04a.47.47 0 0 0 .04.055c.015.019.023.032.023.04.584.848 1.042 1.646 1.372 2.393.33.748.496 1.524.496 2.327 0 .32-.074.693-.222 1.117-.148.424-.359.636-.632.636a.394.394 0 0 1-.222-.084 1.19 1.19 0 0 1-.216-.195 2.992 2.992 0 0 1-.216-.29 3.738 3.738 0 0 1-.183-.296 35.001 35.001 0 0 1-.256-.486c-.008-.007-.02-.01-.035-.01l-.057.043c-.448 1.146-.949 1.976-1.503 2.49.152.148.385.291.7.43.316.137.577.292.786.462.209.171.344.413.405.726a.71.71 0 0 0-.046.179.405.405 0 0 1-.08.2c-.485.722-1.632 1.083-3.44 1.083-.401 0-.821-.034-1.258-.1a10.83 10.83 0 0 1-1.116-.224 53.69 53.69 0 0 1-1.19-.335 4.067 4.067 0 0 0-.262-.078 2.306 2.306 0 0 0-.524-.05 6.013 6.013 0 0 1-.455-.017c-.312.335-.796.577-1.453.726A8.679 8.679 0 0 1 8.606 22c-.266 0-.528-.006-.786-.017a14.033 14.033 0 0 1-1.06-.1 7.002 7.002 0 0 1-1.15-.23 2.457 2.457 0 0 1-.848-.446c-.247-.2-.37-.438-.37-.714 0-.297.038-.519.114-.664.076-.146.232-.326.467-.542a3.44 3.44 0 0 0 .461-.145c.224-.081.412-.126.564-.133.03 0 .083-.008.16-.023.015-.015.022-.03.022-.044l-.023-.034c-.364-.082-.774-.474-1.23-1.178-.456-.703-.733-1.285-.832-1.746l-.056-.034c-.03 0-.076.074-.137.223a2.48 2.48 0 0 1-.62.831c-.278.25-.572.389-.883.419h-.012c-.03 0-.053-.017-.068-.05-.015-.033-.034-.054-.057-.061C2.087 16.91 2 16.538 2 16.195c0-2.046.957-3.78 2.87-5.2l-.001.002z"></path></svg>
+                </a>
+            </span>
+            
+            
+            <span class="post-share-weibo">
+                <a rel="share noopener" target="_blank" href="https://service.weibo.com/share/share.php?&url=https://can-dy-jack.github.io/delicate/2022/02/24/leetcode-1706/index.html&title=LeetCode每日一题-1706. 球会落何处（2022-2-24）">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em"><path fill-rule="evenodd" d="M17.286 11.55c-.856-.163-.448-.632-.448-.632s.836-1.387-.164-2.387c-1.244-1.244-4.262.164-4.262.164-1.142.346-.836-.164-.673-1.061 0-1.04-.367-2.814-3.447-1.754-3.06 1.04-5.69 4.732-5.69 4.732-1.836 2.447-1.591 4.323-1.591 4.323.448 4.181 4.895 5.324 8.341 5.589 3.63.285 8.525-1.244 10.014-4.406 1.49-3.16-1.223-4.405-2.08-4.568zM9.618 19.36c-3.61.163-6.527-1.652-6.527-4.059 0-2.406 2.917-4.323 6.527-4.487 3.61-.163 6.526 1.306 6.526 3.712 0 2.407-2.916 4.67-6.526 4.834zm-.714-6.975c-3.63.428-3.223 3.834-3.223 3.834s-.02 1.06.98 1.612c2.12 1.142 4.303.448 5.404-.96 1.101-1.427.469-4.894-3.161-4.486zm-.918 4.772c-.673.082-1.224-.306-1.224-.876 0-.572.49-1.163 1.163-1.224.775-.082 1.285.367 1.285.938s-.55 1.08-1.224 1.162zm2.142-1.815c-.245.164-.51.143-.633-.061-.142-.204-.081-.53.143-.693.265-.204.55-.143.673.061s.02.51-.183.693zm8.933-5.261a.59.59 0 0 0 .57-.51c0-.02.021-.041.021-.062.428-3.977-3.263-3.283-3.263-3.283a.592.592 0 0 0 0 1.183c2.651-.592 2.06 2.08 2.06 2.08 0 .326.265.592.612.592zm-.45-6.936c-1.264-.305-2.59-.05-2.956.031-.02 0-.062.016-.082.016-.02 0-.02.018-.02.018a.874.874 0 0 0-.633.835c0 .469.388.856.857.856 0 0 .469-.062.795-.184.306-.122 2.958-.082 4.283 2.12.714 1.612.306 2.693.265 2.876 0 0-.183.408-.183.837 0 .469.387.794.877.794.387 0 .734.02.816-.714h.02c1.407-5.032-1.734-6.954-4.038-7.485z"></path></svg>
+                </a>
+            </span>
+            
+        </div>
+
+        <div class="post-alert">本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。</div>
+        <hr />
+        
+        <div class="blog-tag-and-cate">
+            
+
+<div class="post-tags-container">
+    <span class="glyphicon glyphicon-tags">
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+          <path d="M483.2 790.3L861.4 412c1.7-1.7 2.5-4 2.3-6.3l-25.5-301.4c-0.7-7.8-6.8-13.9-14.6-14.6L522.2 64.3c-2.3-0.2-4.7 0.6-6.3 2.3L137.7 444.8c-3.1 3.1-3.1 8.2 0 11.3l334.2 334.2c3.1 3.2 8.2 3.2 11.3 0z m62.6-651.7l224.6 19 19 224.6L477.5 694 233.9 450.5l311.9-311.9z" p-id="7344"></path><path d="M605.958852 324.826232a48 48 0 1 0 67.881066-67.883435 48 48 0 1 0-67.881066 67.883435Z" p-id="7345"></path><path d="M889.7 539.8l-39.6-39.5c-3.1-3.1-8.2-3.1-11.3 0l-362 361.3-237.6-237c-3.1-3.1-8.2-3.1-11.3 0l-39.6 39.5c-3.1 3.1-3.1 8.2 0 11.3l243.2 242.8 39.6 39.5c3.1 3.1 8.2 3.1 11.3 0l407.3-406.6c3.1-3.1 3.1-8.2 0-11.3z"></path>
+        </svg>
+    </span>
+    
+    <span class="post-tags-text transition">
+        <a href="/delicate/tags/JavaScript/">JavaScript</a>
+    </span>
+    
+    <span class="post-tags-text transition">
+        <a href="/delicate/tags/leetcode/">leetcode</a>
+    </span>
+    
+</div>
+
+            
+
+<div class="post-categories-container">
+    <span class="glyphicon glyphicon-folder-open">
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+          <path d="M332.288 109.568c17.92 0 33.28 6.144 46.08 18.432 12.8 12.288 18.944 27.648 18.944 45.568v258.048c0 17.92-6.144 33.28-18.944 46.08s-28.16 18.944-46.08 18.944H74.24C56.32 496.64 40.96 489.984 28.672 477.184c-12.288-12.8-18.432-28.16-18.432-46.08V173.568c0-17.92 6.144-33.28 18.432-45.568 12.288-12.288 27.648-18.432 45.568-18.432h258.048z m0 516.096c17.92 0 33.28 6.144 46.08 18.432 12.8 12.288 18.944 27.648 18.944 45.568v259.072c0 17.92-6.144 33.28-18.944 45.568-12.8 12.288-28.16 18.432-46.08 18.432H74.24c-17.92 0-33.28-6.144-45.568-18.432-12.288-12.288-18.432-27.648-18.432-45.568v-259.072c0-17.92 6.144-33.28 18.432-45.568 12.288-12.288 27.648-18.432 45.568-18.432h258.048z m517.12 0c17.92 0 33.28 6.144 45.568 18.432 12.288 12.288 18.432 27.648 18.432 45.568v259.072c0 17.92-6.144 33.28-18.432 45.568-12.288 12.288-27.648 18.432-45.568 18.432h-258.048c-17.92 0-33.28-6.144-46.08-18.432-12.8-12.288-18.944-27.648-18.944-45.568v-259.072c0-17.92 6.144-33.28 18.944-45.568 12.8-12.288 28.16-18.432 46.08-18.432h258.048zM993.28 222.72c13.824 13.824 20.48 29.696 20.48 48.64 0 18.432-6.656 34.304-20.48 47.616l-192 192c-13.824 13.824-29.696 20.48-48.128 20.48-18.432 0-34.304-6.656-48.128-20.48l-192-192c-13.312-13.312-19.456-28.672-19.456-47.616 0-18.432 6.656-34.816 19.456-48.64L705.024 30.72c13.824-13.312 29.696-19.456 48.128-19.456 18.432 0 34.304 6.656 48.128 19.456L993.28 222.72z m0 0"></path>
+        </svg>
+    </span>
+    
+    <span class="post-categories-text transition">
+        <a href="/delicate/categories/JavaScript/">JavaScript</a>
+    </span>
+    
+    <span class="post-categories-text transition">
+        <a href="/delicate/categories/JavaScript/leetcode/">leetcode</a>
+    </span>
+    
+</div>
+
+        </div>
+
+        <div class="post-change">
+            <div class="post-pre">
+                
+                    <a href="/delicate/2022/03/01/JavaScript-arrary/">
+                        <svg viewBox="0 0 1024 1024" version="1.1" width="20" height="20">
+                            <path d="M561.92 832a47.36 47.36 0 0 0 0-64l-256-256 256-256a47.36 47.36 0 1 0-64-64l-288.64 288.64A50.56 50.56 0 0 0 192 512a47.36 47.36 0 0 0 14.08 33.28L494.72 832a47.36 47.36 0 0 0 67.2 0z"></path>
+                            <path d="M817.92 832a47.36 47.36 0 0 0 0-64.00000001l-256-255.99999999 256-255.99999999a47.36 47.36 0 1 0-64.00000001-64.00000001l-291.83999999 286.08A50.56 50.56 0 0 0 447.99999999 512a47.36 47.36 0 0 0 14.08000001 33.28L750.72 831.99999999a47.36 47.36 0 0 0 67.2 1e-8z"></path>
+                        </svg>
+                        JavaScript数组
+                    </a>
+                
+            </div>
+            <div class="post-next">
+                
+                    <a href="/delicate/2022/02/10/leetcode-1447/">
+                        LeetCode每日一题-1447. 最简分数（2022-2-10）
+                        <svg viewBox="0 0 1024 1024" version="1.1" width="20" height="20">
+                            <path d="M462.08 192a47.36 47.36 0 0 0 0 64l256 256-256 256a47.36 47.36 0 1 0 64 64l288.64-288.64A50.56 50.56 0 0 0 832 512a47.36 47.36 0 0 0-14.08-33.28L529.28 192a47.36 47.36 0 0 0-67.2 0z"></path>
+                            <path d="M206.08 192a47.36 47.36 0 0 0 0 64l256 256-256 256a47.36 47.36 0 1 0 64 64l291.84-286.08A50.56 50.56 0 0 0 576 512a47.36 47.36 0 0 0-14.08-33.28L273.28 192a47.36 47.36 0 0 0-67.2 0z"></path>
+                        </svg>
+                    </a>
+                
+            </div>
+        </div>
+
+    </section>
+     
+    <section class="post-toc transition" id="post-toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
+    </section>
+    <span class="open-toc transition" id="open-toc">
+        <svg viewBox="0 0 1088 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+            <path d="M638.434144 769.076746v-126.612002H513.101697v126.612002H402.484137a54.44508 54.44508 0 0 0 0 80.292098l131.53829 157.321331a61.418657 61.418657 0 0 0 85.346342 0.063978l131.346357-157.385309a54.381103 54.381103 0 0 0 0-80.292098H638.434144zM511.822142 252.840138v130.898513h126.612002V252.840138h110.681538c23.351885-23.031996 23.351885 3.518777 0-19.641175L618.984903 19.513219a60.714902 60.714902 0 0 0-84.83452 0l-134.225357 213.685744c-23.351885 23.095974-23.351885-3.454799 0 19.641175H511.822142zM63.977768 447.844374h1023.644283v127.955536H63.977768z"></path>
+        </svg>
+    </span>
+</div>
+
+
+  </main>
+  <footer>
+    <p>
+    <span id="times">载入时间...</span>
+</p>
+<p>
+    <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    ❤️
+    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a>
+</p>
+<p>Copyright &#9400; 2021. All rights reserved.</p>
+
+<span id="to_top" class="transition">
+    <svg class="transition" viewBox="0 0 1024 1024" width="26" height="26">
+        <path d="M904 692c0 8.189-3.124 16.379-9.372 22.628-12.497 12.496-32.759 12.496-45.256 0L512 377.255 174.628 714.628c-12.497 12.496-32.758 12.496-45.255 0-12.497-12.498-12.497-32.758 0-45.256l360-360c12.497-12.496 32.758-12.496 45.255 0l360 360C900.876 675.621 904 683.811 904 692z"></path>
+    </svg>
+</span>
+
+  </footer>
+   
+
+<script src="/delicate/js/index.js"></script>
+
+
+
+<script>
+    calculateTime("2021-11-01T00:00:00");
+</script>
+
+</body>
+
+</html>
