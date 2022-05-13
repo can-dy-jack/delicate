@@ -6,6 +6,7 @@ figure {
   background-color: #263238;
   overflow: auto;
   margin: 20px 0;
+  width: 100%;
 }
 figure table tr td pre {
   margin: 0;
@@ -18,9 +19,14 @@ figure table tr td.gutter pre {
   border-right: 1px solid #aaa;
   user-select: none;
 }
+figure table self,
 figure table pre,
 figure table pre code {
   font-family: Roboto Mono, JetBrains Mono, consolas, microsoft yahei, sans-serif;
+}
+figure table tr {
+  max-width: 100%;
+  overflow: hidden;
 }
 figure::-webkit-scrollbar {
   height: 10px;
@@ -273,6 +279,16 @@ nav .navbar .nav-right .friends-more {
 nav .navbar .nav-right .friends-more:hover svg {
   fill: #f8e5af;
 }
+nav .navbar .nav-right .friends-more:active {
+  -webkit-box-shadow: 0 0 0 3px #333feb;
+  -moz-box-shadow: 0 0 0 3px #333feb;
+  box-shadow: 0 0 0 3px #333feb;
+}
+html.ie8 nav .navbar .nav-right .friends-more:active,
+html.ie7 nav .navbar .nav-right .friends-more:active,
+html.ie6 nav .navbar .nav-right .friends-more:active {
+  border: 2px solid #333feb;
+}
 nav .navbar .nav-right a {
   display: flex;
   align-items: center;
@@ -317,16 +333,16 @@ nav #phone-nav-link a:hover {
   padding: 0.5rem 0.75rem;
 }
 .pagination .current {
-  background: rgba(243,151,31,0.1);
+  background: rgba(19,198,100,0.1);
 }
 .pagination a {
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
 .pagination a:hover {
-  background: rgba(243,151,31,0.1);
-  color: #f3971f;
-  fill: #f3971f;
+  background: rgba(19,198,100,0.1);
+  color: #13c664;
+  fill: #13c664;
 }
 div,
 nav,
@@ -541,7 +557,7 @@ html.ie6 .excerpt img {
   background-color: #fafafa;
 }
 .excerpt li>code,
-.excerpt p>code {
+.excerpt p code {
   color: #f12a2a;
   background-color: rgba(0,0,0,0.05);
   padding: 1px 3px;
@@ -659,7 +675,7 @@ html.ie6 .post img {
   background-color: #fafafa;
 }
 .post li>code,
-.post p>code {
+.post p code {
   color: #f12a2a;
   background-color: rgba(0,0,0,0.05);
   padding: 1px 3px;
@@ -812,17 +828,43 @@ html.ie6 .toasts {
 .toasts-book .toasts-content {
   background-color: #faf5f0;
 }
-.post {
-  overflow: hidden;
-  background-color: #fff;
+.collapse {
+  border: 1px solid #eee;
+}
+.collapse .collapse-btn {
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  position: sticky;
+  top: 50px;
+  text-align: center;
+}
+.collapse .collapse-btn button {
+  outline: none;
+  background: none;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  border-top: 3px solid #0cc5c5;
+  padding: 15px;
+  background: #fff;
+}
+.collapse .collapse-text {
+  padding: 10px 20px;
+  display: none;
 }
 .post-body {
   background-color: #fafafa;
   display: flex;
-  position: relative;
+}
+.post {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 75%;
+  padding: 100px 50px 20px 50px;
 }
 .post-toc {
-  width: 400px;
+  width: 25%;
   padding-top: 100px;
   background-color: #fafafa;
   border-left: 1px solid #eee;
@@ -1314,7 +1356,7 @@ section.category .post-list-group .list-group-item time {
 }
 @media screen and (min-width: 1200px) {
   .post {
-    padding: 100px 50px 40px 50px;
+    padding: 100px 50px 20px 50px;
   }
   main .article-container article {
     padding: 20px 8%;
@@ -1335,7 +1377,7 @@ section.category .post-list-group .list-group-item time {
 }
 @media screen and (min-width: 1000px) and (max-width: 1200px) {
   .post {
-    padding: 100px 40px 40px 40px;
+    padding: 100px 40px 20px 40px;
   }
   main .article-container article {
     padding: 20px 60px;
@@ -1349,7 +1391,7 @@ section.category .post-list-group .list-group-item time {
 }
 @media screen and (min-width: 800px) and (max-width: 1000px) {
   .post {
-    padding: 100px 30px 30px 30px;
+    padding: 100px 30px 20px 30px;
   }
   main .article-container article {
     padding: 20px 40px;
@@ -1398,7 +1440,8 @@ section.category .post-list-group .list-group-item time {
     display: inline-block;
   }
   .post {
-    padding: 100px 10px 40px 10px;
+    padding: 100px 20px 20px 20px;
+    width: 100%;
   }
   nav .navbar .nav-right .friends-more {
     display: inline;

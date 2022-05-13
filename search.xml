@@ -139,278 +139,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tag Plugins</title>
-    <url>/delicate/2021/11/12/code-test/</url>
-    <content><![CDATA[<blockquote>
-<p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
-</blockquote>
-<p><a href="https://hexo.io/zh-cn/docs/tag-plugins">more</a></p>
-<span id="more"></span>
-
-<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;<br>content<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="没有提供参数，则只输出普通的-blockquote"><a href="#没有提供参数，则只输出普通的-blockquote" class="headerlink" title="没有提供参数，则只输出普通的 blockquote"></a>没有提供参数，则只输出普通的 blockquote</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote %&#125;<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
-</blockquote>
-
-<h3 id="引用书上的句子"><a href="#引用书上的句子" class="headerlink" title="引用书上的句子"></a>引用书上的句子</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote David Levithan, Wide Awake %&#125;<br>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-
-<h3 id="引用-Twitter"><a href="#引用-Twitter" class="headerlink" title="引用 Twitter"></a>引用 Twitter</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;<br>NEW: DevDocs now comes with syntax highlighting. http://devdocs.io<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io/">http://devdocs.io</a></p>
-<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-
-<h3 id="引用网络上的文章"><a href="#引用网络上的文章" class="headerlink" title="引用网络上的文章"></a>引用网络上的文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;<br>Every interaction is both precious and an opportunity to delight.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
-<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
-
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><blockquote>
-<p>用法不同于markdown的代码块，但是hexo解析结果一致，所以样式一样。</p>
-</blockquote>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;<br>code snippet<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="普通的代码块"><a href="#普通的代码块" class="headerlink" title="普通的代码块"></a>普通的代码块</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock %&#125;<br>alert(&#x27;Hello World!&#x27;);<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">alert(&#x27;Hello World!&#x27;);<br></code></pre></td></tr></table></figure>
-
-<h3 id="指定语言"><a href="#指定语言" class="headerlink" title="指定语言"></a>指定语言</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock lang:objc %&#125;<br>[rectangle setX: 10 y: 10 width: 20 height: 20];<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><code class="hljs objc">[rectangle setX: <span class="hljs-number">10</span> y: <span class="hljs-number">10</span> width: <span class="hljs-number">20</span> height: <span class="hljs-number">20</span>];<br></code></pre></td></tr></table></figure>
-
-<h3 id="附加说明"><a href="#附加说明" class="headerlink" title="附加说明"></a>附加说明</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock Array.map %&#125;<br>array.map(callback[, thisArg])<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><code class="hljs plaintext">array.map(callback[, thisArg])<br></code></pre></td></tr></table></figure>
-
-<h3 id="附加说明和网址"><a href="#附加说明和网址" class="headerlink" title="附加说明和网址"></a>附加说明和网址</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;<br>_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><code class="hljs plaintext">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br></code></pre></td></tr></table></figure>
-
-<h2 id="Pull-Quote"><a href="#Pull-Quote" class="headerlink" title="Pull Quote"></a>Pull Quote</h2><h3 id="无class（默认样式）"><a href="#无class（默认样式）" class="headerlink" title="无class（默认样式）"></a>无class（默认样式）</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote class="pullquote"><p>文本内容</p>
-</blockquote>
-
-<h3 id="带有颜色"><a href="#带有颜色" class="headerlink" title="带有颜色"></a>带有颜色</h3><h4 id="information"><a href="#information" class="headerlink" title="information"></a>information</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote information %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote class="pullquote information"><p>文本内容</p>
-</blockquote>
-
-<h4 id="danger"><a href="#danger" class="headerlink" title="danger"></a>danger</h4><blockquote class="pullquote danger"><p>文本内容</p>
-</blockquote>
-
-<h4 id="red"><a href="#red" class="headerlink" title="red"></a>red</h4><blockquote class="pullquote red"><p>文本内容</p>
-</blockquote>
-
-<h4 id="blue"><a href="#blue" class="headerlink" title="blue"></a>blue</h4><blockquote class="pullquote blue"><p>文本内容</p>
-</blockquote>
-
-<h3 id="文字对中"><a href="#文字对中" class="headerlink" title="文字对中"></a>文字对中</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote [class] center %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote class="pullquote information center"><p>文本内容</p>
-</blockquote>
-
-<h2 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% iframe url [width] [height] %&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><blockquote>
-<p>在文章中插入指定大小的图片。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% img [class names] /path/to/image [width] [height] &#x27;&quot;title text&quot; &quot;alt text&quot;&#x27; %&#125;<br></code></pre></td></tr></table></figure>
-
-<img src="/delicate/img/avatar.png" class="" width="120" height="120" title="title text" alt="alt text">
-
-<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p>在文章中插入链接，并自动给外部链接添加 target&#x3D;”_blank” 属性。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% link text url [external] [title] %&#125;<br></code></pre></td></tr></table></figure>
-
-<a href="https://kartjim.top/dellicate" title="" target="">我的博客</a>
-
-<h2 id="本主题内置"><a href="#本主题内置" class="headerlink" title="本主题内置"></a>本主题内置</h2><h3 id="tags-note"><a href="#tags-note" class="headerlink" title="tags note"></a>tags note</h3><blockquote>
-<p>主题内置的tag<br>参考了 <a href="https://github.com/fluid-dev/hexo-theme-fluid">hexo-theme-fluid</a></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
-
-<div class="note note-default">
-            <p>默认样式</p>
-          </div>
-<div class="note note-info">
-            <p>info</p>
-          </div>
-<div class="note note-primary">
-            <p>primary</p>
-          </div>
-<div class="note note-success">
-            <p>success</p>
-          </div>
-<div class="note note-danger">
-            <p>danger</p>
-          </div>
-<div class="note note-warning">
-            <p>warning</p>
-          </div>
-<div class="note note-light">
-            <p>light</p>
-          </div>
-
-<div class="note note-purple">
-            <p>purple</p>
-          </div>
-
-<h4 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h4><div class="note note-default">
-            <ul><li>1</li><li>2</li><li>3<ul><li>31<ul><li>311</li></ul></li><li>32</li><li>33</li></ul></li></ul>
-          </div>
-<div class="note note-danger">
-            <p>一个note tag内只能有一个列表</p>
-          </div>
-
-<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><blockquote>
-<p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
-</blockquote>
-<div class="note note-warning">
-            <p>需要注意的是，前面的颜色值和后面的文字中间不能有空格！<br>如果文字真的需要空格，那就使用多个color tag！</p>
-          </div>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% color [color] [文字] %&#125;<br></code></pre></td></tr></table></figure>
-
-<span style="color:blue;">蓝色</span>
-
-<span style="color:rgb(128,128,64);">rgb(128,64,64)</span>
-
-<span style="color:#ff3346;">HEX-#ff3346</span>
-
-<span style="color:hsl(300,100%,25%);">hsl(300,100%,25%)</span>
-
-<h3 id="collapse"><a href="#collapse" class="headerlink" title="collapse"></a>collapse</h3><blockquote>
-<p>bootstrap collapse</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% collapse [class] [按钮文字] [id] %&#125;<br>折叠内容<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
-
-<span style="color:red;">三个参数均不可少！</span>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">注意事项</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">[class]</td>
-<td align="center">按钮的样式，选项为<a href="https://v4.bootcss.com/docs/components/buttons/">boostrap的按钮样式</a></td>
-</tr>
-<tr>
-<td align="center">[按钮文字]</td>
-<td align="center">按钮上面显示的文字</td>
-</tr>
-<tr>
-<td align="center">[id]</td>
-<td align="center">在同一篇文章里，每个collapse的id需要唯一，即每个collapse的id需要设定不同的值；值随意，不同就行。</td>
-</tr>
-</tbody></table>
-<div class="note note-danger">
-            <p>参数中如有空格，需要给参数加上引号！</p>
-          </div>
-<p>例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% collapse info &#x27;点击显示折叠内容&#x27; id1 %&#125;<br>这里写需要隐藏的文字。<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
-
-<div>
-            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#id1" aria-expanded="false" aria-controls="id1">
-                点击显示折叠内容
-            </button>
-            </div>
-            <div class="collapse" id="id1">
-                <div class="card card-body">
-                折叠内容并不支持太复杂的语法，列表、表格均不支持；但支持代码
-                </div>
-            </div>
-
-<p>more：</p>
-<div>
-            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#id2" aria-expanded="false" aria-controls="id2">
-                点击显示折叠内容
-            </button>
-            </div>
-            <div class="collapse" id="id2">
-                <div class="card card-body">
-                折叠内容
-                </div>
-            </div>
-
-<div>
-            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#id3" aria-expanded="false" aria-controls="id3">
-                点击显示折叠内容
-            </button>
-            </div>
-            <div class="collapse" id="id3">
-                <div class="card card-body">
-                折叠内容
-                </div>
-            </div>
-
-<h3 id="description"><a href="#description" class="headerlink" title="description"></a>description</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% description dark 提示 %&#125;<br>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。<br>&#123;% enddescription %&#125;<br></code></pre></td></tr></table></figure>
-
-<div class='description dark'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<div class='description info'><span class='description-title'>信息</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<div class='description success'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<div class='description danger'><span class='description-title'>危险</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<div class='description warning'><span class='description-title'>警告</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-
-<ul>
-<li>danger</li>
-<li>info</li>
-<li>success</li>
-<li>warning</li>
-</ul>
-<h3 id="toasts"><a href="#toasts" class="headerlink" title="toasts"></a>toasts</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% toasts [class] text %&#125;<br><span class="hljs-strong">**Markdown**</span> is supported, Text can be bold, italic, or strikethrough. <br>Links should be blue with no underlinesinline codeinline code inside link<br>&#123;% endtoasts %&#125;<br></code></pre></td></tr></table></figure>
-
-<div class="toasts toasts-default"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m-114.176-310.954667a53.333333 53.333333 0 0 0 75.434667 0l323.328-323.328a53.333333 53.333333 0 1 0-75.434667-75.434666l-287.914667 283.306666-128.853333-128.853333a53.333333 53.333333 0 1 0-75.434667 75.434667l168.874667 168.874666z"></path></svg>default</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-tip"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11415" width="22" height="22"><path d="M512 65.984C266.048 65.984 65.984 266.048 65.984 512S266.048 958.016 512 958.016 958.016 757.952 958.016 512 757.952 65.984 512 65.984zM544 736c0 17.696-14.304 32-32 32s-32-14.304-32-32l0-288c0-17.696 14.304-32 32-32s32 14.304 32 32L544 736zM512 352c-26.496 0-48-21.536-48-48C464 277.472 485.504 256 512 256s48 21.472 48 48C560 330.464 538.496 352 512 352z"></path></svg>提示</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-note"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M330.24 873.6A117.44 117.44 0 0 0 448 992h85.12a117.44 117.44 0 0 0 117.44-117.44V832h-320z m160-841.6a367.68 367.68 0 0 0-229.44 655.36A184.32 184.32 0 0 1 320 768h341.76a184.32 184.32 0 0 1 57.92-80.64A367.68 367.68 0 0 0 490.24 32z m0 207.04a160 160 0 0 0-160 160 48 48 0 0 1-96 0 256 256 0 0 1 256-256 48 48 0 0 1 0 96z"></path></svg>信息</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-danger"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M554.154667 77.226667a85.333333 85.333333 0 0 1 32.042666 32.021333l386.709334 680.597333A85.333333 85.333333 0 0 1 898.709333 917.333333H125.290667a85.333333 85.333333 0 0 1-74.197334-127.488L437.802667 109.248a85.333333 85.333333 0 0 1 116.352-32.042667zM512 151.381333L125.290667 832h773.418666L512 151.402667zM512 682.666667a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m42.666667-277.333334l-10.346667 234.666667h-65.024L469.333333 405.333333h85.333334z"></path></svg>危险</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-warning"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 63.7C265.5 63.7 63.7 265.5 63.7 512S265.5 960.3 512 960.3 960.3 758.5 960.3 512 758.5 63.7 512 63.7m0 768.5c-35.3-0.1-64-28.7-64-64 0-35.2 28.8-64 64-64s64 28.8 64 64-28.8 64-64 64m83.3-483.5s0 3.2 0 0c0 3.2-54.5 256.1-54.5 256.1s3.2-19.2 0 0-12.8 28.8-28.8 28.8-25.6-12.8-28.8-32c-6.4-19.2-54.5-246.5-54.5-246.5 0-6.4-3.2-12.8-3.2-16 0-48 38.4-86.5 86.5-86.5s86.5 38.4 86.5 86.5c0 0-3.2 6.4-3.2 9.6"></path></svg>警告</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>bookmark</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<ul>
-<li>tip</li>
-<li>note</li>
-<li>danger</li>
-<li>warning</li>
-<li>book</li>
-</ul>
-<h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><blockquote>
-<p>给文字添加背景</p>
-</blockquote>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% background content [bg-color] [text-color] %&#125;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>bg-color: 文字背景颜色，默认：#ffff00</li>
-<li>text-color：文字颜色，默认：#222</li>
-</ul>
-<p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be <span style="background:blue;color:white">blue</span> with no <span style="background:#ffff00;color:#222">underlinesinline</span> codeinline code inside link</p>
-]]></content>
-      <categories>
-        <category>测试文件</category>
-      </categories>
-      <tags>
-        <tag>测试文件</tag>
-        <tag>code</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cookie</title>
     <url>/delicate/2021/12/16/cookie/</url>
     <content><![CDATA[<h2 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h2><div class='description info'><span class='description-title'>百度百科</span><div><p>cookie是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web 文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。<br>由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序</p></div></div>
@@ -470,6 +198,109 @@
       </tags>
   </entry>
   <entry>
+    <title>Tag Plugins</title>
+    <url>/delicate/2021/11/12/code-test/</url>
+    <content><![CDATA[<blockquote>
+<p>标签插件（Tag Plugins）<br>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。<br>虽然你可以使用任何格式书写你的文章，但是标签插件永远可用，且语法也都是一致的。</p>
+</blockquote>
+<p><a href="https://hexo.io/zh-cn/docs/tag-plugins">more</a></p>
+<span id="more"></span>
+<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;<br>content<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="没有提供参数，则只输出普通的-blockquote"><a href="#没有提供参数，则只输出普通的-blockquote" class="headerlink" title="没有提供参数，则只输出普通的 blockquote"></a>没有提供参数，则只输出普通的 blockquote</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote %&#125;<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
+</blockquote>
+
+<h3 id="引用书上的句子"><a href="#引用书上的句子" class="headerlink" title="引用书上的句子"></a>引用书上的句子</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote David Levithan, Wide Awake %&#125;<br>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+<h3 id="引用-Twitter"><a href="#引用-Twitter" class="headerlink" title="引用 Twitter"></a>引用 Twitter</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;<br>NEW: DevDocs now comes with syntax highlighting. http://devdocs.io<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io/">http://devdocs.io</a></p>
+<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
+
+<h3 id="引用网络上的文章"><a href="#引用网络上的文章" class="headerlink" title="引用网络上的文章"></a>引用网络上的文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;<br>Every interaction is both precious and an opportunity to delight.<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
+
+
+
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><blockquote>
+<p>用法不同于markdown的代码块，但是hexo解析结果一致，所以样式一样。</p>
+</blockquote>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;<br>code snippet<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="普通的代码块"><a href="#普通的代码块" class="headerlink" title="普通的代码块"></a>普通的代码块</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock %&#125;<br>alert(&#x27;Hello World!&#x27;);<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">alert(&#x27;Hello World!&#x27;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="指定语言"><a href="#指定语言" class="headerlink" title="指定语言"></a>指定语言</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock lang:objc %&#125;<br>[rectangle setX: 10 y: 10 width: 20 height: 20];<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><code class="hljs objc">[rectangle setX: <span class="hljs-number">10</span> y: <span class="hljs-number">10</span> width: <span class="hljs-number">20</span> height: <span class="hljs-number">20</span>];<br></code></pre></td></tr></table></figure>
+
+<h3 id="附加说明"><a href="#附加说明" class="headerlink" title="附加说明"></a>附加说明</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock Array.map %&#125;<br>array.map(callback[, thisArg])<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><code class="hljs plaintext">array.map(callback[, thisArg])<br></code></pre></td></tr></table></figure>
+
+<h3 id="附加说明和网址"><a href="#附加说明和网址" class="headerlink" title="附加说明和网址"></a>附加说明和网址</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;<br>_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br>&#123;% endcodeblock %&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><code class="hljs plaintext">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);<br>=&gt; [1, 2, 3]<br></code></pre></td></tr></table></figure>
+
+<h2 id="Pull-Quote"><a href="#Pull-Quote" class="headerlink" title="Pull Quote"></a>Pull Quote</h2><h3 id="无class（默认样式）"><a href="#无class（默认样式）" class="headerlink" title="无class（默认样式）"></a>无class（默认样式）</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote"><p>文本内容</p>
+</blockquote>
+
+
+<h3 id="带有颜色"><a href="#带有颜色" class="headerlink" title="带有颜色"></a>带有颜色</h3><h4 id="information"><a href="#information" class="headerlink" title="information"></a>information</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote information %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote information"><p>文本内容</p>
+</blockquote>
+
+<h4 id="danger"><a href="#danger" class="headerlink" title="danger"></a>danger</h4><blockquote class="pullquote danger"><p>文本内容</p>
+</blockquote>
+
+<h4 id="red"><a href="#red" class="headerlink" title="red"></a>red</h4><blockquote class="pullquote red"><p>文本内容</p>
+</blockquote>
+
+<h4 id="blue"><a href="#blue" class="headerlink" title="blue"></a>blue</h4><blockquote class="pullquote blue"><p>文本内容</p>
+</blockquote>
+
+<h3 id="文字对中"><a href="#文字对中" class="headerlink" title="文字对中"></a>文字对中</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% pullquote [class] center %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote information center"><p>文本内容</p>
+</blockquote>
+
+<h2 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% iframe url [width] [height] %&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><blockquote>
+<p>在文章中插入指定大小的图片。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% img [class names] /path/to/image [width] [height] &#x27;&quot;title text&quot; &quot;alt text&quot;&#x27; %&#125;<br></code></pre></td></tr></table></figure>
+
+<img src="/delicate/img/avatar.png" class="" width="120" height="120" title="title text" alt="alt text">
+
+<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p>在文章中插入链接，并自动给外部链接添加 target&#x3D;”_blank” 属性。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% link text url [external] [title] %&#125;<br></code></pre></td></tr></table></figure>
+
+<a href="https://kartjim.top/dellicate" title="" target="">我的博客</a>
+
+
+]]></content>
+      <categories>
+        <category>测试文件</category>
+      </categories>
+      <tags>
+        <tag>测试文件</tag>
+        <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/delicate/2020/12/28/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -492,6 +323,130 @@
       <tags>
         <tag>hexo</tag>
         <tag>first</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本主题内置tags</title>
+    <url>/delicate/2022/05/12/inline-tags/</url>
+    <content><![CDATA[<h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="note note-default">
+            <p>默认样式</p>
+          </div>
+<div class="note note-info">
+            <p>info</p>
+          </div>
+<div class="note note-primary">
+            <p>primary</p>
+          </div>
+<div class="note note-success">
+            <p>success</p>
+          </div>
+<div class="note note-danger">
+            <p>danger</p>
+          </div>
+<div class="note note-warning">
+            <p>warning</p>
+          </div>
+<div class="note note-light">
+            <p>light</p>
+          </div>
+
+<span id="more"></span>
+
+<div class="note note-purple">
+            <p>purple</p>
+          </div>
+
+<h3 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h3><div class="note note-default">
+            <ul><li>1</li><li>2</li><li>3<ul><li>31<ul><li>311</li></ul></li><li>32</li><li>33</li></ul></li></ul>
+          </div>
+<div class="note note-danger">
+            <p>一个note tag内只能有一个列表</p>
+          </div>
+
+<h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><blockquote>
+<p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
+</blockquote>
+<div class="note note-warning">
+            <p>需要注意的是，前面的颜色值和后面的文字中间不能有空格！<br>如果文字真的需要空格，那就使用多个color tag！</p>
+          </div>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% color [color] [文字] %&#125;<br></code></pre></td></tr></table></figure>
+
+<span style="color:blue;">蓝色</span>
+
+<span style="color:rgb(128,128,64);">rgb(128,64,64)</span>
+
+<span style="color:#ff3346;">HEX-#ff3346</span>
+
+<span style="color:hsl(300,100%,25%);">hsl(300,100%,25%)</span>
+
+<h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% description dark 提示 %&#125;<br>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。<br>&#123;% enddescription %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class='description dark'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description info'><span class='description-title'>信息</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description success'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description danger'><span class='description-title'>危险</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description warning'><span class='description-title'>警告</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+
+<ul>
+<li>danger</li>
+<li>info</li>
+<li>success</li>
+<li>warning</li>
+</ul>
+<h2 id="toasts"><a href="#toasts" class="headerlink" title="toasts"></a>toasts</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% toasts [class] text %&#125;<br><span class="hljs-strong">**Markdown**</span> is supported, Text can be bold, italic, or strikethrough. <br>Links should be blue with no underlinesinline codeinline code inside link<br>&#123;% endtoasts %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="toasts toasts-default"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m-114.176-310.954667a53.333333 53.333333 0 0 0 75.434667 0l323.328-323.328a53.333333 53.333333 0 1 0-75.434667-75.434666l-287.914667 283.306666-128.853333-128.853333a53.333333 53.333333 0 1 0-75.434667 75.434667l168.874667 168.874666z"></path></svg>default</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-tip"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11415" width="22" height="22"><path d="M512 65.984C266.048 65.984 65.984 266.048 65.984 512S266.048 958.016 512 958.016 958.016 757.952 958.016 512 757.952 65.984 512 65.984zM544 736c0 17.696-14.304 32-32 32s-32-14.304-32-32l0-288c0-17.696 14.304-32 32-32s32 14.304 32 32L544 736zM512 352c-26.496 0-48-21.536-48-48C464 277.472 485.504 256 512 256s48 21.472 48 48C560 330.464 538.496 352 512 352z"></path></svg>提示</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-note"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M330.24 873.6A117.44 117.44 0 0 0 448 992h85.12a117.44 117.44 0 0 0 117.44-117.44V832h-320z m160-841.6a367.68 367.68 0 0 0-229.44 655.36A184.32 184.32 0 0 1 320 768h341.76a184.32 184.32 0 0 1 57.92-80.64A367.68 367.68 0 0 0 490.24 32z m0 207.04a160 160 0 0 0-160 160 48 48 0 0 1-96 0 256 256 0 0 1 256-256 48 48 0 0 1 0 96z"></path></svg>信息</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-danger"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M554.154667 77.226667a85.333333 85.333333 0 0 1 32.042666 32.021333l386.709334 680.597333A85.333333 85.333333 0 0 1 898.709333 917.333333H125.290667a85.333333 85.333333 0 0 1-74.197334-127.488L437.802667 109.248a85.333333 85.333333 0 0 1 116.352-32.042667zM512 151.381333L125.290667 832h773.418666L512 151.402667zM512 682.666667a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m42.666667-277.333334l-10.346667 234.666667h-65.024L469.333333 405.333333h85.333334z"></path></svg>危险</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-warning"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 63.7C265.5 63.7 63.7 265.5 63.7 512S265.5 960.3 512 960.3 960.3 758.5 960.3 512 758.5 63.7 512 63.7m0 768.5c-35.3-0.1-64-28.7-64-64 0-35.2 28.8-64 64-64s64 28.8 64 64-28.8 64-64 64m83.3-483.5s0 3.2 0 0c0 3.2-54.5 256.1-54.5 256.1s3.2-19.2 0 0-12.8 28.8-28.8 28.8-25.6-12.8-28.8-32c-6.4-19.2-54.5-246.5-54.5-246.5 0-6.4-3.2-12.8-3.2-16 0-48 38.4-86.5 86.5-86.5s86.5 38.4 86.5 86.5c0 0-3.2 6.4-3.2 9.6"></path></svg>警告</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>bookmark</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<ul>
+<li>tip</li>
+<li>note</li>
+<li>danger</li>
+<li>warning</li>
+<li>book</li>
+</ul>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><blockquote>
+<p>给文字添加背景</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% background content [bg-color] [text-color] %&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>bg-color: 文字背景颜色，默认：#ffff00</li>
+<li>text-color：文字颜色，默认：#222</li>
+</ul>
+<p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be <span style="background:blue;color:white">blue</span> with no <span style="background:#ffff00;color:#222">underlinesinline</span> codeinline code inside link</p>
+<h2 id="collapse"><a href="#collapse" class="headerlink" title="collapse"></a>collapse</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">&#123;% collapse info collapse %&#125;<br><span class="hljs-strong">**Markdown**</span> is supported, Text can be bold, italic, or strikethrough.<br>Links should be &#123;% background blue blue white %&#125; with no &#123;% background underlinesinline #ffff00 %&#125; codeinline code inside link<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="collapse collapse-info">
+                <div class="collapse-btn">
+                    <button>collapse</button>
+                </div>
+                <div class="collapse-text"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be <span style="background:blue;color:white">blue</span> with no <span style="background:#ffff00;color:#222">underlinesinline</span> codeinline code inside link</p></div>
+            </div>
+
+]]></content>
+      <categories>
+        <category>tags</category>
+      </categories>
+      <tags>
+        <tag>tags</tag>
       </tags>
   </entry>
   <entry>
@@ -598,6 +553,40 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode每日一题 - 507. 完美数</title>
+    <url>/delicate/2021/12/31/leetcode-507/</url>
+    <content><![CDATA[<h2 id="寻找完美数"><a href="#寻找完美数" class="headerlink" title="寻找完美数"></a>寻找完美数</h2><div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>题目</div> <div class="toasts-content"><p>对于一个 正整数，如果它和除了它自身以外的所有 正因子 之和相等，我们称它为 「完美数」。<br>给定一个 整数 n， 如果是完美数，返回 true，否则返回 false。<br>其中，1 &lt;&#x3D; num &lt;&#x3D; 10^8^</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/perfect-number">https://leetcode-cn.com/problems/perfect-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 </p></blockquote></div></div>
+
+<p>示例：</p>
+<blockquote>
+<p>输入：num &#x3D; 28<br>输出：true<br>解释：28 &#x3D; 1 + 2 + 4 + 7 + 14<br>1, 2, 4, 7, 和 14 是 28 的所有正因子。</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="按照题目要求来"><a href="#按照题目要求来" class="headerlink" title="按照题目要求来"></a>按照题目要求来</h4><p>用一个循环查找数字的因数，同时储存，最后比较因数和是否与原数字相同</p>
+<p>代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(num === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">Math</span>.ceil(num/<span class="hljs-number">2</span>);i++)&#123;<br>        <span class="hljs-keyword">if</span>(num%i === <span class="hljs-number">0</span>)&#123;<br>            sum += i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum === num;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>但是，按照正常逻辑编写代码，效率很低，会很慢😭<br>因为测试中会有个变态案例：<code>100000000</code></p>
+<h4 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h4><p>按照题目要求，这个<code>完美数</code>个数目前是有限的，而且题目限制 1 &lt;&#x3D; num &lt;&#x3D; 10^8^  ，<br>所以测试案例中结果必定在 <code>[6,28,496,8128,33550336]</code> 范围里。</p>
+<p>所以可以穷举所有可能啦~</p>
+<p>使用集合：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>]);<br>    <span class="hljs-keyword">return</span> all.has(num);<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>或者使用列表：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = [<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>];<br>    <span class="hljs-keyword">return</span> all.indexOf(num) !== -<span class="hljs-number">1</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>又或者直接判断：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> num === <span class="hljs-number">6</span> || num === <span class="hljs-number">28</span> || num === <span class="hljs-number">496</span> || num === <span class="hljs-number">8128</span> || num === <span class="hljs-number">33550336</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode每日一题-1706. 球会落何处（2022-2-24）</title>
     <url>/delicate/2022/02/24/leetcode-1706/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-info"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m-114.176-310.954667a53.333333 53.333333 0 0 0 75.434667 0l323.328-323.328a53.333333 53.333333 0 1 0-75.434667-75.434666l-287.914667 283.306666-128.853333-128.853333a53.333333 53.333333 0 1 0-75.434667 75.434667l168.874667 168.874666z"></path></svg>题目</div> <div class="toasts-content"><p>用一个大小为 m x n 的二维网格 grid 表示一个箱子。你有 n 颗球。箱子的顶部和底部都是开着的。<br>箱子中的每个单元格都有一个对角线挡板，跨过单元格的两个角，可以将球导向左侧或者右侧。</p><ul><li>将球导向右侧的挡板跨过左上角和右下角，在网格中用 1 表示。</li><li>将球导向左侧的挡板跨过右上角和左下角，在网格中用 -1 表示。</li></ul><p>在箱子每一列的顶端各放一颗球。每颗球都可能卡在箱子里或从底部掉出来。如果球恰好卡在两块挡板之间的 “V” 形图案，或者被一块挡导向到箱子的任意一侧边上，就会卡住。</p><p>返回一个大小为 n 的数组 answer ，其中 answer[i] 是球放在顶部的第 i 列后从底部掉出来的那一列对应的下标，如果球卡在盒子里，则返回 -1 。</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/where-will-the-ball-fall">https://leetcode-cn.com/problems/where-will-the-ball-fall</a><br>著作权归领扣网络所有。</p></blockquote></div></div>
@@ -652,40 +641,6 @@
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> findBall = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(grid[<span class="hljs-number">0</span>].length === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> [-<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">let</span> re = [];<br>    <span class="hljs-keyword">const</span> dfs = <span class="hljs-function">(<span class="hljs-params">row,col</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span>(row &gt;= grid.length) <span class="hljs-keyword">return</span> col;<br>        <span class="hljs-keyword">if</span>(col === <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span> || grid[row][col+<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(col === grid[<span class="hljs-number">0</span>].length-<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span> || grid[row][col-<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\|&quot;</span><br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col+<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\\&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col-<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;//&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;grid[<span class="hljs-number">0</span>].length;++i)&#123;<br>        re.push(dfs(<span class="hljs-number">0</span>,i));<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
 
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode每日一题 - 507. 完美数</title>
-    <url>/delicate/2021/12/31/leetcode-507/</url>
-    <content><![CDATA[<h2 id="寻找完美数"><a href="#寻找完美数" class="headerlink" title="寻找完美数"></a>寻找完美数</h2><div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>题目</div> <div class="toasts-content"><p>对于一个 正整数，如果它和除了它自身以外的所有 正因子 之和相等，我们称它为 「完美数」。<br>给定一个 整数 n， 如果是完美数，返回 true，否则返回 false。<br>其中，1 &lt;&#x3D; num &lt;&#x3D; 10^8^</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/perfect-number">https://leetcode-cn.com/problems/perfect-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 </p></blockquote></div></div>
-
-<p>示例：</p>
-<blockquote>
-<p>输入：num &#x3D; 28<br>输出：true<br>解释：28 &#x3D; 1 + 2 + 4 + 7 + 14<br>1, 2, 4, 7, 和 14 是 28 的所有正因子。</p>
-</blockquote>
-<span id="more"></span>
-
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="按照题目要求来"><a href="#按照题目要求来" class="headerlink" title="按照题目要求来"></a>按照题目要求来</h4><p>用一个循环查找数字的因数，同时储存，最后比较因数和是否与原数字相同</p>
-<p>代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(num === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">Math</span>.ceil(num/<span class="hljs-number">2</span>);i++)&#123;<br>        <span class="hljs-keyword">if</span>(num%i === <span class="hljs-number">0</span>)&#123;<br>            sum += i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum === num;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<p>但是，按照正常逻辑编写代码，效率很低，会很慢😭<br>因为测试中会有个变态案例：<code>100000000</code></p>
-<h4 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h4><p>按照题目要求，这个<code>完美数</code>个数目前是有限的，而且题目限制 1 &lt;&#x3D; num &lt;&#x3D; 10^8^  ，<br>所以测试案例中结果必定在 <code>[6,28,496,8128,33550336]</code> 范围里。</p>
-<p>所以可以穷举所有可能啦~</p>
-<p>使用集合：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>]);<br>    <span class="hljs-keyword">return</span> all.has(num);<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>或者使用列表：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = [<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>];<br>    <span class="hljs-keyword">return</span> all.indexOf(num) !== -<span class="hljs-number">1</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>又或者直接判断：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> num === <span class="hljs-number">6</span> || num === <span class="hljs-number">28</span> || num === <span class="hljs-number">496</span> || num === <span class="hljs-number">8128</span> || num === <span class="hljs-number">33550336</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -1226,69 +1181,11 @@
 <h3 id="ASP-x2F-PHP"><a href="#ASP-x2F-PHP" class="headerlink" title="ASP&#x2F;PHP"></a>ASP&#x2F;PHP</h3><p>即在调用<code>open()</code>函数的时候，传入的<code>url</code>参数后面加上<code>?q=</code>，再加个变量：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">str = <span class="hljs-string">&#x27;a&#x27;</span>;<br>xmlhttp.open(<span class="hljs-string">&quot;GET&quot;</span>,<span class="hljs-string">&#x27;gethint.php?q=&#x27;</span>+str,<span class="hljs-literal">true</span>);<br></code></pre></td></tr></table></figure>
 
-<div>
-            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#xhr" aria-expanded="false" aria-controls="xhr">
-                xmlhttp.status的值及解释
-            </button>
-            </div>
-            <div class="collapse" id="xhr">
-                <div class="card card-body">
-                菜鸟教程网友补充: https://www.runoob.com/ajax/ajax-asp-php.html<br>
-xmlhttp.readyState的值及解释：<br>
-0：请求未初始化（还没有调用 open()）。<br>
-1：请求已经建立，但是还没有发送（还没有调用 send()）。<br>  
-2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。<br>  
-3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。<br>  
-4：响应已完成；您可以获取并使用服务器的响应了。<br>  
-xmlhttp.status的值及解释：<br>  
-100——客户必须继续发出请求 <br> 
-101——客户要求服务器根据请求转换HTTP协议版本<br>  
-200——交易成功  <br>
-201——提示知道新文件的URL  <br>
-202——接受和处理、但处理未完成  <br>
-203——返回信息不确定或不完整  <br>
-204——请求收到，但返回信息为空  <br>
-205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件  <br>
-206——服务器已经完成了部分用户的GET请求  <br>
-300——请求的资源可在多处得到  <br>
-301——删除请求数据  <br>
-302——在其他地址发现了请求数据  <br>
-303——建议客户访问其他URL或访问方式  <br>
-304——客户端已经执行了GET，但文件未变化  <br>
-305——请求的资源必须从服务器指定的地址得到  <br>
-306——前一版本HTTP中使用的代码，现行版本中不再使用  <br>
-307——申明请求的资源临时性删除  <br>
-400——错误请求，如语法错误  <br>
-401——请求授权失败  <br>
-402——保留有效ChargeTo头响应 <br> 
-403——请求不允许  <br>
-404——没有发现文件、查询或URl  <br>
-405——用户在Request-Line字段定义的方法不允许<br>  
-406——根据用户发送的Accept拖，请求资源不可访问  <br>
-407——类似401，用户必须首先在代理服务器上得到授权  <br>
-408——客户端没有在用户指定的饿时间内完成请求  <br>
-409——对当前资源状态，请求不能完成  <br>
-410——服务器上不再有此资源且无进一步的参考地址  <br>
-411——服务器拒绝用户定义的Content-Length属性请求  <br>
-412——一个或多个请求头字段在当前请求中错误  <br>
-413——请求的资源大于服务器允许的大小  <br>
-414——请求的资源URL长于服务器允许的长度  <br>
-415——请求资源不支持请求项目格式  <br>
-416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段  <br>
-417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求<br>
-500——服务器产生内部错误  <br>
-501——服务器不支持请求的函数  <br>
-502——服务器暂时不可用，有时是为了防止发生系统过载  <br>
-503——服务器过载或暂停维修  <br>
-504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长  <br>
-505——服务器不支持或拒绝支请求头中指定的HTTP版本  <br>
-1xx:信息响应类，表示接收到请求并且继续处理  <br>
-2xx:处理成功响应类，表示动作被成功接收、理解和接受  <br>
-3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理  <br>
-4xx:客户端错误，客户请求包含语法错误或者是不能正确执行  <br>
-5xx:服务端错误，服务器不能正确执行一个正确的请求  <br>
-xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功返回。<br>
+<div class="collapse collapse-info">
+                <div class="collapse-btn">
+                    <button>补充</button>
                 </div>
+                <div class="collapse-text"><p>菜鸟教程网友补充: <a href="https://www.runoob.com/ajax/ajax-asp-php.html">https://www.runoob.com/ajax/ajax-asp-php.html</a><br><br>xmlhttp.readyState的值及解释：<br><br>0：请求未初始化（还没有调用 open()）。<br><br>1：请求已经建立，但是还没有发送（还没有调用 send()）。<br><br>2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。<br><br>3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。<br><br>4：响应已完成；您可以获取并使用服务器的响应了。<br><br>xmlhttp.status的值及解释：<br><br>100——客户必须继续发出请求 <br><br>101——客户要求服务器根据请求转换HTTP协议版本<br><br>200——交易成功  <br><br>201——提示知道新文件的URL  <br><br>202——接受和处理、但处理未完成  <br><br>203——返回信息不确定或不完整  <br><br>204——请求收到，但返回信息为空  <br><br>205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件  <br><br>206——服务器已经完成了部分用户的GET请求  <br><br>300——请求的资源可在多处得到  <br><br>301——删除请求数据  <br><br>302——在其他地址发现了请求数据  <br><br>303——建议客户访问其他URL或访问方式  <br><br>304——客户端已经执行了GET，但文件未变化  <br><br>305——请求的资源必须从服务器指定的地址得到  <br><br>306——前一版本HTTP中使用的代码，现行版本中不再使用  <br><br>307——申明请求的资源临时性删除  <br><br>400——错误请求，如语法错误  <br><br>401——请求授权失败  <br><br>402——保留有效ChargeTo头响应 <br><br>403——请求不允许  <br><br>404——没有发现文件、查询或URl  <br><br>405——用户在Request-Line字段定义的方法不允许<br><br>406——根据用户发送的Accept拖，请求资源不可访问  <br><br>407——类似401，用户必须首先在代理服务器上得到授权  <br><br>408——客户端没有在用户指定的饿时间内完成请求  <br><br>409——对当前资源状态，请求不能完成  <br><br>410——服务器上不再有此资源且无进一步的参考地址  <br><br>411——服务器拒绝用户定义的Content-Length属性请求  <br><br>412——一个或多个请求头字段在当前请求中错误  <br><br>413——请求的资源大于服务器允许的大小  <br><br>414——请求的资源URL长于服务器允许的长度  <br><br>415——请求资源不支持请求项目格式  <br><br>416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段  <br><br>417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求<br><br>500——服务器产生内部错误  <br><br>501——服务器不支持请求的函数  <br><br>502——服务器暂时不可用，有时是为了防止发生系统过载  <br><br>503——服务器过载或暂停维修  <br><br>504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长  <br><br>505——服务器不支持或拒绝支请求头中指定的HTTP版本  <br><br>1xx:信息响应类，表示接收到请求并且继续处理  <br><br>2xx:处理成功响应类，表示动作被成功接收、理解和接受  <br><br>3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理  <br><br>4xx:客户端错误，客户请求包含语法错误或者是不能正确执行  <br><br>5xx:服务端错误，服务器不能正确执行一个正确的请求  <br><br>xmlhttp.readyState&#x3D;&#x3D;4 &amp;&amp; xmlhttp.status&#x3D;&#x3D;200的解释：请求完成并且成功返回。<br></p></div>
             </div>
 
 <h3 id="AJAX-可用来与数据库进行动态通信"><a href="#AJAX-可用来与数据库进行动态通信" class="headerlink" title="AJAX 可用来与数据库进行动态通信"></a>AJAX 可用来与数据库进行动态通信</h3><p>其实就是通过PHP文件与数据库进行交互。</p>

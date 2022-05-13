@@ -17,7 +17,7 @@
   <meta name="publisher" content="">
 
   
-  <title>JavaScript知识之 浅拷贝与深拷贝</title>
+  <title>本主题内置tags</title>
   
   <link rel="shortcut icon" href="/delicate/img/logo.ico">
 
@@ -159,85 +159,143 @@
      
     <section class="post">
         <div class="post-title">
-            JavaScript知识之 浅拷贝与深拷贝
+            本主题内置tags
         </div>
 
         <p class="blog-post-info">
-        <span>2022-04-07</span>
+        <span>2022-05-12</span>
         
-            <span>陈科衡</span>  
-        
-        <span class="post-count">1.1k字</span>
-        <span class="post-count">5分钟</span>
+        <span class="post-count">587字</span>
+        <span class="post-count">2分钟</span>
         </p>
 
-        <h2 id="值传递与引用传递"><a href="#值传递与引用传递" class="headerlink" title="值传递与引用传递"></a>值传递与引用传递</h2><p>JavaScript中有两种数据类型：<strong>基本数据类型</strong>和<strong>引用数据类型</strong>两种。<br>从名字上来看，大概也能猜到它们的区别：</p>
-<ul>
-<li>基本数据类型<ul>
-<li>值直接存储在栈内存中</li>
-</ul>
-</li>
-<li>对于引用类型来说<ul>
-<li>它存储了一个引用，而真正的数据存储在堆内存中</li>
-</ul>
-</li>
-</ul>
+        <h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="note note-default">
+            <p>默认样式</p>
+          </div>
+<div class="note note-info">
+            <p>info</p>
+          </div>
+<div class="note note-primary">
+            <p>primary</p>
+          </div>
+<div class="note note-success">
+            <p>success</p>
+          </div>
+<div class="note note-danger">
+            <p>danger</p>
+          </div>
+<div class="note note-warning">
+            <p>warning</p>
+          </div>
+<div class="note note-light">
+            <p>light</p>
+          </div>
+
 <span id="more"></span>
 
-<p>当基本数据类型 <code>a</code> 赋值给另一个基本数据类型 <code>b</code> 时，是值传递；当 <code>a</code> 值变化后， <code>b</code> 的值并不会跟着变化：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> a = <span class="hljs-number">5</span>;<br>b = a; <span class="hljs-comment">// a 赋值给b</span><br><span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// 5</span><br><span class="hljs-built_in">console</span>.log(b); <span class="hljs-comment">// 5</span><br>a = <span class="hljs-number">15</span>; <span class="hljs-comment">// a变化</span><br><span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// 15</span><br><span class="hljs-built_in">console</span>.log(b); <span class="hljs-comment">// 5</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/464bb76f9d0f42dfb467887ed7100f36.png" alt="base1"><br><img src="https://img-blog.csdnimg.cn/1e4aa8590acb48789b3164e38d2e0d41.png" alt="在这里插入图片描述"></p>
-<p>而当引用数据类型赋值给另一个基本数据类型时，是引用传递；当 <code>a</code> 值变化后， <code>b</code> 的值会跟着变化：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> a = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];<br>b = a; <span class="hljs-comment">// a 赋值给b</span><br><span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// [ 1, 2, 3, 4 ]</span><br><span class="hljs-built_in">console</span>.log(b); <span class="hljs-comment">// [ 1, 2, 3, 4 ]</span><br>a[<span class="hljs-number">1</span>] = <span class="hljs-number">15</span>;<br><span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// [ 1, 15, 3, 4 ]</span><br><span class="hljs-built_in">console</span>.log(b); <span class="hljs-comment">// [ 1, 15, 3, 4 ] b跟着变化</span><br></code></pre></td></tr></table></figure>
+<div class="note note-purple">
+            <p>purple</p>
+          </div>
 
-<p>之所以会跟着变化，是因为引用数据类型存储的是一个引用，当它赋值给另一个引用数据时，<strong>只会把引用赋值给它</strong>；所以当原来的引用对应的值变化了，由于两个引用指向的是一个值，所以也会随着变化。</p>
-<p><img src="https://img-blog.csdnimg.cn/a772c501eb3446ffb0fa0171cc8b4afb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAa2FydCBqaW0=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>&#x3D;&gt;<br><img src="https://img-blog.csdnimg.cn/3ef3b9d0d1964671a971504069da3ff8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAa2FydCBqaW0=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="浅拷贝与深拷贝"><a href="#浅拷贝与深拷贝" class="headerlink" title="浅拷贝与深拷贝"></a>浅拷贝与深拷贝</h2><p>上面我们知道了引用数据类型赋值给另一个引用数据类型时，两个变量指向同一个数组，这就是所谓浅拷贝。</p>
-<blockquote>
-<p>浅拷贝&#x3D;&#x3D;只拷贝对象的顶级属性&#x3D;&#x3D;，嵌套的引用类型则直接复制引用。</p>
-</blockquote>
-<p>但是，有的时候，我们需要将一个变量中的 所有值都拷贝一份，<strong>当被赋值的变量变化时不会影响到原来的变量</strong>；这时候就需要深拷贝：</p>
-<p>对于有嵌套的引用类型（如：&#x3D;&#x3D;js对象&#x3D;&#x3D;、&#x3D;&#x3D;数组&#x3D;&#x3D;、&#x3D;&#x3D;Map&#x3D;&#x3D;、&#x3D;&#x3D;Set&#x3D;&#x3D;、&#x3D;&#x3D;RegExp&#x3D;&#x3D;等），将一个变量中的 所有值都拷贝一份，使变化时不影响原先变量，就是深拷贝。</p>
-<p>深拷贝有很多种方法，可以直接撸 <code>js</code> 代码，通过递归实现；也可以通过第三方库实现；甚至可以利用 <code>JSON</code>  里的方法实现；<br>下面介绍：</p>
-<h3 id="利用-JSON-方法"><a href="#利用-JSON-方法" class="headerlink" title="利用 JSON 方法"></a>利用 JSON 方法</h3><blockquote>
-<p>这种方法只适用于 对 js对象 实现深拷贝！</p>
+<h3 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h3><div class="note note-default">
+            <ul><li>1</li><li>2</li><li>3<ul><li>31<ul><li>311</li></ul></li><li>32</li><li>33</li></ul></li></ul>
+          </div>
+<div class="note note-danger">
+            <p>一个note tag内只能有一个列表</p>
+          </div>
+
+<h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><blockquote>
+<p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
 </blockquote>
 <div class="note note-warning">
-            <p><code>JSON.stringify()</code>和<code>JSON.parse()</code>，可以将原来的数据先变化为JSON字符串，然后再还原为js对象。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> obj = &#123;<br>    <span class="hljs-attr">a</span>: [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,[<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]],<br>    <span class="hljs-attr">b</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]),<br>    <span class="hljs-attr">c</span>: <span class="hljs-regexp">/string/g</span><br>&#125;<br><span class="hljs-keyword">let</span> objString = <span class="hljs-built_in">JSON</span>.stringify(obj);<br><span class="hljs-keyword">let</span> obj2 = <span class="hljs-built_in">JSON</span>.parse(objString);<br><span class="hljs-keyword">let</span> obj3 = obj; <span class="hljs-comment">// 浅拷贝</span><br><br><span class="hljs-built_in">console</span>.log(obj); <span class="hljs-comment">// &#123; a: [ 1, 3, 5, 6, [ 6, 7 ] ], b: Set(3) &#123; 2, 3, 4 &#125;, c: /string/g &#125;</span><br><span class="hljs-built_in">console</span>.log(obj2); <span class="hljs-comment">// &#123; a: [ 1, 3, 5, 6, [ 6, 7 ] ], b: &#123;&#125;, c: &#123;&#125; &#125; 数据丢失</span><br><span class="hljs-built_in">console</span>.log(obj === obj2); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(obj === obj3); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure><p>可以看到，这种方法实现深拷贝可能会出现数据丢失情况；非常不建议使用</p>
+            <p>需要注意的是，前面的颜色值和后面的文字中间不能有空格！<br>如果文字真的需要空格，那就使用多个color tag！</p>
           </div>
 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% color [color] [文字] %&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="递归函数实现"><a href="#递归函数实现" class="headerlink" title="递归函数实现"></a>递归函数实现</h3><p>这种方法的想法很简单，就是利用递归调用，分类讨论不同的数据类型，然后寻找变量最底层的 基本数据结构，利用值传递赋值，开辟新的引用。<br>简单实现：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 简单实现</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deepClone</span>(<span class="hljs-params">obj</span>)</span>&#123;<br>    <span class="hljs-comment">// 基本数据类型本身就是值传递</span><br>    <span class="hljs-keyword">if</span>(obj === <span class="hljs-literal">null</span> || <span class="hljs-keyword">typeof</span> obj !== <span class="hljs-string">&#x27;object&#x27;</span>)&#123;<br>        <span class="hljs-keyword">return</span> obj;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(obj <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Set</span>)&#123; <span class="hljs-comment">// Set 类型</span><br>        <span class="hljs-keyword">const</span> t = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();<br>        obj.forEach(<span class="hljs-function">(<span class="hljs-params">val</span>)=&gt;</span>&#123;<br>            t.add(deepClone(val));<br>        &#125;)<br>        <span class="hljs-keyword">return</span> t;<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(obj <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Map</span>)&#123; <span class="hljs-comment">// Map 类型</span><br>        <span class="hljs-keyword">const</span> t = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();<br>        obj.forEach(<span class="hljs-function">(<span class="hljs-params">val,i</span>)=&gt;</span>&#123;<br>            t.set(i,deepClone(val));<br>        &#125;)<br>        <span class="hljs-keyword">return</span> t;<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(obj <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">RegExp</span>)&#123; <span class="hljs-comment">// 正则 类型</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(obj);<br>    &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// 其它 js对象</span><br>        <span class="hljs-keyword">const</span> t = <span class="hljs-keyword">new</span> obj.constructor();<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> i <span class="hljs-keyword">in</span> obj)&#123;<br>            t[i] = deepClone(obj[i]);<br>        &#125;<br>        <span class="hljs-keyword">return</span> t;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>测试：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// test code</span><br><span class="hljs-keyword">const</span> obj = &#123;<br>    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">b</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])]),<br>    <span class="hljs-attr">c</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([<br>        [<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;Number&#x27;</span>],<br>        [<span class="hljs-string">&#x27;b&#x27;</span>,<span class="hljs-string">&#x27;Set&#x27;</span>],<br>        [<span class="hljs-string">&#x27;c&#x27;</span>,<span class="hljs-string">&#x27;Map&#x27;</span>],<br>        [<span class="hljs-string">&#x27;d&#x27;</span>,<span class="hljs-string">&#x27;RegExp&#x27;</span>],<br>        [<span class="hljs-string">&#x27;e&#x27;</span>,<span class="hljs-string">&#x27;Object&#x27;</span>]<br>    ]),<br>    <span class="hljs-attr">d</span>: <span class="hljs-regexp">/^regexp/g</span>,<br>    e: [&#123;<span class="hljs-attr">a</span>:<span class="hljs-number">10</span>&#125;,<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()]<br>&#125;<br><span class="hljs-keyword">const</span> deep = deepClone(obj); <span class="hljs-comment">// 深拷贝</span><br><span class="hljs-keyword">const</span> shadow = obj; <span class="hljs-comment">// 浅拷贝</span><br><br><span class="hljs-built_in">console</span>.log(obj === deep); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(obj === shadow); <span class="hljs-comment">// true</span><br><br><span class="hljs-built_in">console</span>.log(obj.a === deep.a); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(obj.a === shadow.a); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(obj.b === deep.b); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(obj.b[<span class="hljs-number">4</span>] === deep.b[<span class="hljs-number">4</span>]); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(obj.b === shadow.b); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+<span style="color:blue;">蓝色</span>
 
-<h3 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a>第三方库</h3><p>第三方库都有封装好的方法，可以直接使用：</p>
-<div class="note note-info">
-            <ul><li><code>Lodash</code>库<ul><li><code>_.cloneDeep(value)</code>方法</li></ul></li><li><code>Ramda</code>库<ul><li><code>R.clone(objects)</code>方法</li></ul></li></ul>
-          </div>
+<span style="color:rgb(128,128,64);">rgb(128,64,64)</span>
+
+<span style="color:#ff3346;">HEX-#ff3346</span>
+
+<span style="color:hsl(300,100%,25%);">hsl(300,100%,25%)</span>
+
+<h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% description dark 提示 %&#125;<br>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。<br>&#123;% enddescription %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class='description dark'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description info'><span class='description-title'>信息</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description success'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description danger'><span class='description-title'>危险</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
+
+<div class='description warning'><span class='description-title'>警告</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
 
 
-<p>有兴趣的可以去 <code>github</code> 阅读这些第三方库的底层实现原理：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/lodash/lodash">Lodash - github</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ramda/ramda">Ramda - github</a></li>
-<li>……</li>
+<li>danger</li>
+<li>info</li>
+<li>success</li>
+<li>warning</li>
 </ul>
+<h2 id="toasts"><a href="#toasts" class="headerlink" title="toasts"></a>toasts</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% toasts [class] text %&#125;<br><span class="hljs-strong">**Markdown**</span> is supported, Text can be bold, italic, or strikethrough. <br>Links should be blue with no underlinesinline codeinline code inside link<br>&#123;% endtoasts %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="toasts toasts-default"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m-114.176-310.954667a53.333333 53.333333 0 0 0 75.434667 0l323.328-323.328a53.333333 53.333333 0 1 0-75.434667-75.434666l-287.914667 283.306666-128.853333-128.853333a53.333333 53.333333 0 1 0-75.434667 75.434667l168.874667 168.874666z"></path></svg>default</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-tip"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11415" width="22" height="22"><path d="M512 65.984C266.048 65.984 65.984 266.048 65.984 512S266.048 958.016 512 958.016 958.016 757.952 958.016 512 757.952 65.984 512 65.984zM544 736c0 17.696-14.304 32-32 32s-32-14.304-32-32l0-288c0-17.696 14.304-32 32-32s32 14.304 32 32L544 736zM512 352c-26.496 0-48-21.536-48-48C464 277.472 485.504 256 512 256s48 21.472 48 48C560 330.464 538.496 352 512 352z"></path></svg>提示</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-note"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M330.24 873.6A117.44 117.44 0 0 0 448 992h85.12a117.44 117.44 0 0 0 117.44-117.44V832h-320z m160-841.6a367.68 367.68 0 0 0-229.44 655.36A184.32 184.32 0 0 1 320 768h341.76a184.32 184.32 0 0 1 57.92-80.64A367.68 367.68 0 0 0 490.24 32z m0 207.04a160 160 0 0 0-160 160 48 48 0 0 1-96 0 256 256 0 0 1 256-256 48 48 0 0 1 0 96z"></path></svg>信息</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-danger"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M554.154667 77.226667a85.333333 85.333333 0 0 1 32.042666 32.021333l386.709334 680.597333A85.333333 85.333333 0 0 1 898.709333 917.333333H125.290667a85.333333 85.333333 0 0 1-74.197334-127.488L437.802667 109.248a85.333333 85.333333 0 0 1 116.352-32.042667zM512 151.381333L125.290667 832h773.418666L512 151.402667zM512 682.666667a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m42.666667-277.333334l-10.346667 234.666667h-65.024L469.333333 405.333333h85.333334z"></path></svg>危险</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-warning"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 63.7C265.5 63.7 63.7 265.5 63.7 512S265.5 960.3 512 960.3 960.3 758.5 960.3 512 758.5 63.7 512 63.7m0 768.5c-35.3-0.1-64-28.7-64-64 0-35.2 28.8-64 64-64s64 28.8 64 64-28.8 64-64 64m83.3-483.5s0 3.2 0 0c0 3.2-54.5 256.1-54.5 256.1s3.2-19.2 0 0-12.8 28.8-28.8 28.8-25.6-12.8-28.8-32c-6.4-19.2-54.5-246.5-54.5-246.5 0-6.4-3.2-12.8-3.2-16 0-48 38.4-86.5 86.5-86.5s86.5 38.4 86.5 86.5c0 0-3.2 6.4-3.2 9.6"></path></svg>警告</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>bookmark</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
+
+<ul>
+<li>tip</li>
+<li>note</li>
+<li>danger</li>
+<li>warning</li>
+<li>book</li>
+</ul>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><blockquote>
+<p>给文字添加背景</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% background content [bg-color] [text-color] %&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>bg-color: 文字背景颜色，默认：#ffff00</li>
+<li>text-color：文字颜色，默认：#222</li>
+</ul>
+<p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be <span style="background:blue;color:white">blue</span> with no <span style="background:#ffff00;color:#222">underlinesinline</span> codeinline code inside link</p>
+<h2 id="collapse"><a href="#collapse" class="headerlink" title="collapse"></a>collapse</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% collapse info collapse %&#125;<br><span class="hljs-strong">**Markdown**</span> is supported, Text can be bold, italic, or strikethrough.<br>Links should be &#123;% background blue blue white %&#125; with no &#123;% background underlinesinline #ffff00 %&#125; codeinline code inside link<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="collapse collapse-info">
+                <div class="collapse-btn">
+                    <button>collapse</button>
+                </div>
+                <div class="collapse-text"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be <span style="background:blue;color:white">blue</span> with no <span style="background:#ffff00;color:#222">underlinesinline</span> codeinline code inside link</p></div>
+            </div>
+
 
 
         <div class="post-share">
         分享文章:
             
             <span class="post-share-qq">
-                <a rel="share noopener" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://can-dy-jack.github.io/delicate/2022/04/07/js-copy/index.html&title=hexo-theme-delicate&summary=JavaScript知识之 浅拷贝与深拷贝">
+                <a rel="share noopener" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://can-dy-jack.github.io/delicate/2022/05/12/inline-tags/index.html&title=hexo-theme-delicate&summary=本主题内置tags">
                     <svg viewBox="0 0 24 24" width="1em" height="1em"><path fill-rule="evenodd" d="M4.869 10.997c-.06-.142-.091-.335-.091-.581 0-.149.041-.331.125-.547a1.81 1.81 0 0 1 .273-.503c-.007-.163.021-.36.086-.59.065-.231.15-.391.256-.48 0-1.035.352-2.108 1.054-3.22.702-1.113 1.528-1.893 2.477-2.34C10.105 2.247 11.335 2 12.74 2c1.01 0 2.02.205 3.03.614.373.156.714.335 1.026.535.31.201.58.41.808.625.228.216.437.47.627.76.19.29.349.564.478.825.13.26.253.575.37.943a18.116 18.116 0 0 1 .541 2.093l.011.055c.418.618.627 1.176.627 1.675 0 .104-.034.253-.103.446-.068.193-.103.335-.103.424 0 .008.006.02.018.04a.47.47 0 0 0 .04.055c.015.019.023.032.023.04.584.848 1.042 1.646 1.372 2.393.33.748.496 1.524.496 2.327 0 .32-.074.693-.222 1.117-.148.424-.359.636-.632.636a.394.394 0 0 1-.222-.084 1.19 1.19 0 0 1-.216-.195 2.992 2.992 0 0 1-.216-.29 3.738 3.738 0 0 1-.183-.296 35.001 35.001 0 0 1-.256-.486c-.008-.007-.02-.01-.035-.01l-.057.043c-.448 1.146-.949 1.976-1.503 2.49.152.148.385.291.7.43.316.137.577.292.786.462.209.171.344.413.405.726a.71.71 0 0 0-.046.179.405.405 0 0 1-.08.2c-.485.722-1.632 1.083-3.44 1.083-.401 0-.821-.034-1.258-.1a10.83 10.83 0 0 1-1.116-.224 53.69 53.69 0 0 1-1.19-.335 4.067 4.067 0 0 0-.262-.078 2.306 2.306 0 0 0-.524-.05 6.013 6.013 0 0 1-.455-.017c-.312.335-.796.577-1.453.726A8.679 8.679 0 0 1 8.606 22c-.266 0-.528-.006-.786-.017a14.033 14.033 0 0 1-1.06-.1 7.002 7.002 0 0 1-1.15-.23 2.457 2.457 0 0 1-.848-.446c-.247-.2-.37-.438-.37-.714 0-.297.038-.519.114-.664.076-.146.232-.326.467-.542a3.44 3.44 0 0 0 .461-.145c.224-.081.412-.126.564-.133.03 0 .083-.008.16-.023.015-.015.022-.03.022-.044l-.023-.034c-.364-.082-.774-.474-1.23-1.178-.456-.703-.733-1.285-.832-1.746l-.056-.034c-.03 0-.076.074-.137.223a2.48 2.48 0 0 1-.62.831c-.278.25-.572.389-.883.419h-.012c-.03 0-.053-.017-.068-.05-.015-.033-.034-.054-.057-.061C2.087 16.91 2 16.538 2 16.195c0-2.046.957-3.78 2.87-5.2l-.001.002z"></path></svg>
                 </a>
             </span>
             
             
             <span class="post-share-weibo">
-                <a rel="share noopener" target="_blank" href="https://service.weibo.com/share/share.php?&url=https://can-dy-jack.github.io/delicate/2022/04/07/js-copy/index.html&title=JavaScript知识之 浅拷贝与深拷贝">
+                <a rel="share noopener" target="_blank" href="https://service.weibo.com/share/share.php?&url=https://can-dy-jack.github.io/delicate/2022/05/12/inline-tags/index.html&title=本主题内置tags">
                     <svg viewBox="0 0 24 24" width="1em" height="1em"><path fill-rule="evenodd" d="M17.286 11.55c-.856-.163-.448-.632-.448-.632s.836-1.387-.164-2.387c-1.244-1.244-4.262.164-4.262.164-1.142.346-.836-.164-.673-1.061 0-1.04-.367-2.814-3.447-1.754-3.06 1.04-5.69 4.732-5.69 4.732-1.836 2.447-1.591 4.323-1.591 4.323.448 4.181 4.895 5.324 8.341 5.589 3.63.285 8.525-1.244 10.014-4.406 1.49-3.16-1.223-4.405-2.08-4.568zM9.618 19.36c-3.61.163-6.527-1.652-6.527-4.059 0-2.406 2.917-4.323 6.527-4.487 3.61-.163 6.526 1.306 6.526 3.712 0 2.407-2.916 4.67-6.526 4.834zm-.714-6.975c-3.63.428-3.223 3.834-3.223 3.834s-.02 1.06.98 1.612c2.12 1.142 4.303.448 5.404-.96 1.101-1.427.469-4.894-3.161-4.486zm-.918 4.772c-.673.082-1.224-.306-1.224-.876 0-.572.49-1.163 1.163-1.224.775-.082 1.285.367 1.285.938s-.55 1.08-1.224 1.162zm2.142-1.815c-.245.164-.51.143-.633-.061-.142-.204-.081-.53.143-.693.265-.204.55-.143.673.061s.02.51-.183.693zm8.933-5.261a.59.59 0 0 0 .57-.51c0-.02.021-.041.021-.062.428-3.977-3.263-3.283-3.263-3.283a.592.592 0 0 0 0 1.183c2.651-.592 2.06 2.08 2.06 2.08 0 .326.265.592.612.592zm-.45-6.936c-1.264-.305-2.59-.05-2.956.031-.02 0-.062.016-.082.016-.02 0-.02.018-.02.018a.874.874 0 0 0-.633.835c0 .469.388.856.857.856 0 0 .469-.062.795-.184.306-.122 2.958-.082 4.283 2.12.714 1.612.306 2.693.265 2.876 0 0-.183.408-.183.837 0 .469.387.794.877.794.387 0 .734.02.816-.714h.02c1.407-5.032-1.734-6.954-4.038-7.485z"></path></svg>
                 </a>
             </span>
@@ -258,11 +316,7 @@
     </span>
     
     <span class="post-tags-text transition">
-        <a href="/delicate/tags/JavaScript/">JavaScript</a>
-    </span>
-    
-    <span class="post-tags-text transition">
-        <a href="/delicate/tags/浅拷贝与深拷贝/">浅拷贝与深拷贝</a>
+        <a href="/delicate/tags/tags/">tags</a>
     </span>
     
 </div>
@@ -277,7 +331,7 @@
     </span>
     
     <span class="post-categories-text transition">
-        <a href="/delicate/categories/JavaScript/">JavaScript</a>
+        <a href="/delicate/categories/tags/">tags</a>
     </span>
     
 </div>
@@ -287,19 +341,11 @@
         <div class="post-change">
             <div class="post-pre">
                 
-                    <a href="/delicate/2022/05/12/inline-tags/">
-                        <svg viewBox="0 0 1024 1024" version="1.1" width="20" height="20">
-                            <path d="M561.92 832a47.36 47.36 0 0 0 0-64l-256-256 256-256a47.36 47.36 0 1 0-64-64l-288.64 288.64A50.56 50.56 0 0 0 192 512a47.36 47.36 0 0 0 14.08 33.28L494.72 832a47.36 47.36 0 0 0 67.2 0z"></path>
-                            <path d="M817.92 832a47.36 47.36 0 0 0 0-64.00000001l-256-255.99999999 256-255.99999999a47.36 47.36 0 1 0-64.00000001-64.00000001l-291.83999999 286.08A50.56 50.56 0 0 0 447.99999999 512a47.36 47.36 0 0 0 14.08000001 33.28L750.72 831.99999999a47.36 47.36 0 0 0 67.2 1e-8z"></path>
-                        </svg>
-                        本主题内置tags
-                    </a>
-                
             </div>
             <div class="post-next">
                 
-                    <a href="/delicate/2022/03/01/JavaScript-arrary/">
-                        JavaScript数组
+                    <a href="/delicate/2022/04/07/js-copy/">
+                        JavaScript知识之 浅拷贝与深拷贝
                         <svg viewBox="0 0 1024 1024" version="1.1" width="20" height="20">
                             <path d="M462.08 192a47.36 47.36 0 0 0 0 64l256 256-256 256a47.36 47.36 0 1 0 64 64l288.64-288.64A50.56 50.56 0 0 0 832 512a47.36 47.36 0 0 0-14.08-33.28L529.28 192a47.36 47.36 0 0 0-67.2 0z"></path>
                             <path d="M206.08 192a47.36 47.36 0 0 0 0 64l256 256-256 256a47.36 47.36 0 1 0 64 64l291.84-286.08A50.56 50.56 0 0 0 576 512a47.36 47.36 0 0 0-14.08-33.28L273.28 192a47.36 47.36 0 0 0-67.2 0z"></path>
@@ -312,7 +358,7 @@
     </section>
      
     <section class="post-toc transition" id="post-toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%80%BC%E4%BC%A0%E9%80%92%E4%B8%8E%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="toc-number">1.</span> <span class="toc-text">值传递与引用传递</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">2.</span> <span class="toc-text">浅拷贝与深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-JSON-%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">利用 JSON 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.</span> <span class="toc-text">递归函数实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93"><span class="toc-number">2.3.</span> <span class="toc-text">第三方库</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#note"><span class="toc-number">1.</span> <span class="toc-text">note</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%90%AB%E5%88%97%E8%A1%A8"><span class="toc-number">1.1.</span> <span class="toc-text">内含列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#color"><span class="toc-number">2.</span> <span class="toc-text">color</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#description"><span class="toc-number">3.</span> <span class="toc-text">description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#toasts"><span class="toc-number">4.</span> <span class="toc-text">toasts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#background"><span class="toc-number">5.</span> <span class="toc-text">background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#collapse"><span class="toc-number">6.</span> <span class="toc-text">collapse</span></a></li></ol>
     </section>
     <span class="open-toc transition" id="open-toc">
         <svg viewBox="0 0 1088 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24">

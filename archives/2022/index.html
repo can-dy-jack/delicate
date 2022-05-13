@@ -157,7 +157,7 @@
   <main>
     
 <section class="archive">
-    <h2 class="archives-head">共计 14 篇文章</h2>
+    <h2 class="archives-head">共计 15 篇文章</h2>
     
     <div class="post-list-group">
   
@@ -165,6 +165,12 @@
   
     
     <p class="post-list-year">2022</p>
+  
+    <a href="/delicate/2022/05/12/inline-tags/" class="list-group-item transition">
+        <time>05-12</time>
+        <span>本主题内置tags</span>
+    </a>
+  
   
     <a href="/delicate/2022/04/07/js-copy/" class="list-group-item transition">
         <time>04-07</time>
@@ -201,6 +207,7 @@
   <footer>
     <p>
     <span id="times">载入时间...</span>
+    <span style="display: none;" id="start-time">2021-11-01T00:00:00</span>
 </p>
 <p>
     <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
@@ -221,10 +228,16 @@
 <script src="/delicate/js/index.js"></script>
 
 
+<script src="/delicate/js/markdown.js"></script>
 
-<script>
-    calculateTime("2021-11-01T00:00:00");
-</script>
+
+<script src="/delicate/js/event.js"></script>
+
+
+
+
+<script src="/delicate/js/boot.js"></script>
+
 
 </body>
 

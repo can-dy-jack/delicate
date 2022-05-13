@@ -167,8 +167,8 @@
         
             <span>陈科衡</span>  
         
-        <span class="post-count">1.4k字</span>
-        <span class="post-count">6分钟</span>
+        <span class="post-count">673字</span>
+        <span class="post-count">3分钟</span>
         </p>
 
         <blockquote>
@@ -176,7 +176,6 @@
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins">more</a></p>
 <span id="more"></span>
-
 <h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><p>在文章中插入引言，可包含作者、来源和标题。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;<br>content<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
 
@@ -189,7 +188,6 @@
 
 <blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
 <footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-
 <h3 id="引用-Twitter"><a href="#引用-Twitter" class="headerlink" title="引用 Twitter"></a>引用 Twitter</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;<br>NEW: DevDocs now comes with syntax highlighting. http://devdocs.io<br>&#123;% endblockquote %&#125;<br></code></pre></td></tr></table></figure>
 
 <blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a target="_blank" rel="noopener" href="http://devdocs.io/">http://devdocs.io</a></p>
@@ -199,6 +197,8 @@
 
 <blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
 <footer><strong>Seth Godin</strong><cite><a target="_blank" rel="noopener" href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
+
+
 
 <h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><blockquote>
 <p>用法不同于markdown的代码块，但是hexo解析结果一致，所以样式一样。</p>
@@ -226,6 +226,7 @@
 
 <blockquote class="pullquote"><p>文本内容</p>
 </blockquote>
+
 
 <h3 id="带有颜色"><a href="#带有颜色" class="headerlink" title="带有颜色"></a>带有颜色</h3><h4 id="information"><a href="#information" class="headerlink" title="information"></a>information</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% pullquote information %&#125;<br>文本内容<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
 
@@ -260,177 +261,7 @@
 
 <a href="https://kartjim.top/dellicate" title="" target="">我的博客</a>
 
-<h2 id="本主题内置"><a href="#本主题内置" class="headerlink" title="本主题内置"></a>本主题内置</h2><h3 id="tags-note"><a href="#tags-note" class="headerlink" title="tags note"></a>tags note</h3><blockquote>
-<p>主题内置的tag<br>参考了 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">hexo-theme-fluid</a></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
 
-<div class="note note-default">
-            <p>默认样式</p>
-          </div>
-<div class="note note-info">
-            <p>info</p>
-          </div>
-<div class="note note-primary">
-            <p>primary</p>
-          </div>
-<div class="note note-success">
-            <p>success</p>
-          </div>
-<div class="note note-danger">
-            <p>danger</p>
-          </div>
-<div class="note note-warning">
-            <p>warning</p>
-          </div>
-<div class="note note-light">
-            <p>light</p>
-          </div>
-
-<div class="note note-purple">
-            <p>purple</p>
-          </div>
-
-<h4 id="内含列表"><a href="#内含列表" class="headerlink" title="内含列表"></a>内含列表</h4><div class="note note-default">
-            <ul><li>1</li><li>2</li><li>3<ul><li>31<ul><li>311</li></ul></li><li>32</li><li>33</li></ul></li></ul>
-          </div>
-<div class="note note-danger">
-            <p>一个note tag内只能有一个列表</p>
-          </div>
-
-<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><blockquote>
-<p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
-</blockquote>
-<div class="note note-warning">
-            <p>需要注意的是，前面的颜色值和后面的文字中间不能有空格！<br>如果文字真的需要空格，那就使用多个color tag！</p>
-          </div>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% color [color] [文字] %&#125;<br></code></pre></td></tr></table></figure>
-
-<span style="color:blue;">蓝色</span>
-
-<span style="color:rgb(128,128,64);">rgb(128,64,64)</span>
-
-<span style="color:#ff3346;">HEX-#ff3346</span>
-
-<span style="color:hsl(300,100%,25%);">hsl(300,100%,25%)</span>
-
-<h3 id="collapse"><a href="#collapse" class="headerlink" title="collapse"></a>collapse</h3><blockquote>
-<p>bootstrap collapse</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% collapse [class] [按钮文字] [id] %&#125;<br>折叠内容<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
-
-<span style="color:red;">三个参数均不可少！</span>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">注意事项</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">[class]</td>
-<td align="center">按钮的样式，选项为<a target="_blank" rel="noopener" href="https://v4.bootcss.com/docs/components/buttons/">boostrap的按钮样式</a></td>
-</tr>
-<tr>
-<td align="center">[按钮文字]</td>
-<td align="center">按钮上面显示的文字</td>
-</tr>
-<tr>
-<td align="center">[id]</td>
-<td align="center">在同一篇文章里，每个collapse的id需要唯一，即每个collapse的id需要设定不同的值；值随意，不同就行。</td>
-</tr>
-</tbody></table>
-<div class="note note-danger">
-            <p>参数中如有空格，需要给参数加上引号！</p>
-          </div>
-<p>例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% collapse info &#x27;点击显示折叠内容&#x27; id1 %&#125;<br>这里写需要隐藏的文字。<br>&#123;% endcollapse %&#125;<br></code></pre></td></tr></table></figure>
-
-<div>
-            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#id1" aria-expanded="false" aria-controls="id1">
-                点击显示折叠内容
-            </button>
-            </div>
-            <div class="collapse" id="id1">
-                <div class="card card-body">
-                折叠内容并不支持太复杂的语法，列表、表格均不支持；但支持代码
-                </div>
-            </div>
-
-<p>more：</p>
-<div>
-            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#id2" aria-expanded="false" aria-controls="id2">
-                点击显示折叠内容
-            </button>
-            </div>
-            <div class="collapse" id="id2">
-                <div class="card card-body">
-                折叠内容
-                </div>
-            </div>
-
-<div>
-            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#id3" aria-expanded="false" aria-controls="id3">
-                点击显示折叠内容
-            </button>
-            </div>
-            <div class="collapse" id="id3">
-                <div class="card card-body">
-                折叠内容
-                </div>
-            </div>
-
-<h3 id="description"><a href="#description" class="headerlink" title="description"></a>description</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% description dark 提示 %&#125;<br>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。<br>&#123;% enddescription %&#125;<br></code></pre></td></tr></table></figure>
-
-<div class='description dark'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<div class='description info'><span class='description-title'>信息</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<div class='description success'><span class='description-title'>提示</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<div class='description danger'><span class='description-title'>危险</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-<div class='description warning'><span class='description-title'>警告</span><div><p>本博客所有文章均采用 CC BY-SA 4.0 协议 ，转载请注明出处。</p></div></div>
-
-
-<ul>
-<li>danger</li>
-<li>info</li>
-<li>success</li>
-<li>warning</li>
-</ul>
-<h3 id="toasts"><a href="#toasts" class="headerlink" title="toasts"></a>toasts</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% toasts [class] text %&#125;<br><span class="hljs-strong">**Markdown**</span> is supported, Text can be bold, italic, or strikethrough. <br>Links should be blue with no underlinesinline codeinline code inside link<br>&#123;% endtoasts %&#125;<br></code></pre></td></tr></table></figure>
-
-<div class="toasts toasts-default"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m-114.176-310.954667a53.333333 53.333333 0 0 0 75.434667 0l323.328-323.328a53.333333 53.333333 0 1 0-75.434667-75.434666l-287.914667 283.306666-128.853333-128.853333a53.333333 53.333333 0 1 0-75.434667 75.434667l168.874667 168.874666z"></path></svg>default</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-tip"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11415" width="22" height="22"><path d="M512 65.984C266.048 65.984 65.984 266.048 65.984 512S266.048 958.016 512 958.016 958.016 757.952 958.016 512 757.952 65.984 512 65.984zM544 736c0 17.696-14.304 32-32 32s-32-14.304-32-32l0-288c0-17.696 14.304-32 32-32s32 14.304 32 32L544 736zM512 352c-26.496 0-48-21.536-48-48C464 277.472 485.504 256 512 256s48 21.472 48 48C560 330.464 538.496 352 512 352z"></path></svg>提示</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-note"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M330.24 873.6A117.44 117.44 0 0 0 448 992h85.12a117.44 117.44 0 0 0 117.44-117.44V832h-320z m160-841.6a367.68 367.68 0 0 0-229.44 655.36A184.32 184.32 0 0 1 320 768h341.76a184.32 184.32 0 0 1 57.92-80.64A367.68 367.68 0 0 0 490.24 32z m0 207.04a160 160 0 0 0-160 160 48 48 0 0 1-96 0 256 256 0 0 1 256-256 48 48 0 0 1 0 96z"></path></svg>信息</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-danger"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M554.154667 77.226667a85.333333 85.333333 0 0 1 32.042666 32.021333l386.709334 680.597333A85.333333 85.333333 0 0 1 898.709333 917.333333H125.290667a85.333333 85.333333 0 0 1-74.197334-127.488L437.802667 109.248a85.333333 85.333333 0 0 1 116.352-32.042667zM512 151.381333L125.290667 832h773.418666L512 151.402667zM512 682.666667a42.666667 42.666667 0 1 1 0 85.333333 42.666667 42.666667 0 0 1 0-85.333333z m42.666667-277.333334l-10.346667 234.666667h-65.024L469.333333 405.333333h85.333334z"></path></svg>危险</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-warning"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 63.7C265.5 63.7 63.7 265.5 63.7 512S265.5 960.3 512 960.3 960.3 758.5 960.3 512 758.5 63.7 512 63.7m0 768.5c-35.3-0.1-64-28.7-64-64 0-35.2 28.8-64 64-64s64 28.8 64 64-28.8 64-64 64m83.3-483.5s0 3.2 0 0c0 3.2-54.5 256.1-54.5 256.1s3.2-19.2 0 0-12.8 28.8-28.8 28.8-25.6-12.8-28.8-32c-6.4-19.2-54.5-246.5-54.5-246.5 0-6.4-3.2-12.8-3.2-16 0-48 38.4-86.5 86.5-86.5s86.5 38.4 86.5 86.5c0 0-3.2 6.4-3.2 9.6"></path></svg>警告</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>bookmark</div> <div class="toasts-content"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be blue with no underlinesinline codeinline code inside link</p></div></div>
-
-<ul>
-<li>tip</li>
-<li>note</li>
-<li>danger</li>
-<li>warning</li>
-<li>book</li>
-</ul>
-<h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><blockquote>
-<p>给文字添加背景</p>
-</blockquote>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% background content [bg-color] [text-color] %&#125;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>bg-color: 文字背景颜色，默认：#ffff00</li>
-<li>text-color：文字颜色，默认：#222</li>
-</ul>
-<p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be <span style="background:blue;color:white">blue</span> with no <span style="background:#ffff00;color:#222">underlinesinline</span> codeinline code inside link</p>
 
 
         <div class="post-share">
@@ -519,7 +350,7 @@
     </section>
      
     <section class="post-toc transition" id="post-toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">引用块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89%E6%8F%90%E4%BE%9B%E5%8F%82%E6%95%B0%EF%BC%8C%E5%88%99%E5%8F%AA%E8%BE%93%E5%87%BA%E6%99%AE%E9%80%9A%E7%9A%84-blockquote"><span class="toc-number">1.1.</span> <span class="toc-text">没有提供参数，则只输出普通的 blockquote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%8F%A5%E5%AD%90"><span class="toc-number">1.2.</span> <span class="toc-text">引用书上的句子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8-Twitter"><span class="toc-number">1.3.</span> <span class="toc-text">引用 Twitter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E6%96%87%E7%AB%A0"><span class="toc-number">1.4.</span> <span class="toc-text">引用网络上的文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">代码块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">2.1.</span> <span class="toc-text">普通的代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E8%AF%AD%E8%A8%80"><span class="toc-number">2.2.</span> <span class="toc-text">指定语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E8%AF%B4%E6%98%8E"><span class="toc-number">2.3.</span> <span class="toc-text">附加说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E8%AF%B4%E6%98%8E%E5%92%8C%E7%BD%91%E5%9D%80"><span class="toc-number">2.4.</span> <span class="toc-text">附加说明和网址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pull-Quote"><span class="toc-number">3.</span> <span class="toc-text">Pull Quote</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0class%EF%BC%88%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">无class（默认样式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E6%9C%89%E9%A2%9C%E8%89%B2"><span class="toc-number">3.2.</span> <span class="toc-text">带有颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E5%AF%B9%E4%B8%AD"><span class="toc-number">3.3.</span> <span class="toc-text">文字对中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iframe"><span class="toc-number">4.</span> <span class="toc-text">iframe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Image"><span class="toc-number">5.</span> <span class="toc-text">Image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link"><span class="toc-number">6.</span> <span class="toc-text">Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E4%B8%BB%E9%A2%98%E5%86%85%E7%BD%AE"><span class="toc-number">7.</span> <span class="toc-text">本主题内置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tags-note"><span class="toc-number">7.1.</span> <span class="toc-text">tags note</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#color"><span class="toc-number">7.2.</span> <span class="toc-text">color</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#collapse"><span class="toc-number">7.3.</span> <span class="toc-text">collapse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#description"><span class="toc-number">7.4.</span> <span class="toc-text">description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toasts"><span class="toc-number">7.5.</span> <span class="toc-text">toasts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background"><span class="toc-number">7.6.</span> <span class="toc-text">background</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">引用块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89%E6%8F%90%E4%BE%9B%E5%8F%82%E6%95%B0%EF%BC%8C%E5%88%99%E5%8F%AA%E8%BE%93%E5%87%BA%E6%99%AE%E9%80%9A%E7%9A%84-blockquote"><span class="toc-number">1.1.</span> <span class="toc-text">没有提供参数，则只输出普通的 blockquote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E4%B9%A6%E4%B8%8A%E7%9A%84%E5%8F%A5%E5%AD%90"><span class="toc-number">1.2.</span> <span class="toc-text">引用书上的句子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8-Twitter"><span class="toc-number">1.3.</span> <span class="toc-text">引用 Twitter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E6%96%87%E7%AB%A0"><span class="toc-number">1.4.</span> <span class="toc-text">引用网络上的文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">代码块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">2.1.</span> <span class="toc-text">普通的代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E8%AF%AD%E8%A8%80"><span class="toc-number">2.2.</span> <span class="toc-text">指定语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E8%AF%B4%E6%98%8E"><span class="toc-number">2.3.</span> <span class="toc-text">附加说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E8%AF%B4%E6%98%8E%E5%92%8C%E7%BD%91%E5%9D%80"><span class="toc-number">2.4.</span> <span class="toc-text">附加说明和网址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pull-Quote"><span class="toc-number">3.</span> <span class="toc-text">Pull Quote</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0class%EF%BC%88%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">无class（默认样式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E6%9C%89%E9%A2%9C%E8%89%B2"><span class="toc-number">3.2.</span> <span class="toc-text">带有颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E5%AF%B9%E4%B8%AD"><span class="toc-number">3.3.</span> <span class="toc-text">文字对中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iframe"><span class="toc-number">4.</span> <span class="toc-text">iframe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Image"><span class="toc-number">5.</span> <span class="toc-text">Image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link"><span class="toc-number">6.</span> <span class="toc-text">Link</span></a></li></ol>
     </section>
     <span class="open-toc transition" id="open-toc">
         <svg viewBox="0 0 1088 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
@@ -533,6 +364,7 @@
   <footer>
     <p>
     <span id="times">载入时间...</span>
+    <span style="display: none;" id="start-time">2021-11-01T00:00:00</span>
 </p>
 <p>
     <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
@@ -553,10 +385,16 @@
 <script src="/delicate/js/index.js"></script>
 
 
+<script src="/delicate/js/markdown.js"></script>
 
-<script>
-    calculateTime("2021-11-01T00:00:00");
-</script>
+
+<script src="/delicate/js/event.js"></script>
+
+
+
+
+<script src="/delicate/js/boot.js"></script>
+
 
 </body>
 

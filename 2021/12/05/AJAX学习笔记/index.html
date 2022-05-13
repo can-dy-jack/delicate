@@ -279,69 +279,11 @@
 <h3 id="ASP-x2F-PHP"><a href="#ASP-x2F-PHP" class="headerlink" title="ASP&#x2F;PHP"></a>ASP&#x2F;PHP</h3><p>即在调用<code>open()</code>函数的时候，传入的<code>url</code>参数后面加上<code>?q=</code>，再加个变量：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">str = <span class="hljs-string">&#x27;a&#x27;</span>;<br>xmlhttp.open(<span class="hljs-string">&quot;GET&quot;</span>,<span class="hljs-string">&#x27;gethint.php?q=&#x27;</span>+str,<span class="hljs-literal">true</span>);<br></code></pre></td></tr></table></figure>
 
-<div>
-            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#xhr" aria-expanded="false" aria-controls="xhr">
-                xmlhttp.status的值及解释
-            </button>
-            </div>
-            <div class="collapse" id="xhr">
-                <div class="card card-body">
-                菜鸟教程网友补充: https://www.runoob.com/ajax/ajax-asp-php.html<br>
-xmlhttp.readyState的值及解释：<br>
-0：请求未初始化（还没有调用 open()）。<br>
-1：请求已经建立，但是还没有发送（还没有调用 send()）。<br>  
-2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。<br>  
-3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。<br>  
-4：响应已完成；您可以获取并使用服务器的响应了。<br>  
-xmlhttp.status的值及解释：<br>  
-100——客户必须继续发出请求 <br> 
-101——客户要求服务器根据请求转换HTTP协议版本<br>  
-200——交易成功  <br>
-201——提示知道新文件的URL  <br>
-202——接受和处理、但处理未完成  <br>
-203——返回信息不确定或不完整  <br>
-204——请求收到，但返回信息为空  <br>
-205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件  <br>
-206——服务器已经完成了部分用户的GET请求  <br>
-300——请求的资源可在多处得到  <br>
-301——删除请求数据  <br>
-302——在其他地址发现了请求数据  <br>
-303——建议客户访问其他URL或访问方式  <br>
-304——客户端已经执行了GET，但文件未变化  <br>
-305——请求的资源必须从服务器指定的地址得到  <br>
-306——前一版本HTTP中使用的代码，现行版本中不再使用  <br>
-307——申明请求的资源临时性删除  <br>
-400——错误请求，如语法错误  <br>
-401——请求授权失败  <br>
-402——保留有效ChargeTo头响应 <br> 
-403——请求不允许  <br>
-404——没有发现文件、查询或URl  <br>
-405——用户在Request-Line字段定义的方法不允许<br>  
-406——根据用户发送的Accept拖，请求资源不可访问  <br>
-407——类似401，用户必须首先在代理服务器上得到授权  <br>
-408——客户端没有在用户指定的饿时间内完成请求  <br>
-409——对当前资源状态，请求不能完成  <br>
-410——服务器上不再有此资源且无进一步的参考地址  <br>
-411——服务器拒绝用户定义的Content-Length属性请求  <br>
-412——一个或多个请求头字段在当前请求中错误  <br>
-413——请求的资源大于服务器允许的大小  <br>
-414——请求的资源URL长于服务器允许的长度  <br>
-415——请求资源不支持请求项目格式  <br>
-416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段  <br>
-417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求<br>
-500——服务器产生内部错误  <br>
-501——服务器不支持请求的函数  <br>
-502——服务器暂时不可用，有时是为了防止发生系统过载  <br>
-503——服务器过载或暂停维修  <br>
-504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长  <br>
-505——服务器不支持或拒绝支请求头中指定的HTTP版本  <br>
-1xx:信息响应类，表示接收到请求并且继续处理  <br>
-2xx:处理成功响应类，表示动作被成功接收、理解和接受  <br>
-3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理  <br>
-4xx:客户端错误，客户请求包含语法错误或者是不能正确执行  <br>
-5xx:服务端错误，服务器不能正确执行一个正确的请求  <br>
-xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功返回。<br>
+<div class="collapse collapse-info">
+                <div class="collapse-btn">
+                    <button>补充</button>
                 </div>
+                <div class="collapse-text"><p>菜鸟教程网友补充: <a target="_blank" rel="noopener" href="https://www.runoob.com/ajax/ajax-asp-php.html">https://www.runoob.com/ajax/ajax-asp-php.html</a><br><br>xmlhttp.readyState的值及解释：<br><br>0：请求未初始化（还没有调用 open()）。<br><br>1：请求已经建立，但是还没有发送（还没有调用 send()）。<br><br>2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。<br><br>3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。<br><br>4：响应已完成；您可以获取并使用服务器的响应了。<br><br>xmlhttp.status的值及解释：<br><br>100——客户必须继续发出请求 <br><br>101——客户要求服务器根据请求转换HTTP协议版本<br><br>200——交易成功  <br><br>201——提示知道新文件的URL  <br><br>202——接受和处理、但处理未完成  <br><br>203——返回信息不确定或不完整  <br><br>204——请求收到，但返回信息为空  <br><br>205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件  <br><br>206——服务器已经完成了部分用户的GET请求  <br><br>300——请求的资源可在多处得到  <br><br>301——删除请求数据  <br><br>302——在其他地址发现了请求数据  <br><br>303——建议客户访问其他URL或访问方式  <br><br>304——客户端已经执行了GET，但文件未变化  <br><br>305——请求的资源必须从服务器指定的地址得到  <br><br>306——前一版本HTTP中使用的代码，现行版本中不再使用  <br><br>307——申明请求的资源临时性删除  <br><br>400——错误请求，如语法错误  <br><br>401——请求授权失败  <br><br>402——保留有效ChargeTo头响应 <br><br>403——请求不允许  <br><br>404——没有发现文件、查询或URl  <br><br>405——用户在Request-Line字段定义的方法不允许<br><br>406——根据用户发送的Accept拖，请求资源不可访问  <br><br>407——类似401，用户必须首先在代理服务器上得到授权  <br><br>408——客户端没有在用户指定的饿时间内完成请求  <br><br>409——对当前资源状态，请求不能完成  <br><br>410——服务器上不再有此资源且无进一步的参考地址  <br><br>411——服务器拒绝用户定义的Content-Length属性请求  <br><br>412——一个或多个请求头字段在当前请求中错误  <br><br>413——请求的资源大于服务器允许的大小  <br><br>414——请求的资源URL长于服务器允许的长度  <br><br>415——请求资源不支持请求项目格式  <br><br>416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段  <br><br>417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求<br><br>500——服务器产生内部错误  <br><br>501——服务器不支持请求的函数  <br><br>502——服务器暂时不可用，有时是为了防止发生系统过载  <br><br>503——服务器过载或暂停维修  <br><br>504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长  <br><br>505——服务器不支持或拒绝支请求头中指定的HTTP版本  <br><br>1xx:信息响应类，表示接收到请求并且继续处理  <br><br>2xx:处理成功响应类，表示动作被成功接收、理解和接受  <br><br>3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理  <br><br>4xx:客户端错误，客户请求包含语法错误或者是不能正确执行  <br><br>5xx:服务端错误，服务器不能正确执行一个正确的请求  <br><br>xmlhttp.readyState&#x3D;&#x3D;4 &amp;&amp; xmlhttp.status&#x3D;&#x3D;200的解释：请求完成并且成功返回。<br></p></div>
             </div>
 
 <h3 id="AJAX-可用来与数据库进行动态通信"><a href="#AJAX-可用来与数据库进行动态通信" class="headerlink" title="AJAX 可用来与数据库进行动态通信"></a>AJAX 可用来与数据库进行动态通信</h3><p>其实就是通过PHP文件与数据库进行交互。</p>
@@ -538,6 +480,7 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
   <footer>
     <p>
     <span id="times">载入时间...</span>
+    <span style="display: none;" id="start-time">2021-11-01T00:00:00</span>
 </p>
 <p>
     <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
@@ -558,10 +501,16 @@ xmlhttp.readyState==4 && xmlhttp.status==200的解释：请求完成并且成功
 <script src="/delicate/js/index.js"></script>
 
 
+<script src="/delicate/js/markdown.js"></script>
 
-<script>
-    calculateTime("2021-11-01T00:00:00");
-</script>
+
+<script src="/delicate/js/event.js"></script>
+
+
+
+
+<script src="/delicate/js/boot.js"></script>
+
 
 </body>
 
