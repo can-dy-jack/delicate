@@ -17,7 +17,7 @@
   <meta name="publisher" content="">
 
   
-  <title>标签 - markdown</title>
+  <title>页面走丢啦~</title>
   
   <link rel="shortcut icon" href="/delicate/img/logo.ico">
 
@@ -141,29 +141,33 @@
   <main>
     
 
-<section class="tag">
-    <h2 class="tag-head">markdown - 共计 1 篇文章</h2>
-    
-    <div class="post-list-group">
-  
-  
-  
-    
-    <p class="post-list-year">2021</p>
-  
-    <a href="/delicate/2021/11/14/markdown%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/" class="list-group-item transition">
-        <time>11-14</time>
-        <span>markdown测试文件</span>
-    </a>
-  
+<div class="page-404">
+    <h1>页面走丢啦~</h1>
+    <h3>找不到您要找的页面。</h3>
+    <p>请联系站点的所有者，告知他们链接已损坏。</p>
+    <p>将在 <span id="page404-time">10</span> 秒后跳转到主页面</p>
 </div>
 
-    <span id="root-url" style="display: none;">/delicate/tags/markdown</span>
-    <aside class="pagination">
-    <span class="page-number current">1</span>
-</aside>
+<script>
+    const time = document.getElementById("page404-time");
 
-</section>
+    function redirect() {
+        location.href = "/";
+    }
+
+    function return2index(startTime = 3) {
+        for(let i = 1;i<startTime;i++){
+            setTimeout(()=>{
+                time.innerText = startTime - i;
+            },1000*i);
+        }
+        setTimeout(()=>{
+            redirect();
+        },1000*startTime);
+    }
+
+    return2index(+time.innerText);
+</script>
 
   </main>
   <footer>

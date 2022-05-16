@@ -139,65 +139,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cookie</title>
-    <url>/delicate/2021/12/16/cookie/</url>
-    <content><![CDATA[<h2 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h2><div class='description info'><span class='description-title'>百度百科</span><div><p>cookie是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web 文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。<br>由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序</p></div></div>
-
-<p>HTTP协议本身是无状态的，即服务器无法判断用户身份。Cookie实际上是一小段的文本信息（key-value格式）。<br>一个 Web 站点可能会为每一个访问者产生一个唯一的ID, 然后以 Cookie 文件的形式保存在每个用户的机器上。</p>
-<span id="more"></span>
-<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><p>Cookie是一段不超过4KB的小型文本数据，由一个名称（Name）、一个值（Value）和其它几个用于控制Cookie有效期、安全性、使用范围的可选属性组成。</p>
-<ul>
-<li><strong>Name&#x2F;Value</strong><ul>
-<li>设置Cookie的名称及相对应的值，对于认证Cookie；Value值包括Web服务器所提供的访问令牌。</li>
-</ul>
-</li>
-<li>Expires属性<ul>
-<li>设置Cookie的生存期。有两种存储类型的Cookie：会话性与持久性。Expires属性缺省时，为会话性Cookie，仅保存在客户端内存中，并在用户关闭浏览器时失效；持久性Cookie会保存在用户的硬盘中，直至生存期到或用户直接在网页中单击“注销”等按钮结束会话时才会失效。</li>
-</ul>
-</li>
-<li>Path属性<ul>
-<li>定义了Web站点上可以访问该Cookie的目录。</li>
-</ul>
-</li>
-<li>Domain属性<ul>
-<li>指定了可以访问该 Cookie 的 Web 站点或域。Cookie 机制并未遵循严格的同源策略，允许一个子域可以设置或获取其父域的 Cookie。</li>
-</ul>
-</li>
-<li>Secure属性<ul>
-<li>指定是否使用HTTPS安全协议发送Cookie。</li>
-</ul>
-</li>
-<li>HTTPOnly属性<ul>
-<li>用于防止客户端脚本通过document.cookie属性访问Cookie，有助于保护Cookie不被跨站脚本攻击窃取或篡改。</li>
-</ul>
-</li>
-</ul>
-<h2 id="cookie工作流程"><a href="#cookie工作流程" class="headerlink" title="cookie工作流程"></a>cookie工作流程</h2><pre class="mermaid">sequenceDiagram;
-    Web Client->>+WebServer: ① HTTP Request;
-    WebServer-->>-Web Client: ② HTTP Response + Set-Cookie;
-    Web Client->>+WebServer: ③ HTTP Request + Cookie;
-    WebServer-->>-Web Client: ④ HTTP Response;</pre>
-
-<h2 id="使用js操作cookie"><a href="#使用js操作cookie" class="headerlink" title="使用js操作cookie"></a>使用js操作cookie</h2><blockquote>
-<p>JavaScript 可以使用 document.cookie 属性来创建 、读取、及删除 cookie。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.cookie=<span class="hljs-string">&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;</span>;<br></code></pre></td></tr></table></figure>
-
-<h2 id="参考文章-amp-更多"><a href="#参考文章-amp-更多" class="headerlink" title="参考文章 &amp; 更多"></a>参考文章 &amp; 更多</h2><ul>
-<li><a href="https://baike.baidu.com/item/cookie/1119?fr=aladdin">百度百科 - cookie</a></li>
-<li><a href="https://www.jianshu.com/p/6fc9cea6daa2">简书</a></li>
-<li><a href="https://www.runoob.com/js/js-cookies.html">使用js操作cookie</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>cookie</tag>
-        <tag>front-end</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tag Plugins</title>
     <url>/delicate/2021/11/12/code-test/</url>
     <content><![CDATA[<blockquote>
@@ -298,6 +239,65 @@
       <tags>
         <tag>测试文件</tag>
         <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cookie</title>
+    <url>/delicate/2021/12/16/cookie/</url>
+    <content><![CDATA[<h2 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h2><div class='description info'><span class='description-title'>百度百科</span><div><p>cookie是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web 文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。<br>由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序</p></div></div>
+
+<p>HTTP协议本身是无状态的，即服务器无法判断用户身份。Cookie实际上是一小段的文本信息（key-value格式）。<br>一个 Web 站点可能会为每一个访问者产生一个唯一的ID, 然后以 Cookie 文件的形式保存在每个用户的机器上。</p>
+<span id="more"></span>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><p>Cookie是一段不超过4KB的小型文本数据，由一个名称（Name）、一个值（Value）和其它几个用于控制Cookie有效期、安全性、使用范围的可选属性组成。</p>
+<ul>
+<li><strong>Name&#x2F;Value</strong><ul>
+<li>设置Cookie的名称及相对应的值，对于认证Cookie；Value值包括Web服务器所提供的访问令牌。</li>
+</ul>
+</li>
+<li>Expires属性<ul>
+<li>设置Cookie的生存期。有两种存储类型的Cookie：会话性与持久性。Expires属性缺省时，为会话性Cookie，仅保存在客户端内存中，并在用户关闭浏览器时失效；持久性Cookie会保存在用户的硬盘中，直至生存期到或用户直接在网页中单击“注销”等按钮结束会话时才会失效。</li>
+</ul>
+</li>
+<li>Path属性<ul>
+<li>定义了Web站点上可以访问该Cookie的目录。</li>
+</ul>
+</li>
+<li>Domain属性<ul>
+<li>指定了可以访问该 Cookie 的 Web 站点或域。Cookie 机制并未遵循严格的同源策略，允许一个子域可以设置或获取其父域的 Cookie。</li>
+</ul>
+</li>
+<li>Secure属性<ul>
+<li>指定是否使用HTTPS安全协议发送Cookie。</li>
+</ul>
+</li>
+<li>HTTPOnly属性<ul>
+<li>用于防止客户端脚本通过document.cookie属性访问Cookie，有助于保护Cookie不被跨站脚本攻击窃取或篡改。</li>
+</ul>
+</li>
+</ul>
+<h2 id="cookie工作流程"><a href="#cookie工作流程" class="headerlink" title="cookie工作流程"></a>cookie工作流程</h2><pre class="mermaid">sequenceDiagram;
+    Web Client->>+WebServer: ① HTTP Request;
+    WebServer-->>-Web Client: ② HTTP Response + Set-Cookie;
+    Web Client->>+WebServer: ③ HTTP Request + Cookie;
+    WebServer-->>-Web Client: ④ HTTP Response;</pre>
+
+<h2 id="使用js操作cookie"><a href="#使用js操作cookie" class="headerlink" title="使用js操作cookie"></a>使用js操作cookie</h2><blockquote>
+<p>JavaScript 可以使用 document.cookie 属性来创建 、读取、及删除 cookie。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.cookie=<span class="hljs-string">&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="参考文章-amp-更多"><a href="#参考文章-amp-更多" class="headerlink" title="参考文章 &amp; 更多"></a>参考文章 &amp; 更多</h2><ul>
+<li><a href="https://baike.baidu.com/item/cookie/1119?fr=aladdin">百度百科 - cookie</a></li>
+<li><a href="https://www.jianshu.com/p/6fc9cea6daa2">简书</a></li>
+<li><a href="https://www.runoob.com/js/js-cookies.html">使用js操作cookie</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>cookie</tag>
+        <tag>front-end</tag>
       </tags>
   </entry>
   <entry>
@@ -450,6 +450,44 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode每日一题-1447. 最简分数（2022-2-10）</title>
+    <url>/delicate/2022/02/10/leetcode-1447/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-tip"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11415" width="22" height="22"><path d="M512 65.984C266.048 65.984 65.984 266.048 65.984 512S266.048 958.016 512 958.016 958.016 757.952 958.016 512 757.952 65.984 512 65.984zM544 736c0 17.696-14.304 32-32 32s-32-14.304-32-32l0-288c0-17.696 14.304-32 32-32s32 14.304 32 32L544 736zM512 352c-26.496 0-48-21.536-48-48C464 277.472 485.504 256 512 256s48 21.472 48 48C560 330.464 538.496 352 512 352z"></path></svg>题目</div> <div class="toasts-content"><blockquote><p>给你一个整数 n ，请你返回所有 0 到 1 之间（不包括 0 和 1）满足分母小于等于  n 的 最简 分数 。分数可以以 任意 顺序返回。</p></blockquote><p>其中： <code>1 &lt;= n &lt;= 100</code></p></div></div>
+<div class="note note-warning">
+            <p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/simplified-fractions">https://leetcode-cn.com/problems/simplified-fractions</a><br>著作权归领扣网络所有。</p>
+          </div>
+
+<p>示例 1：</p>
+<blockquote>
+<p>输入：n &#x3D; 2<br>输出：[“1&#x2F;2”]<br>解释：”1&#x2F;2” 是唯一一个分母小于等于 2 的最简分数。</p>
+</blockquote>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：n &#x3D; 4<br>输出：[“1&#x2F;2”,”1&#x2F;3”,”1&#x2F;4”,”2&#x2F;3”,”3&#x2F;4”]<br>解释：”2&#x2F;4” 不是最简分数，因为它可以化简为 “1&#x2F;2” 。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这一题并不难，关键在于 <strong>最简分数</strong> ，在于如何排除分子分母可以相互约去的分数；</p>
+<h3 id="数学法"><a href="#数学法" class="headerlink" title="数学法"></a>数学法</h3><p>利用最大公约数的办法，求分子分母的最大公约数；如果最大公约数是1，则证明分子分母不可以相互约去，是<strong>最简分数</strong>。<br>求最大公约数（Greatest Common Divisor，缩写为GCD）可以使用<code>gcd</code>函数，有的语言内置 <code>gcd</code> 函数 ；<br>js里没有，需要创建一个<code>gcd</code>函数来求最大公约数（<a href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/1647675?fr=aladdin">辗转相除法</a>）；</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>JavaScript:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> simplifiedFractions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>    <span class="hljs-comment">// gcd求最大公约数</span><br>    <span class="hljs-keyword">const</span> gcd = <span class="hljs-function">(<span class="hljs-params">a,b</span>)=&gt;</span>&#123;<br>        <span class="hljs-keyword">return</span> b===<span class="hljs-number">0</span>?a:gcd(b,a%b);<br>    &#125;<br>    <span class="hljs-keyword">let</span> re = [];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>            <span class="hljs-comment">// 如果最大公约数是1，则证明分子分母不可以相互约去，是最简分数</span><br>            <span class="hljs-keyword">if</span>(gcd(j,i) == <span class="hljs-number">1</span>)&#123;<br>                re.push(<span class="hljs-string">`<span class="hljs-subst">$&#123;j&#125;</span>/<span class="hljs-subst">$&#123;i&#125;</span>`</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>Python3:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">simplifiedFractions</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]:</span><br>        re = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,n+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,i):<br>                <span class="hljs-keyword">if</span> math.gcd(j,i) == <span class="hljs-number">1</span>:<br>                    re.append(<span class="hljs-string">&#x27;&#123;&#125;/&#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(j,i));<br>        <span class="hljs-keyword">return</span> re<br></code></pre></td></tr></table></figure>
+
+<h3 id="哈希表法"><a href="#哈希表法" class="headerlink" title="哈希表法"></a>哈希表法</h3><p>利用哈希表，用 <code>分子/分母</code> 当做键，可以完美去除 分子分母可以相互约去的分数。</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><p>JavaScript:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> simplifiedFractions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>            <span class="hljs-keyword">if</span>(!map.has(j/i))&#123;<br>                map.set(j/i,<span class="hljs-string">`<span class="hljs-subst">$&#123;j&#125;</span>/<span class="hljs-subst">$&#123;i&#125;</span>`</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> [...map.values()];<br>&#125;;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript知识之 浅拷贝与深拷贝</title>
     <url>/delicate/2022/04/07/js-copy/</url>
     <content><![CDATA[<h2 id="值传递与引用传递"><a href="#值传递与引用传递" class="headerlink" title="值传递与引用传递"></a>值传递与引用传递</h2><p>JavaScript中有两种数据类型：<strong>基本数据类型</strong>和<strong>引用数据类型</strong>两种。<br>从名字上来看，大概也能猜到它们的区别：</p>
@@ -515,78 +553,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode每日一题-1447. 最简分数（2022-2-10）</title>
-    <url>/delicate/2022/02/10/leetcode-1447/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-tip"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11415" width="22" height="22"><path d="M512 65.984C266.048 65.984 65.984 266.048 65.984 512S266.048 958.016 512 958.016 958.016 757.952 958.016 512 757.952 65.984 512 65.984zM544 736c0 17.696-14.304 32-32 32s-32-14.304-32-32l0-288c0-17.696 14.304-32 32-32s32 14.304 32 32L544 736zM512 352c-26.496 0-48-21.536-48-48C464 277.472 485.504 256 512 256s48 21.472 48 48C560 330.464 538.496 352 512 352z"></path></svg>题目</div> <div class="toasts-content"><blockquote><p>给你一个整数 n ，请你返回所有 0 到 1 之间（不包括 0 和 1）满足分母小于等于  n 的 最简 分数 。分数可以以 任意 顺序返回。</p></blockquote><p>其中： <code>1 &lt;= n &lt;= 100</code></p></div></div>
-<div class="note note-warning">
-            <p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/simplified-fractions">https://leetcode-cn.com/problems/simplified-fractions</a><br>著作权归领扣网络所有。</p>
-          </div>
-
-<p>示例 1：</p>
-<blockquote>
-<p>输入：n &#x3D; 2<br>输出：[“1&#x2F;2”]<br>解释：”1&#x2F;2” 是唯一一个分母小于等于 2 的最简分数。</p>
-</blockquote>
-<p>示例 2：</p>
-<blockquote>
-<p>输入：n &#x3D; 4<br>输出：[“1&#x2F;2”,”1&#x2F;3”,”1&#x2F;4”,”2&#x2F;3”,”3&#x2F;4”]<br>解释：”2&#x2F;4” 不是最简分数，因为它可以化简为 “1&#x2F;2” 。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这一题并不难，关键在于 <strong>最简分数</strong> ，在于如何排除分子分母可以相互约去的分数；</p>
-<h3 id="数学法"><a href="#数学法" class="headerlink" title="数学法"></a>数学法</h3><p>利用最大公约数的办法，求分子分母的最大公约数；如果最大公约数是1，则证明分子分母不可以相互约去，是<strong>最简分数</strong>。<br>求最大公约数（Greatest Common Divisor，缩写为GCD）可以使用<code>gcd</code>函数，有的语言内置 <code>gcd</code> 函数 ；<br>js里没有，需要创建一个<code>gcd</code>函数来求最大公约数（<a href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/1647675?fr=aladdin">辗转相除法</a>）；</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>JavaScript:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> simplifiedFractions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>    <span class="hljs-comment">// gcd求最大公约数</span><br>    <span class="hljs-keyword">const</span> gcd = <span class="hljs-function">(<span class="hljs-params">a,b</span>)=&gt;</span>&#123;<br>        <span class="hljs-keyword">return</span> b===<span class="hljs-number">0</span>?a:gcd(b,a%b);<br>    &#125;<br>    <span class="hljs-keyword">let</span> re = [];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>            <span class="hljs-comment">// 如果最大公约数是1，则证明分子分母不可以相互约去，是最简分数</span><br>            <span class="hljs-keyword">if</span>(gcd(j,i) == <span class="hljs-number">1</span>)&#123;<br>                re.push(<span class="hljs-string">`<span class="hljs-subst">$&#123;j&#125;</span>/<span class="hljs-subst">$&#123;i&#125;</span>`</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>Python3:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">simplifiedFractions</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]:</span><br>        re = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,n+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,i):<br>                <span class="hljs-keyword">if</span> math.gcd(j,i) == <span class="hljs-number">1</span>:<br>                    re.append(<span class="hljs-string">&#x27;&#123;&#125;/&#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(j,i));<br>        <span class="hljs-keyword">return</span> re<br></code></pre></td></tr></table></figure>
-
-<h3 id="哈希表法"><a href="#哈希表法" class="headerlink" title="哈希表法"></a>哈希表法</h3><p>利用哈希表，用 <code>分子/分母</code> 当做键，可以完美去除 分子分母可以相互约去的分数。</p>
-<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><p>JavaScript:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> simplifiedFractions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>            <span class="hljs-keyword">if</span>(!map.has(j/i))&#123;<br>                map.set(j/i,<span class="hljs-string">`<span class="hljs-subst">$&#123;j&#125;</span>/<span class="hljs-subst">$&#123;i&#125;</span>`</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> [...map.values()];<br>&#125;;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode每日一题 - 507. 完美数</title>
-    <url>/delicate/2021/12/31/leetcode-507/</url>
-    <content><![CDATA[<h2 id="寻找完美数"><a href="#寻找完美数" class="headerlink" title="寻找完美数"></a>寻找完美数</h2><div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>题目</div> <div class="toasts-content"><p>对于一个 正整数，如果它和除了它自身以外的所有 正因子 之和相等，我们称它为 「完美数」。<br>给定一个 整数 n， 如果是完美数，返回 true，否则返回 false。<br>其中，1 &lt;&#x3D; num &lt;&#x3D; 10^8^</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/perfect-number">https://leetcode-cn.com/problems/perfect-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 </p></blockquote></div></div>
-
-<p>示例：</p>
-<blockquote>
-<p>输入：num &#x3D; 28<br>输出：true<br>解释：28 &#x3D; 1 + 2 + 4 + 7 + 14<br>1, 2, 4, 7, 和 14 是 28 的所有正因子。</p>
-</blockquote>
-<span id="more"></span>
-
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="按照题目要求来"><a href="#按照题目要求来" class="headerlink" title="按照题目要求来"></a>按照题目要求来</h4><p>用一个循环查找数字的因数，同时储存，最后比较因数和是否与原数字相同</p>
-<p>代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(num === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">Math</span>.ceil(num/<span class="hljs-number">2</span>);i++)&#123;<br>        <span class="hljs-keyword">if</span>(num%i === <span class="hljs-number">0</span>)&#123;<br>            sum += i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum === num;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<p>但是，按照正常逻辑编写代码，效率很低，会很慢😭<br>因为测试中会有个变态案例：<code>100000000</code></p>
-<h4 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h4><p>按照题目要求，这个<code>完美数</code>个数目前是有限的，而且题目限制 1 &lt;&#x3D; num &lt;&#x3D; 10^8^  ，<br>所以测试案例中结果必定在 <code>[6,28,496,8128,33550336]</code> 范围里。</p>
-<p>所以可以穷举所有可能啦~</p>
-<p>使用集合：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>]);<br>    <span class="hljs-keyword">return</span> all.has(num);<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>或者使用列表：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = [<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>];<br>    <span class="hljs-keyword">return</span> all.indexOf(num) !== -<span class="hljs-number">1</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>又或者直接判断：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> num === <span class="hljs-number">6</span> || num === <span class="hljs-number">28</span> || num === <span class="hljs-number">496</span> || num === <span class="hljs-number">8128</span> || num === <span class="hljs-number">33550336</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode每日一题-1706. 球会落何处（2022-2-24）</title>
     <url>/delicate/2022/02/24/leetcode-1706/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-info"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m-114.176-310.954667a53.333333 53.333333 0 0 0 75.434667 0l323.328-323.328a53.333333 53.333333 0 1 0-75.434667-75.434666l-287.914667 283.306666-128.853333-128.853333a53.333333 53.333333 0 1 0-75.434667 75.434667l168.874667 168.874666z"></path></svg>题目</div> <div class="toasts-content"><p>用一个大小为 m x n 的二维网格 grid 表示一个箱子。你有 n 颗球。箱子的顶部和底部都是开着的。<br>箱子中的每个单元格都有一个对角线挡板，跨过单元格的两个角，可以将球导向左侧或者右侧。</p><ul><li>将球导向右侧的挡板跨过左上角和右下角，在网格中用 1 表示。</li><li>将球导向左侧的挡板跨过右上角和左下角，在网格中用 -1 表示。</li></ul><p>在箱子每一列的顶端各放一颗球。每颗球都可能卡在箱子里或从底部掉出来。如果球恰好卡在两块挡板之间的 “V” 形图案，或者被一块挡导向到箱子的任意一侧边上，就会卡住。</p><p>返回一个大小为 n 的数组 answer ，其中 answer[i] 是球放在顶部的第 i 列后从底部掉出来的那一列对应的下标，如果球卡在盒子里，则返回 -1 。</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/where-will-the-ball-fall">https://leetcode-cn.com/problems/where-will-the-ball-fall</a><br>著作权归领扣网络所有。</p></blockquote></div></div>
@@ -641,6 +607,40 @@
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> findBall = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(grid[<span class="hljs-number">0</span>].length === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> [-<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">let</span> re = [];<br>    <span class="hljs-keyword">const</span> dfs = <span class="hljs-function">(<span class="hljs-params">row,col</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span>(row &gt;= grid.length) <span class="hljs-keyword">return</span> col;<br>        <span class="hljs-keyword">if</span>(col === <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span> || grid[row][col+<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(col === grid[<span class="hljs-number">0</span>].length-<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span> || grid[row][col-<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\|&quot;</span><br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col+<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\\&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col-<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;//&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;grid[<span class="hljs-number">0</span>].length;++i)&#123;<br>        re.push(dfs(<span class="hljs-number">0</span>,i));<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
 
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode每日一题 - 507. 完美数</title>
+    <url>/delicate/2021/12/31/leetcode-507/</url>
+    <content><![CDATA[<h2 id="寻找完美数"><a href="#寻找完美数" class="headerlink" title="寻找完美数"></a>寻找完美数</h2><div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>题目</div> <div class="toasts-content"><p>对于一个 正整数，如果它和除了它自身以外的所有 正因子 之和相等，我们称它为 「完美数」。<br>给定一个 整数 n， 如果是完美数，返回 true，否则返回 false。<br>其中，1 &lt;&#x3D; num &lt;&#x3D; 10^8^</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/perfect-number">https://leetcode-cn.com/problems/perfect-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 </p></blockquote></div></div>
+
+<p>示例：</p>
+<blockquote>
+<p>输入：num &#x3D; 28<br>输出：true<br>解释：28 &#x3D; 1 + 2 + 4 + 7 + 14<br>1, 2, 4, 7, 和 14 是 28 的所有正因子。</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="按照题目要求来"><a href="#按照题目要求来" class="headerlink" title="按照题目要求来"></a>按照题目要求来</h4><p>用一个循环查找数字的因数，同时储存，最后比较因数和是否与原数字相同</p>
+<p>代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(num === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">Math</span>.ceil(num/<span class="hljs-number">2</span>);i++)&#123;<br>        <span class="hljs-keyword">if</span>(num%i === <span class="hljs-number">0</span>)&#123;<br>            sum += i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum === num;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>但是，按照正常逻辑编写代码，效率很低，会很慢😭<br>因为测试中会有个变态案例：<code>100000000</code></p>
+<h4 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h4><p>按照题目要求，这个<code>完美数</code>个数目前是有限的，而且题目限制 1 &lt;&#x3D; num &lt;&#x3D; 10^8^  ，<br>所以测试案例中结果必定在 <code>[6,28,496,8128,33550336]</code> 范围里。</p>
+<p>所以可以穷举所有可能啦~</p>
+<p>使用集合：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>]);<br>    <span class="hljs-keyword">return</span> all.has(num);<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>或者使用列表：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = [<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>];<br>    <span class="hljs-keyword">return</span> all.indexOf(num) !== -<span class="hljs-number">1</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>又或者直接判断：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> num === <span class="hljs-number">6</span> || num === <span class="hljs-number">28</span> || num === <span class="hljs-number">496</span> || num === <span class="hljs-number">8128</span> || num === <span class="hljs-number">33550336</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>JavaScript</category>
