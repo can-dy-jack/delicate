@@ -3,20 +3,23 @@
  * https://github.com/can-dy-jack/hexo-theme-delicate
 */
 figure {
-  background-color: #263238;
+  background-color: #f3f6f8;
   overflow: auto;
   margin: 20px 0;
   width: 100%;
+  position: relative;
 }
 figure table tr td pre {
   margin: 0;
   padding: 0;
 }
+figure table tr td.gutter {
+  background: #e6e8ef;
+}
 figure table tr td.gutter pre {
-  padding: 1px 10px 2px 10px;
-  color: #aaa;
+  padding: 0 10px 0 20px;
+  color: #555;
   text-align: center;
-  border-right: 1px solid #aaa;
   user-select: none;
 }
 figure table pre,
@@ -24,8 +27,8 @@ figure table pre code {
   font-family: Roboto Mono, JetBrains Mono, consolas, microsoft yahei, sans-serif;
 }
 figure table tr {
-  max-width: 100%;
-  overflow: hidden;
+  border: 0;
+  margin: 0;
 }
 figure::-webkit-scrollbar {
   height: 10px;
@@ -36,7 +39,7 @@ figure::-webkit-scrollbar-thumb {
   height: 6px;
   width: 6px;
   border: 2px solid transparent;
-  background-color: #788696;
+  background-color: #d0dbe9;
 }
 figure figcaption {
   color: #fff;
@@ -44,16 +47,14 @@ figure figcaption {
   padding: 5px 12px;
 }
 figure .code-info {
-  background-color: #363432;
+  border-top: 1px solid #fff;
   position: sticky;
   left: 0;
   padding: 5px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
   font-size: 14px;
-  border-top: 1px solid #888;
 }
 figure .code-info .copy-btn {
   cursor: pointer;
@@ -61,31 +62,30 @@ figure .code-info .copy-btn {
   align-items: flex-start;
 }
 figure .code-info .copy-btn svg {
-  fill: #fff;
   margin-right: 3px;
+  fill: #808080;
 }
 pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 1em;
+  padding: 1em 1em 1em 0.5em;
 }
 code.hljs {
   padding: 3px 5px;
 }
 .hljs {
-  color: #cdd3de;
-  background: #263238;
+  color: #333;
 }
 .hljs-comment {
-  color: #707880;
+  color: #969896;
 }
 .hljs-tag {
-  color: #c9ccd3;
+  color: #e8e8e8;
 }
 .hljs-operator,
 .hljs-punctuation,
 .hljs-subst {
-  color: #cdd3de;
+  color: #333;
 }
 .hljs-operator {
   opacity: 0.7;
@@ -96,7 +96,7 @@ code.hljs {
 .hljs-selector-tag,
 .hljs-template-variable,
 .hljs-variable {
-  color: #ec5f67;
+  color: #ed6a43;
 }
 .hljs-attr,
 .hljs-link,
@@ -104,51 +104,49 @@ code.hljs {
 .hljs-number,
 .hljs-symbol,
 .hljs-variable.constant_ {
-  color: #ea9560;
+  color: #0086b3;
 }
 .hljs-class .hljs-title,
 .hljs-title,
 .hljs-title.class_ {
-  color: #fc0;
+  color: #795da3;
 }
 .hljs-strong {
   font-weight: 700;
-  color: #fc0;
+  color: #795da3;
 }
 .hljs-addition,
-.hljs-code,
-.hljs-string,
-.hljs-title.class_.inherited__ {
-  color: #8bd649;
-}
 .hljs-built_in,
+.hljs-code,
 .hljs-doctag,
 .hljs-keyword.hljs-atrule,
 .hljs-quote,
-.hljs-regexp {
-  color: #80cbc4;
+.hljs-regexp,
+.hljs-string,
+.hljs-title.class_.inherited__ {
+  color: #183691;
 }
 .hljs-attribute,
 .hljs-function .hljs-title,
 .hljs-section,
 .hljs-title.function_,
 .ruby .hljs-property {
-  color: #89ddff;
+  color: #795da3;
 }
 .diff .hljs-meta,
 .hljs-keyword,
 .hljs-template-tag,
 .hljs-type {
-  color: #82aaff;
+  color: #a71d5d;
 }
 .hljs-emphasis {
-  color: #82aaff;
+  color: #a71d5d;
   font-style: italic;
 }
 .hljs-meta,
 .hljs-meta .hljs-keyword,
 .hljs-meta .hljs-string {
-  color: #ec5f67;
+  color: #333;
 }
 .hljs-meta .hljs-keyword,
 .hljs-meta-keyword {
@@ -178,7 +176,7 @@ code.hljs {
 .post a,
 .excerpt a {
   border-bottom: 1px solid rgba(0,0,0,0.2);
-  background-color: #eafafe;
+  background-color: rgba(248, 229, 175, 0.3);
   color: #1a1a1a;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
@@ -189,7 +187,7 @@ code.hljs {
 }
 .post a:hover,
 .excerpt a:hover {
-  background-color: #bbeffd;
+  background-color: #f8e5af;
   border-bottom-color: #1a1a1a;
   color: #1a1a1a;
 }

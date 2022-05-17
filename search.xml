@@ -450,44 +450,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode每日一题-1447. 最简分数（2022-2-10）</title>
-    <url>/delicate/2022/02/10/leetcode-1447/</url>
-    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-tip"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11415" width="22" height="22"><path d="M512 65.984C266.048 65.984 65.984 266.048 65.984 512S266.048 958.016 512 958.016 958.016 757.952 958.016 512 757.952 65.984 512 65.984zM544 736c0 17.696-14.304 32-32 32s-32-14.304-32-32l0-288c0-17.696 14.304-32 32-32s32 14.304 32 32L544 736zM512 352c-26.496 0-48-21.536-48-48C464 277.472 485.504 256 512 256s48 21.472 48 48C560 330.464 538.496 352 512 352z"></path></svg>题目</div> <div class="toasts-content"><blockquote><p>给你一个整数 n ，请你返回所有 0 到 1 之间（不包括 0 和 1）满足分母小于等于  n 的 最简 分数 。分数可以以 任意 顺序返回。</p></blockquote><p>其中： <code>1 &lt;= n &lt;= 100</code></p></div></div>
-<div class="note note-warning">
-            <p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/simplified-fractions">https://leetcode-cn.com/problems/simplified-fractions</a><br>著作权归领扣网络所有。</p>
-          </div>
-
-<p>示例 1：</p>
-<blockquote>
-<p>输入：n &#x3D; 2<br>输出：[“1&#x2F;2”]<br>解释：”1&#x2F;2” 是唯一一个分母小于等于 2 的最简分数。</p>
-</blockquote>
-<p>示例 2：</p>
-<blockquote>
-<p>输入：n &#x3D; 4<br>输出：[“1&#x2F;2”,”1&#x2F;3”,”1&#x2F;4”,”2&#x2F;3”,”3&#x2F;4”]<br>解释：”2&#x2F;4” 不是最简分数，因为它可以化简为 “1&#x2F;2” 。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这一题并不难，关键在于 <strong>最简分数</strong> ，在于如何排除分子分母可以相互约去的分数；</p>
-<h3 id="数学法"><a href="#数学法" class="headerlink" title="数学法"></a>数学法</h3><p>利用最大公约数的办法，求分子分母的最大公约数；如果最大公约数是1，则证明分子分母不可以相互约去，是<strong>最简分数</strong>。<br>求最大公约数（Greatest Common Divisor，缩写为GCD）可以使用<code>gcd</code>函数，有的语言内置 <code>gcd</code> 函数 ；<br>js里没有，需要创建一个<code>gcd</code>函数来求最大公约数（<a href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/1647675?fr=aladdin">辗转相除法</a>）；</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>JavaScript:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> simplifiedFractions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>    <span class="hljs-comment">// gcd求最大公约数</span><br>    <span class="hljs-keyword">const</span> gcd = <span class="hljs-function">(<span class="hljs-params">a,b</span>)=&gt;</span>&#123;<br>        <span class="hljs-keyword">return</span> b===<span class="hljs-number">0</span>?a:gcd(b,a%b);<br>    &#125;<br>    <span class="hljs-keyword">let</span> re = [];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>            <span class="hljs-comment">// 如果最大公约数是1，则证明分子分母不可以相互约去，是最简分数</span><br>            <span class="hljs-keyword">if</span>(gcd(j,i) == <span class="hljs-number">1</span>)&#123;<br>                re.push(<span class="hljs-string">`<span class="hljs-subst">$&#123;j&#125;</span>/<span class="hljs-subst">$&#123;i&#125;</span>`</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>Python3:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">simplifiedFractions</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]:</span><br>        re = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,n+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,i):<br>                <span class="hljs-keyword">if</span> math.gcd(j,i) == <span class="hljs-number">1</span>:<br>                    re.append(<span class="hljs-string">&#x27;&#123;&#125;/&#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(j,i));<br>        <span class="hljs-keyword">return</span> re<br></code></pre></td></tr></table></figure>
-
-<h3 id="哈希表法"><a href="#哈希表法" class="headerlink" title="哈希表法"></a>哈希表法</h3><p>利用哈希表，用 <code>分子/分母</code> 当做键，可以完美去除 分子分母可以相互约去的分数。</p>
-<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><p>JavaScript:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> simplifiedFractions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>            <span class="hljs-keyword">if</span>(!map.has(j/i))&#123;<br>                map.set(j/i,<span class="hljs-string">`<span class="hljs-subst">$&#123;j&#125;</span>/<span class="hljs-subst">$&#123;i&#125;</span>`</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> [...map.values()];<br>&#125;;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript知识之 浅拷贝与深拷贝</title>
     <url>/delicate/2022/04/07/js-copy/</url>
     <content><![CDATA[<h2 id="值传递与引用传递"><a href="#值传递与引用传递" class="headerlink" title="值传递与引用传递"></a>值传递与引用传递</h2><p>JavaScript中有两种数据类型：<strong>基本数据类型</strong>和<strong>引用数据类型</strong>两种。<br>从名字上来看，大概也能猜到它们的区别：</p>
@@ -550,6 +512,44 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>浅拷贝与深拷贝</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode每日一题-1447. 最简分数（2022-2-10）</title>
+    <url>/delicate/2022/02/10/leetcode-1447/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-tip"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11415" width="22" height="22"><path d="M512 65.984C266.048 65.984 65.984 266.048 65.984 512S266.048 958.016 512 958.016 958.016 757.952 958.016 512 757.952 65.984 512 65.984zM544 736c0 17.696-14.304 32-32 32s-32-14.304-32-32l0-288c0-17.696 14.304-32 32-32s32 14.304 32 32L544 736zM512 352c-26.496 0-48-21.536-48-48C464 277.472 485.504 256 512 256s48 21.472 48 48C560 330.464 538.496 352 512 352z"></path></svg>题目</div> <div class="toasts-content"><blockquote><p>给你一个整数 n ，请你返回所有 0 到 1 之间（不包括 0 和 1）满足分母小于等于  n 的 最简 分数 。分数可以以 任意 顺序返回。</p></blockquote><p>其中： <code>1 &lt;= n &lt;= 100</code></p></div></div>
+<div class="note note-warning">
+            <p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/simplified-fractions">https://leetcode-cn.com/problems/simplified-fractions</a><br>著作权归领扣网络所有。</p>
+          </div>
+
+<p>示例 1：</p>
+<blockquote>
+<p>输入：n &#x3D; 2<br>输出：[“1&#x2F;2”]<br>解释：”1&#x2F;2” 是唯一一个分母小于等于 2 的最简分数。</p>
+</blockquote>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：n &#x3D; 4<br>输出：[“1&#x2F;2”,”1&#x2F;3”,”1&#x2F;4”,”2&#x2F;3”,”3&#x2F;4”]<br>解释：”2&#x2F;4” 不是最简分数，因为它可以化简为 “1&#x2F;2” 。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这一题并不难，关键在于 <strong>最简分数</strong> ，在于如何排除分子分母可以相互约去的分数；</p>
+<h3 id="数学法"><a href="#数学法" class="headerlink" title="数学法"></a>数学法</h3><p>利用最大公约数的办法，求分子分母的最大公约数；如果最大公约数是1，则证明分子分母不可以相互约去，是<strong>最简分数</strong>。<br>求最大公约数（Greatest Common Divisor，缩写为GCD）可以使用<code>gcd</code>函数，有的语言内置 <code>gcd</code> 函数 ；<br>js里没有，需要创建一个<code>gcd</code>函数来求最大公约数（<a href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/1647675?fr=aladdin">辗转相除法</a>）；</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>JavaScript:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> simplifiedFractions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>    <span class="hljs-comment">// gcd求最大公约数</span><br>    <span class="hljs-keyword">const</span> gcd = <span class="hljs-function">(<span class="hljs-params">a,b</span>)=&gt;</span>&#123;<br>        <span class="hljs-keyword">return</span> b===<span class="hljs-number">0</span>?a:gcd(b,a%b);<br>    &#125;<br>    <span class="hljs-keyword">let</span> re = [];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>            <span class="hljs-comment">// 如果最大公约数是1，则证明分子分母不可以相互约去，是最简分数</span><br>            <span class="hljs-keyword">if</span>(gcd(j,i) == <span class="hljs-number">1</span>)&#123;<br>                re.push(<span class="hljs-string">`<span class="hljs-subst">$&#123;j&#125;</span>/<span class="hljs-subst">$&#123;i&#125;</span>`</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>Python3:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">simplifiedFractions</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]:</span><br>        re = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,n+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,i):<br>                <span class="hljs-keyword">if</span> math.gcd(j,i) == <span class="hljs-number">1</span>:<br>                    re.append(<span class="hljs-string">&#x27;&#123;&#125;/&#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(j,i));<br>        <span class="hljs-keyword">return</span> re<br></code></pre></td></tr></table></figure>
+
+<h3 id="哈希表法"><a href="#哈希表法" class="headerlink" title="哈希表法"></a>哈希表法</h3><p>利用哈希表，用 <code>分子/分母</code> 当做键，可以完美去除 分子分母可以相互约去的分数。</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><p>JavaScript:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> simplifiedFractions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>;j&lt;i;j++)&#123;<br>            <span class="hljs-keyword">if</span>(!map.has(j/i))&#123;<br>                map.set(j/i,<span class="hljs-string">`<span class="hljs-subst">$&#123;j&#125;</span>/<span class="hljs-subst">$&#123;i&#125;</span>`</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> [...map.values()];<br>&#125;;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
