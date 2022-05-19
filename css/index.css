@@ -42,9 +42,11 @@ figure::-webkit-scrollbar-thumb {
   background-color: #d0dbe9;
 }
 figure figcaption {
-  color: #fff;
   font-size: 14px;
   padding: 5px 12px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #fff;
 }
 figure .code-info {
   border-top: 1px solid #fff;
@@ -227,17 +229,75 @@ html.ie6 .post img,
 html.ie6 .excerpt img {
   border: 2px solid rgba(0,0,0,0.03);
 }
-.post blockquote,
-.excerpt blockquote {
+.post blockquote:not(.pullquote),
+.excerpt blockquote:not(.pullquote) {
   border-left: 5px solid #999;
   margin: 10px 0;
   padding: 5px 12px;
 }
-.post blockquote p,
-.excerpt blockquote p {
+.post blockquote:not(.pullquote) p,
+.excerpt blockquote:not(.pullquote) p {
   margin: 0;
   padding: 0;
   color: #808080;
+}
+.post .pullquote,
+.excerpt .pullquote {
+  background: #f2f2f2;
+  margin: 20px 0;
+  padding: 5px 20px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  position: relative;
+}
+.post .pullquote p,
+.excerpt .pullquote p {
+  color: #555;
+}
+.post .pullquote .pullquote-icon,
+.excerpt .pullquote .pullquote-icon {
+  position: absolute;
+  right: 10px;
+  bottom: -14px;
+}
+.post .pullquote .pullquote-icon svg,
+.excerpt .pullquote .pullquote-icon svg {
+  fill: #aaa;
+}
+.post .pullquote.information,
+.excerpt .pullquote.information {
+  background: #d7f2ff;
+}
+.post .pullquote.information svg,
+.excerpt .pullquote.information svg {
+  fill: #7ed1f8;
+}
+.post .pullquote.red,
+.excerpt .pullquote.red {
+  background: #ffe1e7;
+}
+.post .pullquote.red svg,
+.excerpt .pullquote.red svg {
+  fill: #f56179;
+}
+.post .pullquote.danger,
+.excerpt .pullquote.danger {
+  background: #fffde1;
+}
+.post .pullquote.danger svg,
+.excerpt .pullquote.danger svg {
+  fill: #f4f753;
+}
+.post .pullquote.blue,
+.excerpt .pullquote.blue {
+  background: #d8ddfa;
+}
+.post .pullquote.blue svg,
+.excerpt .pullquote.blue svg {
+  fill: #4188f3;
 }
 .post > table,
 .excerpt > table {
@@ -273,6 +333,10 @@ html.ie6 .excerpt img {
   border-radius: 3px;
   font-family: consolas, sans-serif;
   margin: 0 2px;
+}
+.post .center,
+.excerpt .center {
+  text-align: center;
 }
 .note {
   background-color: #fafafa;
@@ -459,8 +523,8 @@ html {
   transition: all 0.25s ease;
 }
 ::selection {
-  background-color: #faebd7;
-  color: #232323;
+  background-color: orange;
+  color: #fff;
 }
 body {
   font-family: microsoft yahei, Roboto Mono, JetBrains Mono, consolas, sans-serif;
@@ -479,7 +543,7 @@ a {
   transition: all 0.25s ease;
 }
 a:hover {
-  color: #f8e5af;
+  color: #34ae56;
 }
 img {
   max-width: 100%;
@@ -550,17 +614,17 @@ section.category .post-list-group .list-group-item time,
 section.tag .post-list-group .list-group-item time {
   margin-right: 20px;
 }
-footer {
+.foot {
   box-sizing: border-box;
   padding: 20px;
   text-align: center;
   background-color: #fafafa;
   border-top: 1px solid #ddd;
 }
-footer p {
+.foot p {
   margin: 5px;
 }
-footer #to_top {
+.foot #to_top {
   width: 40px;
   height: 40px;
   display: inline-block;
@@ -579,27 +643,27 @@ footer #to_top {
   box-shadow: 0 0 8px 3px rgba(0,0,0,0.04);
   z-index: 20;
 }
-html.ie8 footer #to_top,
-html.ie7 footer #to_top,
-html.ie6 footer #to_top {
+html.ie8 .foot #to_top,
+html.ie7 .foot #to_top,
+html.ie6 .foot #to_top {
   border: 2px solid rgba(0,0,0,0.04);
 }
-footer #to_top svg {
+.foot #to_top svg {
   fill: #fff;
   transform: translateY(5px);
 }
-footer #to_top:hover {
+.foot #to_top:hover {
   background-color: #fff;
 }
-footer #to_top:hover svg {
+.foot #to_top:hover svg {
   fill: #00f;
 }
-footer a {
+.foot a {
   color: #aaa;
   border-bottom: 1px solid #aaa;
   text-decoration: none;
 }
-footer a:hover {
+.foot a:hover {
   color: #232323;
   border-bottom: 1px solid #232323;
 }
@@ -640,7 +704,7 @@ nav .navbar .nav-left .nav-brand {
 nav .navbar .nav-left .nav-brand a {
   display: flex;
   align-items: center;
-  color: #f8e5af;
+  color: #34ae56;
   height: 50px;
 }
 nav .navbar .nav-left .nav-brand img {
@@ -655,7 +719,7 @@ nav .navbar .nav-left .nav-link a {
   color: #fff;
 }
 nav .navbar .nav-left .nav-link a:hover {
-  color: #f8e5af;
+  color: #34ae56;
 }
 nav .navbar .nav-right {
   display: flex;
@@ -670,7 +734,7 @@ nav .navbar .nav-right .friends-more {
   display: none;
 }
 nav .navbar .nav-right .friends-more:hover svg {
-  fill: #f8e5af;
+  fill: #34ae56;
 }
 nav .navbar .nav-right .friends-more:active {
   -webkit-box-shadow: 0 0 0 3px #333feb;
@@ -688,7 +752,7 @@ nav .navbar .nav-right a {
   margin: 0 5px;
 }
 nav .navbar .nav-right a:hover {
-  color: #f8e5af;
+  color: #34ae56;
 }
 nav .navbar .nav-right svg {
   fill: #ddd;
@@ -712,7 +776,7 @@ nav #phone-nav-link a {
   margin: 10px;
 }
 nav #phone-nav-link a:hover {
-  color: #f8e5af;
+  color: #34ae56;
 }
 .pagination {
   padding: 36px 0 20px 0;

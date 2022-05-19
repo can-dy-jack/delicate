@@ -330,6 +330,7 @@
     <url>/delicate/2022/05/12/inline-tags/</url>
     <content><![CDATA[<h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
 
+
 <div class="note note-default">
             <p>默认样式</p>
           </div>
@@ -365,9 +366,10 @@
             <p>一个note tag内只能有一个列表</p>
           </div>
 
-<h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><blockquote>
-<p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
+<h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><blockquote class="pullquote information"><p>设定文字颜色<br>文字颜色可以随便设置，颜色名称 | HEX | rgb() | rgba() | HSL() 等等均可。</p>
 </blockquote>
+
+
 <div class="note note-warning">
             <p>需要注意的是，前面的颜色值和后面的文字中间不能有空格！<br>如果文字真的需要空格，那就使用多个color tag！</p>
           </div>
@@ -477,8 +479,9 @@
 <blockquote>
 <p>浅拷贝&#x3D;&#x3D;只拷贝对象的顶级属性&#x3D;&#x3D;，嵌套的引用类型则直接复制引用。</p>
 </blockquote>
-<p>但是，有的时候，我们需要将一个变量中的 所有值都拷贝一份，<strong>当被赋值的变量变化时不会影响到原来的变量</strong>；这时候就需要深拷贝：</p>
-<p>对于有嵌套的引用类型（如：&#x3D;&#x3D;js对象&#x3D;&#x3D;、&#x3D;&#x3D;数组&#x3D;&#x3D;、&#x3D;&#x3D;Map&#x3D;&#x3D;、&#x3D;&#x3D;Set&#x3D;&#x3D;、&#x3D;&#x3D;RegExp&#x3D;&#x3D;等），将一个变量中的 所有值都拷贝一份，使变化时不影响原先变量，就是深拷贝。</p>
+<blockquote class="pullquote information"><p>但是，有的时候，我们需要将一个变量中的 所有值都拷贝一份，<strong>当被赋值的变量变化时不会影响到原来的变量</strong>；这时候就需要深拷贝：<br>对于有嵌套的引用类型（如：&#x3D;&#x3D;js对象&#x3D;&#x3D;、&#x3D;&#x3D;数组&#x3D;&#x3D;、&#x3D;&#x3D;Map&#x3D;&#x3D;、&#x3D;&#x3D;Set&#x3D;&#x3D;、&#x3D;&#x3D;RegExp&#x3D;&#x3D;等），将一个变量中的 所有值都拷贝一份，使变化时不影响原先变量，就是深拷贝。</p>
+</blockquote>
+
 <p>深拷贝有很多种方法，可以直接撸 <code>js</code> 代码，通过递归实现；也可以通过第三方库实现；甚至可以利用 <code>JSON</code>  里的方法实现；<br>下面介绍：</p>
 <h3 id="利用-JSON-方法"><a href="#利用-JSON-方法" class="headerlink" title="利用 JSON 方法"></a>利用 JSON 方法</h3><blockquote>
 <p>这种方法只适用于 对 js对象 实现深拷贝！</p>
