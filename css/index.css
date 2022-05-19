@@ -532,6 +532,7 @@ body {
   background-image: radial-gradient(rgba(221,221,238,0.667) 12%, rgba(252,252,252,0.667) 12%);
   background-size: 15px 15px;
   font-size: 16px;
+  color: #1a1a1a;
 }
 a {
   color: inherit;
