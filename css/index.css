@@ -241,6 +241,15 @@ html.ie6 .excerpt img {
   padding: 0;
   color: #808080;
 }
+.post blockquote:not(.pullquote) footer,
+.excerpt blockquote:not(.pullquote) footer {
+  margin: 10px 0;
+  text-align: right;
+}
+.post blockquote:not(.pullquote) footer::before,
+.excerpt blockquote:not(.pullquote) footer::before {
+  content: "--";
+}
 .post .pullquote,
 .excerpt .pullquote {
   background: #f2f2f2;
