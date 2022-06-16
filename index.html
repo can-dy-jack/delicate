@@ -25,7 +25,6 @@
   
 <link rel="stylesheet" href="/delicate/css/index.css">
 
-
 <link rel="alternate" href="/delicate/atom.xml" title="hexo-theme-delicate" type="application/atom+xml">
 </head>
 
@@ -38,7 +37,7 @@
         <img src="/delicate//img/logo128.ico" width="30" height="30" alt="logo">
         <span class="nav-brand-text">hexo-theme-delicate</span>
       </a>
-    </div>
+    </div> 
     <div class="nav-link">
       <a href="/delicate/" class="nav-item">
         主页
@@ -156,6 +155,59 @@
 
 <article class="excerpt-container">
     <h1 class="excerpt-title">
+        <a href="/delicate/2022/06/15/react-calculator/">
+            React Calculator
+        </a> 
+    </h1>
+    <p class="excerpt-meta">
+        <span>2022-06-15</span>
+        <span>
+            
+        </span>
+        <span class="post-count">2.9k字</span>
+        <span class="post-count">13分钟</span>
+    </p>
+    <div class="excerpt"> <blockquote>
+<p>用React做一个新拟态计算器</p>
+</blockquote>
+<p>首先，先看成果(<a target="_blank" rel="noopener" href="https://codepen.io/Kartjim/pen/YzeLRPQ">codepen</a>)：</p>
+<p><img src="https://s2.loli.net/2022/06/09/mIHxGQrd27vDqaS.png" alt="react-calculator.png"></p>
+<p class="codepen" data-height="520" data-default-tab=js,result data-slug-hash=YzeLRPQ data-user=Kartjim >
+        <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/Kartjim/pen/YzeLRPQ">
+        react-calculator</a> by Kartjim (<a target="_blank" rel="noopener" href="https://codepen.io/Kartjim">@Kartjim</a>)
+        on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>项目中我使用到的技术：</p>
+<ul>
+<li>HTML、CSS、JavaScript三件套</li>
+<li>React</li>
+<li>SCSS</li>
+</ul>
+<p>本项目是freeCodeCamp上的其中一个前端开发库项目，推荐自学的同学去<a target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/learn">免费学习编程 - Python、JavaScript、Java、Git 等 (freecodecamp.org)</a></p>
+<p>这个计算器项目需求很清晰，具体可看：<a target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-javascript-calculator">前端开发库项目 - 构建一个 JavaScript 计算器 | 学习 | freeCodeCamp.org</a></p>
+<p>这里列出我的大致需求：</p>
+<ol>
+<li>计算器要有最基本的按钮，比如<code>AC</code>、<code>=</code>、0-9这10个数字按钮、<code>+</code> <code>-</code> <code>*</code> <code>/</code> 按钮、小数点<code>.</code>；</li>
+<li>其次，计算器要有展示数据计算过程的地方，一个实时输入区，一个暂存区。</li>
+<li>按下数字可以在实时输入区输入数字</li>
+<li><code>AC</code>可以初始化实时输入区和暂存区的内容，即<code>0</code></li>
+<li>加、减、乘、除操作的功能实现，需要和<code>=</code>一起实现</li>
+<li>如果在按下 <code>=</code> 符号后继续按一个运算符，则应该在上一次计算结果的基础上进行新的计算。</li>
+<li><code>-</code> 不仅是减号，也可以作为负数符号</li>
+<li><code>.</code> 实现小数功能</li>
+<li>最后需要注意的是，本计算器项目选用的是<strong>立即执行逻辑</strong>！</li>
+</ol> </div>
+    <div class="excerpt-more transition">
+        <a href="/delicate/2022/06/15/react-calculator/">
+            阅读更多 
+        </a>
+    </div>
+</article>
+
+<article class="excerpt-container">
+    <h1 class="excerpt-title">
         <a href="/delicate/2022/05/12/inline-tags/">
             本主题内置tags
         </a> 
@@ -165,8 +217,8 @@
         <span>
             
         </span>
-        <span class="post-count">587字</span>
-        <span class="post-count">2分钟</span>
+        <span class="post-count">793字</span>
+        <span class="post-count">3分钟</span>
     </p>
     <div class="excerpt"> <h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
 
@@ -286,48 +338,12 @@
     </div>
 </article>
 
-<article class="excerpt-container">
-    <h1 class="excerpt-title">
-        <a href="/delicate/2022/02/10/leetcode-1447/">
-            LeetCode每日一题-1447. 最简分数（2022-2-10）
-        </a> 
-    </h1>
-    <p class="excerpt-meta">
-        <span>2022-02-10</span>
-        <span>
-            
-                | 陈科衡
-            
-        </span>
-        <span class="post-count">538字</span>
-        <span class="post-count">2分钟</span>
-    </p>
-    <div class="excerpt"> <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-tip"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11415" width="22" height="22"><path d="M512 65.984C266.048 65.984 65.984 266.048 65.984 512S266.048 958.016 512 958.016 958.016 757.952 958.016 512 757.952 65.984 512 65.984zM544 736c0 17.696-14.304 32-32 32s-32-14.304-32-32l0-288c0-17.696 14.304-32 32-32s32 14.304 32 32L544 736zM512 352c-26.496 0-48-21.536-48-48C464 277.472 485.504 256 512 256s48 21.472 48 48C560 330.464 538.496 352 512 352z"></path></svg>题目</div> <div class="toasts-content"><blockquote><p>给你一个整数 n ，请你返回所有 0 到 1 之间（不包括 0 和 1）满足分母小于等于  n 的 最简 分数 。分数可以以 任意 顺序返回。</p></blockquote><p>其中： <code>1 &lt;= n &lt;= 100</code></p></div></div>
-<div class="note note-warning">
-            <p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/simplified-fractions">https://leetcode-cn.com/problems/simplified-fractions</a><br>著作权归领扣网络所有。</p>
-          </div>
-
-<p>示例 1：</p>
-<blockquote>
-<p>输入：n &#x3D; 2<br>输出：[“1&#x2F;2”]<br>解释：”1&#x2F;2” 是唯一一个分母小于等于 2 的最简分数。</p>
-</blockquote>
-<p>示例 2：</p>
-<blockquote>
-<p>输入：n &#x3D; 4<br>输出：[“1&#x2F;2”,”1&#x2F;3”,”1&#x2F;4”,”2&#x2F;3”,”3&#x2F;4”]<br>解释：”2&#x2F;4” 不是最简分数，因为它可以化简为 “1&#x2F;2” 。</p>
-</blockquote> </div>
-    <div class="excerpt-more transition">
-        <a href="/delicate/2022/02/10/leetcode-1447/">
-            阅读更多 
-        </a>
-    </div>
-</article>
-
 </div>
 
 
 <span id="root-url" style="display: none;">/delicate/</span>
 <aside class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/delicate/page/2/">2</a><a class="page-number" href="/delicate/page/3/">3</a><a class="extend next" rel="next" href="/delicate/page/2/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" width="14" height="14"><path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/></svg></a>
+    <span class="page-number current">1</span><a class="page-number" href="/delicate/page/2/">2</a><a class="page-number" href="/delicate/page/3/">3</a><a class="page-number" href="/delicate/page/4/">4</a><a class="extend next" rel="next" href="/delicate/page/2/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" width="14" height="14"><path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/></svg></a>
 </aside>
 
   </main>
@@ -349,6 +365,7 @@
     </svg>
 </span>
 
+
   </footer>
    
 
@@ -359,7 +376,6 @@
 
 
 <script src="/delicate/js/event.js"></script>
-
 
 
 

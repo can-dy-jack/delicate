@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="delicate but simple theme for Hexo">
+  <meta name="keywords" content="hexo,delicate,hexo-theme,hexo-theme-delicate">
+  <meta name="author" content="kart jim">
+
+  <meta name="generator" content="hexo">
+  <meta name="theme-color" content="#fafafa">
+
+  <meta name="color-scheme" content="light dark">
+
+  <meta name="creator" content="">
+  <meta name="publisher" content="">
+
+  
+  <title>React Calculator</title>
+  
+  <link rel="shortcut icon" href="/delicate/img/logo.ico">
+
+  
+  
+<link rel="stylesheet" href="/delicate/css/index.css">
+
+<link rel="alternate" href="/delicate/atom.xml" title="hexo-theme-delicate" type="application/atom+xml">
+</head>
+
+<body>
+  <nav>
+    <div class="navbar">
+  <div class="nav-left">
+    <div class="nav-brand">
+      <a href="/delicate/">
+        <img src="/delicate//img/logo128.ico" width="30" height="30" alt="logo">
+        <span class="nav-brand-text">hexo-theme-delicate</span>
+      </a>
+    </div> 
+    <div class="nav-link">
+      <a href="/delicate/" class="nav-item">
+        主页
+      </a>
+      <a href="/delicate/archives" class="nav-item">
+        存档
+      </a>
+
+      
+      <a href="/delicate/tags" class="nav-item">
+        标签
+      </a>
+      
+      
+      <a href="/delicate/categories" class="nav-item">
+        分类
+      </a>
+      
+    </div>
+  </div>
+
+  <div class="nav-right friends-link">
+  
+    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+      github
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <a target="_blank" rel="noopener" href="https://leetcode-cn.com/u/kartjim/">
+      LeetCode
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46590483">
+      CSDN
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <a target="_blank" rel="noopener" href="https://juejin.cn/user/1389392813630526">
+      掘金
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <a target="_blank" rel="noopener" href="https://weibo.com/p/1005057198677513/home">
+      微博
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16"><path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/></svg>
+    </a>
+  
+    <span class="friends-more transition" id="friends-more">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20">
+        <path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/>
+      </svg>
+    </span>
+  </div>
+</div>
+
+<div id="phone-nav-link" class="transition">
+
+  <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+    github
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+  <a target="_blank" rel="noopener" href="https://leetcode-cn.com/u/kartjim/">
+    LeetCode
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+  <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46590483">
+    CSDN
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+  <a target="_blank" rel="noopener" href="https://juejin.cn/user/1389392813630526">
+    掘金
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+  <a target="_blank" rel="noopener" href="https://weibo.com/p/1005057198677513/home">
+    微博
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+      <path d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"/>
+    </svg>
+  </a>
+
+</div>
+
+
+
+
+  </nav>
+  <main>
+    <div class="post-body">
+     
+    <section class="post">
+        <div class="post-title">
+            React Calculator
+        </div>
+
+        <p class="blog-post-info">
+        <span>2022-06-15</span>
+        
+        <span class="post-count">2.9k字</span>
+        <span class="post-count">13分钟</span>
+        </p>
+
+        <blockquote>
+<p>用React做一个新拟态计算器</p>
+</blockquote>
+<p>首先，先看成果(<a target="_blank" rel="noopener" href="https://codepen.io/Kartjim/pen/YzeLRPQ">codepen</a>)：</p>
+<p><img src="https://s2.loli.net/2022/06/09/mIHxGQrd27vDqaS.png" alt="react-calculator.png"></p>
+<p class="codepen" data-height="520" data-default-tab=js,result data-slug-hash=YzeLRPQ data-user=Kartjim >
+        <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/Kartjim/pen/YzeLRPQ">
+        react-calculator</a> by Kartjim (<a target="_blank" rel="noopener" href="https://codepen.io/Kartjim">@Kartjim</a>)
+        on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>项目中我使用到的技术：</p>
+<ul>
+<li>HTML、CSS、JavaScript三件套</li>
+<li>React</li>
+<li>SCSS</li>
+</ul>
+<p>本项目是freeCodeCamp上的其中一个前端开发库项目，推荐自学的同学去<a target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/learn">免费学习编程 - Python、JavaScript、Java、Git 等 (freecodecamp.org)</a></p>
+<p>这个计算器项目需求很清晰，具体可看：<a target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-javascript-calculator">前端开发库项目 - 构建一个 JavaScript 计算器 | 学习 | freeCodeCamp.org</a></p>
+<p>这里列出我的大致需求：</p>
+<ol>
+<li>计算器要有最基本的按钮，比如<code>AC</code>、<code>=</code>、0-9这10个数字按钮、<code>+</code> <code>-</code> <code>*</code> <code>/</code> 按钮、小数点<code>.</code>；</li>
+<li>其次，计算器要有展示数据计算过程的地方，一个实时输入区，一个暂存区。</li>
+<li>按下数字可以在实时输入区输入数字</li>
+<li><code>AC</code>可以初始化实时输入区和暂存区的内容，即<code>0</code></li>
+<li>加、减、乘、除操作的功能实现，需要和<code>=</code>一起实现</li>
+<li>如果在按下 <code>=</code> 符号后继续按一个运算符，则应该在上一次计算结果的基础上进行新的计算。</li>
+<li><code>-</code> 不仅是减号，也可以作为负数符号</li>
+<li><code>.</code> 实现小数功能</li>
+<li>最后需要注意的是，本计算器项目选用的是<strong>立即执行逻辑</strong>！</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="CodePen"><a href="#CodePen" class="headerlink" title="CodePen"></a>CodePen</h2><blockquote>
+<p>我这里选择使用codepen，它可以非常方便的调试页面，还能够很方便的引入第三方框架，而且可以免费使用！</p>
+</blockquote>
+<p>首先，需要<a target="_blank" rel="noopener" href="https://codepen.io/">创建账户</a>，然后新建一个普通的<code>pen</code>。<br>接着需要进行设置和引入项目需要的第三方库：</p>
+<ul>
+<li>打开设置，将css编译器设置为<code>SCSS</code>。</li>
+<li>由于要使用react，所以要将js编译器设置为<code>Bable</code>。</li>
+<li>之后在 <code>Add External Scripts/Pens</code>里搜索并加入 <code>react</code> 和 <code>react-dom</code> 。</li>
+</ul>
+<p>至此，项目的基本设置完成。</p>
+<h2 id="HTML架构"><a href="#HTML架构" class="headerlink" title="HTML架构"></a>HTML架构</h2><p>由于使用的是React，所以HTML只需要给个div标签挂载上去即可。</p>
+<p>这里我将 <code>id</code> 设为</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h2><p>按钮宽度和长度都是有比例关系的，很适合使用<code>grid</code>布局，目前主流浏览器都支持<code>grid</code>布局。按钮是5*4的布局，每个按钮宽度为父元素的25%，高度设置为70px；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.btn-box</span> &#123;<br>    <span class="hljs-attribute">display</span>: grid;<br>    grid-template-<span class="hljs-attribute">columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">25%</span>);<br>    grid-template-rows: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">5</span>, <span class="hljs-number">70px</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其他样式可以自由发挥，这里就不细讲了；</p>
+<p>新拟态风格代码可以参考：<a target="_blank" rel="noopener" href="https://neumorphism.io/#e0e0e0">neumorphism.io</a>，可以按照自己的喜好来。</p>
+<p>这里贴上我的scss代码：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-tag">body</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2233dd</span>;<br>&#125;<br><span class="hljs-selector-id">#app</span> &#123;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">95vh</span>;<br>  <span class="hljs-attribute">display</span>:flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>&#125;<br><span class="hljs-selector-class">.app</span> &#123;<br>  user-select: none;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-number">#2233dd</span>;<br>  <span class="hljs-attribute">box-shadow</span>:  <span class="hljs-number">20px</span> <span class="hljs-number">20px</span> <span class="hljs-number">53px</span> <span class="hljs-number">#1a27aa</span>,<br>             -<span class="hljs-number">20px</span> -<span class="hljs-number">20px</span> <span class="hljs-number">53px</span> <span class="hljs-number">#2a3fff</span>;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">320px</span>; <br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;<br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">5px</span> solid <span class="hljs-number">#23d</span>;<br>  <span class="hljs-attribute">color</span>: white;<br>  <span class="hljs-selector-class">.btn-box</span> &#123;<br>    <span class="hljs-attribute">display</span>: grid;<br>    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">5px</span>;<br>    grid-template-<span class="hljs-attribute">columns</span>: repeat(<span class="hljs-number">4</span>, <span class="hljs-number">25%</span>);<br>    grid-template-rows: repeat(<span class="hljs-number">5</span>, <span class="hljs-number">70px</span>);<br>    <span class="hljs-selector-tag">button</span> &#123;<br>      <span class="hljs-attribute">cursor</span>: pointer;<br>      <span class="hljs-attribute">border</span>: none;<br>      <span class="hljs-attribute">outline</span>: none;<br>      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0px</span>;<br>      <span class="hljs-attribute">background</span>: <span class="hljs-number">#e0e0e0</span>;<br>      <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">10px</span>;<br>      <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#23d</span>;<br>      <span class="hljs-attribute">color</span>: white;<br>      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">24px</span>;<br>      <span class="hljs-attribute">box-sizing</span>: border-box;<br>      &amp;<span class="hljs-selector-pseudo">:active</span> &#123;<br>        <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">5px</span> <span class="hljs-number">5px</span> <span class="hljs-number">16px</span> <span class="hljs-number">#1e2cc0</span>,inset -<span class="hljs-number">5px</span> -<span class="hljs-number">5px</span> <span class="hljs-number">16px</span> <span class="hljs-number">#263afa</span>;<br>      &#125;<br>      &amp;<span class="hljs-selector-pseudo">:hover</span> &#123;<br>        <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#55f</span>;<br>        <span class="hljs-comment">// border-radius: 5px;</span><br>        <span class="hljs-attribute">background</span>: linear-gradient(<span class="hljs-number">145deg</span>, <span class="hljs-number">#23d</span>, <span class="hljs-number">#1f2ec7</span>);<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#clear</span> &#123;<br>        grid-column-start: span <span class="hljs-number">2</span>;<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#zero</span> &#123;<br>         grid-column-start: span <span class="hljs-number">2</span>;<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#equals</span> &#123;<br>         grid-row-start: span <span class="hljs-number">2</span>;<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#subtract</span>, &amp;<span class="hljs-selector-id">#add</span>, &amp;<span class="hljs-selector-id">#equals</span> &#123;<br>        <span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> solid rgba(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>,<span class="hljs-number">240</span>, <span class="hljs-number">1</span>);<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#clear</span>, &amp;<span class="hljs-selector-id">#divide</span> &#123;<br>        <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid rgba(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>,<span class="hljs-number">240</span>, <span class="hljs-number">1</span>);<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-selector-class">.show</span> &#123;<br>    <span class="hljs-attribute">text-align</span>: right;<br>  &#125;<br>  <span class="hljs-selector-class">.stag-area</span> &#123;<br>    <span class="hljs-comment">// padding: 5px 0;</span><br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#aaa</span>;<br>  &#125;<br>  <span class="hljs-selector-class">.input-area</span> &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">22px</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#66f</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>具体代码也可以去我的<a target="_blank" rel="noopener" href="https://codepen.io/Kartjim/pen/YzeLRPQ">codepen</a>查看。</p>
+<h2 id="React架构"><a href="#React架构" class="headerlink" title="React架构"></a>React架构</h2><p>首先，创建<code>Calculator</code>组件类进行计算器的渲染，包括实时输入区、暂存区以及所有的按钮。<br>同时，设置<code>state</code>保存必要的数据:</p>
+<ul>
+<li><code>input</code>保存当前输入的数字或运算符，即实时输入区的内容。</li>
+<li><code>stag</code>保存暂存区的数据</li>
+<li><code>operator</code>保存当前所使用的运算符</li>
+<li><code>isCalculated</code>保存是否已经计算</li>
+<li><code>isNegative</code>保存<code>-</code>是负号还是运算符</li>
+</ul>
+<p>全局变量<code>operat</code>保存所有的运算符和<code>0</code>（<code>0</code>比较特殊，由于要做的计算器是<strong>立即执行逻辑</strong>，按下运算符时要判断是否已经计算过。如果是计算过的结果显示在实时输入区，那么这时按下<code>0</code>就不是在数字后面加个<code>0</code>，而是将整个实时输入区变为<code>0</code>）。</p>
+<blockquote>
+<p>这里没有把<code>button</code>当做一个子组件来写，因为封装成一个子组件</p>
+</blockquote>
+<p>最后使用<code>render</code>函数将DOM渲染进页面：<code>ReactDOM.render(&lt;Calculator /&gt;,document.getElementById(&quot;app&quot;));</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/* globals React, ReactDOM */</span><br><span class="hljs-keyword">const</span> operat = [<span class="hljs-string">&#x27;+&#x27;</span>,<span class="hljs-string">&#x27;-&#x27;</span>,<span class="hljs-string">&#x27;/&#x27;</span>,<span class="hljs-string">&#x27;x&#x27;</span>,<span class="hljs-string">&#x27;0&#x27;</span>];<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Calculator</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;<br>    <span class="hljs-built_in">super</span>(props);<br>    <span class="hljs-built_in">this</span>.state = &#123;<br>      <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;0&#x27;</span>,<br>      <span class="hljs-attr">stag</span>: <span class="hljs-string">&#x27;0&#x27;</span>,<br>      <span class="hljs-attr">operator</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>      <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">false</span>,<br>      <span class="hljs-attr">isNegative</span>: <span class="hljs-literal">false</span><br>    &#125;<br>  &#125;<br>  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> (<br>      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;stag-area show&quot;</span>&gt;</span>&#123; this.state.stag &#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;input-area show&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;display&quot;</span>&gt;</span>&#123; this.state.input &#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;btn-box&quot;</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;clear&quot;</span>&gt;</span>AC<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;divide&quot;</span>&gt;</span>/<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;multiply&quot;</span>&gt;</span>x<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          </span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;seven&quot;</span>&gt;</span>7<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;eight&quot;</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nine&quot;</span>&gt;</span>9<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;subtract&quot;</span>&gt;</span>-<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          </span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;four&quot;</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;five&quot;</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;six&quot;</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;add&quot;</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          </span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;one&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;two&quot;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;three&quot;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;equals&quot;</span>&gt;</span>=<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          </span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;zero&quot;</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;decimal&quot;</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>    )<br>  &#125;<br>&#125;<br><span class="hljs-comment">// 渲染DOM</span><br>ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Calculator</span> /&gt;</span></span>,<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;app&quot;</span>));<br></code></pre></td></tr></table></figure>
+
+<h2 id="按钮点击事件"><a href="#按钮点击事件" class="headerlink" title="按钮点击事件"></a>按钮点击事件</h2><p>接下来为每个按钮添加事件。</p>
+<h3 id="数字-1-9"><a href="#数字-1-9" class="headerlink" title="数字 1-9"></a>数字 1-9</h3><p>首先，<code>1-9</code>这9个数字的逻辑是一样的，点击直接输入对应的数字；反映在实时输入区就是在数字后面添加对应的字符。  在<code>Calculator</code>类中添加函数<code>getNumber(number) &#123; &#125;</code> ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">getNumber</span>(<span class="hljs-params">number</span>)</span> &#123;<br>  <span class="hljs-built_in">this</span>.setState(&#123;<br>    <span class="hljs-attr">input</span>: number,<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>并且为这9个数字按钮添加对应的点击事件，如：<code>onClick=&#123; ()=&gt; this.getNumber(&#39;9&#39;) &#125;</code> 。需要注意的是，需要绑定<code>this</code>的指向：<code>this.getNumber = this.getNumber.bind(this);</code></p>
+<h3 id="加、减、乘、除按钮"><a href="#加、减、乘、除按钮" class="headerlink" title="加、减、乘、除按钮"></a>加、减、乘、除按钮</h3><p>因为四则运算都是二元运算符，所以它们的逻辑是相通的，即按下加&#x2F;减&#x2F;乘&#x2F;除按钮后，将之前的数字保存到暂存区，然后等待第二个数字输入之后点击<code>=</code>之后进行计算。</p>
+<p>细节：点击按钮后，暂存区的文字是第一个数字+运算符，输入区也变成该运算符，并且将对应的<code>this.operator</code>标记为该运算符，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123; <br>      <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;+&#x27;</span>,<br>      <span class="hljs-attr">stag</span>: state.input + <span class="hljs-string">&#x27;+&#x27;</span>,<br>      <span class="hljs-attr">operator</span>: <span class="hljs-string">&#x27;+&#x27;</span><br>    &#125;<br>  &#125;)<br>&#125;<br><span class="hljs-function"><span class="hljs-title">subtract</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123; <br>      <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;-&#x27;</span>,<br>      <span class="hljs-attr">stag</span>: state.input + <span class="hljs-string">&#x27;-&#x27;</span>,<br>      <span class="hljs-attr">operator</span>: <span class="hljs-string">&#x27;-&#x27;</span><br>    &#125;<br>  &#125;)<br>&#125;<br><span class="hljs-function"><span class="hljs-title">multiply</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123; <br>      <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;x&#x27;</span>,<br>      <span class="hljs-attr">stag</span>: state.input + <span class="hljs-string">&#x27;x&#x27;</span>,<br>      <span class="hljs-attr">operator</span>: <span class="hljs-string">&#x27;*&#x27;</span><br>    &#125;<br>  &#125;)<br>&#125;<br><span class="hljs-function"><span class="hljs-title">divide</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123; <br>      <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;/&#x27;</span>,<br>      <span class="hljs-attr">stag</span>: state.input + <span class="hljs-string">&#x27;/&#x27;</span>,<br>      <span class="hljs-attr">operator</span>: <span class="hljs-string">&#x27;/&#x27;</span><br>    &#125;<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>最后，不要忘了为这4个按钮添加对应的点击事件和绑定<code>this</code>的指向！</p>
+<h3 id="实现四则运算"><a href="#实现四则运算" class="headerlink" title="实现四则运算"></a>实现四则运算</h3><p>加、减、乘、除按钮点击事件写好后，就需要写<code>=</code>的点击事件，所有的运算都在该点击事件里。</p>
+<p>根据<code>this.operator</code>的值判断运算类型，分类进行运算，按下<code>=</code>后进行运算，运算结果显示在实时输入区和暂存区，并标记为已运算<code>isCalculated: true</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs js"> <span class="hljs-function"><span class="hljs-title">calculator</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">const</span> num2 = <span class="hljs-built_in">parseFloat</span>(<span class="hljs-built_in">this</span>.state.input);<br>    <span class="hljs-keyword">const</span> num1 = <span class="hljs-built_in">parseFloat</span>(<span class="hljs-built_in">this</span>.state.stag);<br>    <span class="hljs-keyword">switch</span>(<span class="hljs-built_in">this</span>.state.operator) &#123;<br>      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;+&#x27;</span>: <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> ans = num1 + num2;<br>        <span class="hljs-keyword">return</span> &#123;<br>          <span class="hljs-attr">input</span>: ans,<br>          <span class="hljs-attr">stag</span>: state.stag + state.input + <span class="hljs-string">&#x27;=&#x27;</span> + ans,<br>          <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">true</span><br>        &#125;<br>      &#125;);<br>        <span class="hljs-keyword">break</span>;<br>      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;-&#x27;</span>: <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> ans = num1 - num2;<br>        <span class="hljs-keyword">return</span> &#123;<br>          <span class="hljs-attr">input</span>: ans,<br>          <span class="hljs-attr">stag</span>: state.stag + state.input + <span class="hljs-string">&#x27;=&#x27;</span> + ans,<br>          <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">true</span><br>        &#125;<br>      &#125;);<br>        <span class="hljs-keyword">break</span>;<br>      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/&#x27;</span>: <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> ans = num1 / num2;<br>        <span class="hljs-keyword">return</span> &#123;<br>          <span class="hljs-attr">input</span>: ans,<br>          <span class="hljs-attr">stag</span>: state.stag + state.input + <span class="hljs-string">&#x27;=&#x27;</span> + ans,<br>          <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">true</span><br>        &#125;<br>      &#125;);<br>        <span class="hljs-keyword">break</span>;<br>      <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;*&#x27;</span>: <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> ans = num1 * num2;<br>        <span class="hljs-keyword">return</span> &#123;<br>          <span class="hljs-attr">input</span>: ans,<br>          <span class="hljs-attr">stag</span>: state.stag + state.input + <span class="hljs-string">&#x27;=&#x27;</span> + ans,<br>          <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">true</span><br>        &#125;<br>      &#125;);<br>        <span class="hljs-keyword">break</span>;<br>      <span class="hljs-keyword">default</span>: <span class="hljs-keyword">break</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="清除按钮"><a href="#清除按钮" class="headerlink" title="清除按钮"></a>清除按钮</h3><p><code>AC</code>按钮会将一切重置为初始状态：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">clearInput</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-built_in">this</span>.setState(&#123;<br>    <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;0&#x27;</span>,<br>    <span class="hljs-attr">stag</span>: <span class="hljs-string">&#x27;0&#x27;</span>,<br>    <span class="hljs-attr">operator</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>    <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">isNegative</span>: <span class="hljs-literal">false</span><br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="按钮0"><a href="#按钮0" class="headerlink" title="按钮0"></a>按钮<code>0</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">getZero</span>(<span class="hljs-params"></span>)</span>&#123;<br>  <span class="hljs-keyword">if</span>(<span class="hljs-built_in">this</span>.state.isCalculated || <span class="hljs-built_in">this</span>.state.input !== <span class="hljs-string">&#x27;0&#x27;</span> ) &#123;<br>    <span class="hljs-comment">// 如果是运算过的或者是0，则按下0，实时输入区应直接变为0</span><br>    <span class="hljs-built_in">this</span>.setState(&#123;<br>      <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;0&#x27;</span>,<br>      <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">false</span><br>    &#125;)<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// 正常情况下直接在后面加0</span><br>    <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> (&#123;<br>      <span class="hljs-attr">input</span>: state.input + <span class="hljs-string">&#x27;0&#x27;</span>,<br>      <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">false</span><br>    &#125;))<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>最后，为这个按钮添加对应的点击事件和绑定<code>this</code>的指向！</p>
+<h2 id="立即执行逻辑"><a href="#立即执行逻辑" class="headerlink" title="立即执行逻辑"></a>立即执行逻辑</h2><p>现在我们的计算器应用已经可以进行简单的四则运算了！但是，计算器需要支持<strong>立即执行逻辑</strong>，即类似于<code>9/3+4</code>的运算，现在，我们的计算器并不能支持这种运算。</p>
+<p>为了支持<strong>立即执行逻辑</strong>，就需要重写四则运算的按钮点击事件，判断一下是否要进行计算再进行后续操作，这里我的代码写的有点粗糙（能运行就行🤪）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-keyword">if</span>((<span class="hljs-built_in">this</span>.state.stag.indexOf(<span class="hljs-string">&#x27;+&#x27;</span>) &gt; -<span class="hljs-number">1</span> || <span class="hljs-built_in">this</span>.state.stag.indexOf(<span class="hljs-string">&#x27;-&#x27;</span>) &gt; -<span class="hljs-number">1</span> || <span class="hljs-built_in">this</span>.state.stag.indexOf(<span class="hljs-string">&#x27;/&#x27;</span>) &gt; -<span class="hljs-number">1</span> || <span class="hljs-built_in">this</span>.state.stag.indexOf(<span class="hljs-string">&#x27;x&#x27;</span>) &gt; -<span class="hljs-number">1</span>) &amp;&amp; <span class="hljs-built_in">this</span>.state.stag.indexOf(<span class="hljs-string">&#x27;=&#x27;</span>) === -<span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-built_in">this</span>.calculator();<br>    <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> &#123; <br>        <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;+&#x27;</span>,<br>        <span class="hljs-attr">stag</span>: state.input + <span class="hljs-string">&#x27;+&#x27;</span>,<br>        <span class="hljs-attr">operator</span>: <span class="hljs-string">&#x27;+&#x27;</span><br>      &#125;<br>    &#125;)<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> &#123; <br>        <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;+&#x27;</span>,<br>        <span class="hljs-attr">stag</span>: state.input + <span class="hljs-string">&#x27;+&#x27;</span>,<br>        <span class="hljs-attr">operator</span>: <span class="hljs-string">&#x27;+&#x27;</span><br>      &#125;<br>    &#125;)<br>  &#125;<br>&#125;<br><span class="hljs-comment">// ... ...</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="不仅是减号，也可以作为负数符号"><a href="#不仅是减号，也可以作为负数符号" class="headerlink" title="- 不仅是减号，也可以作为负数符号"></a><code>-</code> 不仅是减号，也可以作为负数符号</h2><p>需要在按下<code>-</code>时进行判断,如果之前已经有按下过四则运算的按钮，那么这次按下<code>-</code>就代表是将数字变为负数而不需要后续操作(return)：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span>(operat.includes(<span class="hljs-built_in">this</span>.state.input)) &#123;<br>  <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> (&#123;<br>    <span class="hljs-attr">isNegative</span>: !state.isNegative<br>  &#125;))<br>  <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>除了是<code>-</code>这个特殊情况外，在多次按下<code>+</code> <code>/</code> <code>*</code>按钮只需要取最后一次按下的运算符作为最终的运算符即可！</p>
+<p>例如在除法运算函数前加入判断，其它同理：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span>(operat.includes(<span class="hljs-built_in">this</span>.state.input)) &#123;<br>  <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> (&#123;<br>    <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;/&#x27;</span>,<br>    <span class="hljs-attr">stag</span>: state.stag.slice(<span class="hljs-number">0</span>,-<span class="hljs-number">1</span>) + <span class="hljs-string">&#x27;/&#x27;</span>,<br>    <span class="hljs-attr">operator</span>: <span class="hljs-string">&#x27;/&#x27;</span>,<br>    <span class="hljs-attr">isNegative</span>: <span class="hljs-literal">false</span><br>  &#125;))<br>  <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="实现小数功能"><a href="#实现小数功能" class="headerlink" title="实现小数功能"></a>实现小数功能</h2><p>最后，考虑 <code>.</code> 小数功能；</p>
+<p>首先写<code>.</code>按钮点击函数，当是已经计算过了，点击<code>.</code>就直接变成<code>0.</code>即可；然后，当输入框内是数字且没有<code>.</code>时，即可将<code>.</code>直接添加到末尾。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">getDecimal</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-keyword">if</span>(<span class="hljs-built_in">this</span>.state.isCalculated) &#123;<br>    <span class="hljs-built_in">this</span>.setState(&#123;<br>      <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;0.&#x27;</span>,<br>      <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">false</span><br>    &#125;)<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Number</span>.isInteger(+<span class="hljs-built_in">this</span>.state.input) &amp;&amp; <span class="hljs-built_in">this</span>.state.input.indexOf(<span class="hljs-string">&#x27;.&#x27;</span>) === -<span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> (&#123;<br>      <span class="hljs-attr">input</span>: state.input + <span class="hljs-string">&#x27;.&#x27;</span><br>    &#125;))<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>接着，需要重写<code>=</code>的点击函数，用于兼容有小数的情况，加个if判断是否为整数即可：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">calculator</span>(<span class="hljs-params"></span>)</span> &#123;<br>  <span class="hljs-keyword">let</span> num1,num2;<br>  <span class="hljs-keyword">if</span>(<span class="hljs-built_in">this</span>.state.stag.indexOf(<span class="hljs-string">&#x27;.&#x27;</span>) &gt; -<span class="hljs-number">1</span>) &#123;<br>    num2 = <span class="hljs-built_in">parseFloat</span>(<span class="hljs-built_in">this</span>.state.input);<br>    num1 = <span class="hljs-built_in">parseFloat</span>(<span class="hljs-built_in">this</span>.state.stag);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    num2 = <span class="hljs-built_in">parseInt</span>(<span class="hljs-built_in">this</span>.state.input);<br>    num1 = <span class="hljs-built_in">parseInt</span>(<span class="hljs-built_in">this</span>.state.stag);<br>  &#125;<br>  <span class="hljs-keyword">switch</span>(<span class="hljs-built_in">this</span>.state.operator) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;+&#x27;</span>: <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-attr">input</span>: num1 + num2,<br>        <span class="hljs-attr">stag</span>: state.stag + state.input + <span class="hljs-string">&#x27;=&#x27;</span> + (num1 + num2),<br>        <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">true</span><br>      &#125;<br>    &#125;);<br>      <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;-&#x27;</span>: <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-attr">input</span>: num1 - num2,<br>        <span class="hljs-attr">stag</span>: state.stag + state.input + <span class="hljs-string">&#x27;=&#x27;</span> + (num1 - num2),<br>        <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">true</span><br>      &#125;<br>    &#125;);<br>      <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/&#x27;</span>: <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> ans = num1 / num2;<br>      <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-attr">input</span>: ans,<br>        <span class="hljs-attr">stag</span>: state.stag + state.input + <span class="hljs-string">&#x27;=&#x27;</span> + ans,<br>        <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">true</span><br>      &#125;<br>    &#125;);<br>      <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;*&#x27;</span>: <span class="hljs-built_in">this</span>.setState(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> ans = num1 * num2;<br>      <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-attr">input</span>: ans,<br>        <span class="hljs-attr">stag</span>: state.stag + state.input + <span class="hljs-string">&#x27;=&#x27;</span> + ans,<br>        <span class="hljs-attr">isCalculated</span>: <span class="hljs-literal">true</span><br>      &#125;<br>    &#125;);<br>      <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">default</span>: <span class="hljs-keyword">break</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>到这里，基本的功能已经全都实现，测试案例全部通过！🎉<br><img src="https://s2.loli.net/2022/06/16/oxXbwTjUHGnPLQ6.png" alt="image.png"></p>
+<div class="note note-success">
+            <p>最后的最后，完整代码可以在<a target="_blank" rel="noopener" href="https://codepen.io/Kartjim/pen/YzeLRPQ">CodePen</a>找到。</p>
+          </div>
+
+
+        <div class="post-share">
+        分享文章:
+            
+            <span class="post-share-qq">
+                <a rel="share noopener" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://can-dy-jack.github.io/delicate/2022/06/15/react-calculator/index.html&title=hexo-theme-delicate&summary=React Calculator">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em"><path fill-rule="evenodd" d="M4.869 10.997c-.06-.142-.091-.335-.091-.581 0-.149.041-.331.125-.547a1.81 1.81 0 0 1 .273-.503c-.007-.163.021-.36.086-.59.065-.231.15-.391.256-.48 0-1.035.352-2.108 1.054-3.22.702-1.113 1.528-1.893 2.477-2.34C10.105 2.247 11.335 2 12.74 2c1.01 0 2.02.205 3.03.614.373.156.714.335 1.026.535.31.201.58.41.808.625.228.216.437.47.627.76.19.29.349.564.478.825.13.26.253.575.37.943a18.116 18.116 0 0 1 .541 2.093l.011.055c.418.618.627 1.176.627 1.675 0 .104-.034.253-.103.446-.068.193-.103.335-.103.424 0 .008.006.02.018.04a.47.47 0 0 0 .04.055c.015.019.023.032.023.04.584.848 1.042 1.646 1.372 2.393.33.748.496 1.524.496 2.327 0 .32-.074.693-.222 1.117-.148.424-.359.636-.632.636a.394.394 0 0 1-.222-.084 1.19 1.19 0 0 1-.216-.195 2.992 2.992 0 0 1-.216-.29 3.738 3.738 0 0 1-.183-.296 35.001 35.001 0 0 1-.256-.486c-.008-.007-.02-.01-.035-.01l-.057.043c-.448 1.146-.949 1.976-1.503 2.49.152.148.385.291.7.43.316.137.577.292.786.462.209.171.344.413.405.726a.71.71 0 0 0-.046.179.405.405 0 0 1-.08.2c-.485.722-1.632 1.083-3.44 1.083-.401 0-.821-.034-1.258-.1a10.83 10.83 0 0 1-1.116-.224 53.69 53.69 0 0 1-1.19-.335 4.067 4.067 0 0 0-.262-.078 2.306 2.306 0 0 0-.524-.05 6.013 6.013 0 0 1-.455-.017c-.312.335-.796.577-1.453.726A8.679 8.679 0 0 1 8.606 22c-.266 0-.528-.006-.786-.017a14.033 14.033 0 0 1-1.06-.1 7.002 7.002 0 0 1-1.15-.23 2.457 2.457 0 0 1-.848-.446c-.247-.2-.37-.438-.37-.714 0-.297.038-.519.114-.664.076-.146.232-.326.467-.542a3.44 3.44 0 0 0 .461-.145c.224-.081.412-.126.564-.133.03 0 .083-.008.16-.023.015-.015.022-.03.022-.044l-.023-.034c-.364-.082-.774-.474-1.23-1.178-.456-.703-.733-1.285-.832-1.746l-.056-.034c-.03 0-.076.074-.137.223a2.48 2.48 0 0 1-.62.831c-.278.25-.572.389-.883.419h-.012c-.03 0-.053-.017-.068-.05-.015-.033-.034-.054-.057-.061C2.087 16.91 2 16.538 2 16.195c0-2.046.957-3.78 2.87-5.2l-.001.002z"></path></svg>
+                </a>
+            </span>
+            
+            
+            <span class="post-share-weibo">
+                <a rel="share noopener" target="_blank" href="https://service.weibo.com/share/share.php?&url=https://can-dy-jack.github.io/delicate/2022/06/15/react-calculator/index.html&title=React Calculator">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em"><path fill-rule="evenodd" d="M17.286 11.55c-.856-.163-.448-.632-.448-.632s.836-1.387-.164-2.387c-1.244-1.244-4.262.164-4.262.164-1.142.346-.836-.164-.673-1.061 0-1.04-.367-2.814-3.447-1.754-3.06 1.04-5.69 4.732-5.69 4.732-1.836 2.447-1.591 4.323-1.591 4.323.448 4.181 4.895 5.324 8.341 5.589 3.63.285 8.525-1.244 10.014-4.406 1.49-3.16-1.223-4.405-2.08-4.568zM9.618 19.36c-3.61.163-6.527-1.652-6.527-4.059 0-2.406 2.917-4.323 6.527-4.487 3.61-.163 6.526 1.306 6.526 3.712 0 2.407-2.916 4.67-6.526 4.834zm-.714-6.975c-3.63.428-3.223 3.834-3.223 3.834s-.02 1.06.98 1.612c2.12 1.142 4.303.448 5.404-.96 1.101-1.427.469-4.894-3.161-4.486zm-.918 4.772c-.673.082-1.224-.306-1.224-.876 0-.572.49-1.163 1.163-1.224.775-.082 1.285.367 1.285.938s-.55 1.08-1.224 1.162zm2.142-1.815c-.245.164-.51.143-.633-.061-.142-.204-.081-.53.143-.693.265-.204.55-.143.673.061s.02.51-.183.693zm8.933-5.261a.59.59 0 0 0 .57-.51c0-.02.021-.041.021-.062.428-3.977-3.263-3.283-3.263-3.283a.592.592 0 0 0 0 1.183c2.651-.592 2.06 2.08 2.06 2.08 0 .326.265.592.612.592zm-.45-6.936c-1.264-.305-2.59-.05-2.956.031-.02 0-.062.016-.082.016-.02 0-.02.018-.02.018a.874.874 0 0 0-.633.835c0 .469.388.856.857.856 0 0 .469-.062.795-.184.306-.122 2.958-.082 4.283 2.12.714 1.612.306 2.693.265 2.876 0 0-.183.408-.183.837 0 .469.387.794.877.794.387 0 .734.02.816-.714h.02c1.407-5.032-1.734-6.954-4.038-7.485z"></path></svg>
+                </a>
+            </span>
+            
+        </div>
+
+        <div class="post-alert">本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。</div>
+        <hr />
+        
+        <div class="blog-tag-and-cate">
+            
+
+<div class="post-tags-container">
+    <span class="glyphicon glyphicon-tags">
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+          <path d="M483.2 790.3L861.4 412c1.7-1.7 2.5-4 2.3-6.3l-25.5-301.4c-0.7-7.8-6.8-13.9-14.6-14.6L522.2 64.3c-2.3-0.2-4.7 0.6-6.3 2.3L137.7 444.8c-3.1 3.1-3.1 8.2 0 11.3l334.2 334.2c3.1 3.2 8.2 3.2 11.3 0z m62.6-651.7l224.6 19 19 224.6L477.5 694 233.9 450.5l311.9-311.9z" p-id="7344"></path><path d="M605.958852 324.826232a48 48 0 1 0 67.881066-67.883435 48 48 0 1 0-67.881066 67.883435Z" p-id="7345"></path><path d="M889.7 539.8l-39.6-39.5c-3.1-3.1-8.2-3.1-11.3 0l-362 361.3-237.6-237c-3.1-3.1-8.2-3.1-11.3 0l-39.6 39.5c-3.1 3.1-3.1 8.2 0 11.3l243.2 242.8 39.6 39.5c3.1 3.1 8.2 3.1 11.3 0l407.3-406.6c3.1-3.1 3.1-8.2 0-11.3z"></path>
+        </svg>
+    </span>
+    
+    <span class="post-tags-text transition">
+        <a href="/delicate/tags/React/">React</a>
+    </span>
+    
+</div>
+
+            
+
+<div class="post-categories-container">
+    <span class="glyphicon glyphicon-folder-open">
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+          <path d="M332.288 109.568c17.92 0 33.28 6.144 46.08 18.432 12.8 12.288 18.944 27.648 18.944 45.568v258.048c0 17.92-6.144 33.28-18.944 46.08s-28.16 18.944-46.08 18.944H74.24C56.32 496.64 40.96 489.984 28.672 477.184c-12.288-12.8-18.432-28.16-18.432-46.08V173.568c0-17.92 6.144-33.28 18.432-45.568 12.288-12.288 27.648-18.432 45.568-18.432h258.048z m0 516.096c17.92 0 33.28 6.144 46.08 18.432 12.8 12.288 18.944 27.648 18.944 45.568v259.072c0 17.92-6.144 33.28-18.944 45.568-12.8 12.288-28.16 18.432-46.08 18.432H74.24c-17.92 0-33.28-6.144-45.568-18.432-12.288-12.288-18.432-27.648-18.432-45.568v-259.072c0-17.92 6.144-33.28 18.432-45.568 12.288-12.288 27.648-18.432 45.568-18.432h258.048z m517.12 0c17.92 0 33.28 6.144 45.568 18.432 12.288 12.288 18.432 27.648 18.432 45.568v259.072c0 17.92-6.144 33.28-18.432 45.568-12.288 12.288-27.648 18.432-45.568 18.432h-258.048c-17.92 0-33.28-6.144-46.08-18.432-12.8-12.288-18.944-27.648-18.944-45.568v-259.072c0-17.92 6.144-33.28 18.944-45.568 12.8-12.288 28.16-18.432 46.08-18.432h258.048zM993.28 222.72c13.824 13.824 20.48 29.696 20.48 48.64 0 18.432-6.656 34.304-20.48 47.616l-192 192c-13.824 13.824-29.696 20.48-48.128 20.48-18.432 0-34.304-6.656-48.128-20.48l-192-192c-13.312-13.312-19.456-28.672-19.456-47.616 0-18.432 6.656-34.816 19.456-48.64L705.024 30.72c13.824-13.312 29.696-19.456 48.128-19.456 18.432 0 34.304 6.656 48.128 19.456L993.28 222.72z m0 0"></path>
+        </svg>
+    </span>
+    
+    <span class="post-categories-text transition">
+        <a href="/delicate/categories/React/">React</a>
+    </span>
+    
+</div>
+
+        </div>
+
+        <div class="post-change">
+            <div class="post-pre">
+                
+            </div>
+            <div class="post-next">
+                
+                    <a href="/delicate/2022/05/12/inline-tags/">
+                        本主题内置tags
+                        <svg viewBox="0 0 1024 1024" version="1.1" width="20" height="20">
+                            <path d="M462.08 192a47.36 47.36 0 0 0 0 64l256 256-256 256a47.36 47.36 0 1 0 64 64l288.64-288.64A50.56 50.56 0 0 0 832 512a47.36 47.36 0 0 0-14.08-33.28L529.28 192a47.36 47.36 0 0 0-67.2 0z"></path>
+                            <path d="M206.08 192a47.36 47.36 0 0 0 0 64l256 256-256 256a47.36 47.36 0 1 0 64 64l291.84-286.08A50.56 50.56 0 0 0 576 512a47.36 47.36 0 0 0-14.08-33.28L273.28 192a47.36 47.36 0 0 0-67.2 0z"></path>
+                        </svg>
+                    </a>
+                
+            </div>
+        </div>
+
+    </section>
+     
+    <section class="post-toc transition" id="post-toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CodePen"><span class="toc-number">1.</span> <span class="toc-text">CodePen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">HTML架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E6%A0%B7%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">CSS样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React%E6%9E%B6%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">React架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">按钮点击事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97-1-9"><span class="toc-number">5.1.</span> <span class="toc-text">数字 1-9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E3%80%81%E5%87%8F%E3%80%81%E4%B9%98%E3%80%81%E9%99%A4%E6%8C%89%E9%92%AE"><span class="toc-number">5.2.</span> <span class="toc-text">加、减、乘、除按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="toc-number">5.3.</span> <span class="toc-text">实现四则运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%8C%89%E9%92%AE"><span class="toc-number">5.4.</span> <span class="toc-text">清除按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E9%92%AE0"><span class="toc-number">5.5.</span> <span class="toc-text">按钮0</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E9%80%BB%E8%BE%91"><span class="toc-number">6.</span> <span class="toc-text">立即执行逻辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E4%BB%85%E6%98%AF%E5%87%8F%E5%8F%B7%EF%BC%8C%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E8%B4%9F%E6%95%B0%E7%AC%A6%E5%8F%B7"><span class="toc-number">7.</span> <span class="toc-text">- 不仅是减号，也可以作为负数符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%B0%8F%E6%95%B0%E5%8A%9F%E8%83%BD"><span class="toc-number">8.</span> <span class="toc-text">实现小数功能</span></a></li></ol>
+    </section>
+    <span class="open-toc transition" id="open-toc">
+        <svg viewBox="0 0 1088 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+            <path d="M638.434144 769.076746v-126.612002H513.101697v126.612002H402.484137a54.44508 54.44508 0 0 0 0 80.292098l131.53829 157.321331a61.418657 61.418657 0 0 0 85.346342 0.063978l131.346357-157.385309a54.381103 54.381103 0 0 0 0-80.292098H638.434144zM511.822142 252.840138v130.898513h126.612002V252.840138h110.681538c23.351885-23.031996 23.351885 3.518777 0-19.641175L618.984903 19.513219a60.714902 60.714902 0 0 0-84.83452 0l-134.225357 213.685744c-23.351885 23.095974-23.351885-3.454799 0 19.641175H511.822142zM63.977768 447.844374h1023.644283v127.955536H63.977768z"></path>
+        </svg>
+    </span>
+</div>
+
+
+  </main>
+  <footer class="foot">
+    <p>
+    <span id="times">载入时间...</span>
+    <span style="display: none;" id="start-time">2021-11-01T00:00:00</span>
+</p>
+<p>
+    <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    ❤️
+    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a>
+</p>
+<p>Copyright &#9400; 2021. All rights reserved.</p>
+
+<span id="to_top" class="transition">
+    <svg class="transition" viewBox="0 0 1024 1024" width="26" height="26">
+        <path d="M904 692c0 8.189-3.124 16.379-9.372 22.628-12.497 12.496-32.759 12.496-45.256 0L512 377.255 174.628 714.628c-12.497 12.496-32.758 12.496-45.255 0-12.497-12.498-12.497-32.758 0-45.256l360-360c12.497-12.496 32.758-12.496 45.255 0l360 360C900.876 675.621 904 683.811 904 692z"></path>
+    </svg>
+</span>
+
+
+  </footer>
+   
+
+<script src="/delicate/js/index.js"></script>
+
+
+<script src="/delicate/js/markdown.js"></script>
+
+
+<script src="/delicate/js/event.js"></script>
+
+
+
+<script src="/delicate/js/boot.js"></script>
+
+
+</body>
+
+</html>

@@ -25,7 +25,6 @@
   
 <link rel="stylesheet" href="/delicate/css/index.css">
 
-
 <link rel="alternate" href="/delicate/atom.xml" title="hexo-theme-delicate" type="application/atom+xml">
 </head>
 
@@ -38,7 +37,7 @@
         <img src="/delicate//img/logo128.ico" width="30" height="30" alt="logo">
         <span class="nav-brand-text">hexo-theme-delicate</span>
       </a>
-    </div>
+    </div> 
     <div class="nav-link">
       <a href="/delicate/" class="nav-item">
         主页
@@ -149,8 +148,8 @@
         <p class="blog-post-info">
         <span>2022-05-12</span>
         
-        <span class="post-count">587字</span>
-        <span class="post-count">2分钟</span>
+        <span class="post-count">793字</span>
+        <span class="post-count">3分钟</span>
         </p>
 
         <h2 id="note"><a href="#note" class="headerlink" title="note"></a>note</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&#123;% note [class] %&#125;<br>note-info<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
@@ -268,6 +267,32 @@
                 <div class="collapse-text"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be <span style="background:blue;color:white">blue</span> with no <span style="background:#ffff00;color:#222">underlinesinline</span> codeinline code inside link</p></div>
             </div>
 
+<h2 id="Embed"><a href="#Embed" class="headerlink" title="Embed"></a>Embed</h2><h3 id="codepen"><a href="#codepen" class="headerlink" title="codepen"></a>codepen</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% codepen [your pen&#x27;s hash] [your codepen&#x27;s user] [your codepen&#x27;s title] [height] [data-default-tab] %&#125;<br></code></pre></td></tr></table></figure>
+
+<p>获取你的<code>codepen</code>的<code>url</code>，例如：<code>https://codepen.io/Kartjim/pen/gOvojEa</code>；<br>其中：</p>
+<ul>
+<li><code>Kartjim</code>是用户名，即<code>[your codepen&#39;s user]</code>；<strong>必填</strong></li>
+<li><code>gOvojEa</code>是这个pen的hash值，即<code>[your pen&#39;s hash]</code>；<strong>必填</strong></li>
+<li><code>[your codepen&#39;s title]</code>是你的codepen的<code>title</code>，他会在codepen没有加载完成时显示，如果文字间有空格需要将文字放在<code>&quot; &quot;</code>或<code>&#39; &#39;</code>里面;<strong>如果后面两个要填，这个值不可忽略！</strong></li>
+<li><code>[height]</code>设定codepen高度,默认是<code>300</code></li>
+<li><code>[data-default-tab]</code>设定要显示的<code>tab</code>，默认是 <code>html,result</code></li>
+</ul>
+<p>所以，这个例子可以写为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdwon">&#123;% codepen gOvojEa Kartjim &quot;Random Quote Machine&quot; 520 css,result %&#125;<br></code></pre></td></tr></table></figure>
+
+<p class="codepen" data-height="520" data-default-tab=css,result data-slug-hash=gOvojEa data-user=Kartjim >
+        <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/Kartjim/pen/gOvojEa">
+        Random Quote Machine</a> by Kartjim (<a target="_blank" rel="noopener" href="https://codepen.io/Kartjim">@Kartjim</a>)
+        on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="github-gist"><a href="#github-gist" class="headerlink" title="github gist"></a>github gist</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://gist.github.com/can-dy-jack/350eb9092291161d49ceb906f91ee886.js&quot;</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<script src="https://gist.github.com/can-dy-jack/350eb9092291161d49ceb906f91ee886.js"></script>
+
+
+
 
 
         <div class="post-share">
@@ -327,6 +352,14 @@
         <div class="post-change">
             <div class="post-pre">
                 
+                    <a href="/delicate/2022/06/15/react-calculator/">
+                        <svg viewBox="0 0 1024 1024" version="1.1" width="20" height="20">
+                            <path d="M561.92 832a47.36 47.36 0 0 0 0-64l-256-256 256-256a47.36 47.36 0 1 0-64-64l-288.64 288.64A50.56 50.56 0 0 0 192 512a47.36 47.36 0 0 0 14.08 33.28L494.72 832a47.36 47.36 0 0 0 67.2 0z"></path>
+                            <path d="M817.92 832a47.36 47.36 0 0 0 0-64.00000001l-256-255.99999999 256-255.99999999a47.36 47.36 0 1 0-64.00000001-64.00000001l-291.83999999 286.08A50.56 50.56 0 0 0 447.99999999 512a47.36 47.36 0 0 0 14.08000001 33.28L750.72 831.99999999a47.36 47.36 0 0 0 67.2 1e-8z"></path>
+                        </svg>
+                        React Calculator
+                    </a>
+                
             </div>
             <div class="post-next">
                 
@@ -344,7 +377,7 @@
     </section>
      
     <section class="post-toc transition" id="post-toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#note"><span class="toc-number">1.</span> <span class="toc-text">note</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%90%AB%E5%88%97%E8%A1%A8"><span class="toc-number">1.1.</span> <span class="toc-text">内含列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#color"><span class="toc-number">2.</span> <span class="toc-text">color</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#description"><span class="toc-number">3.</span> <span class="toc-text">description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#toasts"><span class="toc-number">4.</span> <span class="toc-text">toasts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#background"><span class="toc-number">5.</span> <span class="toc-text">background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#collapse"><span class="toc-number">6.</span> <span class="toc-text">collapse</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#note"><span class="toc-number">1.</span> <span class="toc-text">note</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%90%AB%E5%88%97%E8%A1%A8"><span class="toc-number">1.1.</span> <span class="toc-text">内含列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#color"><span class="toc-number">2.</span> <span class="toc-text">color</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#description"><span class="toc-number">3.</span> <span class="toc-text">description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#toasts"><span class="toc-number">4.</span> <span class="toc-text">toasts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#background"><span class="toc-number">5.</span> <span class="toc-text">background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#collapse"><span class="toc-number">6.</span> <span class="toc-text">collapse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Embed"><span class="toc-number">7.</span> <span class="toc-text">Embed</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#codepen"><span class="toc-number">7.1.</span> <span class="toc-text">codepen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github-gist"><span class="toc-number">7.2.</span> <span class="toc-text">github gist</span></a></li></ol></li></ol>
     </section>
     <span class="open-toc transition" id="open-toc">
         <svg viewBox="0 0 1088 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
@@ -373,6 +406,7 @@
     </svg>
 </span>
 
+
   </footer>
    
 
@@ -383,7 +417,6 @@
 
 
 <script src="/delicate/js/event.js"></script>
-
 
 
 
