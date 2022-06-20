@@ -490,29 +490,51 @@ html.ie6 .toasts {
   background-color: #faf5f0;
 }
 .collapse {
+  background: #f4f4f4;
   border: 1px solid #eee;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  margin: 10px 0;
 }
 .collapse .collapse-btn {
-  border-bottom: 1px solid #eee;
-  background: #fff;
+  background: #f4f4f4;
   position: sticky;
   top: 50px;
-  text-align: center;
+  cursor: pointer;
+  padding: 10px 15px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+.collapse .collapse-btn svg {
+  width: 16px;
+  height: 16px;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 .collapse .collapse-btn button {
   outline: none;
   background: none;
-  font-size: 1rem;
-  cursor: pointer;
-  width: 100%;
+  font-weight: bold;
+  font-size: 1em;
   border: none;
-  border-top: 3px solid #0cc5c5;
-  padding: 15px;
-  background: #fff;
+  cursor: pointer;
 }
 .collapse .collapse-text {
-  padding: 10px 20px;
-  display: non;
+  padding: 5px 15px;
+  background: #fafafa;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  overflow: hidden;
 }
 .codepen {
   height: 300px;

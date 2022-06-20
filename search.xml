@@ -281,31 +281,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/delicate/2020/12/28/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>intro</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>first</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cookie</title>
     <url>/delicate/2021/12/16/cookie/</url>
     <content><![CDATA[<h2 id="cookie是什么"><a href="#cookie是什么" class="headerlink" title="cookie是什么"></a>cookie是什么</h2><div class='description info'><span class='description-title'>百度百科</span><div><p>cookie是一个保存在客户机中的简单的文本文件, 这个文件与特定的 Web 文档关联在一起, 保存了该客户机访问这个Web 文档时的信息, 当客户机再次访问这个 Web 文档时这些信息可供该文档使用。<br>由于“Cookie”具有可以保存在客户机上的神奇特性, 因此它可以帮助我们实现记录用户个人信息的功能, 而这一切都不必使用复杂的CGI等程序</p></div></div>
@@ -362,6 +337,31 @@
       <tags>
         <tag>cookie</tag>
         <tag>front-end</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/delicate/2020/12/28/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>intro</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>first</tag>
       </tags>
   </entry>
   <entry>
@@ -477,7 +477,8 @@
 
 <div class="collapse collapse-info">
                 <div class="collapse-btn">
-                    <button>collapse</button>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"/></svg>
+                    <button type="button" title="click to open/close">collapse</button>
                 </div>
                 <div class="collapse-text"><p><strong>Markdown</strong> is supported, Text can be bold, italic, or strikethrough.<br>Links should be <span style="background:blue;color:white">blue</span> with no <span style="background:#ffff00;color:#222">underlinesinline</span> codeinline code inside link</p></div>
             </div>
@@ -621,40 +622,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode每日一题 - 507. 完美数</title>
-    <url>/delicate/2021/12/31/leetcode-507/</url>
-    <content><![CDATA[<h2 id="寻找完美数"><a href="#寻找完美数" class="headerlink" title="寻找完美数"></a>寻找完美数</h2><div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>题目</div> <div class="toasts-content"><p>对于一个 正整数，如果它和除了它自身以外的所有 正因子 之和相等，我们称它为 「完美数」。<br>给定一个 整数 n， 如果是完美数，返回 true，否则返回 false。<br>其中，1 &lt;&#x3D; num &lt;&#x3D; 10^8^</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/perfect-number">https://leetcode-cn.com/problems/perfect-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 </p></blockquote></div></div>
-
-<p>示例：</p>
-<blockquote>
-<p>输入：num &#x3D; 28<br>输出：true<br>解释：28 &#x3D; 1 + 2 + 4 + 7 + 14<br>1, 2, 4, 7, 和 14 是 28 的所有正因子。</p>
-</blockquote>
-<span id="more"></span>
-
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="按照题目要求来"><a href="#按照题目要求来" class="headerlink" title="按照题目要求来"></a>按照题目要求来</h4><p>用一个循环查找数字的因数，同时储存，最后比较因数和是否与原数字相同</p>
-<p>代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(num === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">Math</span>.ceil(num/<span class="hljs-number">2</span>);i++)&#123;<br>        <span class="hljs-keyword">if</span>(num%i === <span class="hljs-number">0</span>)&#123;<br>            sum += i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum === num;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<p>但是，按照正常逻辑编写代码，效率很低，会很慢😭<br>因为测试中会有个变态案例：<code>100000000</code></p>
-<h4 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h4><p>按照题目要求，这个<code>完美数</code>个数目前是有限的，而且题目限制 1 &lt;&#x3D; num &lt;&#x3D; 10^8^  ，<br>所以测试案例中结果必定在 <code>[6,28,496,8128,33550336]</code> 范围里。</p>
-<p>所以可以穷举所有可能啦~</p>
-<p>使用集合：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>]);<br>    <span class="hljs-keyword">return</span> all.has(num);<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>或者使用列表：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = [<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>];<br>    <span class="hljs-keyword">return</span> all.indexOf(num) !== -<span class="hljs-number">1</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>又或者直接判断：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> num === <span class="hljs-number">6</span> || num === <span class="hljs-number">28</span> || num === <span class="hljs-number">496</span> || num === <span class="hljs-number">8128</span> || num === <span class="hljs-number">33550336</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode每日一题-1706. 球会落何处（2022-2-24）</title>
     <url>/delicate/2022/02/24/leetcode-1706/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-info"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m-114.176-310.954667a53.333333 53.333333 0 0 0 75.434667 0l323.328-323.328a53.333333 53.333333 0 1 0-75.434667-75.434666l-287.914667 283.306666-128.853333-128.853333a53.333333 53.333333 0 1 0-75.434667 75.434667l168.874667 168.874666z"></path></svg>题目</div> <div class="toasts-content"><p>用一个大小为 m x n 的二维网格 grid 表示一个箱子。你有 n 颗球。箱子的顶部和底部都是开着的。<br>箱子中的每个单元格都有一个对角线挡板，跨过单元格的两个角，可以将球导向左侧或者右侧。</p><ul><li>将球导向右侧的挡板跨过左上角和右下角，在网格中用 1 表示。</li><li>将球导向左侧的挡板跨过右上角和左下角，在网格中用 -1 表示。</li></ul><p>在箱子每一列的顶端各放一颗球。每颗球都可能卡在箱子里或从底部掉出来。如果球恰好卡在两块挡板之间的 “V” 形图案，或者被一块挡导向到箱子的任意一侧边上，就会卡住。</p><p>返回一个大小为 n 的数组 answer ，其中 answer[i] 是球放在顶部的第 i 列后从底部掉出来的那一列对应的下标，如果球卡在盒子里，则返回 -1 。</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/where-will-the-ball-fall">https://leetcode-cn.com/problems/where-will-the-ball-fall</a><br>著作权归领扣网络所有。</p></blockquote></div></div>
@@ -709,6 +676,40 @@
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> findBall = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(grid[<span class="hljs-number">0</span>].length === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> [-<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">let</span> re = [];<br>    <span class="hljs-keyword">const</span> dfs = <span class="hljs-function">(<span class="hljs-params">row,col</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span>(row &gt;= grid.length) <span class="hljs-keyword">return</span> col;<br>        <span class="hljs-keyword">if</span>(col === <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span> || grid[row][col+<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(col === grid[<span class="hljs-number">0</span>].length-<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span> || grid[row][col-<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\|&quot;</span><br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col+<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\\&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col-<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;//&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;grid[<span class="hljs-number">0</span>].length;++i)&#123;<br>        re.push(dfs(<span class="hljs-number">0</span>,i));<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
 
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode每日一题 - 507. 完美数</title>
+    <url>/delicate/2021/12/31/leetcode-507/</url>
+    <content><![CDATA[<h2 id="寻找完美数"><a href="#寻找完美数" class="headerlink" title="寻找完美数"></a>寻找完美数</h2><div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>题目</div> <div class="toasts-content"><p>对于一个 正整数，如果它和除了它自身以外的所有 正因子 之和相等，我们称它为 「完美数」。<br>给定一个 整数 n， 如果是完美数，返回 true，否则返回 false。<br>其中，1 &lt;&#x3D; num &lt;&#x3D; 10^8^</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/perfect-number">https://leetcode-cn.com/problems/perfect-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 </p></blockquote></div></div>
+
+<p>示例：</p>
+<blockquote>
+<p>输入：num &#x3D; 28<br>输出：true<br>解释：28 &#x3D; 1 + 2 + 4 + 7 + 14<br>1, 2, 4, 7, 和 14 是 28 的所有正因子。</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="按照题目要求来"><a href="#按照题目要求来" class="headerlink" title="按照题目要求来"></a>按照题目要求来</h4><p>用一个循环查找数字的因数，同时储存，最后比较因数和是否与原数字相同</p>
+<p>代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(num === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">Math</span>.ceil(num/<span class="hljs-number">2</span>);i++)&#123;<br>        <span class="hljs-keyword">if</span>(num%i === <span class="hljs-number">0</span>)&#123;<br>            sum += i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum === num;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>但是，按照正常逻辑编写代码，效率很低，会很慢😭<br>因为测试中会有个变态案例：<code>100000000</code></p>
+<h4 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h4><p>按照题目要求，这个<code>完美数</code>个数目前是有限的，而且题目限制 1 &lt;&#x3D; num &lt;&#x3D; 10^8^  ，<br>所以测试案例中结果必定在 <code>[6,28,496,8128,33550336]</code> 范围里。</p>
+<p>所以可以穷举所有可能啦~</p>
+<p>使用集合：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>]);<br>    <span class="hljs-keyword">return</span> all.has(num);<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>或者使用列表：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = [<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>];<br>    <span class="hljs-keyword">return</span> all.indexOf(num) !== -<span class="hljs-number">1</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>又或者直接判断：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> num === <span class="hljs-number">6</span> || num === <span class="hljs-number">28</span> || num === <span class="hljs-number">496</span> || num === <span class="hljs-number">8128</span> || num === <span class="hljs-number">33550336</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -1107,17 +1108,11 @@
 <p>本项目是freeCodeCamp上的其中一个前端开发库项目，推荐自学的同学去<a href="https://chinese.freecodecamp.org/learn">免费学习编程 - Python、JavaScript、Java、Git 等 (freecodecamp.org)</a></p>
 <p>这个计算器项目需求很清晰，具体可看：<a href="https://chinese.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-javascript-calculator">前端开发库项目 - 构建一个 JavaScript 计算器 | 学习 | freeCodeCamp.org</a></p>
 <p>这里列出我的大致需求：</p>
-<ol>
-<li>计算器要有最基本的按钮，比如<code>AC</code>、<code>=</code>、0-9这10个数字按钮、<code>+</code> <code>-</code> <code>*</code> <code>/</code> 按钮、小数点<code>.</code>；</li>
-<li>其次，计算器要有展示数据计算过程的地方，一个实时输入区，一个暂存区。</li>
-<li>按下数字可以在实时输入区输入数字</li>
-<li><code>AC</code>可以初始化实时输入区和暂存区的内容，即<code>0</code></li>
-<li>加、减、乘、除操作的功能实现，需要和<code>=</code>一起实现</li>
-<li>如果在按下 <code>=</code> 符号后继续按一个运算符，则应该在上一次计算结果的基础上进行新的计算。</li>
-<li><code>-</code> 不仅是减号，也可以作为负数符号</li>
-<li><code>.</code> 实现小数功能</li>
-<li>最后需要注意的是，本计算器项目选用的是<strong>立即执行逻辑</strong>！</li>
-</ol>
+<div class="note note-info">
+            <ol><li>计算器要有最基本的按钮，比如<code>AC</code>、<code>=</code>、0-9这10个数字按钮、<code>+</code> <code>-</code> <code>*</code> <code>/</code> 按钮、小数点<code>.</code>；</li><li>其次，计算器要有展示数据计算过程的地方，一个实时输入区，一个暂存区。</li><li>按下数字可以在实时输入区输入数字</li><li><code>AC</code>可以初始化实时输入区和暂存区的内容，即<code>0</code></li><li>加、减、乘、除操作的功能实现，需要和<code>=</code>一起实现</li><li>如果在按下 <code>=</code> 符号后继续按一个运算符，则应该在上一次计算结果的基础上进行新的计算。</li><li><code>-</code> 不仅是减号，也可以作为负数符号</li><li><code>.</code> 实现小数功能</li><li>最后需要注意的是，本计算器项目选用的是<strong>立即执行逻辑</strong>！</li></ol>
+          </div>
+
+
 <span id="more"></span>
 
 <h2 id="CodePen"><a href="#CodePen" class="headerlink" title="CodePen"></a>CodePen</h2><blockquote>
@@ -1130,9 +1125,9 @@
 <li>之后在 <code>Add External Scripts/Pens</code>里搜索并加入 <code>react</code> 和 <code>react-dom</code> 。</li>
 </ul>
 <p>至此，项目的基本设置完成。</p>
-<h2 id="HTML架构"><a href="#HTML架构" class="headerlink" title="HTML架构"></a>HTML架构</h2><p>由于使用的是React，所以HTML只需要给个div标签挂载上去即可。</p>
-<p>这里我将 <code>id</code> 设为</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="HTML架构"><a href="#HTML架构" class="headerlink" title="HTML架构"></a>HTML架构</h2><div class="note note-purple">
+            <p>由于使用的是React，所以HTML只需要给个div标签挂载上去即可。</p><p>这里我将 <code>id</code> 设为</p><figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+          </div>
 
 <h2 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h2><p>按钮宽度和长度都是有比例关系的，很适合使用<code>grid</code>布局，目前主流浏览器都支持<code>grid</code>布局。按钮是5*4的布局，每个按钮宽度为父元素的25%，高度设置为70px；</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.btn-box</span> &#123;<br>    <span class="hljs-attribute">display</span>: grid;<br>    grid-template-<span class="hljs-attribute">columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">4</span>, <span class="hljs-number">25%</span>);<br>    grid-template-rows: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">5</span>, <span class="hljs-number">70px</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -1143,14 +1138,11 @@
 <figure class="highlight scss"><table><tr><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-tag">body</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2233dd</span>;<br>&#125;<br><span class="hljs-selector-id">#app</span> &#123;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">95vh</span>;<br>  <span class="hljs-attribute">display</span>:flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>&#125;<br><span class="hljs-selector-class">.app</span> &#123;<br>  user-select: none;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-number">#2233dd</span>;<br>  <span class="hljs-attribute">box-shadow</span>:  <span class="hljs-number">20px</span> <span class="hljs-number">20px</span> <span class="hljs-number">53px</span> <span class="hljs-number">#1a27aa</span>,<br>             -<span class="hljs-number">20px</span> -<span class="hljs-number">20px</span> <span class="hljs-number">53px</span> <span class="hljs-number">#2a3fff</span>;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">320px</span>; <br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;<br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">5px</span> solid <span class="hljs-number">#23d</span>;<br>  <span class="hljs-attribute">color</span>: white;<br>  <span class="hljs-selector-class">.btn-box</span> &#123;<br>    <span class="hljs-attribute">display</span>: grid;<br>    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">5px</span>;<br>    grid-template-<span class="hljs-attribute">columns</span>: repeat(<span class="hljs-number">4</span>, <span class="hljs-number">25%</span>);<br>    grid-template-rows: repeat(<span class="hljs-number">5</span>, <span class="hljs-number">70px</span>);<br>    <span class="hljs-selector-tag">button</span> &#123;<br>      <span class="hljs-attribute">cursor</span>: pointer;<br>      <span class="hljs-attribute">border</span>: none;<br>      <span class="hljs-attribute">outline</span>: none;<br>      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0px</span>;<br>      <span class="hljs-attribute">background</span>: <span class="hljs-number">#e0e0e0</span>;<br>      <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">10px</span>;<br>      <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#23d</span>;<br>      <span class="hljs-attribute">color</span>: white;<br>      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">24px</span>;<br>      <span class="hljs-attribute">box-sizing</span>: border-box;<br>      &amp;<span class="hljs-selector-pseudo">:active</span> &#123;<br>        <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">5px</span> <span class="hljs-number">5px</span> <span class="hljs-number">16px</span> <span class="hljs-number">#1e2cc0</span>,inset -<span class="hljs-number">5px</span> -<span class="hljs-number">5px</span> <span class="hljs-number">16px</span> <span class="hljs-number">#263afa</span>;<br>      &#125;<br>      &amp;<span class="hljs-selector-pseudo">:hover</span> &#123;<br>        <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#55f</span>;<br>        <span class="hljs-comment">// border-radius: 5px;</span><br>        <span class="hljs-attribute">background</span>: linear-gradient(<span class="hljs-number">145deg</span>, <span class="hljs-number">#23d</span>, <span class="hljs-number">#1f2ec7</span>);<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#clear</span> &#123;<br>        grid-column-start: span <span class="hljs-number">2</span>;<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#zero</span> &#123;<br>         grid-column-start: span <span class="hljs-number">2</span>;<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#equals</span> &#123;<br>         grid-row-start: span <span class="hljs-number">2</span>;<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#subtract</span>, &amp;<span class="hljs-selector-id">#add</span>, &amp;<span class="hljs-selector-id">#equals</span> &#123;<br>        <span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> solid rgba(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>,<span class="hljs-number">240</span>, <span class="hljs-number">1</span>);<br>      &#125;<br>      &amp;<span class="hljs-selector-id">#clear</span>, &amp;<span class="hljs-selector-id">#divide</span> &#123;<br>        <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid rgba(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>,<span class="hljs-number">240</span>, <span class="hljs-number">1</span>);<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-selector-class">.show</span> &#123;<br>    <span class="hljs-attribute">text-align</span>: right;<br>  &#125;<br>  <span class="hljs-selector-class">.stag-area</span> &#123;<br>    <span class="hljs-comment">// padding: 5px 0;</span><br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#aaa</span>;<br>  &#125;<br>  <span class="hljs-selector-class">.input-area</span> &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">22px</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#66f</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>具体代码也可以去我的<a href="https://codepen.io/Kartjim/pen/YzeLRPQ">codepen</a>查看。</p>
-<h2 id="React架构"><a href="#React架构" class="headerlink" title="React架构"></a>React架构</h2><p>首先，创建<code>Calculator</code>组件类进行计算器的渲染，包括实时输入区、暂存区以及所有的按钮。<br>同时，设置<code>state</code>保存必要的数据:</p>
-<ul>
-<li><code>input</code>保存当前输入的数字或运算符，即实时输入区的内容。</li>
-<li><code>stag</code>保存暂存区的数据</li>
-<li><code>operator</code>保存当前所使用的运算符</li>
-<li><code>isCalculated</code>保存是否已经计算</li>
-<li><code>isNegative</code>保存<code>-</code>是负号还是运算符</li>
-</ul>
+<h2 id="React架构"><a href="#React架构" class="headerlink" title="React架构"></a>React架构</h2><p>首先，创建<code>Calculator</code>组件类进行计算器的渲染，包括实时输入区、暂存区以及所有的按钮。  </p>
+<div class="note note-primary">
+            <p>同时，设置<code>state</code>保存必要的数据:</p><ul><li><code>input</code>保存当前输入的数字或运算符，即实时输入区的内容。</li><li><code>stag</code>保存暂存区的数据</li><li><code>operator</code>保存当前所使用的运算符</li><li><code>isCalculated</code>保存是否已经计算</li><li><code>isNegative</code>保存<code>-</code>是负号还是运算符</li></ul>
+          </div>
+
 <p>全局变量<code>operat</code>保存所有的运算符和<code>0</code>（<code>0</code>比较特殊，由于要做的计算器是<strong>立即执行逻辑</strong>，按下运算符时要判断是否已经计算过。如果是计算过的结果显示在实时输入区，那么这时按下<code>0</code>就不是在数字后面加个<code>0</code>，而是将整个实时输入区变为<code>0</code>）。</p>
 <blockquote>
 <p>这里没有把<code>button</code>当做一个子组件来写，因为封装成一个子组件</p>
@@ -1371,7 +1363,8 @@
 
 <div class="collapse collapse-info">
                 <div class="collapse-btn">
-                    <button>补充</button>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"/></svg>
+                    <button type="button" title="click to open/close">补充</button>
                 </div>
                 <div class="collapse-text"><p>菜鸟教程网友补充: <a href="https://www.runoob.com/ajax/ajax-asp-php.html">https://www.runoob.com/ajax/ajax-asp-php.html</a><br><br>xmlhttp.readyState的值及解释：<br><br>0：请求未初始化（还没有调用 open()）。<br><br>1：请求已经建立，但是还没有发送（还没有调用 send()）。<br><br>2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。<br><br>3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。<br><br>4：响应已完成；您可以获取并使用服务器的响应了。<br><br>xmlhttp.status的值及解释：<br><br>100——客户必须继续发出请求 <br><br>101——客户要求服务器根据请求转换HTTP协议版本<br><br>200——交易成功  <br><br>201——提示知道新文件的URL  <br><br>202——接受和处理、但处理未完成  <br><br>203——返回信息不确定或不完整  <br><br>204——请求收到，但返回信息为空  <br><br>205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件  <br><br>206——服务器已经完成了部分用户的GET请求  <br><br>300——请求的资源可在多处得到  <br><br>301——删除请求数据  <br><br>302——在其他地址发现了请求数据  <br><br>303——建议客户访问其他URL或访问方式  <br><br>304——客户端已经执行了GET，但文件未变化  <br><br>305——请求的资源必须从服务器指定的地址得到  <br><br>306——前一版本HTTP中使用的代码，现行版本中不再使用  <br><br>307——申明请求的资源临时性删除  <br><br>400——错误请求，如语法错误  <br><br>401——请求授权失败  <br><br>402——保留有效ChargeTo头响应 <br><br>403——请求不允许  <br><br>404——没有发现文件、查询或URl  <br><br>405——用户在Request-Line字段定义的方法不允许<br><br>406——根据用户发送的Accept拖，请求资源不可访问  <br><br>407——类似401，用户必须首先在代理服务器上得到授权  <br><br>408——客户端没有在用户指定的饿时间内完成请求  <br><br>409——对当前资源状态，请求不能完成  <br><br>410——服务器上不再有此资源且无进一步的参考地址  <br><br>411——服务器拒绝用户定义的Content-Length属性请求  <br><br>412——一个或多个请求头字段在当前请求中错误  <br><br>413——请求的资源大于服务器允许的大小  <br><br>414——请求的资源URL长于服务器允许的长度  <br><br>415——请求资源不支持请求项目格式  <br><br>416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段  <br><br>417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求<br><br>500——服务器产生内部错误  <br><br>501——服务器不支持请求的函数  <br><br>502——服务器暂时不可用，有时是为了防止发生系统过载  <br><br>503——服务器过载或暂停维修  <br><br>504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长  <br><br>505——服务器不支持或拒绝支请求头中指定的HTTP版本  <br><br>1xx:信息响应类，表示接收到请求并且继续处理  <br><br>2xx:处理成功响应类，表示动作被成功接收、理解和接受  <br><br>3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理  <br><br>4xx:客户端错误，客户请求包含语法错误或者是不能正确执行  <br><br>5xx:服务端错误，服务器不能正确执行一个正确的请求  <br><br>xmlhttp.readyState&#x3D;&#x3D;4 &amp;&amp; xmlhttp.status&#x3D;&#x3D;200的解释：请求完成并且成功返回。<br></p></div>
             </div>
