@@ -316,18 +316,18 @@ html.ie6 .excerpt img {
 }
 .post > table thead,
 .excerpt > table thead {
-  background-color: rgb(133, 214, 72);
+  background-color: #f6f6f6;
 }
 .post > table tr td,
 .excerpt > table tr td,
 .post > table tr th,
 .excerpt > table tr th {
-  border: 1px solid rgba(133, 214, 72);
+  border: 1px solid #f6f6f6;
   padding: 5px;
 }
 .post > table tr:nth-child(2n),
 .excerpt > table tr:nth-child(2n) {
-  background-color: rgba(133, 214, 72, .1);
+  background-color: rgb(246, 253, 253);
 }
 .post li>code,
 .excerpt li>code,
