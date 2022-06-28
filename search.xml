@@ -622,6 +622,40 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode每日一题 - 507. 完美数</title>
+    <url>/delicate/2021/12/31/leetcode-507/</url>
+    <content><![CDATA[<h2 id="寻找完美数"><a href="#寻找完美数" class="headerlink" title="寻找完美数"></a>寻找完美数</h2><div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>题目</div> <div class="toasts-content"><p>对于一个 正整数，如果它和除了它自身以外的所有 正因子 之和相等，我们称它为 「完美数」。<br>给定一个 整数 n， 如果是完美数，返回 true，否则返回 false。<br>其中，1 &lt;&#x3D; num &lt;&#x3D; 10^8^</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/perfect-number">https://leetcode-cn.com/problems/perfect-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 </p></blockquote></div></div>
+
+<p>示例：</p>
+<blockquote>
+<p>输入：num &#x3D; 28<br>输出：true<br>解释：28 &#x3D; 1 + 2 + 4 + 7 + 14<br>1, 2, 4, 7, 和 14 是 28 的所有正因子。</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="按照题目要求来"><a href="#按照题目要求来" class="headerlink" title="按照题目要求来"></a>按照题目要求来</h4><p>用一个循环查找数字的因数，同时储存，最后比较因数和是否与原数字相同</p>
+<p>代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(num === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">Math</span>.ceil(num/<span class="hljs-number">2</span>);i++)&#123;<br>        <span class="hljs-keyword">if</span>(num%i === <span class="hljs-number">0</span>)&#123;<br>            sum += i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum === num;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>但是，按照正常逻辑编写代码，效率很低，会很慢😭<br>因为测试中会有个变态案例：<code>100000000</code></p>
+<h4 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h4><p>按照题目要求，这个<code>完美数</code>个数目前是有限的，而且题目限制 1 &lt;&#x3D; num &lt;&#x3D; 10^8^  ，<br>所以测试案例中结果必定在 <code>[6,28,496,8128,33550336]</code> 范围里。</p>
+<p>所以可以穷举所有可能啦~</p>
+<p>使用集合：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>]);<br>    <span class="hljs-keyword">return</span> all.has(num);<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>或者使用列表：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = [<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>];<br>    <span class="hljs-keyword">return</span> all.indexOf(num) !== -<span class="hljs-number">1</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>又或者直接判断：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> num === <span class="hljs-number">6</span> || num === <span class="hljs-number">28</span> || num === <span class="hljs-number">496</span> || num === <span class="hljs-number">8128</span> || num === <span class="hljs-number">33550336</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode每日一题-1706. 球会落何处（2022-2-24）</title>
     <url>/delicate/2022/02/24/leetcode-1706/</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="toasts toasts-info"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m-114.176-310.954667a53.333333 53.333333 0 0 0 75.434667 0l323.328-323.328a53.333333 53.333333 0 1 0-75.434667-75.434666l-287.914667 283.306666-128.853333-128.853333a53.333333 53.333333 0 1 0-75.434667 75.434667l168.874667 168.874666z"></path></svg>题目</div> <div class="toasts-content"><p>用一个大小为 m x n 的二维网格 grid 表示一个箱子。你有 n 颗球。箱子的顶部和底部都是开着的。<br>箱子中的每个单元格都有一个对角线挡板，跨过单元格的两个角，可以将球导向左侧或者右侧。</p><ul><li>将球导向右侧的挡板跨过左上角和右下角，在网格中用 1 表示。</li><li>将球导向左侧的挡板跨过右上角和左下角，在网格中用 -1 表示。</li></ul><p>在箱子每一列的顶端各放一颗球。每颗球都可能卡在箱子里或从底部掉出来。如果球恰好卡在两块挡板之间的 “V” 形图案，或者被一块挡导向到箱子的任意一侧边上，就会卡住。</p><p>返回一个大小为 n 的数组 answer ，其中 answer[i] 是球放在顶部的第 i 列后从底部掉出来的那一列对应的下标，如果球卡在盒子里，则返回 -1 。</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/where-will-the-ball-fall">https://leetcode-cn.com/problems/where-will-the-ball-fall</a><br>著作权归领扣网络所有。</p></blockquote></div></div>
@@ -676,40 +710,6 @@
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> findBall = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(grid[<span class="hljs-number">0</span>].length === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> [-<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">let</span> re = [];<br>    <span class="hljs-keyword">const</span> dfs = <span class="hljs-function">(<span class="hljs-params">row,col</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span>(row &gt;= grid.length) <span class="hljs-keyword">return</span> col;<br>        <span class="hljs-keyword">if</span>(col === <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span> || grid[row][col+<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(col === grid[<span class="hljs-number">0</span>].length-<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span> || grid[row][col-<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\|&quot;</span><br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col+<span class="hljs-number">1</span>] === <span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;\\&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(grid[row][col] === -<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">if</span>(grid[row][col-<span class="hljs-number">1</span>] === -<span class="hljs-number">1</span>)&#123; <span class="hljs-comment">// &quot;//&quot;</span><br>                <span class="hljs-keyword">return</span> dfs(row+<span class="hljs-number">1</span>,col-<span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">else</span>  <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;grid[<span class="hljs-number">0</span>].length;++i)&#123;<br>        re.push(dfs(<span class="hljs-number">0</span>,i));<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
 
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode每日一题 - 507. 完美数</title>
-    <url>/delicate/2021/12/31/leetcode-507/</url>
-    <content><![CDATA[<h2 id="寻找完美数"><a href="#寻找完美数" class="headerlink" title="寻找完美数"></a>寻找完美数</h2><div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>题目</div> <div class="toasts-content"><p>对于一个 正整数，如果它和除了它自身以外的所有 正因子 之和相等，我们称它为 「完美数」。<br>给定一个 整数 n， 如果是完美数，返回 true，否则返回 false。<br>其中，1 &lt;&#x3D; num &lt;&#x3D; 10^8^</p><blockquote><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/perfect-number">https://leetcode-cn.com/problems/perfect-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 </p></blockquote></div></div>
-
-<p>示例：</p>
-<blockquote>
-<p>输入：num &#x3D; 28<br>输出：true<br>解释：28 &#x3D; 1 + 2 + 4 + 7 + 14<br>1, 2, 4, 7, 和 14 是 28 的所有正因子。</p>
-</blockquote>
-<span id="more"></span>
-
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h4 id="按照题目要求来"><a href="#按照题目要求来" class="headerlink" title="按照题目要求来"></a>按照题目要求来</h4><p>用一个循环查找数字的因数，同时储存，最后比较因数和是否与原数字相同</p>
-<p>代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span>(num === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-built_in">Math</span>.ceil(num/<span class="hljs-number">2</span>);i++)&#123;<br>        <span class="hljs-keyword">if</span>(num%i === <span class="hljs-number">0</span>)&#123;<br>            sum += i;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum === num;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<p>但是，按照正常逻辑编写代码，效率很低，会很慢😭<br>因为测试中会有个变态案例：<code>100000000</code></p>
-<h4 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h4><p>按照题目要求，这个<code>完美数</code>个数目前是有限的，而且题目限制 1 &lt;&#x3D; num &lt;&#x3D; 10^8^  ，<br>所以测试案例中结果必定在 <code>[6,28,496,8128,33550336]</code> 范围里。</p>
-<p>所以可以穷举所有可能啦~</p>
-<p>使用集合：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>]);<br>    <span class="hljs-keyword">return</span> all.has(num);<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>或者使用列表：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> all = [<span class="hljs-number">6</span>,<span class="hljs-number">28</span>,<span class="hljs-number">496</span>,<span class="hljs-number">8128</span>,<span class="hljs-number">33550336</span>];<br>    <span class="hljs-keyword">return</span> all.indexOf(num) !== -<span class="hljs-number">1</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>又或者直接判断：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> checkPerfectNumber = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> num === <span class="hljs-number">6</span> || num === <span class="hljs-number">28</span> || num === <span class="hljs-number">496</span> || num === <span class="hljs-number">8128</span> || num === <span class="hljs-number">33550336</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>JavaScript</category>
