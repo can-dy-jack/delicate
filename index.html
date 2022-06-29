@@ -155,6 +155,38 @@
 
 <article class="excerpt-container">
     <h1 class="excerpt-title">
+        <a href="/delicate/2022/06/29/tail-calls/">
+            JavaScript函数式编程之递归的几种方式
+        </a> 
+    </h1>
+    <p class="excerpt-meta">
+        <span>2022-06-29</span>
+        <span>
+            
+        </span>
+        <span class="post-count">1.1k字</span>
+        <span class="post-count">4分钟</span>
+    </p>
+    <div class="excerpt"> <blockquote>
+<p>函数式编程提倡使用<strong>递归</strong>，而不是循环。递归在某些场合下更优雅、更简洁。</p>
+</blockquote>
+<p>但是使用递归有时候会遇到一些问题，比如说<strong>栈溢出。</strong></p>
+<div class="toasts toasts-book"><div class="toasts-title"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M853.333333 896a42.666667 42.666667 0 0 1-65.28 36.266667l-253.44-158.72a42.666667 42.666667 0 0 0-45.226666 0l-253.44 158.72A42.666667 42.666667 0 0 1 170.666667 896V170.666667a85.333333 85.333333 0 0 1 85.333333-85.333334h512a85.333333 85.333333 0 0 1 85.333333 85.333334z"></path></svg>解决栈溢出</div> <div class="toasts-content"><p>这里总结了几种解决栈溢出问题的几种解决方案，比如最有效的尾递归（tail call），以及不使用尾递归的其它两种方式。</p></div></div>
+
+<p>首先，要解决问题就得先有问题；这里使用例子来分析递归的几种方法：</p>
+<div class="note note-warning">
+            <p><em>判断一句话中有几个元音字母</em></p><blockquote><p>这里给出判断是否元音字母的函数</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> isVowel = <span class="hljs-function"><span class="hljs-params">letter</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> vowel = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;e&#x27;</span>,<span class="hljs-string">&#x27;i&#x27;</span>,<span class="hljs-string">&#x27;o&#x27;</span>,<span class="hljs-string">&#x27;u&#x27;</span>,<span class="hljs-string">&#x27;A&#x27;</span>,<span class="hljs-string">&#x27;E&#x27;</span>,<span class="hljs-string">&#x27;I&#x27;</span>,<span class="hljs-string">&#x27;O&#x27;</span>,<span class="hljs-string">&#x27;U&#x27;</span>]);<br>    <span class="hljs-keyword">return</span> vowel.has(letter)<br>&#125;<br></code></pre></td></tr></table></figure>
+          </div> </div>
+    <div class="excerpt-more transition">
+        <a href="/delicate/2022/06/29/tail-calls/">
+            阅读更多 
+        </a>
+    </div>
+</article>
+<hr/>
+
+<article class="excerpt-container">
+    <h1 class="excerpt-title">
         <a href="/delicate/2022/06/26/linux-cal/">
             linux学习笔记之cal
         </a> 
@@ -305,31 +337,6 @@
 </ul> </div>
     <div class="excerpt-more transition">
         <a href="/delicate/2022/04/07/js-copy/">
-            阅读更多 
-        </a>
-    </div>
-</article>
-<hr/>
-
-<article class="excerpt-container">
-    <h1 class="excerpt-title">
-        <a href="/delicate/2022/03/01/JavaScript-arrary/">
-            JavaScript数组
-        </a> 
-    </h1>
-    <p class="excerpt-meta">
-        <span>2022-03-01</span>
-        <span>
-            
-                | 陈科衡
-            
-        </span>
-        <span class="post-count">551字</span>
-        <span class="post-count">2分钟</span>
-    </p>
-    <div class="excerpt"> JavaScript数组 基础API </div>
-    <div class="excerpt-more transition">
-        <a href="/delicate/2022/03/01/JavaScript-arrary/">
             阅读更多 
         </a>
     </div>
