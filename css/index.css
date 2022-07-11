@@ -192,28 +192,35 @@ code.hljs {
   text-decoration: underline;
 }
 .post h2,
-.excerpt h2 {
+.excerpt h2,
+.page h2 {
   font-size: 24px;
 }
 .post h3,
-.excerpt h3 {
+.excerpt h3,
+.page h3 {
   font-size: 20px;
 }
 .post h4,
 .excerpt h4,
+.page h4,
 .post h5,
 .excerpt h5,
+.page h5,
 .post h6,
-.excerpt h6 {
+.excerpt h6,
+.page h6 {
   font-size: 18px;
 }
 .post p,
-.excerpt p {
+.excerpt p,
+.page p {
   font-size: 16px;
   line-height: 24px;
 }
 .post a,
-.excerpt a {
+.excerpt a,
+.page a {
   border-bottom: 1px solid rgba(0,0,0,0.2);
   background-color: rgba(248, 229, 175, 0.3);
   color: #1a1a1a;
@@ -225,29 +232,36 @@ code.hljs {
   text-decoration: none;
 }
 .post a:hover,
-.excerpt a:hover {
+.excerpt a:hover,
+.page a:hover {
   background-color: #f8e5af;
   border-bottom-color: #1a1a1a;
   color: #1a1a1a;
 }
 .post a[rel='noopener']::after,
-.excerpt a[rel='noopener']::after {
+.excerpt a[rel='noopener']::after,
+.page a[rel='noopener']::after {
   content: '\1F517';
 }
 .post ul,
 .excerpt ul,
+.page ul,
 .post ol,
-.excerpt ol {
+.excerpt ol,
+.page ol {
   padding-left: 25px;
 }
 .post ul li,
 .excerpt ul li,
+.page ul li,
 .post ol li,
-.excerpt ol li {
+.excerpt ol li,
+.page ol li {
   margin-bottom: 3px;
 }
 .post img,
-.excerpt img {
+.excerpt img,
+.page img {
   -webkit-box-shadow: 0 0 14px 4px rgba(0,0,0,0.03);
   -moz-box-shadow: 0 0 14px 4px rgba(0,0,0,0.03);
   box-shadow: 0 0 14px 4px rgba(0,0,0,0.03);
@@ -260,35 +274,43 @@ code.hljs {
 }
 html.ie8 .post img,
 html.ie8 .excerpt img,
+html.ie8 .page img,
 html.ie7 .post img,
 html.ie7 .excerpt img,
+html.ie7 .page img,
 html.ie6 .post img,
-html.ie6 .excerpt img {
+html.ie6 .excerpt img,
+html.ie6 .page img {
   border: 2px solid rgba(0,0,0,0.03);
 }
 .post blockquote:not(.pullquote),
-.excerpt blockquote:not(.pullquote) {
+.excerpt blockquote:not(.pullquote),
+.page blockquote:not(.pullquote) {
   border-left: 5px solid #999;
   margin: 10px 0;
   padding: 5px 12px;
 }
 .post blockquote:not(.pullquote) p,
-.excerpt blockquote:not(.pullquote) p {
+.excerpt blockquote:not(.pullquote) p,
+.page blockquote:not(.pullquote) p {
   margin: 0;
   padding: 0;
   color: #808080;
 }
 .post blockquote:not(.pullquote) footer,
-.excerpt blockquote:not(.pullquote) footer {
+.excerpt blockquote:not(.pullquote) footer,
+.page blockquote:not(.pullquote) footer {
   margin: 10px 0;
   text-align: right;
 }
 .post blockquote:not(.pullquote) footer::before,
-.excerpt blockquote:not(.pullquote) footer::before {
+.excerpt blockquote:not(.pullquote) footer::before,
+.page blockquote:not(.pullquote) footer::before {
   content: "--";
 }
 .post .pullquote,
-.excerpt .pullquote {
+.excerpt .pullquote,
+.page .pullquote {
   background: #f2f2f2;
   margin: 20px 0;
   padding: 5px 20px;
@@ -300,75 +322,93 @@ html.ie6 .excerpt img {
   position: relative;
 }
 .post .pullquote p,
-.excerpt .pullquote p {
+.excerpt .pullquote p,
+.page .pullquote p {
   color: #555;
 }
 .post .pullquote .pullquote-icon,
-.excerpt .pullquote .pullquote-icon {
+.excerpt .pullquote .pullquote-icon,
+.page .pullquote .pullquote-icon {
   position: absolute;
   right: 10px;
   bottom: -14px;
 }
 .post .pullquote .pullquote-icon svg,
-.excerpt .pullquote .pullquote-icon svg {
+.excerpt .pullquote .pullquote-icon svg,
+.page .pullquote .pullquote-icon svg {
   fill: #aaa;
 }
 .post .pullquote.information,
-.excerpt .pullquote.information {
+.excerpt .pullquote.information,
+.page .pullquote.information {
   background: #d7f2ff;
 }
 .post .pullquote.information svg,
-.excerpt .pullquote.information svg {
+.excerpt .pullquote.information svg,
+.page .pullquote.information svg {
   fill: #7ed1f8;
 }
 .post .pullquote.red,
-.excerpt .pullquote.red {
+.excerpt .pullquote.red,
+.page .pullquote.red {
   background: #ffe1e7;
 }
 .post .pullquote.red svg,
-.excerpt .pullquote.red svg {
+.excerpt .pullquote.red svg,
+.page .pullquote.red svg {
   fill: #f56179;
 }
 .post .pullquote.danger,
-.excerpt .pullquote.danger {
+.excerpt .pullquote.danger,
+.page .pullquote.danger {
   background: #fffde1;
 }
 .post .pullquote.danger svg,
-.excerpt .pullquote.danger svg {
+.excerpt .pullquote.danger svg,
+.page .pullquote.danger svg {
   fill: #f4f753;
 }
 .post .pullquote.blue,
-.excerpt .pullquote.blue {
+.excerpt .pullquote.blue,
+.page .pullquote.blue {
   background: #d8ddfa;
 }
 .post .pullquote.blue svg,
-.excerpt .pullquote.blue svg {
+.excerpt .pullquote.blue svg,
+.page .pullquote.blue svg {
   fill: #4188f3;
 }
 .post > table,
-.excerpt > table {
+.excerpt > table,
+.page > table {
   border-collapse: collapse;
   max-width: 100%;
 }
 .post > table thead,
-.excerpt > table thead {
+.excerpt > table thead,
+.page > table thead {
   background-color: #f6f6f6;
 }
 .post > table tr td,
 .excerpt > table tr td,
+.page > table tr td,
 .post > table tr th,
-.excerpt > table tr th {
+.excerpt > table tr th,
+.page > table tr th {
   border: 1px solid #f6f6f6;
   padding: 5px;
 }
 .post > table tr:nth-child(2n),
-.excerpt > table tr:nth-child(2n) {
+.excerpt > table tr:nth-child(2n),
+.page > table tr:nth-child(2n) {
   background-color: rgb(246, 253, 253);
 }
 .post li>code,
 .excerpt li>code,
+.page li>code,
 .post p code,
-.excerpt p code {
+.excerpt p code,
+.page p code {
   color: #f12a2a;
   background-color: rgba(0,0,0,0.05);
   padding: 1px 3px;
@@ -381,7 +421,8 @@ html.ie6 .excerpt img {
   margin: 0 2px;
 }
 .post .center,
-.excerpt .center {
+.excerpt .center,
+.page .center {
   text-align: center;
 }
 .note {
@@ -538,7 +579,7 @@ html.ie6 .toasts {
 .collapse .collapse-btn {
   background: #f4f4f4;
   position: sticky;
-  top: 50px;
+  top: 40px;
   cursor: pointer;
   padding: 10px 15px;
   user-select: none;
@@ -571,6 +612,114 @@ html.ie6 .toasts {
   -ms-transition: all 0.25s ease;
   transition: all 0.25s ease;
   overflow: hidden;
+}
+.collapse-info {
+  border: 1px solid #eee;
+}
+.collapse-info .collapse-btn {
+  background: #f4f4f4;
+}
+.collapse-info .collapse-text {
+  background: #fafafa;
+}
+.collapse-warning {
+  border: 1px solid #f3e527;
+}
+.collapse-warning .collapse-btn {
+  background: #fff128;
+}
+.collapse-warning .collapse-text {
+  background: #ffffe1;
+}
+.collapse-danger {
+  border: 1px solid #f00;
+}
+.collapse-danger .collapse-btn {
+  background: #ff285e;
+}
+.collapse-danger .collapse-btn button {
+  color: #fff;
+}
+.collapse-danger .collapse-btn svg {
+  fill: #fff;
+}
+.collapse-danger .collapse-text {
+  background: #fdd7e1;
+}
+.collapse-tip {
+  border: 1px solid #0969da;
+}
+.collapse-tip .collapse-btn {
+  background: #0969da;
+}
+.collapse-tip .collapse-btn button {
+  color: #fff;
+}
+.collapse-tip .collapse-btn svg {
+  fill: #fff;
+}
+.collapse-tip .collapse-text {
+  background: #d1dff0;
+}
+.collapse-note {
+  border: 1px solid #61c8f8;
+}
+.collapse-note .collapse-btn {
+  background: #61c8f8;
+}
+.collapse-note .collapse-btn button {
+  color: #fff;
+}
+.collapse-note .collapse-btn svg {
+  fill: #fff;
+}
+.collapse-note .collapse-text {
+  background: #e8f8ff;
+}
+.collapse-success {
+  border: 1px solid #008000;
+}
+.collapse-success .collapse-btn {
+  background: #008000;
+}
+.collapse-success .collapse-btn button {
+  color: #fff;
+}
+.collapse-success .collapse-btn svg {
+  fill: #fff;
+}
+.collapse-success .collapse-text {
+  background: #e5fce5;
+}
+.collapse-dark {
+  border: 1px solid #232323;
+}
+.collapse-dark .collapse-btn {
+  background: #232323;
+}
+.collapse-dark .collapse-btn button {
+  color: #fff;
+}
+.collapse-dark .collapse-btn svg {
+  fill: #fff;
+}
+.collapse-dark .collapse-text {
+  background: #eee;
+}
+.collapse-purple {
+  border: 1px solid #c244c2;
+}
+.collapse-purple .collapse-btn {
+  background: #ad0fad;
+}
+.collapse-purple .collapse-btn button {
+  color: #fff;
+}
+.collapse-purple .collapse-btn svg {
+  fill: #fff;
+}
+.collapse-purple .collapse-text {
+  background: #f5e2f5;
 }
 .codepen {
   height: 300px;
@@ -1342,6 +1491,28 @@ html.ie6 .open-toc {
 .open-toc:active {
   transform: scale(0.9);
 }
+.page {
+  box-sizing: border-box;
+  background-color: #fff;
+  margin: 80px auto;
+  padding: 50px;
+  -webkit-box-shadow: 0 3px 8px 6px rgba(7,17,27,0.06);
+  -moz-box-shadow: 0 3px 8px 6px rgba(7,17,27,0.06);
+  box-shadow: 0 3px 8px 6px rgba(7,17,27,0.06);
+}
+html.ie8 .page,
+html.ie7 .page,
+html.ie6 .page {
+  border: 2px solid rgba(7,17,27,0.06);
+}
+.page .page-title {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bold;
+}
+.page .blog-page-info {
+  text-align: center;
+}
 section.archive {
   -webkit-box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   -moz-box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -1534,6 +1705,14 @@ section.category .post-list-group .list-group-item:hover {
   .friends-more {
     display: none;
   }
+  .page {
+    width: 75%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+  }
 }
 @media screen and (min-width: 1000px) and (max-width: 1200px) {
   .post {
@@ -1553,6 +1732,14 @@ section.category .post-list-group .list-group-item:hover {
   }
   .friends-more {
     display: none;
+  }
+  .page {
+    width: 75%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
   }
 }
 @media screen and (min-width: 800px) and (max-width: 1000px) {
@@ -1629,6 +1816,14 @@ section.category .post-list-group .list-group-item:hover {
   .nav-box .nav-container .nav-link a:hover {
     background: rgba(0,240,40,0.2);
   }
+  .page {
+    width: 75%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+  }
 }
 @media screen and (max-width: 800px) {
   .post-toc {
@@ -1662,6 +1857,9 @@ section.category .post-list-group .list-group-item:hover {
   }
   .post {
     padding: 100px 20px 20px 20px;
+    width: 100%;
+  }
+  .page {
     width: 100%;
   }
   main .article-container article {
