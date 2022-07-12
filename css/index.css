@@ -47,7 +47,7 @@ figure::-webkit-scrollbar-thumb {
   height: 6px;
   width: 6px;
   border: 2px solid transparent;
-  background-color: rgba(255,255,255,0.6);
+  background-color: rgba(0,0,0,0.4);
 }
 figure figcaption {
   font-size: 14px;
@@ -378,6 +378,17 @@ html.ie6 .page img {
 .page .pullquote.blue svg {
   fill: #4188f3;
 }
+.post .mindmap,
+.excerpt .mindmap,
+.page .mindmap {
+  width: 100%;
+  box-sizing: border-box;
+}
+.post .mindmap svg,
+.excerpt .mindmap svg,
+.page .mindmap svg {
+  font-family: Roboto Mono, JetBrains Mono, microsoft yahei, consolas, sans-serif;
+}
 .post > table,
 .excerpt > table,
 .page > table {
@@ -387,7 +398,7 @@ html.ie6 .page img {
 .post > table thead,
 .excerpt > table thead,
 .page > table thead {
-  background-color: #f6f6f6;
+  background-color: #eee;
 }
 .post > table tr td,
 .excerpt > table tr td,
@@ -395,13 +406,13 @@ html.ie6 .page img {
 .post > table tr th,
 .excerpt > table tr th,
 .page > table tr th {
-  border: 1px solid #f6f6f6;
+  border: 1px solid #eee;
   padding: 5px;
 }
 .post > table tr:nth-child(2n),
 .excerpt > table tr:nth-child(2n),
 .page > table tr:nth-child(2n) {
-  background-color: rgb(246, 253, 253);
+  background-color: #fafafa;
 }
 .post li>code,
 .excerpt li>code,
@@ -423,6 +434,11 @@ html.ie6 .page img {
 .post .center,
 .excerpt .center,
 .page .center {
+  text-align: center;
+}
+.post .mermaid,
+.excerpt .mermaid,
+.page .mermaid {
   text-align: center;
 }
 .note {
@@ -757,8 +773,8 @@ html {
   transition: all 0.25s ease;
 }
 ::selection {
-  background-color: orange;
-  color: #fff;
+  background-color: rgba(255, 165, 0, .2);
+  color: inherif;
 }
 body {
   font-family: microsoft yahei, Roboto Mono, JetBrains Mono, consolas, sans-serif;

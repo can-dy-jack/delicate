@@ -142,8 +142,8 @@
         
             <span>陈科衡</span>  
         
-        <span class="post-count">414字</span>
-        <span class="post-count">1分钟</span>
+        <span class="post-count">691字</span>
+        <span class="post-count">3分钟</span>
         </p>
 
         <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">## 标题2</span><br><span class="hljs-section">### 标题3</span><br><span class="hljs-section">#### 标题4</span><br><span class="hljs-section">##### 标题5</span><br></code></pre></td></tr></table></figure>
@@ -199,7 +199,7 @@
 </ul>
 <hr>
 <p>链接和图片：<br><a target="_blank" rel="noopener" href="http://localhost:4000/delicate">link-delicate</a></p>
-<p><img src="https://i.loli.net/2021/12/01/X1pkv9ShmeDWZ25.jpg" alt="测试-付款码"></p>
+<p><img src="https://i.loli.net/2021/12/01/X1pkv9ShmeDWZ25.jpg" alt="img"></p>
 <hr>
 <p>内联代码块:<code>code</code></p>
 <p>代码块：</p>
@@ -245,15 +245,59 @@
 <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-addition">+ this will be highlighted in green</span><br><span class="hljs-deletion">- this will be highlighted in red</span><br></code></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="公式-MathJax"><a href="#公式-MathJax" class="headerlink" title="公式-MathJax"></a>公式-MathJax</h3><p>需要 front-matter 添加 <code>mathjax: true</code></p>
-<blockquote>
-<p>语法参考官网：<a target="_blank" rel="noopener" href="https://www.mathjax.org/">mathjax</a></p>
+<h2 id="MathJax"><a href="#MathJax" class="headerlink" title="MathJax"></a>MathJax</h2><p>需要 front-matter 添加 <code>mathjax: true</code>;<br>包含在 $ 内的文字会被解析为数学公式。</p>
+<p>mathjax语法百度一下即可，这方面的文章很多，尤其是CSDN。</p>
+<h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mathjax">$\cos 2\theta = \cos^2 \theta - \sin^2 \theta = 2 \cos^2 \theta$<br></code></pre></td></tr></table></figure>
+
+<p>$\cos 2\theta &#x3D; \cos^2 \theta - \sin^2 \theta &#x3D; 2 \cos^2 \theta$</p>
+<h3 id="行间公式"><a href="#行间公式" class="headerlink" title="行间公式"></a>行间公式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mathjax">$$ x = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; $$<br></code></pre></td></tr></table></figure>
+
+<p>$$ x &#x3D; \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
+<p>有公式才加载MathJax，没有公式仍然加载js渲染公式，会影响页面加载速度。</p>
+<h2 id="mermaid"><a href="#mermaid" class="headerlink" title="mermaid"></a>mermaid</h2><p>首先：安装插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-filter-mermaid-diagrams<br><span class="hljs-comment"># or yarn</span><br>yarn add hexo-filter-mermaid-diagrams<br></code></pre></td></tr></table></figure>
+
+<p>在文章的 Front-matter 中添加 <code>mermaid: true</code> , 开启 mermaid。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs markdown">----mermaid # 使用时将 - 替换为 ` ，这里是为了避免被渲染。<br>sequenceDiagram<br>Alice-&gt;&gt;John: Hello John, how are you?<br>loop Healthcheck<br><span class="hljs-code">    John-&gt;&gt;John: Fight against hypochondria</span><br><span class="hljs-code">end</span><br><span class="hljs-code">Note right of John: Rational thoughts!</span><br><span class="hljs-code">John--&gt;&gt;Alice: Great!</span><br><span class="hljs-code">John-&gt;&gt;Bob: How about you?</span><br><span class="hljs-code">Bob--&gt;&gt;John: Jolly good!</span><br><span class="hljs-code">---</span><br></code></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+Alice->>John: Hello John, how are you?
+loop Healthcheck
+    John->>John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+John-->>Alice: Great!
+John->>Bob: How about you?
+Bob-->>John: Jolly good!</pre>
+
+<p>更多mermaid语法参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">hexo-filter-mermaid-diagrams</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mermaid-js/mermaid">mermaid-js&#x2F;mermaid</a></li>
+</ul>
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>首先，需要安装插件<a target="_blank" rel="noopener" href="https://github.com/HunterXuan/hexo-simple-mindmap">hexo-simple-mindmap</a>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-simple-mindmap<br></code></pre></td></tr></table></figure>
+
+<p>然后插入思维导图：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% pullquote mindmap mindmap-md %&#125;<br><span class="hljs-bullet">-</span> [<span class="hljs-string">在 Hexo 中使用思维导图</span>](<span class="hljs-link">https://hunterx.xyz/use-mindmap-in-hexo.html</span>)<br><span class="hljs-bullet">  -</span> 前言<br><span class="hljs-bullet">  -</span> 操作指南<br><span class="hljs-bullet">    -</span> 准备需要的文件<br><span class="hljs-bullet">    -</span> 为主题添加 CSS/JS 文件<br><span class="hljs-bullet">  -</span> 使用方法<br>&#123;% endpullquote %&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li><a href="%5Bhexo-simple-mindmap%5D(https://hunterx.xyz/use-mindmap-in-hexo.html)">hexo-simple-mindmap</a><ul>
+<li>markdown扩展<ul>
+<li>mathjax</li>
+<li>mermaid</li>
+</ul>
+</li>
+<li>hexo的markdown扩展<ul>
+<li>标签插件（Tag Plugins）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">直接在markdown文件中添加下面的语句即可，即包含在 $$ 内的文字会被解析为数学公式<br>$$x = &#123;-b \pm \sqrt&#123;b^2-4ac&#125; \over 2a&#125;.$$<br></code></pre></td></tr></table></figure>
 
-<p>$$x &#x3D; {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
-<p>有公式才加载MathJax，没有<u>公式</u>仍然加载js渲染公式，会影响页面加载速度。</p>
-
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
 
         <div class="blog-tag-and-cate">
             
@@ -351,7 +395,7 @@
     </section>
      
     <section class="post-toc transition" id="post-toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%982"><span class="toc-number">1.</span> <span class="toc-text">标题2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%983"><span class="toc-number">1.1.</span> <span class="toc-text">标题3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F-MathJax"><span class="toc-number">1.2.</span> <span class="toc-text">公式-MathJax</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%982"><span class="toc-number">1.</span> <span class="toc-text">标题2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%983"><span class="toc-number">1.1.</span> <span class="toc-text">标题3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MathJax"><span class="toc-number">2.</span> <span class="toc-text">MathJax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E5%85%AC%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">行内公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E9%97%B4%E5%85%AC%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">行间公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mermaid"><span class="toc-number">3.</span> <span class="toc-text">mermaid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="toc-number">4.</span> <span class="toc-text">思维导图</span></a></li></ol>
     </section>
     <span class="open-toc transition" id="open-toc">
         <svg viewBox="0 0 1088 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
@@ -379,6 +423,108 @@
         <path d="M904 692c0 8.189-3.124 16.379-9.372 22.628-12.497 12.496-32.759 12.496-45.256 0L512 377.255 174.628 714.628c-12.497 12.496-32.758 12.496-45.255 0-12.497-12.498-12.497-32.758 0-45.256l360-360c12.497-12.496 32.758-12.496 45.255 0l360 360C900.876 675.621 904 683.811 904 692z"></path>
     </svg>
 </span>
+
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+    <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+<script>
+    if (window.mermaid) {
+        mermaid.initialize({
+            theme: 'forest',
+            logLevel: 'fatal',
+            startOnLoad: true,
+            arrowMarkerAbsolute: false,
+        });
+    }
+/*
+ *   var config = {
+ *     theme: 'default',
+ *     logLevel: 'fatal',
+ *     securityLevel: 'strict',
+ *     startOnLoad: true,
+ *     arrowMarkerAbsolute: false,
+ *
+ *     er: {
+ *       diagramPadding: 20,
+ *       layoutDirection: 'TB',
+ *       minEntityWidth: 100,
+ *       minEntityHeight: 75,
+ *       entityPadding: 15,
+ *       stroke: 'gray',
+ *       fill: 'honeydew',
+ *       fontSize: 12,
+ *       useMaxWidth: true,
+ *     },
+ *     flowchart: {
+ *       diagramPadding: 8,
+ *       htmlLabels: true,
+ *       curve: 'basis',
+ *     },
+ *     sequence: {
+ *       diagramMarginX: 50,
+ *       diagramMarginY: 10,
+ *       actorMargin: 50,
+ *       width: 150,
+ *       height: 65,
+ *       boxMargin: 10,
+ *       boxTextMargin: 5,
+ *       noteMargin: 10,
+ *       messageMargin: 35,
+ *       messageAlign: 'center',
+ *       mirrorActors: true,
+ *       bottomMarginAdj: 1,
+ *       useMaxWidth: true,
+ *       rightAngles: false,
+ *       showSequenceNumbers: false,
+ *     },
+ *     gantt: {
+ *       titleTopMargin: 25,
+ *       barHeight: 20,
+ *       barGap: 4,
+ *       topPadding: 50,
+ *       leftPadding: 75,
+ *       gridLineStartPadding: 35,
+ *       fontSize: 11,
+ *       fontFamily: '"Open Sans", sans-serif',
+ *       numberSectionStyles: 4,
+ *       axisFormat: '%Y-%m-%d',
+ *       topAxis: false,
+ *     },
+ *   };
+*/
+</script>
+
+
+
+
+
 
 
   </footer>

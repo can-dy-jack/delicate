@@ -259,7 +259,7 @@
 <h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><p>js只支持一维数组，但是可以通过把数组元素作为数组来创建多维数组。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 一维数组</span><br><span class="hljs-keyword">let</span> arr = [];<br><span class="hljs-comment">// 二维数组 - 为Array添加一个新方法;</span><br><span class="hljs-built_in">Array</span>.matrix = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">m,n,initial</span>)</span>&#123;<br>    <span class="hljs-keyword">let</span> arr = [];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;m;i++)&#123;<br>        <span class="hljs-keyword">let</span> temp = [];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>;j&lt;n;j++)&#123;<br>            temp.push(initial);<br>        &#125;<br>        arr.push(temp);<br>    &#125;<br>    <span class="hljs-keyword">return</span> arr;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
 
         <div class="blog-tag-and-cate">
             
@@ -389,6 +389,13 @@
         <path d="M904 692c0 8.189-3.124 16.379-9.372 22.628-12.497 12.496-32.759 12.496-45.256 0L512 377.255 174.628 714.628c-12.497 12.496-32.758 12.496-45.255 0-12.497-12.498-12.497-32.758 0-45.256l360-360c12.497-12.496 32.758-12.496 45.255 0l360 360C900.876 675.621 904 683.811 904 692z"></path>
     </svg>
 </span>
+
+
+
+
+
+
+
 
 
   </footer>
