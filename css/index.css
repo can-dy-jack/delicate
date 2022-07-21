@@ -108,7 +108,6 @@ figure .code-info .left .mac-circle3 {
 }
 figure .code-info .left .code-type {
   margin: 0 10px;
-  text-transform: capitalize;
 }
 figure .code-info .copy-btn {
   cursor: pointer;
@@ -222,7 +221,7 @@ code.hljs {
 .excerpt a,
 .page a {
   border-bottom: 1px solid rgba(0,0,0,0.2);
-  background-color: rgba(248, 229, 175, 0.3);
+  background-color: #eafafe;
   color: #1a1a1a;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
@@ -234,14 +233,9 @@ code.hljs {
 .post a:hover,
 .excerpt a:hover,
 .page a:hover {
-  background-color: #f8e5af;
+  background-color: #bbeffd;
   border-bottom-color: #1a1a1a;
   color: #1a1a1a;
-}
-.post a[rel='noopener']::after,
-.excerpt a[rel='noopener']::after,
-.page a[rel='noopener']::after {
-  content: '\1F517';
 }
 .post ul,
 .excerpt ul,
@@ -251,13 +245,10 @@ code.hljs {
 .page ol {
   padding-left: 25px;
 }
-.post ul li,
-.excerpt ul li,
-.page ul li,
-.post ol li,
-.excerpt ol li,
-.page ol li {
-  margin-bottom: 3px;
+.post li,
+.excerpt li,
+.page li {
+  line-height: 1.6em;
 }
 .post img,
 .excerpt img,
@@ -394,6 +385,7 @@ html.ie6 .page img {
 .page > table {
   border-collapse: collapse;
   max-width: 100%;
+  margin: 10px auto;
 }
 .post > table thead,
 .excerpt > table thead,
@@ -419,9 +411,12 @@ html.ie6 .page img {
 .page li>code,
 .post p code,
 .excerpt p code,
-.page p code {
-  color: #f12a2a;
-  background-color: rgba(0,0,0,0.05);
+.page p code,
+.post>table code,
+.excerpt>table code,
+.page>table code {
+  color: #ff1212;
+  background-color: #f4f4f4;
   padding: 1px 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -601,6 +596,7 @@ html.ie6 .toasts {
   user-select: none;
   display: flex;
   align-items: center;
+  z-index: 10;
 }
 .collapse .collapse-btn svg {
   width: 16px;
@@ -774,7 +770,7 @@ html {
 }
 ::selection {
   background-color: rgba(255, 165, 0, .2);
-  color: inherif;
+  color: inherit;
 }
 body {
   font-family: microsoft yahei, Roboto Mono, JetBrains Mono, consolas, sans-serif;
@@ -792,6 +788,7 @@ a {
   -o-transition: all 0.25s ease;
   -ms-transition: all 0.25s ease;
   transition: all 0.25s ease;
+  word-break: break-all;
 }
 a:hover {
   color: #34ae56;
@@ -975,7 +972,7 @@ html.ie6 .foot #to_top {
   top: 0;
   bottom: 0;
   z-index: 120;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.6);
 }
 .delicate-search-wrap {
   position: fixed;
@@ -1606,6 +1603,7 @@ section.tags {
   border-radius: 10px;
   box-sizing: border-box;
   padding: 40px 120px 100px 120px;
+  text-align: center;
 }
 html.ie8 section.tags,
 html.ie7 section.tags,
