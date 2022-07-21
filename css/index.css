@@ -3,26 +3,14 @@
  * https://github.com/can-dy-jack/hexo-theme-delicate
 */
 figure {
-  background-color: #fafafa;
   overflow: auto;
   margin: 20px 0;
   width: 100%;
   position: relative;
-  -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-html.ie8 figure,
-html.ie7 figure,
-html.ie6 figure {
-  border: 2px solid rgba(0,0,0,0.1);
 }
 figure table tr td pre {
   margin: 0;
   padding: 0;
-}
-figure table tr td.gutter {
-  background: #fafafa;
 }
 figure table tr td.gutter pre {
   padding: 0 10px;
@@ -47,7 +35,6 @@ figure::-webkit-scrollbar-thumb {
   height: 6px;
   width: 6px;
   border: 2px solid transparent;
-  background-color: rgba(0,0,0,0.4);
 }
 figure figcaption {
   font-size: 14px;
@@ -119,76 +106,121 @@ figure .code-info .copy-btn svg {
   margin-right: 3px;
   fill: #808080;
 }
-pre code.hljs {
+figure pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
 }
-code.hljs {
+figure code.hljs {
   padding: 3px 5px;
 }
-.hljs {
-  color: #383a42;
-  background: #fafafa;
+figure {
+  background-color: #fdf6e3;
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.hljs-comment,
-.hljs-quote {
-  color: #a0a1a7;
-  font-style: italic;
+html.ie8 figure,
+html.ie7 figure,
+html.ie6 figure {
+  border: 2px solid rgba(0,0,0,0.1);
 }
-.hljs-doctag,
-.hljs-formula,
-.hljs-keyword {
-  color: #a626a4;
+figure table pre.gutter {
+  background: #fdf6e3;
 }
-.hljs-deletion,
-.hljs-name,
-.hljs-section,
-.hljs-selector-tag,
-.hljs-subst {
-  color: #e45649;
+figure::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.3);
 }
-.hljs-literal {
-  color: #0184bb;
+figure .code-info {
+  background: #faefcc;
+  padding: 10px 15px;
 }
-.hljs-addition,
-.hljs-attribute,
-.hljs-meta .hljs-string,
-.hljs-regexp,
-.hljs-string {
-  color: #50a14f;
+figure .hljs {
+  color: #586e75;
+  background: #fdf6e3;
 }
-.hljs-attr,
-.hljs-number,
-.hljs-selector-attr,
-.hljs-selector-class,
-.hljs-selector-pseudo,
-.hljs-template-variable,
-.hljs-type,
-.hljs-variable {
-  color: #986801;
+figure .hljs ::selection,
+figure .hljs::selection {
+  background-color: #93a1a1;
+  color: #586e75;
 }
-.hljs-bullet,
-.hljs-link,
-.hljs-meta,
-.hljs-selector-id,
-.hljs-symbol,
-.hljs-title {
-  color: #4078f2;
+figure .hljs-comment {
+  color: #839496;
 }
-.hljs-built_in,
-.hljs-class .hljs-title,
-.hljs-title.class_ {
-  color: #c18401;
+figure .hljs-tag {
+  color: #657b83;
 }
-.hljs-emphasis {
-  font-style: italic;
+figure .hljs-operator,
+figure .hljs-punctuation,
+figure .hljs-subst {
+  color: #586e75;
 }
-.hljs-strong {
+figure .hljs-operator {
+  opacity: 0.7;
+}
+figure .hljs-bullet,
+figure .hljs-deletion,
+figure .hljs-name,
+figure .hljs-selector-tag,
+figure .hljs-template-variable,
+figure .hljs-variable {
+  color: #dc322f;
+}
+figure .hljs-attr,
+figure .hljs-link,
+figure .hljs-literal,
+figure .hljs-number,
+figure .hljs-symbol,
+figure .hljs-variable.constant_ {
+  color: #cb4b16;
+}
+figure .hljs-class .hljs-title,
+figure .hljs-title,
+figure .hljs-title.class_ {
+  color: #b58900;
+}
+figure .hljs-strong {
   font-weight: 700;
+  color: #b58900;
 }
-.hljs-link {
-  text-decoration: underline;
+figure .hljs-addition,
+figure .hljs-code,
+figure .hljs-string,
+figure .hljs-title.class_.inherited__ {
+  color: #859900;
+}
+figure .hljs-built_in,
+figure .hljs-doctag,
+figure .hljs-keyword.hljs-atrule,
+figure .hljs-quote,
+figure .hljs-regexp {
+  color: #2aa198;
+}
+figure .hljs-attribute,
+figure .hljs-function .hljs-title,
+figure .hljs-section,
+figure .hljs-title.function_,
+figure .ruby .hljs-property {
+  color: #268bd2;
+}
+figure .diff .hljs-meta,
+figure .hljs-keyword,
+figure .hljs-template-tag,
+figure .hljs-type {
+  color: #6c71c4;
+}
+figure .hljs-emphasis {
+  color: #6c71c4;
+  font-style: italic;
+}
+figure .hljs-meta,
+figure .hljs-meta .hljs-keyword,
+figure .hljs-meta .hljs-string {
+  color: #d33682;
+}
+figure .hljs-meta .hljs-keyword,
+figure .hljs-meta-keyword {
+  font-weight: 700;
 }
 .post h2,
 .excerpt h2,
@@ -297,7 +329,7 @@ html.ie6 .page img {
 .post blockquote:not(.pullquote) footer::before,
 .excerpt blockquote:not(.pullquote) footer::before,
 .page blockquote:not(.pullquote) footer::before {
-  content: "--";
+  content: '--';
 }
 .post .pullquote,
 .excerpt .pullquote,
@@ -1174,7 +1206,7 @@ main .pagination {
   position: relative;
 }
 .excerpt-more a::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
