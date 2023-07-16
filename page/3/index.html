@@ -92,7 +92,7 @@
                 </div>
                 <div class="article-item-excerpt article">
                     <div>
-                        <h2 id="暴力法-维护最小值-数学法-x3D-循序渐进"><a href="#暴力法-维护最小值-数学法-x3D-循序渐进" class="headerlink" title="暴力法+维护最小值+数学法&#x3D;循序渐进"></a>暴力法+维护最小值+数学法&#x3D;循序渐进</h2><h3 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h3><p>看到题目，没有任何技巧，直接暴力！🐶  :dog:</p>
+                        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="暴力法-维护最小值-数学法-x3D-循序渐进"><a href="#暴力法-维护最小值-数学法-x3D-循序渐进" class="headerlink" title="暴力法+维护最小值+数学法&#x3D;循序渐进"></a>暴力法+维护最小值+数学法&#x3D;循序渐进</h2><h3 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h3><p>看到题目，没有任何技巧，直接暴力！🐶  :dog:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> isIdealPermutation = <span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) &#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-property">length</span>-<span class="hljs-number">2</span>;i++) &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = i+<span class="hljs-number">2</span>;j&lt;nums.<span class="hljs-property">length</span>;j++) &#123;<br>            <span class="hljs-keyword">if</span>(nums[i] &gt; nums[j]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <h3 id="维护最小值法"><a href="#维护最小值法" class="headerlink" title="维护最小值法"></a>维护最小值法</h3><p>稍微分析一下，我们在 <code>i</code> 位置上，只要找到从 <code>i+2</code> 往后的值中有小于 <code>i</code> 位上的值即可；那么只需要从 <code>i+2</code> 往后的值中最小的值与 <code>nums[i]</code> 比较即可！</p>
 <p>可以从后往前遍历，有利于保存后缀最小值。</p>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="article-item-excerpt article">
                     <div>
-                        <p>题目来源：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-provinces/">LeetCode 547. 省份数量</a></p>
+                        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>题目来源：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-provinces/">LeetCode 547. 省份数量</a></p>
 <p>有 <code>n</code> 个城市，其中一些彼此相连，另一些没有相连。如果城市 <code>a</code> 与城市 <code>b</code> 直接相连，且城市 <code>b</code> 与城市 <code>c</code> 直接相连，那么城市 <code>a</code> 与城市 <code>c</code> 间接相连。</p>
 <p>省份 是一组直接或间接相连的城市，组内不含其他没有相连的城市。</p>
 <p>给你一个 <code>n x n</code> 的矩阵 <code>isConnected</code> ，其中 <code>isConnected[i][j] = 1</code> 表示第 <code>i</code> 个城市和第 <code>j</code> 个城市直接相连，而 <code>isConnected[i][j] = 0</code> 表示二者不直接相连。</p>
