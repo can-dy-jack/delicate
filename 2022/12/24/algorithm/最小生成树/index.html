@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图 - 最小生成树</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E5%88%86%E5%AE%9A%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">切分定理</span></a></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>图 - 最小生成树</h1>
+    </section>
+    <section class="article">
+        <ul>
+<li>最小生成树相关定理和算法<ul>
+<li>切分定理</li>
+<li>Kruskal 算法</li>
+<li>Prim 算法</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>生成树 指的是<strong>无向图</strong>中，具有该图的 <em>全部顶点</em> 且 <em>边数最少</em> 的连通子图。<br>最小生成树指的是<strong>加权无向图</strong>中总权重最小的生成树。</p>
+</blockquote>
+<h2 id="切分定理"><a href="#切分定理" class="headerlink" title="切分定理"></a>切分定理</h2>
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/JavaScript/" class="tag-item">
+                    JavaScript
+                </a>
+            
+                <a href="/tags/%E7%AE%97%E6%B3%95/" class="tag-item">
+                    算法
+                </a>
+            
+                <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="tag-item">
+                    最小生成树
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/JavaScript/" class="cate-item">
+                    JavaScript
+                </a>
+            
+                <a href="/categories/JavaScript/%E7%AE%97%E6%B3%95/" class="cate-item">
+                    算法
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2023/02/03/svg/base/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">svg基础</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2022/12/15/algorithm/%E5%9B%BE%E7%9A%84%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">图的搜索算法</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

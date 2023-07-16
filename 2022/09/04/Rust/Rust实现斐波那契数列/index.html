@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust实现斐波那契数列</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>Rust实现斐波那契数列</h1>
+    </section>
+    <section class="article">
+        <p>代码实现：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">fibonacci</span>(n: <span class="hljs-type">u32</span>) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">u32</span> &#123;<br>    <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span> &#123; <span class="hljs-number">1</span> &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> n == <span class="hljs-number">2</span> &#123; <span class="hljs-number">1</span> &#125;<br>    <span class="hljs-keyword">else</span> &#123; <span class="hljs-title function_ invoke__">fibonacci</span>(n-<span class="hljs-number">1</span>) + <span class="hljs-title function_ invoke__">fibonacci</span>(n-<span class="hljs-number">2</span>) &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">use</span> std::io;<br><br><span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() &#123;<br>    <span class="hljs-comment">// 生成 n 阶斐波那契数列。</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;输入 n ：&quot;</span>);<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">inp</span>:<span class="hljs-type">String</span> = <span class="hljs-type">String</span>::<span class="hljs-title function_ invoke__">new</span>();<br>    io::<span class="hljs-title function_ invoke__">stdin</span>().<span class="hljs-title function_ invoke__">read_line</span>(&amp;<span class="hljs-keyword">mut</span> inp).<span class="hljs-title function_ invoke__">expect</span>(<span class="hljs-string">&quot;input error!&quot;</span>);<br>    <span class="hljs-keyword">let</span> <span class="hljs-variable">inp</span>: <span class="hljs-type">u32</span> = inp.<span class="hljs-title function_ invoke__">trim</span>().<span class="hljs-title function_ invoke__">parse</span>().<span class="hljs-title function_ invoke__">unwrap</span>();<br><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;阶斐波那契数列: &#123;&#125;&quot;</span>, inp, <span class="hljs-title function_ invoke__">fibonacci</span>(inp));<br>&#125;<br><span class="hljs-keyword">fn</span> <span class="hljs-title function_">fibonacci</span>(n: <span class="hljs-type">u32</span>) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">u32</span> &#123;<br>    <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span> &#123; <span class="hljs-number">1</span> &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> n == <span class="hljs-number">2</span> &#123; <span class="hljs-number">1</span> &#125;<br>    <span class="hljs-keyword">else</span> &#123; <span class="hljs-title function_ invoke__">fibonacci</span>(n-<span class="hljs-number">1</span>) + <span class="hljs-title function_ invoke__">fibonacci</span>(n-<span class="hljs-number">2</span>) &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">F:\rust\learn-repo\guessing_game&gt;cargo run<br>    Finished dev [unoptimized + debuginfo] target(s) <span class="hljs-keyword">in</span> 0.04s<br>     Running `target\debug\guessing_game.exe`<br>输入 n ：<br>10<br>10阶斐波那契数列: 55<br></code></pre></td></tr></table></figure>
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/Rust/" class="tag-item">
+                    Rust
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/Rust/" class="cate-item">
+                    Rust
+                </a>
+            
+                <a href="/categories/Rust/Fibonacci/" class="cate-item">
+                    Fibonacci
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2022/09/09/Rust/Rust%E5%AE%9E%E7%8E%B0%E9%93%BE%E8%A1%A8/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">Rust数据结构之链表</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2022/08/16/javascript/Promise%20A+%20%E8%A7%84%E8%8C%83/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">Promise A+ 规范（译）</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

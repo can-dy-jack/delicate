@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 函数式编程04-函子</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MayBe%E5%87%BD%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">MayBe函子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Option%E5%87%BD%E5%AD%90"><span class="toc-number">2.</span> <span class="toc-text">Option函子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Monad"><span class="toc-number">3.</span> <span class="toc-text">Monad</span></a></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>JavaScript 函数式编程04-函子</h1>
+    </section>
+    <section class="article">
+        <blockquote>
+<p><strong>函子</strong>是范畴论中的个概念，它把一个范畴中的对象映成另一个范畴的对象，把一个范畴中的态射映成另一个范畴中的态射，形象理解为范畴之间的“映射”。</p>
+</blockquote>
+<p>简单来说，函子是某种映射关系。<strong>函子Functor</strong> 在 JavaScript 里主要是将某些值或对象包含起来并实现对应的一些函数来处理这些数值或对象的函数，函子必须实现map函数，其在遍历对象值的时候返回一个新对象。</p>
+<p>换句话说，函子是实现了map的对象。举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Box</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span> = val;<br>&#125;<br><span class="hljs-title class_">Box</span>.<span class="hljs-property">of</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Box</span>(val);<br>&#125;<br><span class="hljs-title class_">Box</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">map</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">func</span>) &#123; <span class="hljs-comment">// 必须</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Box</span>.<span class="hljs-title function_">of</span>(<span class="hljs-title function_">func</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span>));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>注意，以上实现中 <code>of</code> 的实现不是必要的，<code>of</code> 的实现可以让使用者不必使用 <code>new</code> 来新建对象，而是使用 <code>.of()</code> 来实现新建对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> time = <span class="hljs-title class_">Box</span>.<span class="hljs-title function_">of</span>(<span class="hljs-string">&quot;2022-03-14&quot;</span>);<br><br>time.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i + <span class="hljs-string">&#x27; 15&#x27;</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i + <span class="hljs-string">&#x27;:22&#x27;</span>)<br><span class="hljs-comment">// =&gt; </span><br><span class="hljs-comment">// Box &#123;</span><br><span class="hljs-comment">//  val: &#x27;2022-03-14 15:22&#x27;,</span><br><span class="hljs-comment">//  __proto__: &#123; map: ƒ (), constructor: ƒ Box() &#125;</span><br><span class="hljs-comment">//&#125;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>实现了 <code>of</code> 的函子被称为 <code>Pointed函子</code> 。</p>
+</blockquote>
+<p>在函数式编程中，函子一般用于<strong>错误处理</strong>！下面介绍几个常见的函子：</p>
+<h2 id="MayBe函子"><a href="#MayBe函子" class="headerlink" title="MayBe函子"></a>MayBe函子</h2><p><strong>MayBe函子</strong>以函数式的方式处理错误，提供检查 <code>null</code> 和 <code>undefined</code> 的能力。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title class_">MayBe</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span> = val;<br>&#125;<br><span class="hljs-title class_">MayBe</span>.<span class="hljs-property">of</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MayBe</span>(val);<br>&#125;<br><span class="hljs-title class_">MayBe</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">isNull</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span> == <span class="hljs-literal">null</span>; <span class="hljs-comment">// 两个等于号匹配null和undefined</span><br>&#125;<br><span class="hljs-title class_">MayBe</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">map</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">func</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">isNull</span>() ? <span class="hljs-title class_">MayBe</span>.<span class="hljs-title function_">of</span>(<span class="hljs-literal">null</span>) : <span class="hljs-title class_">MayBe</span>.<span class="hljs-title function_">of</span>(<span class="hljs-title function_">func</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span>));<br>&#125;<br><br><span class="hljs-keyword">let</span> time = <span class="hljs-title class_">MayBe</span>.<span class="hljs-title function_">of</span>(<span class="hljs-string">&quot;2022-03-14&quot;</span>);<br>    .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i + <span class="hljs-string">&#x27; 15&#x27;</span>)<br>    .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> <span class="hljs-literal">undefined</span>) <span class="hljs-comment">// 模拟出错，结果返回null，过程中不会报错</span><br>    .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i + <span class="hljs-string">&#x27;:22&#x27;</span>)<br><span class="hljs-comment">// =&gt; </span><br><span class="hljs-comment">// MayBe &#123;</span><br><span class="hljs-comment">//  val: null,</span><br><span class="hljs-comment">//  __proto__: &#123;</span><br><span class="hljs-comment">//    isNull: ƒ (),</span><br><span class="hljs-comment">//    map: ƒ (),</span><br><span class="hljs-comment">//    constructor: ƒ MayBe()</span><br><span class="hljs-comment">//  &#125;</span><br><span class="hljs-comment">//&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Option函子"><a href="#Option函子" class="headerlink" title="Option函子"></a>Option函子</h2><p><strong>Option函子</strong> 是 <strong>MayBe函子</strong> 进化版，<strong>MayBe函子</strong>并不能确定是在哪里值变为 <code>null</code> 的，而 <strong>Option函子</strong> 能够解决分支拓展问题。</p>
+<p><strong>Option函子</strong>主要解决正常和出错两种状态，所以需要两个分支，即需要两个函子。一种实现方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Nothing</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span> = val;<br>&#125;<br><span class="hljs-title class_">Nothing</span>.<span class="hljs-property">of</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Nothing</span>(val);<br>&#125;<br><span class="hljs-title class_">Nothing</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">map</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">func</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;<br>&#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title class_">Some</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span> = val;<br>&#125;<br><span class="hljs-title class_">Some</span>.<span class="hljs-property">of</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Some</span>(val);<br>&#125;<br><span class="hljs-title class_">Some</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">map</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">func</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Some</span>.<span class="hljs-title function_">of</span>(<span class="hljs-title function_">func</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span>));<br>&#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title class_">Option</span> = &#123;<br>  <span class="hljs-title class_">Nothing</span>: <span class="hljs-title class_">Nothing</span>,<br>  <span class="hljs-title class_">Some</span>: <span class="hljs-title class_">Some</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用时可将其封装在函数内，使用 <code>try ... catch</code> 来捕获错误，如果出现错误就使用 <code>Nothing</code> 将错误信息包裹，如果无错误就用 <code>Some</code> 包裹。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> ans;<br><span class="hljs-keyword">try</span> &#123;<br>  ans = <span class="hljs-title class_">Some</span>.<span class="hljs-title function_">of</span>(<span class="hljs-number">5</span>);<br>  <span class="hljs-keyword">throw</span> <span class="hljs-string">&quot;a is less 5.&quot;</span> <span class="hljs-comment">// 模拟错误</span><br>&#125; <span class="hljs-keyword">catch</span> (e) &#123;<br>  ans = <span class="hljs-title class_">Nothing</span>.<span class="hljs-title function_">of</span>(e)<br>&#125;<br><br>ans.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i + <span class="hljs-number">1</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i % <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在 Rust 或 Java 等语言中也是有类似的功能。</p>
+</blockquote>
+<h2 id="Monad"><a href="#Monad" class="headerlink" title="Monad"></a>Monad</h2><blockquote>
+<p>Monad 实际上也是一个特殊的函子，它只是实现了 <code>chain</code> 的函子！</p>
+</blockquote>
+<p>首先，给出Monad的实现代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Monad</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span> = val;<br>&#125;<br><span class="hljs-title class_">Monad</span>.<span class="hljs-property">of</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Monad</span>(val);<br>&#125;<br><span class="hljs-title class_">Monad</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">isNull</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span> == <span class="hljs-literal">null</span>;<br>&#125;<br><span class="hljs-title class_">Monad</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">map</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">func</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">isNull</span>() ? <span class="hljs-title class_">Monad</span>.<span class="hljs-title function_">of</span>(<span class="hljs-literal">null</span>) : <span class="hljs-title class_">Monad</span>.<span class="hljs-title function_">of</span>(<span class="hljs-title function_">func</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span>));<br>&#125;<br><span class="hljs-comment">// join</span><br><span class="hljs-title class_">Monad</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">join</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">isNull</span>() ? <span class="hljs-title class_">Monad</span>.<span class="hljs-title function_">of</span>(<span class="hljs-literal">null</span>) : <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span>;<br>&#125;<br><span class="hljs-comment">// chain</span><br><span class="hljs-title class_">Monad</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">chain</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">func</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">map</span>(func).<span class="hljs-title function_">join</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>首先举个例子：有一个API请求，将其返回的结果用函子包裹：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;https://api.xygeng.cn/day&quot;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">t</span> =&gt;</span> t.<span class="hljs-title function_">json</span>())<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">let</span> ans = <span class="hljs-title class_">Monad</span>.<span class="hljs-title function_">of</span>(data)<br>          .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">data</span>)<br>            <span class="hljs-comment">// =&gt; </span><br>            <span class="hljs-comment">// &#123;</span><br>            <span class="hljs-comment">//   date: &#x27;2023-3-14&#x27;,</span><br>            <span class="hljs-comment">//   today: true,</span><br>            <span class="hljs-comment">//   leap: false,</span><br>            <span class="hljs-comment">//   sign: &#x27;双鱼座&#x27;,</span><br>            <span class="hljs-comment">//   solar: &#123; ... &#125;,</span><br>            <span class="hljs-comment">//   lunar: &#123; ... &#125;,</span><br>            <span class="hljs-comment">//   festival: []</span><br>            <span class="hljs-comment">// &#125;</span><br>     &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>需求是将数据整合进一个数组，返回数组也使用Monad包裹：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;https://api.xygeng.cn/day&quot;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">t</span> =&gt;</span> t.<span class="hljs-title function_">json</span>())<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">let</span> ans = <span class="hljs-title class_">Monad</span>.<span class="hljs-title function_">of</span>(data)<br>          .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">data</span>)<br>          .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> &#123;<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(d)<br>            <span class="hljs-keyword">let</span> arr = [];<br>            <span class="hljs-keyword">for</span> (p <span class="hljs-keyword">in</span> d) &#123;<br>              arr.<span class="hljs-title function_">push</span>([p, d[p]]);<br>            &#125;<br>            <span class="hljs-keyword">return</span> <span class="hljs-title class_">Monad</span>.<span class="hljs-title function_">of</span>(arr); <span class="hljs-comment">// 注意，返回数组也使用Monad包裹</span><br>          &#125;)<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(ans)<br>    &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>此时，返回的结果会有嵌套的 Monad，这时候需要借助 <code>join</code> 函数来展开。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Monad</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">join</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">isNull</span>() ? <span class="hljs-title class_">Monad</span>.<span class="hljs-title function_">of</span>(<span class="hljs-literal">null</span>) : <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用方法为在 <code>map</code> 后面加个 <code>join</code> ： <code>map().join()</code> 。而 <code>chian</code> 实际上就是该写法的简略版！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;https://api.xygeng.cn/day&quot;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">t</span> =&gt;</span> t.<span class="hljs-title function_">json</span>())<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">let</span> ans = <span class="hljs-title class_">Monad</span>.<span class="hljs-title function_">of</span>(data)<br>          .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">data</span>)<br>       	  <span class="hljs-comment">// chain</span><br>          .<span class="hljs-title function_">chain</span>(<span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> &#123;<br>            <span class="hljs-keyword">let</span> arr = [];<br>            <span class="hljs-keyword">for</span> (p <span class="hljs-keyword">in</span> d) &#123;<br>              arr.<span class="hljs-title function_">push</span>([p, d[p]]);<br>            &#125;<br>            <span class="hljs-keyword">return</span> <span class="hljs-title class_">Monad</span>.<span class="hljs-title function_">of</span>(arr);<br>          &#125;)<br>    &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>所以，<code>Monad</code> 只是实现了 <code>chain</code> 的一个特殊函子！</p>
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/JavaScript/" class="tag-item">
+                    JavaScript
+                </a>
+            
+                <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="tag-item">
+                    函数式编程
+                </a>
+            
+                <a href="/tags/%E5%87%BD%E5%AD%90/" class="tag-item">
+                    函子
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/JavaScript/" class="cate-item">
+                    JavaScript
+                </a>
+            
+                <a href="/categories/JavaScript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="cate-item">
+                    函数式编程
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2023/05/03/vscode/%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">VSCode使用技巧</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2023/02/15/js%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/JavaScript%20%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B03-%E7%BB%84%E5%90%88%E4%B8%8E%E7%AE%A1%E9%81%93/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">JavaScript 函数式编程03-组合与管道</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 函数式编程03-组合与管道</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E4%B8%8E%E7%AE%A1%E9%81%93"><span class="toc-number">1.</span> <span class="toc-text">组合与管道</span></a></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>JavaScript 函数式编程03-组合与管道</h1>
+    </section>
+    <section class="article">
+        <blockquote>
+<p>函数式编程就是将每个不同的计算部分分散封装到不同的函数内，等到使用的时候再一一拿出来并按照一定的顺序进行执行，就类似于管道一样，共同组合成一个完整的函数。</p>
+</blockquote>
+<p>组合：<strong>每个程序的输出可以是另一个程序的输入</strong>，每个基础命令结合起来即可完成复杂的任务。</p>
+<p>例如：处理数组 <code>let arr = [2, 3, 7, 8];</code> 将其中大于5的值取出来并减一，可以使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">map</span>(<span class="hljs-title function_">filter</span>(arr, <span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i &gt; <span class="hljs-number">5</span>), <span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i-<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>如上，filter的输出作为map函数的输入，两个函数<strong>组合</strong>起来可以轻易解决某些问题。数据就像是在管道内流动一样，从出口到另一个入口。那我们便可以抽象出代码逻辑，让我们不再关心中间状态，只需要输入初始数据即可，实现的类似这样的函数被称为 <code>compose</code> 函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">compose</span> = (<span class="hljs-params">a, b</span>) =&gt; <span class="hljs-function"><span class="hljs-params">c</span> =&gt;</span> <span class="hljs-title function_">a</span>(<span class="hljs-title function_">b</span>(c));<br></code></pre></td></tr></table></figure>
+
+<p>利用compose可以实现有趣的事情：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">str2num</span> = s =&gt; <span class="hljs-built_in">parseInt</span>(s);<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">int</span> = n =&gt; <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(n);<br><br><span class="hljs-keyword">const</span> str2int = <span class="hljs-title function_">compose</span>(int, str2num);<br><br><span class="hljs-title function_">str2int</span>(<span class="hljs-string">&quot;3.1415926&quot;</span>); <span class="hljs-comment">// 3</span><br></code></pre></td></tr></table></figure>
+
+<p>如果使用 <code>compose</code> 函数来解决多参数函数问题比较麻烦，需要借助偏函数来实现。（你可以将其中的偏函数变体单独储存为一个函数，方便语义化）具体实现如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">compose</span>(<span class="hljs-title function_">partial</span>(map)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i-<span class="hljs-number">1</span>), <span class="hljs-title function_">partial</span>(filter)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i &gt; <span class="hljs-number">5</span>))(arr);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>偏函数、map、filter等函数之前的文章已给出代码实现！</p>
+</blockquote>
+<p>可能你会想，实现它有什么用？直接将所有代码都封装进一个函数不就行？</p>
+<p>是的，在某些人看来，命令式的做法更方便、更符合思考逻辑。但是当你阅读别人的代码，或者阅读自己好长时间前写的代码时，命令式的代码需要一定的时间去理清其中的逻辑，而函数是的编程则很好看懂其中逻辑（_或许在您看来命令式更易懂或者在于函数命名是否清除_）。而且，函数式的代码易于写测试代码，您可以将每一部分都单独进行测试，而当您重新写一个函数的时候，复用这些小函数可以安全使用，因为它们已被测试安全！</p>
+<h2 id="组合与管道"><a href="#组合与管道" class="headerlink" title="组合与管道"></a>组合与管道</h2><p>上面实现的 <code>compose</code> 函数只能实现两个函数的组合，为了实现多个参数的组合，需要重写函数。实现逻辑是将给定的函数参数数组整合为一个并返回，这可以利用 <code>reduce</code> 来实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">compose</span> = (<span class="hljs-params">...func</span>) =&gt; <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> <span class="hljs-title function_">reduce</span>(func.<span class="hljs-title function_">reverse</span>(), <span class="hljs-function">(<span class="hljs-params">acc, fn</span>) =&gt;</span> <span class="hljs-title function_">fn</span>(acc), value);<br></code></pre></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">compose</span>(<span class="hljs-title function_">partial</span>(map)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i-<span class="hljs-number">1</span>), <span class="hljs-title function_">partial</span>(filter)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i &gt; <span class="hljs-number">5</span>), <span class="hljs-title function_">partial</span>(map)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i + <span class="hljs-number">3</span>))(arr);<br><span class="hljs-comment">// =&gt; [ 5, 9, 10 ]</span><br></code></pre></td></tr></table></figure>
+
+<p>实现到这，你可能会发掘 <code>compose</code> 函数中数据流是从右到左流，而不是从左到右。而似乎从左到右执行似乎才符合逻辑，这样数据流从左到右的函数则被称为 <code>pipe</code> 管道函数。其实现方式类似于compose：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">pipe</span> = (<span class="hljs-params">...func</span>) =&gt; <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> <span class="hljs-title function_">reduce</span>(func, <span class="hljs-function">(<span class="hljs-params">acc, fn</span>) =&gt;</span> <span class="hljs-title function_">fn</span>(acc), value);<br></code></pre></td></tr></table></figure>
+
+<p>使用管道解决问题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">pipe</span>(<span class="hljs-title function_">partial</span>(map)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i + <span class="hljs-number">3</span>), <span class="hljs-title function_">partial</span>(filter)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i &gt; <span class="hljs-number">5</span>), <span class="hljs-title function_">partial</span>(map)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i-<span class="hljs-number">1</span>))(arr);<br><span class="hljs-comment">// =&gt; [ 5, 9, 10 ]</span><br></code></pre></td></tr></table></figure>
+
+<p>组合 <code>compose</code> 与管道 <code>pipe</code> 是相似的，他们只是数据流的方向相反，作用是一致的，都是整合小的函数，实现完整的功能。</p>
+<p>使用组合与管道，是有利于调试的，数据在不同的函数中流动，你完全可以在任何地方加一个拦截器调试数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">log</span> = data =&gt; &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);<br>  <span class="hljs-keyword">return</span> data;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>拦截数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">pipe</span>(<span class="hljs-title function_">partial</span>(map)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i + <span class="hljs-number">3</span>), <br>     log, <span class="hljs-comment">// 输出：[ 5, 6, 10, 11 ]</span><br>     <span class="hljs-title function_">partial</span>(filter)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i &gt; <span class="hljs-number">5</span>), <span class="hljs-title function_">partial</span>(map)(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i-<span class="hljs-number">1</span>))(arr);<br></code></pre></td></tr></table></figure>
+
+<p>这对于调试代码、定位bug等有很大的帮助。</p>
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/JavaScript/" class="tag-item">
+                    JavaScript
+                </a>
+            
+                <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="tag-item">
+                    函数式编程
+                </a>
+            
+                <a href="/tags/%E7%BB%84%E5%90%88/" class="tag-item">
+                    组合
+                </a>
+            
+                <a href="/tags/%E7%AE%A1%E9%81%93/" class="tag-item">
+                    管道
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/JavaScript/" class="cate-item">
+                    JavaScript
+                </a>
+            
+                <a href="/categories/JavaScript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="cate-item">
+                    函数式编程
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2023/02/21/js%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/JavaScript%20%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B04-%E5%87%BD%E5%AD%90/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">JavaScript 函数式编程04-函子</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2023/02/09/svg/svg1/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">SVG之画家模型</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

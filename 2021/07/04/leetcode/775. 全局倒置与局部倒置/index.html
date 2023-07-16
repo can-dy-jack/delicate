@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>775. 全局倒置与局部倒置</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E6%B3%95-%E7%BB%B4%E6%8A%A4%E6%9C%80%E5%B0%8F%E5%80%BC-%E6%95%B0%E5%AD%A6%E6%B3%95-x3D-%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B"><span class="toc-number">1.</span> <span class="toc-text">暴力法+维护最小值+数学法&#x3D;循序渐进</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">暴力法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4%E6%9C%80%E5%B0%8F%E5%80%BC%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">维护最小值法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E8%AF%81%E6%98%8E"><span class="toc-number">1.3.</span> <span class="toc-text">数学证明</span></a></li></ol></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>775. 全局倒置与局部倒置</h1>
+    </section>
+    <section class="article">
+        <h2 id="暴力法-维护最小值-数学法-x3D-循序渐进"><a href="#暴力法-维护最小值-数学法-x3D-循序渐进" class="headerlink" title="暴力法+维护最小值+数学法&#x3D;循序渐进"></a>暴力法+维护最小值+数学法&#x3D;循序渐进</h2><h3 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h3><p>看到题目，没有任何技巧，直接暴力！🐶  :dog:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> isIdealPermutation = <span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) &#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-property">length</span>-<span class="hljs-number">2</span>;i++) &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = i+<span class="hljs-number">2</span>;j&lt;nums.<span class="hljs-property">length</span>;j++) &#123;<br>            <span class="hljs-keyword">if</span>(nums[i] &gt; nums[j]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="维护最小值法"><a href="#维护最小值法" class="headerlink" title="维护最小值法"></a>维护最小值法</h3><p>稍微分析一下，我们在 <code>i</code> 位置上，只要找到从 <code>i+2</code> 往后的值中有小于 <code>i</code> 位上的值即可；那么只需要从 <code>i+2</code> 往后的值中最小的值与 <code>nums[i]</code> 比较即可！</p>
+<p>可以从后往前遍历，有利于保存后缀最小值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> isIdealPermutation = <span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) &#123;<br>    <span class="hljs-keyword">let</span> min = nums[nums.<span class="hljs-property">length</span>-<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = nums.<span class="hljs-property">length</span>-<span class="hljs-number">3</span>;i&gt;=<span class="hljs-number">0</span>;i--) &#123;<br>        <span class="hljs-keyword">if</span>(nums[i] &gt; min) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        min = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(min, nums[i+<span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h3 id="数学证明"><a href="#数学证明" class="headerlink" title="数学证明"></a>数学证明</h3><p>接着分析：</p>
+<ul>
+<li>在 <code>i=0</code> 的位置上，只要其大于等于 <code>2</code>，那就一定能在 <code>i=2</code> 及往后的位置中找到小于 <code>i</code> 的值。</li>
+<li>在 <code>i=1</code> 的位置上，只要其大于等于 <code>3</code>，那就一定能在 <code>i=3</code> 及往后的位置中找到小于 <code>i</code> 的值。</li>
+<li>以此类推，可以看到，只要保证 <code>nums[i] &lt;= i+2</code> 即可！</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number[]</span>&#125; <span class="hljs-variable">nums</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">boolean</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> isIdealPermutation = <span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) &#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-property">length</span>;i++) &#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">abs</span>(nums[i] - i) &gt;= <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/LeetCode/" class="tag-item">
+                    LeetCode
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/LeetCode/" class="cate-item">
+                    LeetCode
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2021/07/06/javascript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">函数式编程</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2021/06/04/leetcode/547.%20%E7%9C%81%E4%BB%BD%E6%95%B0%E9%87%8F/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">547. 省份数量</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

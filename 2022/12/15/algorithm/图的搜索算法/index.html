@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图的搜索算法</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">深度优先搜索算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%E9%A2%98-%E5%8A%9B%E6%89%A3-797-%E6%89%80%E6%9C%89%E5%8F%AF%E8%83%BD%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-number">1.1.</span> <span class="toc-text">练习题 - 力扣 797. 所有可能的路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">广度优先搜索算法</span></a></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>图的搜索算法</h1>
+    </section>
+    <section class="article">
+        <p>并查集是用来检查两个顶点之间的连通性。而找出图所有的顶点呢、找出它两个顶点之间的路径等都需要深度优先搜索算法或广度优先搜索算法。</p>
+<h2 id="深度优先搜索算法"><a href="#深度优先搜索算法" class="headerlink" title="深度优先搜索算法"></a>深度优先搜索算法</h2><p><code>Depth First Search</code>   <code>DFS</code>  &#x3D;&gt; always use <code>stack</code> .</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">时间复杂度</th>
+<th align="center">空间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DFS 遍历所有节点</td>
+<td align="center">$O(V+E)$</td>
+<td align="center">$O(V)$</td>
+</tr>
+<tr>
+<td align="center">DFS 遍历两点之间所有路径</td>
+<td align="center">$O((2^V)∗(V+E))$</td>
+<td align="center">$O((2^V)∗V)$</td>
+</tr>
+</tbody></table>
+<p><code>V</code> 表示顶点数，<code>E</code> 表示边数。</p>
+<h3 id="练习题-力扣-797-所有可能的路径"><a href="#练习题-力扣-797-所有可能的路径" class="headerlink" title="练习题 - 力扣 797. 所有可能的路径"></a>练习题 - <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/all-paths-from-source-to-target">力扣 797. 所有可能的路径</a></h3><blockquote>
+<p>给你一个有 <code>n</code> 个节点的 <strong>有向无环图（DAG）</strong>，请你找出所有从节点 <code>0</code> 到节点 <code>n-1</code> 的路径并输出（<strong>不要求按特定顺序</strong>）<br><code>graph[i]</code> 是一个从节点 <code>i</code> 可以访问的所有节点的列表（即从节点 <code>i</code> 到节点 <code>graph[i][j]</code> 存在一条有向边）。</p>
+</blockquote>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs text">示例1：<br>输入：graph = [[1,2],[3],[3],[]]<br>输出：[[0,1,3],[0,2,3]]<br>解释：有两条路径 0 -&gt; 1 -&gt; 3 和 0 -&gt; 2 -&gt; 3<br><br>示例2：<br>输入：graph = [[4,3,1],[3,2,4],[3],[4],[]]<br>输出：[[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]<br></code></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>n &#x3D;&#x3D; graph.length</li>
+<li>2 &lt;&#x3D; n &lt;&#x3D; 15</li>
+<li>0 &lt;&#x3D; graph[i][j] &lt; n</li>
+<li>graph[i][j] !&#x3D; i（即不存在自环）</li>
+<li>graph[i] 中的所有元素 互不相同</li>
+<li>保证输入为 有向无环图（DAG）</li>
+</ul>
+<p>本题可用 <code>DFS</code> &#x2F; 递归 或 回溯 的方法做。这里给出 <code>DFS</code> 的解法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number[][]</span>&#125; <span class="hljs-variable">graph</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">number[][]</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> allPathsSourceTarget = <span class="hljs-keyword">function</span>(<span class="hljs-params">graph</span>) &#123;<br>    <span class="hljs-keyword">let</span> answer = [];<br>    <span class="hljs-keyword">const</span> n = graph.<span class="hljs-property">length</span>;<br>    (<span class="hljs-keyword">function</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">start = <span class="hljs-number">0</span>, arr = []</span>) &#123;<br>        arr.<span class="hljs-title function_">push</span>(start);<br>        <span class="hljs-keyword">if</span>(start === n - <span class="hljs-number">1</span>) &#123;<br>            answer.<span class="hljs-title function_">push</span>(arr.<span class="hljs-title function_">slice</span>());<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; graph[start].<span class="hljs-property">length</span>; i++) &#123;<br>            <span class="hljs-title function_">dfs</span>(graph[start][i], arr.<span class="hljs-title function_">slice</span>());<br>        &#125;<br>    &#125;)()<br>    <span class="hljs-keyword">return</span> answer;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="广度优先搜索算法"><a href="#广度优先搜索算法" class="headerlink" title="广度优先搜索算法"></a>广度优先搜索算法</h2><p><code>Breath First Search</code>   <code>BFS</code>  &#x3D;&gt; always use <code>queue</code> .</p>
+<p>“广度优先搜索” 最高效的用途是：当在 <strong>权重相等且均为正数的图中，它可以快速的找到两点之间的最短路径</strong></p>
+<ol>
+<li>遍历「图」中所有顶点</li>
+<li>针对 权重相等且均为正数的「图」，快速找出两点之间的最短路径</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">时间复杂度</th>
+<th align="center">空间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>BFS</code> 遍历所有顶点</td>
+<td align="center">$O(V+E)$</td>
+<td align="center">$O(V)$</td>
+</tr>
+<tr>
+<td align="center"><code>BFS</code> 求两点之间最短路径</td>
+<td align="center">$O(V+E)$</td>
+<td align="center">$O(V)$</td>
+</tr>
+</tbody></table>
+<p><code>V</code> 表示顶点数，<code>E</code> 表示边数。</p>
+<p>上题也可用 <code>BFS</code> 做（不建议）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number[][]</span>&#125; <span class="hljs-variable">graph</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">number[][]</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> allPathsSourceTarget = <span class="hljs-keyword">function</span>(<span class="hljs-params">graph</span>) &#123;<br>    <span class="hljs-keyword">let</span> ans = [];<br>    <span class="hljs-keyword">const</span> n = graph.<span class="hljs-property">length</span>;<br>    <span class="hljs-keyword">if</span>(!graph || n === <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>    <span class="hljs-keyword">let</span> path = [<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">let</span> queue = [path];<br>    <span class="hljs-keyword">while</span>(queue.<span class="hljs-property">length</span>) &#123;<br>        <span class="hljs-keyword">let</span> cur = queue.<span class="hljs-title function_">shift</span>();<br>        <span class="hljs-keyword">let</span> node = cur[cur.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> next <span class="hljs-keyword">of</span> graph[node]) &#123;<br>            <span class="hljs-keyword">let</span> t = cur.<span class="hljs-title function_">slice</span>();<br>            t.<span class="hljs-title function_">push</span>(next);<br>            <span class="hljs-keyword">if</span>(next == n - <span class="hljs-number">1</span>) &#123;<br>                ans.<span class="hljs-title function_">push</span>(t.<span class="hljs-title function_">slice</span>());<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                queue.<span class="hljs-title function_">push</span>(t.<span class="hljs-title function_">slice</span>());<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/JavaScript/" class="tag-item">
+                    JavaScript
+                </a>
+            
+                <a href="/tags/%E7%AE%97%E6%B3%95/" class="tag-item">
+                    算法
+                </a>
+            
+                <a href="/tags/%E5%9B%BE/" class="tag-item">
+                    图
+                </a>
+            
+                <a href="/tags/%E5%9B%BE%E7%9A%84%E6%90%9C%E7%B4%A2/" class="tag-item">
+                    图的搜索
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/JavaScript/" class="cate-item">
+                    JavaScript
+                </a>
+            
+                <a href="/categories/JavaScript/%E7%AE%97%E6%B3%95/" class="cate-item">
+                    算法
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2022/12/24/algorithm/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">图 - 最小生成树</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2022/12/12/algorithm/%E5%9B%BE/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">图的储存与并查集的实现</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

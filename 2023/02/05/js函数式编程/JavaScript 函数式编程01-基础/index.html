@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 函数式编程基础</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">函数式编程定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E4%B8%8E%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">闭包与高阶函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#every"><span class="toc-number">2.1.</span> <span class="toc-text">every</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#some-or-any"><span class="toc-number">2.2.</span> <span class="toc-text">some or any</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sortBy"><span class="toc-number">2.3.</span> <span class="toc-text">sortBy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tap"><span class="toc-number">2.4.</span> <span class="toc-text">tap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unary"><span class="toc-number">2.5.</span> <span class="toc-text">unary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#once"><span class="toc-number">2.6.</span> <span class="toc-text">once</span></a></li></ol></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>JavaScript 函数式编程基础</h1>
+    </section>
+    <section class="article">
+        <blockquote>
+<p>函数式编程是一种编程范式，它将计算机运算视为函数的计算。</p>
+</blockquote>
+<p>函数式编程语言语言最重要的基础是 $\lambda$ 演算。JavaScript 是一种十分灵活的编程语言，其可以算是多范式语言，即支持函数式编程、命令式编程、对象式编程等。</p>
+<p>函数式编程涉及许多数学概念，不同于过程式编程和对象式编程，由其名字即可看出，在函数式编程中，<strong>函数是一等公民</strong>。函数式编程涉及的概念有：</p>
+<ul>
+<li>闭包</li>
+<li>高阶函数</li>
+<li>柯里化</li>
+<li>偏应用</li>
+<li>组合与管道</li>
+<li>函子</li>
+<li>Monad</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="函数式编程定义"><a href="#函数式编程定义" class="headerlink" title="函数式编程定义"></a>函数式编程定义</h2><p>函数式编程是将函数作为编程的基础，并且函数总是接受参数，返回一个值，并且遵循相同的参数总是输出相同的值。函数应该依据接收到的参数运行，不依赖外部环境的运行，即函数必须是<strong>纯函数</strong>。</p>
+<p>特性：</p>
+<ol>
+<li>引用透明性<ul>
+<li>即相同的参数总是输出相同的值</li>
+</ul>
+</li>
+<li>主张命令式编程、编写抽象的代码<ul>
+<li>利于重用代码</li>
+</ul>
+</li>
+<li>纯函数<ul>
+<li>遵循相同的参数总是输出相同的值，且函数应该依据接收到的参数运行，不依赖外部环境的运行</li>
+<li>有利于代码测试</li>
+</ul>
+</li>
+<li>可实现并发代码</li>
+<li>可缓存</li>
+<li>支持管道与组合，类似于 <code>linux</code> 命令的函数式组合命令</li>
+</ol>
+<h2 id="闭包与高阶函数"><a href="#闭包与高阶函数" class="headerlink" title="闭包与高阶函数"></a>闭包与高阶函数</h2><blockquote>
+<p>高阶函数是用于抽象通用代码的问题，即高阶函数就是定于抽象函数。这种抽象不仅可以使使用者不必在意其实现细节即可使用，且便于测试代码。</p>
+</blockquote>
+<p>例如：实现一个 <code>forEach</code> 遍历数组，并对每一个item执行给定的函数，用户只需给出数组和执行函数即可；注意，实现的函数与数组原生方法作用一致，但是 <code>.forEach()</code> 的执行方式是声明式的而不是函数式的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> forEach (arr, func) =&gt; &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; arr.<span class="hljs-property">length</span>; i++) &#123;<br>        <span class="hljs-title function_">func</span>(arr[i]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>也可以封装一个遍历对象的函数 <code>eachObject</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">eachObject</span> = (<span class="hljs-params">obj, func</span>) =&gt; &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> p <span class="hljs-keyword">in</span> obj) &#123;<br>        <span class="hljs-keyword">if</span> (obj.<span class="hljs-title function_">hasOwnProperty</span>(p)) &#123;<br>            <span class="hljs-title function_">func</span>(p, obj[p])<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>一些实用的高阶函数：</p>
+<h3 id="every"><a href="#every" class="headerlink" title="every"></a><code>every</code></h3><blockquote>
+<p>用于检查数组内<strong>所有</strong>值都符合给定的函数返回 true</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">every</span> = (<span class="hljs-params">arr, func</span>) =&gt; &#123;<br>    <span class="hljs-keyword">let</span> ans = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; arr.<span class="hljs-property">length</span>; i++) &#123;<br>        ans = ans &amp;&amp; <span class="hljs-title function_">func</span>(arr[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="some-or-any"><a href="#some-or-any" class="headerlink" title="some or any"></a><code>some</code> or <code>any</code></h3><blockquote>
+<p>与 every 函数类似，查找数组内<strong>是否有</strong>值符合给定的函数返回 true</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">some</span> = (<span class="hljs-params">arr, func</span>) =&gt; &#123;<br>    <span class="hljs-keyword">let</span> ans = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; arr.<span class="hljs-property">length</span>; i++) &#123;<br>        ans = ans || <span class="hljs-title function_">func</span>(arr[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br><span class="hljs-keyword">const</span> any = some; <span class="hljs-comment">// 别名</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="sortBy"><a href="#sortBy" class="headerlink" title="sortBy"></a><code>sortBy</code></h3><blockquote>
+<p>js数组内置的sort接收一个函数作为排序的依据，这个函数是个很公式化的函数，可以使用高阶函数抽象一下。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">sortBy</span> = (<span class="hljs-params">property</span>) =&gt; &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span> (a[property] &lt; b[property]) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (a[property] &gt; b[property]) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>例如，有个二维数组 <code>arr = [[1,15], [4, 6], [7, 8]]</code>，可以使用 <code>arr.sort(sortBy(1))</code> 来排序。</p>
+<h3 id="tap"><a href="#tap" class="headerlink" title="tap"></a><code>tap</code></h3><blockquote>
+<p>用于调试数据的函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">tap</span> = val =&gt; <span class="hljs-function"><span class="hljs-params">func</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> func === <span class="hljs-string">&#x27;function&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_">func</span>(val);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="unary"><a href="#unary" class="headerlink" title="unary"></a><code>unary</code></h3><p>当使用类似于 <code>[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;].map(parseInt)</code> 是，并不会返回我们所期望的值：<code>[1,2,3]</code>，而是会返回 <code>[1, NaN, NaN]</code> 。原因在于 <code>parseInt</code> 函数<strong>可能接收2个参数</strong>，<code>map</code>将数组的<code>index</code>作为参数传递给<code>parseInt</code>函数了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-number">0</span>) <span class="hljs-comment">// 1, 第二个参数为0，不合规，按默认10进制转换数字</span><br><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// NaN</span><br><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">// NaN</span><br></code></pre></td></tr></table></figure>
+
+<p>如果需要解决以上问题，可以使用 <code>arr.map(args =&gt; parseInt(args))</code> 。</p>
+<p>我们可以抽象一个函数用于解决以上问题，判断给定的函数接受几个参数，以不同的方式调用返回：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">unary</span> = func =&gt; func.<span class="hljs-property">length</span> === <span class="hljs-number">1</span> ? func : <span class="hljs-function"><span class="hljs-params">args</span> =&gt;</span> <span class="hljs-title function_">func</span>(args)<br></code></pre></td></tr></table></figure>
+
+<p>现在可以直接使用：<code>arr.map(unary(parseInt))</code> </p>
+<h3 id="once"><a href="#once" class="headerlink" title="once"></a><code>once</code></h3><p>在某些情况下，某些函数只需要调用一次，为了防止其多次调用，可以封装一个函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">once</span> = func =&gt; &#123;<br>    <span class="hljs-keyword">let</span> done = <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span> (!done) &#123;<br>            done = <span class="hljs-literal">true</span>;<br>            <span class="hljs-keyword">return</span> func.<span class="hljs-title function_">apply</span>(<span class="hljs-variable language_">this</span>, args);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/JavaScript/" class="tag-item">
+                    JavaScript
+                </a>
+            
+                <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="tag-item">
+                    函数式编程
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/JavaScript/" class="cate-item">
+                    JavaScript
+                </a>
+            
+                <a href="/categories/JavaScript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="cate-item">
+                    函数式编程
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2023/02/08/js%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/JavaScript%20%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B02-%E6%95%B0%E7%BB%84%E4%B8%8E%E6%9F%AF%E9%87%8C%E5%8C%96/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">JavaScript 函数式编程之数组与柯里化</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2023/02/03/svg/base/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">svg基础</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

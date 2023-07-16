@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG之画家模型</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#fill-and-stroke"><span class="toc-number">1.</span> <span class="toc-text">fill and stroke</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fill%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">fill属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stroke%E5%B1%9E%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">stroke属性</span></a></li></ol></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>SVG之画家模型</h1>
+    </section>
+    <section class="article">
+        <p>SVG的渲染模型是<strong>画家模型</strong>。</p>
+<h2 id="fill-and-stroke"><a href="#fill-and-stroke" class="headerlink" title="fill and stroke"></a>fill and stroke</h2><h3 id="fill属性"><a href="#fill属性" class="headerlink" title="fill属性"></a>fill属性</h3><p>fill属性用于填充，默认填充黑色，如果不想要填充，可以将其设置为 <code>none</code>。还可以设置为 <code>currentColor</code> 关键词，这会让内联的 svg 与周围的 html 文本颜色协调或者为重复使用的内容提供一个间接继承的值。</p>
+<p>相关属性：</p>
+<ul>
+<li><code>fill-opacity</code> 设置透明度</li>
+<li><code>fill-rule</code><ul>
+<li><code>evenodd</code> 边缘线分割图形的内部与外部</li>
+<li><code>nonzero</code> 默认值，倾向于 “得到更多的内部空间”</li>
+</ul>
+</li>
+</ul>
+<h3 id="stroke属性"><a href="#stroke属性" class="headerlink" title="stroke属性"></a>stroke属性</h3>
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/svg/" class="tag-item">
+                    svg
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/svg/" class="cate-item">
+                    svg
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2023/02/15/js%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/JavaScript%20%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B03-%E7%BB%84%E5%90%88%E4%B8%8E%E7%AE%A1%E9%81%93/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">JavaScript 函数式编程03-组合与管道</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2023/02/08/js%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/JavaScript%20%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B02-%E6%95%B0%E7%BB%84%E4%B8%8E%E6%9F%AF%E9%87%8C%E5%8C%96/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">JavaScript 函数式编程之数组与柯里化</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

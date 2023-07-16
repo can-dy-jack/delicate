@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图的储存与并查集的实现</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">1.</span> <span class="toc-text">图的定义和相关术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8"><span class="toc-number">2.</span> <span class="toc-text">图的存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%AD%98%E5%9B%BE%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">矩阵存图法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8%E5%AD%98%E5%9B%BE%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">邻接表存图法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E5%BC%8F%E5%89%8D%E5%90%91%E6%98%9F%E5%AD%98%E5%9B%BE%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">链式前向星存图法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-number">3.</span> <span class="toc-text">并查集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Quick-Find"><span class="toc-number">3.1.</span> <span class="toc-text">Quick Find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quick-Union"><span class="toc-number">3.2.</span> <span class="toc-text">Quick Union</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E7%9A%84%E3%80%8C%E5%B9%B6%E6%9F%A5%E9%9B%86%E3%80%8D"><span class="toc-number">3.3.</span> <span class="toc-text">按秩合并的「并查集」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E4%BC%98%E5%8C%96%E7%9A%84%E3%80%8C%E5%B9%B6%E6%9F%A5%E9%9B%86%E3%80%8D"><span class="toc-number">3.4.</span> <span class="toc-text">路径压缩优化的「并查集」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E7%9A%84%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E4%BC%98%E5%8C%96%E7%9A%84%E3%80%8C%E5%B9%B6%E6%9F%A5%E9%9B%86%E3%80%8D"><span class="toc-number">3.5.</span> <span class="toc-text">基于路径压缩的按秩合并优化的「并查集」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%9A%84%E5%AE%9E%E7%8E%B0-%E6%80%BB%E7%BB%93"><span class="toc-number">3.6.</span> <span class="toc-text">并查集的实现 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-number">4.</span> <span class="toc-text">题目 - 并查集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">5.</span> <span class="toc-text">参考文献</span></a></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>图的储存与并查集的实现</h1>
+    </section>
+    <section class="article">
+        <blockquote>
+<p>本文为学习笔记，学习资料来源如下：<br>作者：爱学习的饲养员<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/leetbook/read/graph/npniph/">https://leetcode.cn/leetbook/read/graph/npniph/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<p>图的类型有很多，常见的有：<strong>无向图</strong>、<strong>有向图</strong>、<strong>加权图</strong>。</p>
+<ul>
+<li>无向图的图中任意两个顶点之间的边都是没有方向的。</li>
+<li>有向图的图中任意两个顶点之间的边都是有方向的。</li>
+<li>加权图的图中的每条边都有一个权重。</li>
+</ul>
+<h2 id="图的定义和相关术语"><a href="#图的定义和相关术语" class="headerlink" title="图的定义和相关术语"></a>图的定义和相关术语</h2><p>「图」是由顶点和边组成的一种非线形数据结构。</p>
+<p>相关的定义:</p>
+<ul>
+<li><strong>顶点</strong></li>
+<li><strong>边</strong>：顶点之间的连接线称为边</li>
+<li><strong>路径</strong>：从一个顶点到另一个顶点之间经过的所有顶点的集合。</li>
+<li><strong>路径长度</strong>：一条路径上经过的边的数量。</li>
+<li><strong>环</strong>：起点和终点为同一个顶点的路径。。</li>
+<li><strong>负权环</strong>：在 <em>加权图</em> 中，如果一个环的所有边的权重加起来为负数，我们就称之为「负权环」。</li>
+<li><strong>连通性</strong>：两个不同顶点之间存在至少一条路径，则称这两个顶点是连通的。</li>
+<li><strong>顶点的度</strong>：度适用于 <em>无向图</em> ，指的是和该顶点相连接的所有边数</li>
+<li>顶点的<strong>入度</strong>：入度适用于 <em>有向图</em> ，一个顶点的入度指与顶点相连的边指向该顶点的个数。</li>
+<li>顶点的<strong>出度</strong>：出度适用于 <em>有向图</em> ，一个顶点的出度指与顶点相连的边以该顶点为起点的个数。</li>
+</ul>
+<p>图的相关知识点：</p>
+<ul>
+<li>并查集（ Union Find ）数据结构</li>
+<li>「图」的深度优先搜索算法</li>
+<li>「图」的广度优先搜索算法</li>
+<li>最小生成树相关定理和算法<ul>
+<li>切分定理</li>
+<li>Kruskal 算法</li>
+<li>Prim 算法</li>
+</ul>
+</li>
+<li>单源最短路径相关算法<ul>
+<li>Dijkstra 算法</li>
+<li>Bellman-Ford 算法</li>
+<li>拓扑排序之 Kahn 算法</li>
+</ul>
+</li>
+</ul>
+<h2 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h2><p>在程序中运用图论相关算法的第一步，我们需要先学会如何把图储存起来。</p>
+<h3 id="矩阵存图法"><a href="#矩阵存图法" class="headerlink" title="矩阵存图法"></a>矩阵存图法</h3><p>图中的顶点我们已经编好了号，那么我们需要储存的和图相关的信息，就只剩下点与点之间的连边了。</p>
+<p>一个很直观的想法就是用一个二维数组来存图，下标代表点，值代表连边的情况。这就是所谓的<code>矩阵存图法</code>，也被称作为<code>邻接矩阵存图法</code>。</p>
+<p>更具体地，我们一般使用 bool 数组来储存点与点之间的连边信息：</p>
+<ul>
+<li>如果 <code>con[i][j]</code> 的值为 <code>true</code> ，表示点 i 与点 j 之间连了一条从 i 指向 j 的边。</li>
+<li>如果 <code>con[i][j]</code> 的值为 <code>false</code> ，表示点 i 与点 j 之间没有连边。</li>
+</ul>
+<p>基本操作的复杂度：</p>
+<ul>
+<li>添加一条边的时间复杂度为 $\Theta(1)$ 。</li>
+<li>判断两个点之间是否有边相连的时间复杂度为 $\Theta(1)$ 。</li>
+<li>遍历一个点的所有出边的复杂度为 $\Theta(n)$</li>
+</ul>
+<p>矩阵存图法各种操作的时间复杂度相对来说都较为优秀，但是其劣势在于：存下一个图需要 $O(n^2)$ 的空间复杂度，这在面对点与点之间的连边数远远小于 $\Theta(n^2)$ 的稀疏图时，就有很多空间被浪费了。</p>
+<p>我们之前的讨论，针对的是无权有向图，那么如果面对的是有权图，或者无向图，我们该如何进行存储呢？</p>
+<ul>
+<li>对于有权图的情况：我们只需要将 <code>bool</code> 数组改为 <code>int</code> 数组，两点之间有连边，就将对应元素的值改为边权即可。当然这种情况下，需要将数组初始化为一个不可能的边权（部分题目存在边权为 0 的情况）</li>
+<li>对于无向图的情况：只需 <code>con[i][j] = con[j][i] = true</code></li>
+</ul>
+<h3 id="邻接表存图法"><a href="#邻接表存图法" class="headerlink" title="邻接表存图法"></a>邻接表存图法</h3><blockquote>
+<p>矩阵存图的最大的劣势，就是在面对稀疏图时，有很多空间没有储存有效信息（对于一个图，我们往往更加关注哪些点之间有连边，而不关注哪些点之间没有连边），被浪费掉了。一个优化的思路是：我们不再考虑储存每一个点对之间的连边信息，而只考虑那些有连边的点对。这样我们就能够保证所储存下来的信息都会是有效的。</p>
+</blockquote>
+<p>针对上述思路，对于一个有 n 的点的图，我们可以利用 n 个链表，第 i 个链表里存着所有从 i 直接连向的点。</p>
+<p>基本操作的复杂度：</p>
+<ul>
+<li>添加一条边需要新建一个结构体，并且插入链表中，时间复杂度为 $\Theta(1)$ 如果我们添加的是无向边，那么需要添加两次。</li>
+<li>判断两个点之间是否有边相连：如果我们想要知道图中是否存在一条从 i 连向 j 的边，那么我们需要遍历点 i 的所有出边，判断终点是否为 j 。因此，判断两个点之间是否有边相连的时间复杂度，与遍历一个点的所有出边的时间复杂度相同，为 $\Theta(出度)$</li>
+<li>遍历一个点的所有出边时间复杂度为 $\Theta(出度)$ 。从实现上来看，遍历一个点的所有出边，等价于遍历第 i 个节点对应的链表。</li>
+</ul>
+<p>由于邻接表只储存了连接的边的信息，所以其空间复杂度为 $\Theta(m)$ （一般我们用 m 来表示图中边的数量）</p>
+<h3 id="链式前向星存图法"><a href="#链式前向星存图法" class="headerlink" title="链式前向星存图法"></a>链式前向星存图法</h3><p>链式前向星存图 和 邻接表存图 的方式总体思路是相同的，只是在实现的方式上有所不同。<strong>链式前向星 更像是数组模拟链表的一种运用。</strong> 在算法竞赛中广泛应用。</p>
+<p>链式前向星存图与邻接表存图，虽然实现方式差异较大，但实际的时间复杂度是一样的。</p>
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>「并查集」的主要作用是用来解决网络中的连通性。</p>
+<ul>
+<li>父节点：顶点的直接父亲节点。</li>
+<li>根节点：没有父节点的节点，本身可以视为自己的父节点。</li>
+</ul>
+<p>设计并查集数据结构：</p>
+<ul>
+<li><code>union</code> 函数：合并两个顶点，并将他们的根结点保持一致。</li>
+<li><code>find</code> 函数：找到给定顶点的根结点。</li>
+</ul>
+<p>并查集有两个实现方式：</p>
+<ul>
+<li><code>Quick Find</code> ：它指的是实现「并查集」时，find 函数时间复杂度很低为 O(1)，让 union 函数就需要承担更多的责任，它的时间复杂度为 O(N)。</li>
+<li><code>Quick Union</code> ：它指的是实现「并查集」时，相对于 Quick Find 的实现方式，我们通过降低 union 函数的职责来提高它的效率，但同时，我们也增加了 find 函数的职责。</li>
+</ul>
+<h3 id="Quick-Find"><a href="#Quick-Find" class="headerlink" title="Quick Find"></a>Quick Find</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 并查集 - Quick Find 的实现</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len)<br>      .<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>)<br>      .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>  &#125;<br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-comment">// 主要工作都分配给了 union函数，其已经将对应的根元素分好</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x];<br>  &#125;<br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x),<br>      rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span> (rootx !== rooty) &#123;<br>      <span class="hljs-comment">// 如果根元素不同，则将根元素换为 y 的</span><br>      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>.<span class="hljs-property">length</span>; i++) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[i] === rootx) <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[i] = rooty;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-comment">// 判断是否联通</span><br>  <span class="hljs-title function_">connected</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x) == <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>  &#125;<br><br>  <span class="hljs-comment">// 测试专用</span><br>  <span class="hljs-title function_">show</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> uf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UnionFind</span>(<span class="hljs-number">10</span>);<br><span class="hljs-comment">// 1-2-5-6-7 3-8-9 4</span><br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">5</span>, <span class="hljs-number">6</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">3</span>, <span class="hljs-number">8</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">8</span>, <span class="hljs-number">9</span>);<br>uf.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// [ 0, 7, 7, 9, 4, 7, 7, 7, 9, 9 ]</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// true</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">7</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// true</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">4</span>, <span class="hljs-number">9</span>); <span class="hljs-comment">// false</span><br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">9</span>, <span class="hljs-number">4</span>);<br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">4</span>, <span class="hljs-number">9</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Quick-Union"><a href="#Quick-Union" class="headerlink" title="Quick Union"></a>Quick Union</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len)<br>      .<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>)<br>      .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>  &#125;<br>  <span class="hljs-comment">// 递归寻找根节点</span><br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">while</span> (x !== <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x]) x = <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x];<br>    <span class="hljs-keyword">return</span> x;<br>  &#125;<br>  <span class="hljs-comment">// 将根节点划归为一个</span><br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x),<br>      rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span> (rootx !== rooty) <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>  &#125;<br>  <span class="hljs-title function_">connected</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x) === <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>  &#125;<br><br>  <span class="hljs-comment">// 测试专用</span><br>  <span class="hljs-title function_">show</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> uf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UnionFind</span>(<span class="hljs-number">10</span>);<br><span class="hljs-comment">// 1-2-5-6-7 3-8-9 4</span><br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">5</span>, <span class="hljs-number">6</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">3</span>, <span class="hljs-number">8</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">8</span>, <span class="hljs-number">9</span>);<br>uf.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// [ 0, 2, 5, 8, 4, 6, 7, 7, 9, 9 ]</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// true</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">7</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// true</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">4</span>, <span class="hljs-number">9</span>); <span class="hljs-comment">// false</span><br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">9</span>, <span class="hljs-number">4</span>);<br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">4</span>, <span class="hljs-number">9</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">构造函数</th>
+<th align="center">find 函数</th>
+<th align="center">union 函数</th>
+<th align="center">connected 函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Quick Find 时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(1)$</td>
+</tr>
+<tr>
+<td>Quick Union 时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(H)$</td>
+<td align="center">$O(H)$</td>
+<td align="center">$O(H)$</td>
+</tr>
+</tbody></table>
+<p>N 为顶点的个数，H 树的高度。</p>
+<blockquote>
+<p>总体来说，Quick Union 是比 Quick Find 更加高效的。</p>
+</blockquote>
+<h3 id="按秩合并的「并查集」"><a href="#按秩合并的「并查集」" class="headerlink" title="按秩合并的「并查集」"></a>按秩合并的「并查集」</h3><p>我们已经实现了 2 种「并查集」。但它们都有一个很大的缺点，这个缺点就是通过 union 函数连接顶点之后，可能所有顶点连成一条线形成，这就是我们 find 函数在最坏的情况下的样子。</p>
+<p>解决方案便是按秩合并。这里的「秩」可以理解为「秩序」。之前我们在 <code>union</code> 的时候，我们是随机选择 x 和 y 中的一个根节点&#x2F;父节点作为另一个顶点的根节点。但是在「按秩合并」中，我们是按照「某种秩序」选择一个父节点。</p>
+<p>这里的「秩」指的是每个顶点所处的高度。我们每次 <code>union</code> 两个顶点的时候，选择根节点的时候不是随机的选择某个顶点的根节点，而是将「秩」大的那个根节点作为两个顶点的根节点，换句话说，我们将低的树合并到高的树之下，将高的树的根节点作为两个顶点的根节点。这样，我们就避免了所有的顶点连成一条线，这就是按秩合并优化的「并查集」。</p>
+<blockquote>
+<p>所以，按秩排序根本上就是对 <code>Quick Union</code> 中的 <code>union</code> 函数进行优化</p>
+</blockquote>
+<p>实现代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-comment">// 保存数据及其对应的父节点</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>    <span class="hljs-comment">// 保存高度</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span> = <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-number">1</span>);<br>  &#125;<br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">while</span>(x !== <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x]) x = <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x];<br>    <span class="hljs-keyword">return</span> x;<br>  &#125;<br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x), rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span>(rootx !== rooty) &#123;<br>      <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &gt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rooty] = rootx;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>      &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// ===</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty] += <span class="hljs-number">1</span>;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-title function_">connected</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x) === <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">构造函数</th>
+<th align="center">find 函数</th>
+<th align="center">union 函数</th>
+<th align="center">connected 函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(logN)$</td>
+<td align="center">$O(logN)$</td>
+<td align="center">$O(logN)$</td>
+</tr>
+</tbody></table>
+<h3 id="路径压缩优化的「并查集」"><a href="#路径压缩优化的「并查集」" class="headerlink" title="路径压缩优化的「并查集」"></a>路径压缩优化的「并查集」</h3><p>从前面的「并查集」实现方式中，我们不难看出，要想找到一个元素的根节点，需要沿着它的父亲节点的足迹一直遍历下去，直到找到它的根节点为止。如果下次再查找同一个元素的根节点，我们还是要做相同的操作。</p>
+<p>如果我们在找到根节点之后，将所有遍历过的元素的父节点都改成根节点，那么我们下次再查询到相同元素的时候，我们就仅仅只需要遍历两个元素就可以找到它的根节点了，这是非常高效的实现方式。可以使用递归算法，这种优化我们称之为「路径压缩」优化，它是对 <code>Quick Union</code> 中的 <code>find</code> 函数进行优化。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 相对于 Quick Union 的代码，只需要更改 find 函数</span><br><span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">if</span> (x == <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x])  <span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x] = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x]);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">构造函数</th>
+<th align="center">find 函数</th>
+<th align="center">union 函数</th>
+<th align="center">connected 函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(logN)$</td>
+<td align="center">$O(logN)$</td>
+<td align="center">$O(logN)$</td>
+</tr>
+</tbody></table>
+<h3 id="基于路径压缩的按秩合并优化的「并查集」"><a href="#基于路径压缩的按秩合并优化的「并查集」" class="headerlink" title="基于路径压缩的按秩合并优化的「并查集」"></a>基于路径压缩的按秩合并优化的「并查集」</h3><blockquote>
+<p>这个优化就是将「路径压缩优化」和「按秩合并优化」合并后形成的「并查集」的实现方式。<br>union 函数是合并的函数，合并的时候按秩合并。find 函数是查找函数，查找的同时，路径压缩。</p>
+</blockquote>
+<p>代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len)<br>      .<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>)<br>      .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span> = <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-number">1</span>);<br>  &#125;<br>  <span class="hljs-comment">// 路径压缩优化版本的 find 函数</span><br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">if</span> (x === <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x])  <span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x] = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x]);<br>  &#125;<br>  <span class="hljs-comment">// 按秩合并优化的 union 函数</span><br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x), rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span>(rootx !== rooty) &#123;<br>      <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &gt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rooty] = rootx;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>      &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// ===</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty] += <span class="hljs-number">1</span>;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-title function_">connected</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x) === <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">构造函数</th>
+<th align="center">find 函数</th>
+<th align="center">union 函数</th>
+<th align="center">connected 函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(\alpha(N))$</td>
+<td align="center">$O(\alpha(N))$</td>
+<td align="center">$O(\alpha(N))$</td>
+</tr>
+</tbody></table>
+<h3 id="并查集的实现-总结"><a href="#并查集的实现-总结" class="headerlink" title="并查集的实现 总结"></a>并查集的实现 总结</h3><p>在「并查集」数据结构中，其中心思想是将所有连接的顶点，无论是直接连接还是间接连接，都将他们指向同一个父节点或者根节点。此时，如果要判断两个顶点是否具有连通性，只要判断它们的根节点是否为同一个节点即可。</p>
+<p>在「并查集」数据结构中，它的两个灵魂函数，分别是 <code>find</code> 和 <code>union</code> 。<code>find</code> 函数是为了找出给定顶点的根节点。 <code>union</code> 函数是通过更改顶点根节点的方式，将两个原本不相连接的顶点表示为两个连接的顶点。对于「并查集」来说，它还有一个重要的功能性函数 <code>connected</code>。它最主要的作用就是检查两个顶点的「连通性」。<code>find</code> 和 <code>union</code> 函数是「并查集」中必不可少的函数。<code>connected</code> 函数则需要根据题目的意思来决定是否需要。</p>
+<p>「并查集」的代码是高度模版化的。熟记「基于路径压缩+按秩合并的并查集」的实现代码。</p>
+<h2 id="题目-并查集"><a href="#题目-并查集" class="headerlink" title="题目 - 并查集"></a>题目 - 并查集</h2><ul>
+<li><a href="../leetcode/547">547. 省份数量</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-connected-components-in-an-undirected-graph/">LeetCode 323. 无向图中连通分量的数目</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/leetbook/read/graph/r3sizg/">leetbook - 图</a></li>
+</ul>
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/JavaScript/" class="tag-item">
+                    JavaScript
+                </a>
+            
+                <a href="/tags/%E7%AE%97%E6%B3%95/" class="tag-item">
+                    算法
+                </a>
+            
+                <a href="/tags/%E5%9B%BE/" class="tag-item">
+                    图
+                </a>
+            
+                <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="tag-item">
+                    并查集
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/JavaScript/" class="cate-item">
+                    JavaScript
+                </a>
+            
+                <a href="/categories/JavaScript/%E7%AE%97%E6%B3%95/" class="cate-item">
+                    算法
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2022/12/15/algorithm/%E5%9B%BE%E7%9A%84%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">图的搜索算法</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2022/12/07/algorithm/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">图 - 单源最短路径</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

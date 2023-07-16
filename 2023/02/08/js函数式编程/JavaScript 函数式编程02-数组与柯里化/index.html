@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 函数式编程之数组与柯里化</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%87%BD%E6%95%B0%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">数组的函数式方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%AF%E9%87%8C%E5%8C%96-currying"><span class="toc-number">2.</span> <span class="toc-text">柯里化 currying</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97"><span class="toc-number">2.1.</span> <span class="toc-text">打印日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">柯里化函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%8F%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">偏函数</span></a></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>JavaScript 函数式编程之数组与柯里化</h1>
+    </section>
+    <section class="article">
+        <h2 id="数组的函数式方法"><a href="#数组的函数式方法" class="headerlink" title="数组的函数式方法"></a>数组的函数式方法</h2><p>当程序员谈到函数式编程时，基本都会提到三个数组相关的函数方法：<code>map</code> <code>filter</code> <code>reduce</code>，综合利用它们可以实现一个完整的数据流动和处理 。其中<code>map</code> 和<code>filter</code> 被称为<strong>投影函数</strong>，即将一个函数作用于数组上并生成一个新的数组。</p>
+<p><img src="/./js%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0%E5%BC%8F%E6%96%B9%E6%B3%95.png" alt="js数组函数式方法"></p>
+<blockquote>
+<p> 注意：<code>forEach</code>和 <code>map</code> 都是遍历数组，<code>forEach</code> 函数是作用于数组，并不会返回新的数组，但是<code>map</code>会返回一个新数组。</p>
+</blockquote>
+<ul>
+<li><code>map</code> 遍历数组，按照给定的函数执行，并储存并返回生成的新数组。<ul>
+<li>不改变原数组</li>
+</ul>
+</li>
+<li><code>filter</code> 遍历数组，按照给定的函数<strong>筛选</strong>数组，返回符合要求的值的数组。<ul>
+<li>不改变原数组</li>
+</ul>
+</li>
+<li><code>reduce</code> 从前往后遍历数组，按照给定的函数<strong>“整合”</strong>数组，返回一个结果值。<ul>
+<li>不改变原数组</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<p>在JavaScript中，其实已经有相关的数组内置方法实现，例如 <code>Array.map</code> <code>Array.filter</code> <code>Array.reduce</code> <code>Array.reduceRight</code> 等。在日常开发时可以直接使用，不必自己实现，除非有其它特殊需求。</p>
+<p>然而这些函数可以脱离数组的束缚，有利于函数式编程</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">map</span> = (<span class="hljs-params">arr, func</span>) =&gt; &#123;<br>    <span class="hljs-keyword">let</span> ans = [];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> a <span class="hljs-keyword">of</span> arr) ans.<span class="hljs-title function_">push</span>(<span class="hljs-title function_">func</span>(a));<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">filter</span> = (<span class="hljs-params">arr, func</span>) =&gt; &#123;<br>    <span class="hljs-keyword">let</span> ans = [];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> a <span class="hljs-keyword">of</span> arr) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-title function_">func</span>(a)) &#123;<br>            ans.<span class="hljs-title function_">push</span>(a);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">reduce</span> = (<span class="hljs-params">arr, func, initial</span>) =&gt; &#123;<br>    <span class="hljs-keyword">let</span> start = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (!initial) &#123;<br>        initial = arr[<span class="hljs-number">0</span>];<br>        start++;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = start; i &lt; arr.<span class="hljs-property">length</span>; i++) &#123;<br>        initial = <span class="hljs-title function_">func</span>(initial, arr[i])<br>    &#125;<br>    <span class="hljs-keyword">return</span> initial;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="柯里化-currying"><a href="#柯里化-currying" class="headerlink" title="柯里化 currying"></a>柯里化 currying</h2><blockquote>
+<p>柯里化是把一个多参数函数转化为一个嵌套的一元函数的过程。</p>
+</blockquote>
+<p>举个简单的例子：将 add 函数分解</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 多参数函数写法</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">add</span> = (<span class="hljs-params">x, y</span>) =&gt; x + y; <span class="hljs-comment">// add(2, 3)</span><br><span class="hljs-comment">// 嵌套的一元函数，即柯里化</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">addCurry</span> = x =&gt; <span class="hljs-function"><span class="hljs-params">y</span> =&gt;</span> x + y; <span class="hljs-comment">// addCurry(2)(3)</span><br></code></pre></td></tr></table></figure>
+
+<p>或者将其抽离出来：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">curry</span> = func =&gt; <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">y</span> =&gt;</span> <span class="hljs-title function_">func</span>(x, y);<br><span class="hljs-keyword">let</span> addCurry = <span class="hljs-title function_">curry</span>(add); <span class="hljs-comment">// addCurry(2)(3)</span><br></code></pre></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> temp = <span class="hljs-title function_">addCurry</span>(<span class="hljs-number">10</span>);<br><br><span class="hljs-title function_">temp</span>(<span class="hljs-number">2</span>);  <span class="hljs-comment">// 12</span><br><span class="hljs-title function_">temp</span>(<span class="hljs-number">10</span>); <span class="hljs-comment">// 20</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>柯里化可以将一个多参数函数分解成一个一步步往下走的链状函数，类似于数据流：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> curryedFunc = <span class="hljs-title function_">curryn</span>(func);<br><br><span class="hljs-keyword">let</span> sorted = <span class="hljs-title function_">curryedFunc</span>(param);<br><span class="hljs-keyword">let</span> filtered = <span class="hljs-title function_">sorted</span>(param2);<br><span class="hljs-keyword">let</span> maped = <span class="hljs-title function_">filtered</span>(param3);<br><span class="hljs-keyword">let</span> ans = <span class="hljs-title function_">maped</span>(param4);<br><span class="hljs-comment">// or</span><br><span class="hljs-comment">// ans = curryedFunc(param)(param2)(param3)(param4);</span><br></code></pre></td></tr></table></figure>
+
+<p>利用柯里化还可以缓存结果，有利于复用。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> <span class="hljs-title function_">isEven</span> = f =&gt; <span class="hljs-function"><span class="hljs-params">arr</span> =&gt;</span> arr.<span class="hljs-title function_">filter</span>(f);<br><span class="hljs-keyword">let</span> findEven = <span class="hljs-title function_">isEven</span>(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>);<br><br><span class="hljs-title function_">findEven</span>([<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br><span class="hljs-comment">// =&gt; [ 2, 6 ]</span><br><br><span class="hljs-title function_">findEven</span>([<span class="hljs-number">11</span>, <span class="hljs-number">123</span>, <span class="hljs-number">98</span>])<br><span class="hljs-comment">// =&gt; [98]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="打印日志"><a href="#打印日志" class="headerlink" title="打印日志"></a>打印日志</h3><p>将柯里化应用到日志打印是常见的用法，如下，声明一个函数，分类输出不同类别的日志：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">logger</span> = (<span class="hljs-params">type, info, error, line</span>) =&gt; &#123;<br>    <span class="hljs-keyword">if</span> (type === <span class="hljs-string">&#x27;error&#x27;</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;info&#125;</span>, error: <span class="hljs-subst">$&#123;error&#125;</span> line at: <span class="hljs-subst">$&#123;line&#125;</span>`</span>)<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (type === <span class="hljs-string">&#x27;warning&#x27;</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;info&#125;</span>, warning: <span class="hljs-subst">$&#123;error&#125;</span> line at: <span class="hljs-subst">$&#123;line&#125;</span>`</span>) <br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (type === <span class="hljs-string">&#x27;debug&#x27;</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;info&#125;</span>, debug: <span class="hljs-subst">$&#123;error&#125;</span> line at: <span class="hljs-subst">$&#123;line&#125;</span>`</span>) <br>    &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// &#x27;log&#x27;</span><br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(info)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以利用柯里化抽象一下，更方便的调试输出：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">log</span> = info =&gt; <span class="hljs-title function_">logger</span>(<span class="hljs-string">&#x27;log&#x27;</span>, info);<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">error</span> = info =&gt; <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">line</span> =&gt;</span> <span class="hljs-title function_">logger</span>(<span class="hljs-string">&#x27;error&#x27;</span>, info, error, line);<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">warn</span> = info =&gt; <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">line</span> =&gt;</span> <span class="hljs-title function_">logger</span>(<span class="hljs-string">&#x27;warning&#x27;</span>, info, error, line);<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">debug</span> = info =&gt; <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">line</span> =&gt;</span> <span class="hljs-title function_">logger</span>(<span class="hljs-string">&#x27;debug&#x27;</span>, info, error, line);<br></code></pre></td></tr></table></figure>
+
+<p>调用方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;log&quot;</span>);<br><span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;info&#x27;</span>)(<span class="hljs-string">&#x27;error&#x27;</span>)(<span class="hljs-number">2</span>);<br><span class="hljs-title function_">warn</span>(<span class="hljs-string">&#x27;info&#x27;</span>)(<span class="hljs-string">&#x27;warn&#x27;</span>)(<span class="hljs-number">3</span>);<br><span class="hljs-title function_">debug</span>(<span class="hljs-string">&#x27;info&#x27;</span>)(<span class="hljs-string">&#x27;debug&#x27;</span>)(<span class="hljs-number">4</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="柯里化函数"><a href="#柯里化函数" class="headerlink" title="柯里化函数"></a>柯里化函数</h3><p>如上所示，我们需要自行判断函数的参数个数，然后抽象实现其特定的柯里化函数，失去了一般性。我们可以利用递归来实现一个通用的、自行判断参数个数的抽象柯里化函数，类似于 <code>rambda</code> 库中的 <code>curryn()</code> 函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">curryn</span> = func =&gt; &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">curryFunc</span>(<span class="hljs-params">...args</span>) &#123;<br>        <span class="hljs-keyword">if</span> (args.<span class="hljs-property">length</span> &lt; func.<span class="hljs-property">length</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">...params</span>) =&gt;</span> &#123;<br>                <span class="hljs-keyword">return</span> curryFunc.<span class="hljs-title function_">apply</span>(<span class="hljs-literal">null</span>, args.<span class="hljs-title function_">concat</span>([...params]));<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> func.<span class="hljs-title function_">apply</span>(<span class="hljs-literal">null</span>, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>回顾上面的日志函数，现在我们可以使用通用方法 <code>curryn</code> 将其柯里化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> error = <span class="hljs-title function_">curryn</span>(logger)<br><span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;error&#x27;</span>)(<span class="hljs-string">&#x27;info&#x27;</span>)(<span class="hljs-string">&#x27;erro info&#x27;</span>)(<span class="hljs-number">3</span>); <span class="hljs-comment">// &#x27;info, error: erro info line at: 3&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>你甚至还可以使用多参数的调用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">e</span>(<span class="hljs-string">&#x27;error&#x27;</span>, <span class="hljs-string">&#x27;info&#x27;</span>, <span class="hljs-string">&#x27;erro info&#x27;</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// &#x27;info, error: erro info line at: 3&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>或者，混用！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">e</span>(<span class="hljs-string">&#x27;error&#x27;</span>, <span class="hljs-string">&#x27;info&#x27;</span>)(<span class="hljs-string">&#x27;erro info&#x27;</span>)(<span class="hljs-number">3</span>); <span class="hljs-comment">// &#x27;info, error: erro info line at: 3&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 柯里化是不是很神奇！</p>
+<p> 高级的柯里化同时容许 <strong>函数正常调用</strong> 和 <strong>获取偏函数</strong>！</p>
+</blockquote>
+<h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2><p>在上面实现柯里化函数的时候，你可能注意到了，参数我们默认是从左往右的数据流动方向，首先缓存的是左边的参数。但是当我们需要保存右边的参数实现复用时，就遇到了麻烦。例如，reduce函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">previousValue, currentValue</span>) =&gt;</span> &#123; <span class="hljs-comment">/* … */</span> &#125; , initialValue)<br></code></pre></td></tr></table></figure>
+
+<p>如果我们要缓存 <code>initialValue</code> 参数的值来进行复用该怎么办？</p>
+<p>也许，聪明的你会想到，将其重新封装一下不就好了！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">reduceWrapper</span> = (<span class="hljs-params">func, initialValue, arr</span>) =&gt; <span class="hljs-title function_">reduce</span>(arr, func, initialValue);<br><span class="hljs-keyword">let</span> reduceAddTwo = <span class="hljs-title function_">curryn</span>(reduceWrapper)(<span class="hljs-function">(<span class="hljs-params">p, c</span>) =&gt;</span> p + c)(<span class="hljs-number">2</span>);<br><br><span class="hljs-title function_">reduceAddTwo</span>([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]);<br><span class="hljs-comment">// =&gt; 6</span><br><span class="hljs-title function_">reduceAddTwo</span>([<span class="hljs-number">2</span>, <span class="hljs-number">4</span>]);<br><span class="hljs-comment">// =&gt; 8</span><br></code></pre></td></tr></table></figure>
+
+<p>但是的话这样必须消耗一个封装器，为了避免多余的消耗，我们可以抽象一个<strong>偏函数</strong> （partial）来实现。</p>
+<blockquote>
+<p>注意：偏函数并不是意味着和柯里化“相反”，偏函数是指将一些参数固定到一个函数，产生另外一个较小的函数的过程，即部分地应用函数参数（_提前将某些参数放进去_）。</p>
+<ul>
+<li><p>函数在柯里化以后，逐个传递参数的时候返回的那一层封装其实就是函数的偏函数变体。</p>
+</li>
+<li><p><strong>柯里化的目的</strong> 就是在不影响_初始函数_的调用形式的状况下，更方便的得到初始函数的 <strong>偏函数</strong> 变体。</p>
+</li>
+</ul>
+</blockquote>
+<p>严格来讲，我们上文好几个函数都能算是偏函数，但大都是提前将左边的参数缓存。下面给出先缓存右边参数的实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">partial</span> = func =&gt; &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">partialFunc</span>(<span class="hljs-params">...args</span>) &#123;<br>        <span class="hljs-keyword">if</span> (args.<span class="hljs-property">length</span> &lt; func.<span class="hljs-property">length</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">...params</span>) =&gt;</span> &#123;<br>                <span class="hljs-keyword">return</span> partialFunc.<span class="hljs-title function_">apply</span>(<span class="hljs-literal">null</span>, [...params, ...args]);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> func.<span class="hljs-title function_">apply</span>(<span class="hljs-literal">null</span>, args);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">let</span> reduceAddThree = <span class="hljs-title function_">partial</span>(reduce)(<span class="hljs-function">(<span class="hljs-params">p, c</span>) =&gt;</span> p + c, <span class="hljs-number">3</span>);<br><span class="hljs-title function_">reduceAddThree</span>([<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>])<br><span class="hljs-comment">// =&gt; 18</span><br><span class="hljs-title function_">reduceAddThree</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-comment">// // =&gt; 6</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/JavaScript/" class="tag-item">
+                    JavaScript
+                </a>
+            
+                <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="tag-item">
+                    函数式编程
+                </a>
+            
+                <a href="/tags/%E6%9F%AF%E9%87%8C%E5%8C%96/" class="tag-item">
+                    柯里化
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/JavaScript/" class="cate-item">
+                    JavaScript
+                </a>
+            
+                <a href="/categories/JavaScript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="cate-item">
+                    函数式编程
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2023/02/09/svg/svg1/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">SVG之画家模型</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2023/02/05/js%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/JavaScript%20%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B01-%E5%9F%BA%E7%A1%80/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">JavaScript 函数式编程基础</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>547. 省份数量</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86%E8%A7%A3%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">并查集解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8quick-find"><span class="toc-number">1.1.</span> <span class="toc-text">使用quick find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E7%9A%84%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6%E4%BC%98%E5%8C%96%E7%9A%84%E3%80%8C%E5%B9%B6%E6%9F%A5%E9%9B%86%E3%80%8D"><span class="toc-number">1.2.</span> <span class="toc-text">基于路径压缩的按秩合并优化的「并查集」</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DFS%E8%A7%A3%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">DFS解法</span></a></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>547. 省份数量</h1>
+    </section>
+    <section class="article">
+        <p>题目来源：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-provinces/">LeetCode 547. 省份数量</a></p>
+<p>有 <code>n</code> 个城市，其中一些彼此相连，另一些没有相连。如果城市 <code>a</code> 与城市 <code>b</code> 直接相连，且城市 <code>b</code> 与城市 <code>c</code> 直接相连，那么城市 <code>a</code> 与城市 <code>c</code> 间接相连。</p>
+<p>省份 是一组直接或间接相连的城市，组内不含其他没有相连的城市。</p>
+<p>给你一个 <code>n x n</code> 的矩阵 <code>isConnected</code> ，其中 <code>isConnected[i][j] = 1</code> 表示第 <code>i</code> 个城市和第 <code>j</code> 个城市直接相连，而 <code>isConnected[i][j] = 0</code> 表示二者不直接相连。</p>
+<p>返回矩阵中 省份 的数量。</p>
+<p>示例1：</p>
+<blockquote>
+<p>输入：isConnected &#x3D; [[1,1,0],[1,1,0],[0,0,1]]<br>输出：2  </p>
+</blockquote>
+<p>示例2：</p>
+<blockquote>
+<p>输入：isConnected &#x3D; [[1,0,0],[0,1,0],[0,0,1]]<br>输出：3</p>
+</blockquote>
+<p>限制：</p>
+<ul>
+<li>1 &lt;&#x3D; n &lt;&#x3D; 200</li>
+<li>n &#x3D;&#x3D; isConnected.length</li>
+<li>n &#x3D;&#x3D; isConnected[i].length</li>
+<li>isConnected[i][j] 为 1 或 0</li>
+<li>isConnected[i][i] &#x3D;&#x3D; 1</li>
+<li>isConnected[i][j] &#x3D;&#x3D; isConnected[j][i]</li>
+</ul>
+<h2 id="并查集解法"><a href="#并查集解法" class="headerlink" title="并查集解法"></a>并查集解法</h2><h3 id="使用quick-find"><a href="#使用quick-find" class="headerlink" title="使用quick find"></a>使用quick find</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>  &#125;<br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x];<br>  &#125;<br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x), rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span>(rootx !== rooty) &#123;<br>      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>.<span class="hljs-property">length</span>;i++) &#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[i] === rootx) <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[i] = rooty;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-title function_">getNums</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>).<span class="hljs-property">size</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">var</span> findCircleNum = <span class="hljs-keyword">function</span>(<span class="hljs-params">isConnected</span>) &#123;<br>    <span class="hljs-comment">// quick find</span><br>    <span class="hljs-keyword">const</span> uf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UnionFind</span>(isConnected.<span class="hljs-property">length</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> [i, vals] <span class="hljs-keyword">of</span> isConnected.<span class="hljs-title function_">entries</span>()) &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> [j, val] <span class="hljs-keyword">of</span> vals.<span class="hljs-title function_">entries</span>()) &#123;<br>            <span class="hljs-keyword">if</span>(val === <span class="hljs-number">1</span>) uf.<span class="hljs-title function_">union</span>(i, j);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> uf.<span class="hljs-title function_">getNums</span>();<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="基于路径压缩的按秩合并优化的「并查集」"><a href="#基于路径压缩的按秩合并优化的「并查集」" class="headerlink" title="基于路径压缩的按秩合并优化的「并查集」"></a>基于路径压缩的按秩合并优化的「并查集」</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len)<br>      .<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>)<br>      .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span> = <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-number">1</span>);<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">size</span> = len;<br>  &#125;<br>  <span class="hljs-comment">// 路径压缩优化版本的 find 函数</span><br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">if</span> (x === <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x])  <span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x] = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x]);<br>  &#125;<br>  <span class="hljs-comment">// 按秩合并优化的 union 函数</span><br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x), rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span>(rootx !== rooty) &#123;<br>      <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &gt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rooty] = rootx;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>      &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// ===</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty] += <span class="hljs-number">1</span>;<br>      &#125;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">size</span>--;<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">var</span> findCircleNum = <span class="hljs-keyword">function</span>(<span class="hljs-params">isConnected</span>) &#123;<br>    <span class="hljs-keyword">const</span> n = isConnected.<span class="hljs-property">length</span>;<br>    <span class="hljs-keyword">const</span> uf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UnionFind</span>(n);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;n;i++) &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>;j&lt;isConnected[i].<span class="hljs-property">length</span>;j++) &#123;<br>            <span class="hljs-keyword">if</span>(isConnected[i][j] === <span class="hljs-number">1</span>) uf.<span class="hljs-title function_">union</span>(i, j);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> uf.<span class="hljs-property">size</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="DFS解法"><a href="#DFS解法" class="headerlink" title="DFS解法"></a>DFS解法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number[][]</span>&#125; <span class="hljs-variable">isConnected</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">number</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> findCircleNum = <span class="hljs-keyword">function</span>(<span class="hljs-params">isConnected</span>) &#123;<br>    <span class="hljs-keyword">let</span> visited = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>(),re = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;isConnected.<span class="hljs-property">length</span>;i++)&#123;<br>        <span class="hljs-keyword">if</span>(!visited.<span class="hljs-title function_">has</span>(i))&#123;<br>            <span class="hljs-title function_">dfs</span>(isConnected,visited,i);<br>            re++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> re;<br>&#125;;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">data,visited,i</span>)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>;j&lt;data.<span class="hljs-property">length</span>;j++)&#123;<br>        <span class="hljs-keyword">if</span>(data[i][j] === <span class="hljs-number">1</span> &amp;&amp; !visited.<span class="hljs-title function_">has</span>(j))&#123;<br>            visited.<span class="hljs-title function_">add</span>(j);<br>            <span class="hljs-title function_">dfs</span>(data,visited,j);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/LeetCode/" class="tag-item">
+                    LeetCode
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/LeetCode/" class="cate-item">
+                    LeetCode
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2021/07/04/leetcode/775.%20%E5%85%A8%E5%B1%80%E5%80%92%E7%BD%AE%E4%B8%8E%E5%B1%80%E9%83%A8%E5%80%92%E7%BD%AE/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">775. 全局倒置与局部倒置</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

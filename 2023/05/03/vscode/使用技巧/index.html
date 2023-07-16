@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSCode使用技巧</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <aside class="toc-container">
+    <!-- sticky toc -->
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">1.</span> <span class="toc-text">最常用快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">禅模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E7%9B%B8%E5%85%B3"><span class="toc-number">3.</span> <span class="toc-text">编辑相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%85%89%E6%A0%87"><span class="toc-number">3.1.</span> <span class="toc-text">多光标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E9%80%89%E6%8B%A9"><span class="toc-number">3.2.</span> <span class="toc-text">列选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">3.3.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">3.4.</span> <span class="toc-text">格式化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0"><span class="toc-number">3.5.</span> <span class="toc-text">代码折叠</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">4.</span> <span class="toc-text">更多常用快捷键</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">4.1.</span> <span class="toc-text">通用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC"><span class="toc-number">4.2.</span> <span class="toc-text">跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BC%96%E8%BE%91"><span class="toc-number">4.3.</span> <span class="toc-text">基本编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E4%B8%8E%E6%9B%BF%E6%8D%A2"><span class="toc-number">4.4.</span> <span class="toc-text">搜索与替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA"><span class="toc-number">4.5.</span> <span class="toc-text">显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8%E5%88%86%E5%89%B2"><span class="toc-number">4.6.</span> <span class="toc-text">编辑器分割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E7%BB%88%E7%AB%AF"><span class="toc-number">4.7.</span> <span class="toc-text">集成终端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89"><span class="toc-number">5.</span> <span class="toc-text">自定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90"><span class="toc-number">6.</span> <span class="toc-text">插件推荐</span></a></li></ol>
+</aside>
+
+<article class="markdown-container">
+    <section>
+        <h1>VSCode使用技巧</h1>
+    </section>
+    <section class="article">
+        <h2 id="最常用快捷键"><a href="#最常用快捷键" class="headerlink" title="最常用快捷键"></a>最常用快捷键</h2><ul>
+<li><code>ctrl + shift + p</code> 或 <code>f1</code> 命令面板</li>
+<li><code>ctrl + p</code> 打开输入框<ul>
+<li>多次点击可实现文件跳转</li>
+<li>输入 <code>?</code> 可查看所有可用的相关命令</li>
+</ul>
+</li>
+<li><code>ctrl + shift + tab</code> 在打开的文件内跳转</li>
+<li><code>ctrl + shift + o</code> 跳转到文件中的符号</li>
+<li><code>ctrl + G</code> 跳转到文件中的某一行</li>
+</ul>
+<span id="more"></span>
+
+<blockquote>
+<p>全部快捷键查看： <code>ctrl + k -&gt; ctrl + s</code> , 可以搜索或更改快捷键。或使用 <code>ctrl + k -&gt; ctrl + r</code> 打开 PDF 版本。</p>
+</blockquote>
+<p><a href="/blog/keyboard-shortcuts-windows.pdf">keyboard-shortcuts-windows.pdf</a></p>
+<h2 id="禅模式"><a href="#禅模式" class="headerlink" title="禅模式"></a>禅模式</h2><p><code>Zen Mode</code><br>开启： <code>ctrl + K -&gt; Z</code><br>关闭：双击 <code>esc</code></p>
+<h2 id="编辑相关"><a href="#编辑相关" class="headerlink" title="编辑相关"></a>编辑相关</h2><h3 id="多光标"><a href="#多光标" class="headerlink" title="多光标"></a>多光标</h3><ul>
+<li><code>alt + 鼠标左键点击</code> 自主点击选择（或取消）光标位置</li>
+<li><code>ctrl + alt + down</code> 在当前光标的下方添加光标</li>
+<li><code>ctrl + alt + up</code> 在当前光标的上方添加光标</li>
+<li><code>ctrl + d</code> 第一次会选择当前光标处的单词，再按下会自动选择下一个相同单词的位置添加光标。</li>
+<li><code>ctrl + shift + l</code> 将当前光标处的单词所有出现的位置，都添加新的光标。</li>
+<li><code>ctrl + l</code> 选中当前行</li>
+<li><code>ctrl + shift + right</code> 选中的范围向右</li>
+<li><code>ctrl + shift + left</code> 选中的范围向左</li>
+<li><code>shift + alt + right</code> 扩大选中的范围</li>
+<li><code>shift + alt + left</code> 缩小选中的范围</li>
+</ul>
+<h3 id="列选择"><a href="#列选择" class="headerlink" title="列选择"></a>列选择</h3><p>把光标移到要选择的位置的左上角，按住 <code>shift + alt</code> 进行框选。</p>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p><code>ctrl + f</code><br>支持：</p>
+<ul>
+<li>区分大小写</li>
+<li><strong>全词搜索</strong></li>
+<li>正则搜索</li>
+</ul>
+<p><code>ctrl +shift + f</code> 跨文件搜索</p>
+<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><p><code>shift + alt + f</code> 格式化文件<br><code>ctrl + k -&gt; ctrl + f</code> 格式化选中的文件[^1]<br>[^1]: 不小心触发：<code>Ctrl+Shift+F</code>繁体&#x2F;简体切换快捷键</p>
+<h3 id="代码折叠"><a href="#代码折叠" class="headerlink" title="代码折叠"></a>代码折叠</h3><p>编辑器默认会分析文档，创建折叠位置。</p>
+<p>也可以通过自定义，即 <code>该语言注释符 + region</code> 为开始标记, <code>该语言注释符 + endregion</code> 为结束标记。（<code>region</code> 或 <code>endregion</code> 可加 <code>#</code> ）</p>
+<h2 id="更多常用快捷键"><a href="#更多常用快捷键" class="headerlink" title="更多常用快捷键"></a>更多常用快捷键</h2><p>掌握一些基本快捷键提高开发效率。</p>
+<h3 id="通用快捷键"><a href="#通用快捷键" class="headerlink" title="通用快捷键"></a>通用快捷键</h3><ul>
+<li><code>ctrl + shift + n</code> 新建窗口</li>
+<li><code>CTRL + w</code> 关闭当前窗口</li>
+<li><code>ctrl + ,</code> 打开用户设置</li>
+</ul>
+<h3 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h3><ul>
+<li><code>alt + left / right</code> 文件左右跳转</li>
+<li><code>ctrl + p</code> 打开输入框<ul>
+<li>多次点击可实现文件跳转</li>
+<li>输入 <code>?</code> 可查看所有可用的相关命令</li>
+</ul>
+</li>
+<li><code>ctrl + tab</code> \ <code>ctrl + shift + tab</code> 在打开的文件内跳转</li>
+<li><code>ctrl + shift + o</code> 跳转到文件中的符号</li>
+<li><code>ctrl + G</code> 跳转到文件中的某一行</li>
+</ul>
+<h3 id="基本编辑"><a href="#基本编辑" class="headerlink" title="基本编辑"></a>基本编辑</h3><ul>
+<li><code>ctrl + x</code> 剪切</li>
+<li><code>ctrl + c</code> 复制</li>
+<li><code>ctrl + shift + k</code> 删除当前行</li>
+<li><code>alt + up / down</code> 把当前行的内容上&#x2F;下移动</li>
+<li><code>shift + alt + up / down</code> 把当前行的内容向上&#x2F;下复制一行</li>
+<li><code>ctrl + /</code> 添加或删除当前行的注释</li>
+<li><code>home / end</code> 光标移动到当前行的起始&#x2F;末尾。</li>
+<li><code>f12</code> 跳转到定义</li>
+<li><code>alt + f12</code> 在当前页查看定义</li>
+<li><code>shift + f12</code> 查看引用</li>
+<li><code>f2</code> 重命名符号</li>
+<li><code>ctrl + .</code> 快速修复</li>
+</ul>
+<h3 id="搜索与替换"><a href="#搜索与替换" class="headerlink" title="搜索与替换"></a>搜索与替换</h3><ul>
+<li><code>ctrl + h</code> 搜索</li>
+<li><code>ctrl + f</code> 替换</li>
+<li><code>ctrl + shift + f</code> 全局搜索</li>
+<li><code>ctrl + shift + h</code> 全局替换</li>
+</ul>
+<h3 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h3><ul>
+<li><code>f11</code> 切换全屏模式</li>
+<li><code>ctrl + =</code> 放大</li>
+<li><code>ctrl + -</code> 缩小</li>
+</ul>
+<h3 id="编辑器分割"><a href="#编辑器分割" class="headerlink" title="编辑器分割"></a>编辑器分割</h3><ul>
+<li><code>ctrl + \</code> 分割编辑器</li>
+<li><code>ctrl + 1/2/3</code> 切换焦点到不同的编辑器组</li>
+</ul>
+<h3 id="集成终端"><a href="#集成终端" class="headerlink" title="集成终端"></a>集成终端</h3><ul>
+<li><code>ctrl + `</code> 打开 &#x2F; 关闭终端（不会终结任务）</li>
+<li><code>ctrl + shift + `</code> 新建终端</li>
+<li><code>ctrl + alt + up / down</code> 上下滚动</li>
+<li><code>shift + up / down</code> 上下滚动一页</li>
+<li><code>ctrl + home / end</code> 滚动到顶端&#x2F;底部</li>
+<li><code>ctrl + c</code> <code>ctrl + v</code> 依然是复制粘贴</li>
+<li>如有<em>选中文字，则右键是复制，否则是粘贴</em></li>
+</ul>
+<h2 id="自定义"><a href="#自定义" class="headerlink" title="自定义"></a>自定义</h2><ul>
+<li>可以自定义快捷键</li>
+<li>自定义主题</li>
+<li>编写自定义 task</li>
+</ul>
+<h2 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h2><ul>
+<li>REST Client</li>
+<li>Polacode</li>
+<li>Better Comments</li>
+<li>GitLens</li>
+</ul>
+
+    </section>
+
+    
+        <section class="post-tag">
+            <a href="/tags"><i class="fa fa-tags"></i></a>
+            
+                <a href="/tags/VSCode/" class="tag-item">
+                    VSCode
+                </a>
+            
+        </section>
+    
+    
+        <section class="post-cate">
+            <a href="/categories"><i class="fa fa-inbox"></i></a>
+            
+                <a href="/categories/VSCode/" class="cate-item">
+                    VSCode
+                </a>
+            
+        </section>
+    
+
+    <section class="post-cc">
+        本博客所有文章均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> 协议 ，转载请注明出处。 
+    </section>
+
+    <section class="flex-between" style="margin: 20px 0;">
+        <div class="pre">
+            
+                <a href="/2023/05/08/math/" class="change-link">
+                    <span class="icon"><i class="fa fa-angle-double-left"></i></span>
+                    <span class="text">
+                        <span class="identify">上一篇</span>
+                        <span class="text-title">公式渲染</span>
+                    </span>
+                </a>
+            
+        </div>
+        <div class="next">
+            
+                <a href="/2023/02/21/js%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/JavaScript%20%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B04-%E5%87%BD%E5%AD%90/" class="change-link">
+                    <span class="text">
+                        <span class="identify" style="text-align: right;">下一篇</span>
+                        <span class="text-title" style="text-align: right;">JavaScript 函数式编程04-函子</span>
+                    </span>
+                    <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                </a>
+            
+        </div>
+    </section>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>

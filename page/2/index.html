@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexo</title>
+
+    
+    <meta name="description" content="simple but delicate theme for Hexo">
+    <meta name="keywords" content="hexo,theme,delicate,simple,blog,website">
+    <meta name="author" content="Kart Jim">
+
+    <meta name="color-scheme" content="light dark">
+
+    
+    
+<link rel="stylesheet" href="/styles/index.css">
+
+    
+    <link rel="shortcut icon" href="/imgs/logo.png">
+
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/base16/solarized-light.css">
+    
+
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body id="delicate-app">
+    <main>
+        <div class="container">
+            <section class="page-top-badge flex-between w100">
+                <div>
+                    <a href="/">
+                        <span title="github"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <!-- <div>
+                    
+                </div> -->
+            </section>
+            <section class="index-title">
+    <h2>Hexo</h2>
+    <div class="description">simple but delicate theme for Hexo</h3>
+</section>
+<header>
+    
+    <nav>
+        <a href="/">首页</a>
+        
+             | <a href="/archives/">文章列表</a>
+        
+             | <a href="/tags/">标签云</a>
+        
+             | <a href="/categories/">归档</a>
+        
+    </nav>
+</header>
+<div class="head-img">
+    <img src="/imgs/beach.jpg">
+</div>
+<article class="index-article">
+    <div class="article-list">
+        
+            
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2022/12/15/algorithm/%E5%9B%BE%E7%9A%84%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/">
+                            图的搜索算法
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2022/12/15
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <p>并查集是用来检查两个顶点之间的连通性。而找出图所有的顶点呢、找出它两个顶点之间的路径等都需要深度优先搜索算法或广度优先搜索算法。</p>
+<h2 id="深度优先搜索算法"><a href="#深度优先搜索算法" class="headerlink" title="深度优先搜索算法"></a>深度优先搜索算法</h2><p><code>Depth First Search</code>   <code>DFS</code>  &#x3D;&gt; always use <code>stack</code> .</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">时间复杂度</th>
+<th align="center">空间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DFS 遍历所有节点</td>
+<td align="center">$O(V+E)$</td>
+<td align="center">$O(V)$</td>
+</tr>
+<tr>
+<td align="center">DFS 遍历两点之间所有路径</td>
+<td align="center">$O((2^V)∗(V+E))$</td>
+<td align="center">$O((2^V)∗V)$</td>
+</tr>
+</tbody></table>
+<p><code>V</code> 表示顶点数，<code>E</code> 表示边数。</p>
+<h3 id="练习题-力扣-797-所有可能的路径"><a href="#练习题-力扣-797-所有可能的路径" class="headerlink" title="练习题 - 力扣 797. 所有可能的路径"></a>练习题 - <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/all-paths-from-source-to-target">力扣 797. 所有可能的路径</a></h3><blockquote>
+<p>给你一个有 <code>n</code> 个节点的 <strong>有向无环图（DAG）</strong>，请你找出所有从节点 <code>0</code> 到节点 <code>n-1</code> 的路径并输出（<strong>不要求按特定顺序</strong>）<br><code>graph[i]</code> 是一个从节点 <code>i</code> 可以访问的所有节点的列表（即从节点 <code>i</code> 到节点 <code>graph[i][j]</code> 存在一条有向边）。</p>
+</blockquote>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs text">示例1：<br>输入：graph = [[1,2],[3],[3],[]]<br>输出：[[0,1,3],[0,2,3]]<br>解释：有两条路径 0 -&gt; 1 -&gt; 3 和 0 -&gt; 2 -&gt; 3<br><br>示例2：<br>输入：graph = [[4,3,1],[3,2,4],[3],[4],[]]<br>输出：[[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]<br></code></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>n &#x3D;&#x3D; graph.length</li>
+<li>2 &lt;&#x3D; n &lt;&#x3D; 15</li>
+<li>0 &lt;&#x3D; graph[i][j] &lt; n</li>
+<li>graph[i][j] !&#x3D; i（即不存在自环）</li>
+<li>graph[i] 中的所有元素 互不相同</li>
+<li>保证输入为 有向无环图（DAG）</li>
+</ul>
+<p>本题可用 <code>DFS</code> &#x2F; 递归 或 回溯 的方法做。这里给出 <code>DFS</code> 的解法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number[][]</span>&#125; <span class="hljs-variable">graph</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">number[][]</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> allPathsSourceTarget = <span class="hljs-keyword">function</span>(<span class="hljs-params">graph</span>) &#123;<br>    <span class="hljs-keyword">let</span> answer = [];<br>    <span class="hljs-keyword">const</span> n = graph.<span class="hljs-property">length</span>;<br>    (<span class="hljs-keyword">function</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">start = <span class="hljs-number">0</span>, arr = []</span>) &#123;<br>        arr.<span class="hljs-title function_">push</span>(start);<br>        <span class="hljs-keyword">if</span>(start === n - <span class="hljs-number">1</span>) &#123;<br>            answer.<span class="hljs-title function_">push</span>(arr.<span class="hljs-title function_">slice</span>());<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; graph[start].<span class="hljs-property">length</span>; i++) &#123;<br>            <span class="hljs-title function_">dfs</span>(graph[start][i], arr.<span class="hljs-title function_">slice</span>());<br>        &#125;<br>    &#125;)()<br>    <span class="hljs-keyword">return</span> answer;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="广度优先搜索算法"><a href="#广度优先搜索算法" class="headerlink" title="广度优先搜索算法"></a>广度优先搜索算法</h2><p><code>Breath First Search</code>   <code>BFS</code>  &#x3D;&gt; always use <code>queue</code> .</p>
+<p>“广度优先搜索” 最高效的用途是：当在 <strong>权重相等且均为正数的图中，它可以快速的找到两点之间的最短路径</strong></p>
+<ol>
+<li>遍历「图」中所有顶点</li>
+<li>针对 权重相等且均为正数的「图」，快速找出两点之间的最短路径</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">时间复杂度</th>
+<th align="center">空间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>BFS</code> 遍历所有顶点</td>
+<td align="center">$O(V+E)$</td>
+<td align="center">$O(V)$</td>
+</tr>
+<tr>
+<td align="center"><code>BFS</code> 求两点之间最短路径</td>
+<td align="center">$O(V+E)$</td>
+<td align="center">$O(V)$</td>
+</tr>
+</tbody></table>
+<p><code>V</code> 表示顶点数，<code>E</code> 表示边数。</p>
+<p>上题也可用 <code>BFS</code> 做（不建议）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number[][]</span>&#125; <span class="hljs-variable">graph</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">number[][]</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> allPathsSourceTarget = <span class="hljs-keyword">function</span>(<span class="hljs-params">graph</span>) &#123;<br>    <span class="hljs-keyword">let</span> ans = [];<br>    <span class="hljs-keyword">const</span> n = graph.<span class="hljs-property">length</span>;<br>    <span class="hljs-keyword">if</span>(!graph || n === <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>    <span class="hljs-keyword">let</span> path = [<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">let</span> queue = [path];<br>    <span class="hljs-keyword">while</span>(queue.<span class="hljs-property">length</span>) &#123;<br>        <span class="hljs-keyword">let</span> cur = queue.<span class="hljs-title function_">shift</span>();<br>        <span class="hljs-keyword">let</span> node = cur[cur.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> next <span class="hljs-keyword">of</span> graph[node]) &#123;<br>            <span class="hljs-keyword">let</span> t = cur.<span class="hljs-title function_">slice</span>();<br>            t.<span class="hljs-title function_">push</span>(next);<br>            <span class="hljs-keyword">if</span>(next == n - <span class="hljs-number">1</span>) &#123;<br>                ans.<span class="hljs-title function_">push</span>(t.<span class="hljs-title function_">slice</span>());<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                queue.<span class="hljs-title function_">push</span>(t.<span class="hljs-title function_">slice</span>());<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2022/12/15/algorithm/%E5%9B%BE%E7%9A%84%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2022/12/12/algorithm/%E5%9B%BE/">
+                            图的储存与并查集的实现
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2022/12/12
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <blockquote>
+<p>本文为学习笔记，学习资料来源如下：<br>作者：爱学习的饲养员<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/leetbook/read/graph/npniph/">https://leetcode.cn/leetbook/read/graph/npniph/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<p>图的类型有很多，常见的有：<strong>无向图</strong>、<strong>有向图</strong>、<strong>加权图</strong>。</p>
+<ul>
+<li>无向图的图中任意两个顶点之间的边都是没有方向的。</li>
+<li>有向图的图中任意两个顶点之间的边都是有方向的。</li>
+<li>加权图的图中的每条边都有一个权重。</li>
+</ul>
+<h2 id="图的定义和相关术语"><a href="#图的定义和相关术语" class="headerlink" title="图的定义和相关术语"></a>图的定义和相关术语</h2><p>「图」是由顶点和边组成的一种非线形数据结构。</p>
+<p>相关的定义:</p>
+<ul>
+<li><strong>顶点</strong></li>
+<li><strong>边</strong>：顶点之间的连接线称为边</li>
+<li><strong>路径</strong>：从一个顶点到另一个顶点之间经过的所有顶点的集合。</li>
+<li><strong>路径长度</strong>：一条路径上经过的边的数量。</li>
+<li><strong>环</strong>：起点和终点为同一个顶点的路径。。</li>
+<li><strong>负权环</strong>：在 <em>加权图</em> 中，如果一个环的所有边的权重加起来为负数，我们就称之为「负权环」。</li>
+<li><strong>连通性</strong>：两个不同顶点之间存在至少一条路径，则称这两个顶点是连通的。</li>
+<li><strong>顶点的度</strong>：度适用于 <em>无向图</em> ，指的是和该顶点相连接的所有边数</li>
+<li>顶点的<strong>入度</strong>：入度适用于 <em>有向图</em> ，一个顶点的入度指与顶点相连的边指向该顶点的个数。</li>
+<li>顶点的<strong>出度</strong>：出度适用于 <em>有向图</em> ，一个顶点的出度指与顶点相连的边以该顶点为起点的个数。</li>
+</ul>
+<p>图的相关知识点：</p>
+<ul>
+<li>并查集（ Union Find ）数据结构</li>
+<li>「图」的深度优先搜索算法</li>
+<li>「图」的广度优先搜索算法</li>
+<li>最小生成树相关定理和算法<ul>
+<li>切分定理</li>
+<li>Kruskal 算法</li>
+<li>Prim 算法</li>
+</ul>
+</li>
+<li>单源最短路径相关算法<ul>
+<li>Dijkstra 算法</li>
+<li>Bellman-Ford 算法</li>
+<li>拓扑排序之 Kahn 算法</li>
+</ul>
+</li>
+</ul>
+<h2 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h2><p>在程序中运用图论相关算法的第一步，我们需要先学会如何把图储存起来。</p>
+<h3 id="矩阵存图法"><a href="#矩阵存图法" class="headerlink" title="矩阵存图法"></a>矩阵存图法</h3><p>图中的顶点我们已经编好了号，那么我们需要储存的和图相关的信息，就只剩下点与点之间的连边了。</p>
+<p>一个很直观的想法就是用一个二维数组来存图，下标代表点，值代表连边的情况。这就是所谓的<code>矩阵存图法</code>，也被称作为<code>邻接矩阵存图法</code>。</p>
+<p>更具体地，我们一般使用 bool 数组来储存点与点之间的连边信息：</p>
+<ul>
+<li>如果 <code>con[i][j]</code> 的值为 <code>true</code> ，表示点 i 与点 j 之间连了一条从 i 指向 j 的边。</li>
+<li>如果 <code>con[i][j]</code> 的值为 <code>false</code> ，表示点 i 与点 j 之间没有连边。</li>
+</ul>
+<p>基本操作的复杂度：</p>
+<ul>
+<li>添加一条边的时间复杂度为 $\Theta(1)$ 。</li>
+<li>判断两个点之间是否有边相连的时间复杂度为 $\Theta(1)$ 。</li>
+<li>遍历一个点的所有出边的复杂度为 $\Theta(n)$</li>
+</ul>
+<p>矩阵存图法各种操作的时间复杂度相对来说都较为优秀，但是其劣势在于：存下一个图需要 $O(n^2)$ 的空间复杂度，这在面对点与点之间的连边数远远小于 $\Theta(n^2)$ 的稀疏图时，就有很多空间被浪费了。</p>
+<p>我们之前的讨论，针对的是无权有向图，那么如果面对的是有权图，或者无向图，我们该如何进行存储呢？</p>
+<ul>
+<li>对于有权图的情况：我们只需要将 <code>bool</code> 数组改为 <code>int</code> 数组，两点之间有连边，就将对应元素的值改为边权即可。当然这种情况下，需要将数组初始化为一个不可能的边权（部分题目存在边权为 0 的情况）</li>
+<li>对于无向图的情况：只需 <code>con[i][j] = con[j][i] = true</code></li>
+</ul>
+<h3 id="邻接表存图法"><a href="#邻接表存图法" class="headerlink" title="邻接表存图法"></a>邻接表存图法</h3><blockquote>
+<p>矩阵存图的最大的劣势，就是在面对稀疏图时，有很多空间没有储存有效信息（对于一个图，我们往往更加关注哪些点之间有连边，而不关注哪些点之间没有连边），被浪费掉了。一个优化的思路是：我们不再考虑储存每一个点对之间的连边信息，而只考虑那些有连边的点对。这样我们就能够保证所储存下来的信息都会是有效的。</p>
+</blockquote>
+<p>针对上述思路，对于一个有 n 的点的图，我们可以利用 n 个链表，第 i 个链表里存着所有从 i 直接连向的点。</p>
+<p>基本操作的复杂度：</p>
+<ul>
+<li>添加一条边需要新建一个结构体，并且插入链表中，时间复杂度为 $\Theta(1)$ 如果我们添加的是无向边，那么需要添加两次。</li>
+<li>判断两个点之间是否有边相连：如果我们想要知道图中是否存在一条从 i 连向 j 的边，那么我们需要遍历点 i 的所有出边，判断终点是否为 j 。因此，判断两个点之间是否有边相连的时间复杂度，与遍历一个点的所有出边的时间复杂度相同，为 $\Theta(出度)$</li>
+<li>遍历一个点的所有出边时间复杂度为 $\Theta(出度)$ 。从实现上来看，遍历一个点的所有出边，等价于遍历第 i 个节点对应的链表。</li>
+</ul>
+<p>由于邻接表只储存了连接的边的信息，所以其空间复杂度为 $\Theta(m)$ （一般我们用 m 来表示图中边的数量）</p>
+<h3 id="链式前向星存图法"><a href="#链式前向星存图法" class="headerlink" title="链式前向星存图法"></a>链式前向星存图法</h3><p>链式前向星存图 和 邻接表存图 的方式总体思路是相同的，只是在实现的方式上有所不同。<strong>链式前向星 更像是数组模拟链表的一种运用。</strong> 在算法竞赛中广泛应用。</p>
+<p>链式前向星存图与邻接表存图，虽然实现方式差异较大，但实际的时间复杂度是一样的。</p>
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>「并查集」的主要作用是用来解决网络中的连通性。</p>
+<ul>
+<li>父节点：顶点的直接父亲节点。</li>
+<li>根节点：没有父节点的节点，本身可以视为自己的父节点。</li>
+</ul>
+<p>设计并查集数据结构：</p>
+<ul>
+<li><code>union</code> 函数：合并两个顶点，并将他们的根结点保持一致。</li>
+<li><code>find</code> 函数：找到给定顶点的根结点。</li>
+</ul>
+<p>并查集有两个实现方式：</p>
+<ul>
+<li><code>Quick Find</code> ：它指的是实现「并查集」时，find 函数时间复杂度很低为 O(1)，让 union 函数就需要承担更多的责任，它的时间复杂度为 O(N)。</li>
+<li><code>Quick Union</code> ：它指的是实现「并查集」时，相对于 Quick Find 的实现方式，我们通过降低 union 函数的职责来提高它的效率，但同时，我们也增加了 find 函数的职责。</li>
+</ul>
+<h3 id="Quick-Find"><a href="#Quick-Find" class="headerlink" title="Quick Find"></a>Quick Find</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 并查集 - Quick Find 的实现</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len)<br>      .<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>)<br>      .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>  &#125;<br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-comment">// 主要工作都分配给了 union函数，其已经将对应的根元素分好</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x];<br>  &#125;<br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x),<br>      rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span> (rootx !== rooty) &#123;<br>      <span class="hljs-comment">// 如果根元素不同，则将根元素换为 y 的</span><br>      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>.<span class="hljs-property">length</span>; i++) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[i] === rootx) <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[i] = rooty;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-comment">// 判断是否联通</span><br>  <span class="hljs-title function_">connected</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x) == <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>  &#125;<br><br>  <span class="hljs-comment">// 测试专用</span><br>  <span class="hljs-title function_">show</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> uf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UnionFind</span>(<span class="hljs-number">10</span>);<br><span class="hljs-comment">// 1-2-5-6-7 3-8-9 4</span><br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">5</span>, <span class="hljs-number">6</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">3</span>, <span class="hljs-number">8</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">8</span>, <span class="hljs-number">9</span>);<br>uf.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// [ 0, 7, 7, 9, 4, 7, 7, 7, 9, 9 ]</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// true</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">7</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// true</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">4</span>, <span class="hljs-number">9</span>); <span class="hljs-comment">// false</span><br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">9</span>, <span class="hljs-number">4</span>);<br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">4</span>, <span class="hljs-number">9</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Quick-Union"><a href="#Quick-Union" class="headerlink" title="Quick Union"></a>Quick Union</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len)<br>      .<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>)<br>      .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>  &#125;<br>  <span class="hljs-comment">// 递归寻找根节点</span><br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">while</span> (x !== <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x]) x = <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x];<br>    <span class="hljs-keyword">return</span> x;<br>  &#125;<br>  <span class="hljs-comment">// 将根节点划归为一个</span><br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x),<br>      rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span> (rootx !== rooty) <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>  &#125;<br>  <span class="hljs-title function_">connected</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x) === <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>  &#125;<br><br>  <span class="hljs-comment">// 测试专用</span><br>  <span class="hljs-title function_">show</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> uf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UnionFind</span>(<span class="hljs-number">10</span>);<br><span class="hljs-comment">// 1-2-5-6-7 3-8-9 4</span><br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">5</span>, <span class="hljs-number">6</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">6</span>, <span class="hljs-number">7</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">3</span>, <span class="hljs-number">8</span>);<br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">8</span>, <span class="hljs-number">9</span>);<br>uf.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// [ 0, 2, 5, 8, 4, 6, 7, 7, 9, 9 ]</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// true</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">7</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// true</span><br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">4</span>, <span class="hljs-number">9</span>); <span class="hljs-comment">// false</span><br>uf.<span class="hljs-title function_">union</span>(<span class="hljs-number">9</span>, <span class="hljs-number">4</span>);<br>uf.<span class="hljs-title function_">connected</span>(<span class="hljs-number">4</span>, <span class="hljs-number">9</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">构造函数</th>
+<th align="center">find 函数</th>
+<th align="center">union 函数</th>
+<th align="center">connected 函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Quick Find 时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(1)$</td>
+</tr>
+<tr>
+<td>Quick Union 时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(H)$</td>
+<td align="center">$O(H)$</td>
+<td align="center">$O(H)$</td>
+</tr>
+</tbody></table>
+<p>N 为顶点的个数，H 树的高度。</p>
+<blockquote>
+<p>总体来说，Quick Union 是比 Quick Find 更加高效的。</p>
+</blockquote>
+<h3 id="按秩合并的「并查集」"><a href="#按秩合并的「并查集」" class="headerlink" title="按秩合并的「并查集」"></a>按秩合并的「并查集」</h3><p>我们已经实现了 2 种「并查集」。但它们都有一个很大的缺点，这个缺点就是通过 union 函数连接顶点之后，可能所有顶点连成一条线形成，这就是我们 find 函数在最坏的情况下的样子。</p>
+<p>解决方案便是按秩合并。这里的「秩」可以理解为「秩序」。之前我们在 <code>union</code> 的时候，我们是随机选择 x 和 y 中的一个根节点&#x2F;父节点作为另一个顶点的根节点。但是在「按秩合并」中，我们是按照「某种秩序」选择一个父节点。</p>
+<p>这里的「秩」指的是每个顶点所处的高度。我们每次 <code>union</code> 两个顶点的时候，选择根节点的时候不是随机的选择某个顶点的根节点，而是将「秩」大的那个根节点作为两个顶点的根节点，换句话说，我们将低的树合并到高的树之下，将高的树的根节点作为两个顶点的根节点。这样，我们就避免了所有的顶点连成一条线，这就是按秩合并优化的「并查集」。</p>
+<blockquote>
+<p>所以，按秩排序根本上就是对 <code>Quick Union</code> 中的 <code>union</code> 函数进行优化</p>
+</blockquote>
+<p>实现代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-comment">// 保存数据及其对应的父节点</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>    <span class="hljs-comment">// 保存高度</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span> = <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-number">1</span>);<br>  &#125;<br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">while</span>(x !== <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x]) x = <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x];<br>    <span class="hljs-keyword">return</span> x;<br>  &#125;<br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x), rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span>(rootx !== rooty) &#123;<br>      <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &gt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rooty] = rootx;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>      &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// ===</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty] += <span class="hljs-number">1</span>;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-title function_">connected</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x) === <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">构造函数</th>
+<th align="center">find 函数</th>
+<th align="center">union 函数</th>
+<th align="center">connected 函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(logN)$</td>
+<td align="center">$O(logN)$</td>
+<td align="center">$O(logN)$</td>
+</tr>
+</tbody></table>
+<h3 id="路径压缩优化的「并查集」"><a href="#路径压缩优化的「并查集」" class="headerlink" title="路径压缩优化的「并查集」"></a>路径压缩优化的「并查集」</h3><p>从前面的「并查集」实现方式中，我们不难看出，要想找到一个元素的根节点，需要沿着它的父亲节点的足迹一直遍历下去，直到找到它的根节点为止。如果下次再查找同一个元素的根节点，我们还是要做相同的操作。</p>
+<p>如果我们在找到根节点之后，将所有遍历过的元素的父节点都改成根节点，那么我们下次再查询到相同元素的时候，我们就仅仅只需要遍历两个元素就可以找到它的根节点了，这是非常高效的实现方式。可以使用递归算法，这种优化我们称之为「路径压缩」优化，它是对 <code>Quick Union</code> 中的 <code>find</code> 函数进行优化。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 相对于 Quick Union 的代码，只需要更改 find 函数</span><br><span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">if</span> (x == <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x])  <span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x] = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x]);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">构造函数</th>
+<th align="center">find 函数</th>
+<th align="center">union 函数</th>
+<th align="center">connected 函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(logN)$</td>
+<td align="center">$O(logN)$</td>
+<td align="center">$O(logN)$</td>
+</tr>
+</tbody></table>
+<h3 id="基于路径压缩的按秩合并优化的「并查集」"><a href="#基于路径压缩的按秩合并优化的「并查集」" class="headerlink" title="基于路径压缩的按秩合并优化的「并查集」"></a>基于路径压缩的按秩合并优化的「并查集」</h3><blockquote>
+<p>这个优化就是将「路径压缩优化」和「按秩合并优化」合并后形成的「并查集」的实现方式。<br>union 函数是合并的函数，合并的时候按秩合并。find 函数是查找函数，查找的同时，路径压缩。</p>
+</blockquote>
+<p>代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnionFind</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">len</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span> = <span class="hljs-title class_">Array</span>(len)<br>      .<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>)<br>      .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">_, i</span>) =&gt;</span> i);<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span> = <span class="hljs-title class_">Array</span>(len).<span class="hljs-title function_">fill</span>(<span class="hljs-number">1</span>);<br>  &#125;<br>  <span class="hljs-comment">// 路径压缩优化版本的 find 函数</span><br>  <span class="hljs-title function_">find</span>(<span class="hljs-params">x</span>) &#123;<br>    <span class="hljs-keyword">if</span> (x === <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x])  <span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x] = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[x]);<br>  &#125;<br>  <span class="hljs-comment">// 按秩合并优化的 union 函数</span><br>  <span class="hljs-title function_">union</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">let</span> rootx = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x), rooty = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>    <span class="hljs-keyword">if</span>(rootx !== rooty) &#123;<br>      <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &gt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rooty] = rootx;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rootx] &lt; <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty]) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>      &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// ===</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">root</span>[rootx] = rooty;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">rank</span>[rooty] += <span class="hljs-number">1</span>;<br>      &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-title function_">connected</span>(<span class="hljs-params">x, y</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(x) === <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">find</span>(y);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">构造函数</th>
+<th align="center">find 函数</th>
+<th align="center">union 函数</th>
+<th align="center">connected 函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间复杂度</td>
+<td align="center">$O(N)$</td>
+<td align="center">$O(\alpha(N))$</td>
+<td align="center">$O(\alpha(N))$</td>
+<td align="center">$O(\alpha(N))$</td>
+</tr>
+</tbody></table>
+<h3 id="并查集的实现-总结"><a href="#并查集的实现-总结" class="headerlink" title="并查集的实现 总结"></a>并查集的实现 总结</h3><p>在「并查集」数据结构中，其中心思想是将所有连接的顶点，无论是直接连接还是间接连接，都将他们指向同一个父节点或者根节点。此时，如果要判断两个顶点是否具有连通性，只要判断它们的根节点是否为同一个节点即可。</p>
+<p>在「并查集」数据结构中，它的两个灵魂函数，分别是 <code>find</code> 和 <code>union</code> 。<code>find</code> 函数是为了找出给定顶点的根节点。 <code>union</code> 函数是通过更改顶点根节点的方式，将两个原本不相连接的顶点表示为两个连接的顶点。对于「并查集」来说，它还有一个重要的功能性函数 <code>connected</code>。它最主要的作用就是检查两个顶点的「连通性」。<code>find</code> 和 <code>union</code> 函数是「并查集」中必不可少的函数。<code>connected</code> 函数则需要根据题目的意思来决定是否需要。</p>
+<p>「并查集」的代码是高度模版化的。熟记「基于路径压缩+按秩合并的并查集」的实现代码。</p>
+<h2 id="题目-并查集"><a href="#题目-并查集" class="headerlink" title="题目 - 并查集"></a>题目 - 并查集</h2><ul>
+<li><a href="../leetcode/547">547. 省份数量</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-connected-components-in-an-undirected-graph/">LeetCode 323. 无向图中连通分量的数目</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/leetbook/read/graph/r3sizg/">leetbook - 图</a></li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2022/12/12/algorithm/%E5%9B%BE/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2022/12/07/algorithm/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">
+                            图 - 单源最短路径
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2022/12/07
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <ul>
+<li>单源最短路径相关算法<ul>
+<li>Dijkstra 算法</li>
+<li>Bellman-Ford 算法</li>
+<li>拓扑排序之 Kahn 算法</li>
+</ul>
+</li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2022/12/07/algorithm/%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2022/09/09/Rust/Rust%E5%AE%9E%E7%8E%B0%E9%93%BE%E8%A1%A8/">
+                            Rust数据结构之链表
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2022/09/09
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// Definition for singly-linked list.</span><br><span class="hljs-meta">#[derive(PartialEq, Eq, Clone, Debug)]</span><br><span class="hljs-keyword">pub</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">ListNode</span> &#123;<br>  <span class="hljs-keyword">pub</span> val: <span class="hljs-type">i32</span>,<br>  <span class="hljs-keyword">pub</span> next: <span class="hljs-type">Option</span>&lt;<span class="hljs-type">Box</span>&lt;ListNode&gt;&gt;<br>&#125;<br><br><span class="hljs-keyword">impl</span> <span class="hljs-title class_">ListNode</span> &#123;<br>  <span class="hljs-meta">#[inline]</span><br>  <span class="hljs-keyword">fn</span> <span class="hljs-title function_">new</span>(val: <span class="hljs-type">i32</span>) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-keyword">Self</span> &#123;<br>    ListNode &#123;<br>      next: <span class="hljs-literal">None</span>,<br>      val<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2022/09/09/Rust/Rust%E5%AE%9E%E7%8E%B0%E9%93%BE%E8%A1%A8/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2022/09/04/Rust/Rust%E5%AE%9E%E7%8E%B0%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">
+                            Rust实现斐波那契数列
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2022/09/04
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <p>代码实现：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">fibonacci</span>(n: <span class="hljs-type">u32</span>) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">u32</span> &#123;<br>    <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span> &#123; <span class="hljs-number">1</span> &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> n == <span class="hljs-number">2</span> &#123; <span class="hljs-number">1</span> &#125;<br>    <span class="hljs-keyword">else</span> &#123; <span class="hljs-title function_ invoke__">fibonacci</span>(n-<span class="hljs-number">1</span>) + <span class="hljs-title function_ invoke__">fibonacci</span>(n-<span class="hljs-number">2</span>) &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">use</span> std::io;<br><br><span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() &#123;<br>    <span class="hljs-comment">// 生成 n 阶斐波那契数列。</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;输入 n ：&quot;</span>);<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">inp</span>:<span class="hljs-type">String</span> = <span class="hljs-type">String</span>::<span class="hljs-title function_ invoke__">new</span>();<br>    io::<span class="hljs-title function_ invoke__">stdin</span>().<span class="hljs-title function_ invoke__">read_line</span>(&amp;<span class="hljs-keyword">mut</span> inp).<span class="hljs-title function_ invoke__">expect</span>(<span class="hljs-string">&quot;input error!&quot;</span>);<br>    <span class="hljs-keyword">let</span> <span class="hljs-variable">inp</span>: <span class="hljs-type">u32</span> = inp.<span class="hljs-title function_ invoke__">trim</span>().<span class="hljs-title function_ invoke__">parse</span>().<span class="hljs-title function_ invoke__">unwrap</span>();<br><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;阶斐波那契数列: &#123;&#125;&quot;</span>, inp, <span class="hljs-title function_ invoke__">fibonacci</span>(inp));<br>&#125;<br><span class="hljs-keyword">fn</span> <span class="hljs-title function_">fibonacci</span>(n: <span class="hljs-type">u32</span>) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">u32</span> &#123;<br>    <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span> &#123; <span class="hljs-number">1</span> &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> n == <span class="hljs-number">2</span> &#123; <span class="hljs-number">1</span> &#125;<br>    <span class="hljs-keyword">else</span> &#123; <span class="hljs-title function_ invoke__">fibonacci</span>(n-<span class="hljs-number">1</span>) + <span class="hljs-title function_ invoke__">fibonacci</span>(n-<span class="hljs-number">2</span>) &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">F:\rust\learn-repo\guessing_game&gt;cargo run<br>    Finished dev [unoptimized + debuginfo] target(s) <span class="hljs-keyword">in</span> 0.04s<br>     Running `target\debug\guessing_game.exe`<br>输入 n ：<br>10<br>10阶斐波那契数列: 55<br></code></pre></td></tr></table></figure>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2022/09/04/Rust/Rust%E5%AE%9E%E7%8E%B0%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2022/08/16/javascript/Promise%20A+%20%E8%A7%84%E8%8C%83/">
+                            Promise A+ 规范（译）
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2022/08/16
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <p><code>Promise</code> 代表异步操作的最终结果。与 <code>Promise</code> 交互的主要方式是通过其 <code>then</code> 方法，该方法注册回调以接收 <code>Promise</code> 的最终值或 <code>Promise</code> 失败的原因。</p>
+<p>该规范详细说明了 <code>then</code> 方法的行为，提供了一个可互操作的基础，所有符合 <code>Promises/A+</code> 的 <code>Promise</code> 实现都可以依赖该基础来提供。因此，规范应该被认为是非常稳定的。尽管 <code>Promises/A+</code> 组织可能偶尔会通过微小的向后兼容更改来修改此规范以解决新发现的极端情况，但只有在仔细考虑、讨论和测试后，我们才会集成大的或向后不兼容的更改。</p>
+<p>最后，核心 <code>Promises/A+</code> 规范不涉及如何创建、履行或拒绝 <code>Promise</code>，而是选择专注于提供可互操作的 <code>then</code> 方法。</p>
+<h2 id="1、术语"><a href="#1、术语" class="headerlink" title="1、术语"></a>1、术语</h2><ul>
+<li><code>promise</code> 是具有 <code>then</code> 方法的<strong>对象或函数</strong>，其行为符合本规范。</li>
+<li><code>thenable</code>是定义 <code>then</code> 方法的对象或函数。</li>
+<li><code>value</code>是任何合法的 <code>JavaScript</code> 值（包括 <code>undefined</code>、<code>thenable</code> 或 <code>promise</code>）。</li>
+<li><code>exception</code>是使用 <code>throw</code> 语句抛出的值。</li>
+<li><code>reason</code> 是一个值，表示一个 <code>promise</code> 被拒绝的原因。</li>
+</ul>
+<!-- truncate -->
+
+<h2 id="2、要求"><a href="#2、要求" class="headerlink" title="2、要求"></a>2、要求</h2><h3 id="Promise-状态"><a href="#Promise-状态" class="headerlink" title="Promise 状态"></a>Promise 状态</h3><blockquote>
+<p><code>Promise</code> 必须处于以下三种状态之一： <code>pending</code>, <code>fulfilled</code>, or <code>rejected</code>。·</p>
+</blockquote>
+<ol>
+<li>处于 <code>pending</code> 状态时，<code>Promise</code> 可以转换到<code>fulfilled</code> 或 <code>rejected</code> 状态。</li>
+<li>处于 <code>fulfilled</code> 状态时，<code>Promise</code> 不得转换到其它状态。<ul>
+<li>必须有一个<code>value</code>，并且这个值一定不能改变。</li>
+</ul>
+</li>
+<li>处于 <code>rejected</code> 状态时，<code>Promise</code> 不得转换到其它状态。<ul>
+<li>必须有一个<code>reason</code>，并且这个值一定不能改变。</li>
+</ul>
+</li>
+</ol>
+<p>这里的不得转换意味着其不可变的属性（即 <code>===</code>），但并不意味着深度不变（深度嵌套的值可变）。</p>
+<h3 id="then-方法"><a href="#then-方法" class="headerlink" title="then 方法"></a><code>then</code> 方法</h3><p><code>Promise</code> 必须提供 <code>then</code> 方法来访问其当前或最终的 <code>value</code>或 <code>reason</code>。<br><code>Promise</code> 的 <code>then</code> 方法接受两个参数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">promise.<span class="hljs-title function_">then</span>(onFulfilled, onRejected)<br></code></pre></td></tr></table></figure>
+
+<p><code>onFulfilled</code> 和 <code>onRejected</code> 都是可选参数，并且如果它们不是函数，则必须忽略它。</p>
+<ul>
+<li>如果 <code>onFulfilled</code> 是一个函数<ul>
+<li>它必须在 <code>promise</code> 完成后调用，<code>promise</code> 的 <code>value</code> 作为它的第一个参数</li>
+<li>在 <code>promise</code> 完成之前不能调用它</li>
+<li>不能多次调用它。</li>
+</ul>
+</li>
+<li>如果 <code>onRejected</code> 是一个函数<ul>
+<li>它必须在 <code>promise</code> 被拒绝后调用，<code>promise</code> 的 <code>reason</code> 是它的第一个参数</li>
+<li>在 <code>promise</code> 被拒绝之前不能调用它</li>
+<li>不能多次调用它</li>
+</ul>
+</li>
+<li>在执行 <a target="_blank" rel="noopener" href="https://es5.github.io/#x10.3"><code>execution context</code></a> 堆栈（仅包含平台代码）之前，不得调用 <code>onFulfilled</code> 或 <code>onRejected</code>。 [^1]</li>
+<li><code>onFulfilled</code> 和 <code>onRejected</code> 必须作为函数调用（即没有 <code>this</code> 值）。 [^2]</li>
+<li><code>then</code> 可能会在同一个 <code>Promise</code> 上被多次调用<ul>
+<li>当 <code>Promise</code> 被实现，所有相应的 <code>onFulfilled</code> 回调必须按照它们对 <code>then</code> 的调用顺序执行。</li>
+<li>当 <code>promise</code> 被拒绝时，所有相应的 <code>onRejected</code> 回调必须按照它们对 <code>then</code> 的发起调用的顺序执行。</li>
+</ul>
+</li>
+<li><code>then</code> 必须返回一个 <code>promise</code> [^3]  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">promise2 = promise1.<span class="hljs-title function_">then</span>(onFulfilled, onRejected);<br></code></pre></td></tr></table></figure>
+<ul>
+<li>如果 <code>onFulfilled</code> 或 <code>onRejected</code> 返回一个值 <code>x</code>，运行<code>Promise</code>解决程序 <code>[[Resolve]](promise2, x)</code>。</li>
+<li>如果 <code>onFulfilled</code> 或 <code>onRejected</code> 抛出一个意外 <code>e</code>，<code>promise2</code> 必须以 <code>e</code> 为 <code>reason</code> 被 <code>rejected</code>。</li>
+<li>如果 <code>onFulfilled</code> 不是一个函数并且 <code>promise1</code> 处于 <code>fulfilled</code> 状态，<code>promise2</code> 必须以与 <code>promise1</code> 同样的 <code>value</code> 转变到 <code>fulfilled</code> 状态。</li>
+<li>如果 <code>onRejected</code> 不是一个函数并且 <code>promise1</code> 处于 <code>rejected</code> 状态，<code>promise2</code> 必须以与 <code>promise1</code> 同样的 <code>reason</code> 转变到 <code>rejected</code>状态。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Promise-解决程序"><a href="#Promise-解决程序" class="headerlink" title="Promise 解决程序"></a><code>Promise</code> 解决程序</h3><p><code>promise</code>解决程序是一个抽象的操作，它把一个 <code>promise</code> 和一个 <code>value</code> 作为输入，我们将这个表示为 <code>[[Resolve]](promise, x)</code>。如果 <code>x</code> 是一个 <code>thenable</code> ，它将会试图让 <code>promise</code> 采用 <code>x</code> 的状态，前提是<code>x</code>的行为至少有点像一个 <code>promise</code>。否则，它将会用值 <code>x</code> 执行 <code>promise</code>。<br>对这些 <code>thenable</code> 的处理使得与 <code>promise</code> 实现方式能够去互相操作。只要它们公开了符合 <code>Promise/A+</code> 的 <code>then</code> 方法。它还使得 <code>promises/A+</code> 实现方式能够采用合理的 <code>then</code> 方法去“同化”不一致的实现方式。<br>为了运行<code>[[Resolve]](promise, x)</code>，执行以下步骤：</p>
+<ol>
+<li>如果 <code>promise</code> 和 <code>x</code> 指向同一个对象，则以 <code>TypeError</code> 作为原因拒绝 <code>promise</code></li>
+<li>如果 <code>x</code> 是一个 <code>promise</code>，采用它的状态： [^4]<ol>
+<li>如果 <code>x</code> 处于<code>pending</code>，则 <code>Promise</code> 必须保持<code>pending</code>，直到 <code>x</code> 变为 <code>fulfilled</code> 或 <code>rejected</code></li>
+<li>当 <code>x</code> 是 <code>fulfilled</code>，使用相同的 <code>value</code> 实现 <code>promise</code></li>
+<li>当 <code>x</code> 是 <code>rejected</code>，以同样的 <code>reason</code> 拒绝 <code>promise</code></li>
+</ol>
+</li>
+<li>除此之外，如果 <code>x</code> 是一个对象或函数<ol>
+<li>令 <code>then</code> 为 <code>x.then</code>  [^5]</li>
+<li>如果检索属性 <code>x.then</code> 导致抛出异常 <code>e</code>，则以 <code>e</code> 为 <code>value</code> 拒绝 <code>promise</code></li>
+<li>如果 <code>then</code> 是一个函数，则使用 <code>x</code> 作为 <code>this</code>、第一个参数 <code>resolvePromis</code>e 和第二个参数 <code>rejectPromise</code> 调用它，其中：<ul>
+<li>使用 <code>value</code> <code>y</code> 调用 <code>resolvePromise</code> 时，运行 <code>[[Resolve]](promise, y)</code></li>
+<li>使用 <code>reason</code> <code>r</code> 调用 <code>rejectPromise</code> 时，使用 <code>r</code> 拒绝 <code>promise</code></li>
+<li>如果同时调用了 <code>resolvePromise</code> 和 <code>rejectPromise</code>，或者对同一个参数进行了多次调用，则第一次调用优先，并且任何进一步的调用都将被忽略。</li>
+<li>如果调用 <code>then</code> 抛出异常 <code>e</code>:<ul>
+<li>如果已调用 <code>resolvePromise</code> 或 <code>rejectPromise</code>，则忽略它。</li>
+<li>否则，以 <code>e</code> 为 <code>reason</code> 拒绝 <code>promise</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果 <code>then</code> 不是函数，则用 <code>x</code> 实现 <code>promise</code></li>
+</ol>
+</li>
+<li>如果 <code>x</code> 不是对象或函数，使用 <code>x</code> 实现<code>promise</code></li>
+</ol>
+<p>如果一个参与了 <code>thenable</code> 循环链的 <code>thenable</code> 去 <code>resolve promise</code>，这样 <code>[[Resolve]](promise, thenable)</code> 的递归性质最终会导致 <code>[[Resolve]](promise, thenable)</code> 会被再次调用，遵循上述算法将会导致无限递归。我们鼓励去实现（但不是必需的）检测这样的递归，并以 <code>TypeError</code> 作为 <code>reason</code> 去 <code>reject Promise</code>。 [^6]</p>
+<p>[^1]: 这里的“平台代码”指的是引擎，环境和 promise 实现代码。实际上，这个要求保证了 <code>onFulfilled</code> 和 <code>onRejected</code> 将会异步执行，在事件循环之后，用一个新的堆栈来调用它。 这可以通过“宏任务”机制（如 <code>settimeout</code>或 <code>setimmediate</code> ）或“微任务”机制（如 <code>mutationobserver</code> 或 <code>process.nextick</code>）来实现。由于 <code>Promise</code> 实现被视为平台代码，因此它本身可能包含一个任务调度队列或“<code>trampoline</code>”，并在其中调用处理程序。</p>
+<p>[^2]: 也就是说，在 strict 模式下，这（指的是this）在它们内部将会是 undefined；在普通模式下，它将会是全局对象。</p>
+<p>[^3]: 如果实现满足所有要求，则实现可能允许 <code>promise2 == promise1</code>。每个实现都应该记录它是否能够生成 <code>promise2 == promise1</code> 以及在什么条件下。</p>
+<p>[^4]: 一般来说，只有当 <code>X</code> 来自当前的实现时，才知道它是一个真正的 <code>promise</code>。本条款允许使用特定于实现的方法来采用已知一致承诺的状态。</p>
+<p>[^5]: 此过程首先存储对 x 的引用，然后测试该引用，然后调用该引用，避免多次访问 <code>x.then</code> 属性。这些预防措施对于确保访问器属性的一致性非常重要，访问器属性的值可能在两次检索之间发生更改。</p>
+<p>[^6]: 实现方式中不应当在 <code>thenbale</code> 链中的深度设置主观的限制，并且不应当假设链的深度超过主观的限制后会是无限的。只有真正的循环才能导致<code>TypeError</code>。如果遇到由无限多个不同 <code>thenable</code> 组成的链，那么永远递归是正确的行为。</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2022/08/16/javascript/Promise%20A+%20%E8%A7%84%E8%8C%83/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2022/07/07/algorithm/base/">
+                            基本算法 - 数学
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2022/07/07
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <h2 id="最大公约数、最小公倍数"><a href="#最大公约数、最小公倍数" class="headerlink" title="最大公约数、最小公倍数"></a>最大公约数、最小公倍数</h2><p>最大公约数 <code>gcd</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">gcd</span> = (<span class="hljs-params">a, b</span>) =&gt; a ? <span class="hljs-title function_">gcd</span>(b%a, a) : b;<br></code></pre></td></tr></table></figure>
+
+<p>最小公倍数 <code>lcm</code> </p>
+<blockquote>
+<p>依赖于最大公约数 <code>gcd</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">lcm</span> = (<span class="hljs-params">a, b</span>) =&gt; a * b / <span class="hljs-title function_">gcd</span>(a,b);<br></code></pre></td></tr></table></figure>
+
+<h2 id="最大值-x2F-最小值"><a href="#最大值-x2F-最小值" class="headerlink" title="最大值 &#x2F; 最小值"></a>最大值 &#x2F; 最小值</h2><p>最大值 <code>max</code> ，输出给定所有数字的最大数字，如果没有参数，则返回  <code>-Infinity</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">max</span> = (<span class="hljs-params">...args</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span>(args.<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -<span class="hljs-title class_">Infinity</span>;<br>  <span class="hljs-keyword">let</span> _max_ = args[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> a <span class="hljs-keyword">of</span> args) &#123;<br>    _max_ = _max_ &gt; a ? _max_ : a;<br>  &#125;<br>  <span class="hljs-keyword">return</span> _max_;<br>&#125;<br><br><span class="hljs-comment">// use</span><br><span class="hljs-title function_">max</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">890</span>,<span class="hljs-number">34</span>,<span class="hljs-number">12</span>,<span class="hljs-number">56757</span>,<span class="hljs-number">12</span>) <span class="hljs-comment">// 56757</span><br><span class="hljs-comment">// or</span><br><span class="hljs-title function_">max</span>(...[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">890</span>,<span class="hljs-number">34</span>,<span class="hljs-number">12</span>,<span class="hljs-number">56757</span>,<span class="hljs-number">12</span>]) <span class="hljs-comment">// 56757</span><br></code></pre></td></tr></table></figure>
+
+<p>最小值 <code>min</code> ，输出给定所有数字的最小数字，如果没有参数，则返回  <code>Infinity</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">min</span> = (<span class="hljs-params">...args</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span>(args.<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-title class_">Infinity</span>;<br>  <span class="hljs-keyword">let</span> _min_ = args[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> a <span class="hljs-keyword">of</span> args) &#123;<br>    _min_ = _min_ &lt; a ? _min_ : a;<br>  &#125;<br>  <span class="hljs-keyword">return</span> _min_;<br>&#125;<br><br><span class="hljs-comment">// use</span><br><span class="hljs-title function_">min</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">890</span>,<span class="hljs-number">34</span>,<span class="hljs-number">12</span>,<span class="hljs-number">56757</span>,<span class="hljs-number">12</span>) <span class="hljs-comment">// 1</span><br><span class="hljs-comment">// or</span><br><span class="hljs-title function_">min</span>(...[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">890</span>,<span class="hljs-number">34</span>,<span class="hljs-number">12</span>,<span class="hljs-number">56757</span>,<span class="hljs-number">12</span>]) <span class="hljs-comment">// 1</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="检查-存在性"><a href="#检查-存在性" class="headerlink" title="检查 存在性"></a>检查 存在性</h2><p><code>existy</code> 检查数据是否 <code>存在</code> ，即是否不等于 <code>null</code> 或 <code>undefined</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">existy</span> = x =&gt; x != <span class="hljs-literal">null</span><br><span class="hljs-comment">// or</span><br><span class="hljs-comment">// const existy = x =&gt; x != undefined</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注：松散不等于 <code>!=</code> 会将 <code>null</code> 和 <code>undefined</code> 判定为 一个东西，即 <code>null == undefined</code></p>
+</blockquote>
+<h2 id="判断是否为-truthy"><a href="#判断是否为-truthy" class="headerlink" title="判断是否为 truthy"></a>判断是否为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy">truthy</a></h2><blockquote>
+<p>在 <code>JavaScript</code> 中，<code>truthy</code>（真值）指的是在布尔值上下文中，转换后的值为 <code>true</code> 的值。<strong>被定义为假值以外的任何值都为真值。</strong>（即所有除 <code>false</code>、<code>0</code>、<code>-0</code>、<code>0n</code>、<code>&quot;&quot;</code>、<code>null</code>、<code>undefined</code> 和 <code>NaN</code> 以外的皆为真值）。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">truthy</span> = x =&gt; x !== <span class="hljs-literal">false</span> &amp;&amp; x != <span class="hljs-literal">null</span> &amp;&amp; x !== <span class="hljs-number">0</span>  &amp;&amp; x !== <span class="hljs-number">0n</span> &amp;&amp; x === x &amp;&amp; x !== <span class="hljs-string">&quot;&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<p><code>falsy</code> 函数同理: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">falsy</span> = x =&gt; x === <span class="hljs-literal">false</span> || x == <span class="hljs-literal">null</span> || x === <span class="hljs-number">0</span> || x === <span class="hljs-number">0n</span> || x === <span class="hljs-string">&quot;&quot;</span> || x !== x ;<br></code></pre></td></tr></table></figure>
+
+<h2 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h2><p>随机生成 $m-n$ 之间的整数值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 保证 m &lt; n</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">random</span>(<span class="hljs-params">m, n</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">round</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * (n-m) + m);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="斐波那契数列-生成器版本"><a href="#斐波那契数列-生成器版本" class="headerlink" title="斐波那契数列 - 生成器版本"></a>斐波那契数列 - 生成器版本</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span>* <span class="hljs-title function_">createFibonacci</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-keyword">yield</span> a;<br>    b = a+b;<br>    a = b-a;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">let</span> fibonacci = <span class="hljs-title function_">createFibonacci</span>();<br>fibonacci.<span class="hljs-title function_">next</span>() <span class="hljs-comment">// &#123; value: 1, done: false &#125;</span><br>fibonacci.<span class="hljs-title function_">next</span>() <span class="hljs-comment">// &#123; value: 1, done: false &#125;</span><br>fibonacci.<span class="hljs-title function_">next</span>() <span class="hljs-comment">// &#123; value: 2, done: false &#125;</span><br>fibonacci.<span class="hljs-title function_">next</span>() <span class="hljs-comment">// &#123; value: 3, done: false &#125;</span><br>fibonacci.<span class="hljs-title function_">next</span>() <span class="hljs-comment">// &#123; value: 5, done: false &#125;</span><br>fibonacci.<span class="hljs-title function_">next</span>() <span class="hljs-comment">// &#123; value: 8, done: false &#125;</span><br>fibonacci.<span class="hljs-title function_">next</span>() <span class="hljs-comment">// &#123; value: 13, done: false &#125;</span><br></code></pre></td></tr></table></figure>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2022/07/07/algorithm/base/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2022/07/01/TypeScript/">
+                            TypeScript
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2022/07/01
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <p>TypeScript 知识点</p>
+<p><img src="/blog/TypeScript.png" alt="/blog/TypeScript.png"></p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2022/07/01/TypeScript/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2021/09/06/javascript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B9%8B%E9%80%92%E5%BD%92%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+                            函数式编程之递归的几种方式
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2021/09/06
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <blockquote>
+<p>函数式编程提倡使用<strong>递归</strong>，而不是循环。递归在某些场合下更优雅、更简洁。</p>
+</blockquote>
+<p>但是使用递归有时候会遇到一些问题，比如说<strong>栈溢出。</strong></p>
+<p>这里总结了几种解决栈溢出问题的几种解决方案，比如最有效的尾递归（tail call），以及不使用尾递归的其它两种方式。</p>
+<p>首先，要解决问题就得先有问题；这里使用例子来分析递归的几种方法：</p>
+<ul>
+<li>判断一句话中有几个元音字母<ul>
+<li>这里给出判断是否元音字母的函数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">isVowel</span> = letter =&gt; &#123;<br>    <span class="hljs-keyword">const</span> vowel = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>([<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;e&#x27;</span>,<span class="hljs-string">&#x27;i&#x27;</span>,<span class="hljs-string">&#x27;o&#x27;</span>,<span class="hljs-string">&#x27;u&#x27;</span>,<span class="hljs-string">&#x27;A&#x27;</span>,<span class="hljs-string">&#x27;E&#x27;</span>,<span class="hljs-string">&#x27;I&#x27;</span>,<span class="hljs-string">&#x27;O&#x27;</span>,<span class="hljs-string">&#x27;U&#x27;</span>]);<br>    <span class="hljs-keyword">return</span> vowel.<span class="hljs-title function_">has</span>(letter)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="普通递归"><a href="#普通递归" class="headerlink" title="普通递归"></a>普通递归</h2><p>首先想到的应该是循环的方法（至少我是），循环更简单易懂，也好写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// loop</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">loopCountVowel</span>(<span class="hljs-params">sentence</span>) &#123;<br>    <span class="hljs-keyword">let</span> ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i&lt;sentence.<span class="hljs-property">length</span>;i++)&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-title function_">isVowel</span>(sentence[i]))<br>            ans++;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br><span class="hljs-title function_">loopCountVowel</span>(<br>    <span class="hljs-string">&quot;Create and share beautiful images of your source code.&quot;</span><br>)<span class="hljs-comment">//22</span><br></code></pre></td></tr></table></figure>
+
+<p>接着，我们来写普通的递归方法，这个也很容易想到：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// recursion</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">recursionCountVowel</span>(<span class="hljs-params">sentence</span>) &#123;<br>    <span class="hljs-keyword">let</span> first = <span class="hljs-title function_">isVowel</span>(sentence[<span class="hljs-number">0</span>]) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span>(sentence.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> first;<br>    <span class="hljs-keyword">return</span> first + <span class="hljs-title function_">recursionCountVowel</span>( sentence.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>) )<br>&#125;<br><span class="hljs-title function_">recursionCountVowel</span>(<br>    <span class="hljs-string">&quot;Create and share beautiful images of your source code.&quot;</span><br>)<span class="hljs-comment">// 22</span><br></code></pre></td></tr></table></figure>
+
+<p>这种递归的方式似乎很好，但是当数据量大的时候，或者更复杂的时候，会引起栈溢出(<code>stack overflow</code>)。造成栈溢出的原因是由于函数运行时，上面的递归会把一个个的函数都一股脑地塞进栈（<code>stack</code>）里，等到递归遇到限定条件停止时，才会一次把所有存在栈里的函数拿出来运算。栈或者说内存大小是有限的，如果递归过深就会把栈撑满，撑爆，溢出；解决栈溢出的方法就是尾递归，如下：</p>
+<h2 id="尾递归-PTC"><a href="#尾递归-PTC" class="headerlink" title="尾递归(PTC)"></a>尾递归(PTC)</h2><blockquote>
+<p><code>proper tail calls,PTC</code>，即<strong>正确的尾递归</strong>。</p>
+</blockquote>
+<p>普通的递归导致溢出的根本原因是，一股脑地把所有的函数都存在栈里，等到最后才拿出来运算。函数保存在栈里的根本原因是函数没有运算结束，上一个函数需要依靠下一个函数的结果。所以，只要解决这个问题即可。</p>
+<p>尾递归就是避免把不必要的函数一直保存在栈里，在函数尾部避免使用两个或以上的自身递归调用和其它和下一个函数绑定的数据。只在尾部调用自己，使本函数返回后是完成状态，这样才会使其及时脱离栈。</p>
+<p>即把计算结果当作参数而不是返回值。</p>
+<p>需要注意的是，在<strong>ES6</strong>标准里，js才能支持尾递归，且<strong>必须在严格模式下</strong>才行！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-meta">&quot;use strict&quot;</span>;<br><span class="hljs-comment">// tail calls</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">PTCCountVowel</span>(<span class="hljs-params">count, sentence</span>) &#123;<br>    count += <span class="hljs-title function_">isVowel</span>(sentence[<span class="hljs-number">0</span>]) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span>(sentence.<span class="hljs-property">length</span> &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> count;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">PTCCountVowel</span>(count, sentence.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>))<br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">PTCCountVowel</span>(<br>    <span class="hljs-number">0</span>,<br>     <span class="hljs-string">&quot;Create and share beautiful images of your source code.&quot;</span><br>)<span class="hljs-comment">//22</span><br></code></pre></td></tr></table></figure>
+
+<p>由于第一个参数<code>count</code> 在每次调用时都应该是0，所以可以使用柯里化省去这一参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-meta">&quot;use strict&quot;</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">PTC</span>(<span class="hljs-params">count</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">inner</span>(<span class="hljs-params">sentence</span>) &#123;<br>        count += <span class="hljs-title function_">isVowel</span>(sentence[<span class="hljs-number">0</span>]) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span>(sentence.<span class="hljs-property">length</span> &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> count;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_">inner</span>(sentence.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>))<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title class_">PTCCountVowel</span> = <span class="hljs-title function_">PTC</span>(<span class="hljs-number">0</span>);<br><br><span class="hljs-title class_">PTCCountVowel</span>(<br>    <span class="hljs-string">&quot;Create and share beautiful images of your source code.&quot;</span><br>)<span class="hljs-comment">//22</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="CPS"><a href="#CPS" class="headerlink" title="CPS"></a>CPS</h2><p>如果不依赖尾调用，那么还有其它方式避免栈溢出，这里介绍两种方式。</p>
+<p>其一就是CPS（Continuation-Passing Style），这种方法比较难理解，也难写，效率也不高，并且可能会有堆内存存储问题。并不建议使用此方法。</p>
+<p>代码例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-meta">&quot;use strict&quot;</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">CPS</span>(<span class="hljs-params">sentence, count = v =&gt; v</span>) &#123;<br>    <span class="hljs-keyword">let</span> first = <span class="hljs-title function_">isVowel</span>(sentence[<span class="hljs-number">0</span>]) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span>(sentence.<span class="hljs-property">length</span> &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-title function_">count</span>(first);<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">CPS</span>(sentence.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>), <span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">v</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_">count</span>(first + v);<br>    &#125;)<br>&#125;<br><br><span class="hljs-title function_">CPS</span>(<br>    <span class="hljs-string">&quot;Create and share beautiful images of your source code.&quot;</span><br>)<span class="hljs-comment">//22</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Trampolines"><a href="#Trampolines" class="headerlink" title="Trampolines"></a>Trampolines</h2><p>第二种方法是<code>Trampolines</code>，单词的意思是<em>蹦床</em>，描述为栈里的函数像是蹦床一样进去一个，出来一个，一上一下，避免都堆在栈里。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">trampoline</span>(<span class="hljs-params">fn</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">trampolined</span>(<span class="hljs-params">...args</span>) &#123;<br>        <span class="hljs-keyword">let</span> result = <span class="hljs-title function_">fn</span>(...args);<br>        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">typeof</span> result == <span class="hljs-string">&quot;function&quot;</span>) &#123;<br>            result = <span class="hljs-title function_">result</span>();<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">const</span> countVowel = <span class="hljs-title function_">trampoline</span>(<span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">count, sentence</span>)&#123;<br>    count += <span class="hljs-title function_">isVowel</span>(sentence[<span class="hljs-number">0</span>]) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span>(sentence.<span class="hljs-property">length</span> &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> count;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_">f</span>(count, sentence.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>))<br>    &#125;<br>&#125;)<br><br><span class="hljs-title function_">countVowel</span>(<br>    <span class="hljs-number">0</span>,<br>    <span class="hljs-string">&quot;Create and share beautiful images of your source code.&quot;</span><br>)<span class="hljs-comment">//22</span><br></code></pre></td></tr></table></figure>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2021/09/06/javascript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E4%B9%8B%E9%80%92%E5%BD%92%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/2021/07/06/javascript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">
+                            函数式编程
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2021/07/06
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <h2 id="函数是一等公民"><a href="#函数是一等公民" class="headerlink" title="函数是一等公民"></a>函数是一等公民</h2><p>函数是一等公民的表现：</p>
+<ol>
+<li>函数可以储存为变量<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> <span class="hljs-title function_">four</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure></li>
+<li>函数可作为数组的一个元素<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> four = [<span class="hljs-number">4</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-number">4</span>]<br></code></pre></td></tr></table></figure></li>
+<li>函数可作为对象的成员<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> four = &#123;<span class="hljs-attr">num</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">func</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-number">4</span>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>函数可以在使用时直接创造出来<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> four = <span class="hljs-number">2</span> + (<span class="hljs-function">() =&gt;</span> <span class="hljs-number">2</span>)()<br></code></pre></td></tr></table></figure></li>
+<li>函数可作为参数传递给另一个函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> <span class="hljs-title function_">four</span> = (<span class="hljs-params">num, f</span>) =&gt; num + <span class="hljs-title function_">f</span>()<br><br><span class="hljs-title function_">four</span>(<span class="hljs-number">2</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure></li>
+<li>函数可以被另一函数返回<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> <span class="hljs-title function_">four</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-function">() =&gt;</span> <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>其实，满足第5点或第6点的函数被称为 <strong>高阶函数</strong></p>
+</blockquote>
+<h2 id="Applicative编程"><a href="#Applicative编程" class="headerlink" title="Applicative编程"></a>Applicative编程</h2><p>Applicative编程是函数式编程的一部分(特殊的函数式编程形式)，其典型的代表就是 <code>map</code> 、<code>reduce</code> 以及 <code>filter</code> 函数。</p>
+<p>Applicative编程的其它实例: </p>
+<ul>
+<li>reduceRight</li>
+<li>find</li>
+<li>reject</li>
+<li>all</li>
+<li>any </li>
+<li>sortBy | groupBy | countBy</li>
+</ul>
+<h2 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h2><p>函数柯里化可以保存某些需要多次调用的操作，还可以将多个参数分割，每次只传递一个参数，让函数看起来就像是在一步步的操作数据。 </p>
+<p>一阶柯里化：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">curry</span>(<span class="hljs-params">func</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">arg</span> =&gt;</span> <span class="hljs-title function_">func</span>(arg)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>使用示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> add3 = <span class="hljs-title function_">curry</span>(<span class="hljs-function">(<span class="hljs-params">a</span>) =&gt;</span> a+<span class="hljs-number">3</span>)<br><span class="hljs-title function_">add3</span>(<span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+
+<p>二阶柯里化（这里选择从右到左）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">curry2</span>(<span class="hljs-params">func</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">first</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">last</span> =&gt;</span> <span class="hljs-title function_">func</span>(last, first);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>使用示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> add = <span class="hljs-title function_">curry2</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a+b)<br><span class="hljs-title function_">add</span>(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>) <span class="hljs-comment">// 5</span><br><span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;curry!&#x27;</span>)(<span class="hljs-string">&#x27;hello &#x27;</span>) <span class="hljs-comment">// &#x27;hello curry!&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>三阶柯里化（从右到左调用参数）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">curry3</span>(<span class="hljs-params">func</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">first</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">middle</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">last</span> =&gt;</span> <span class="hljs-title function_">func</span>(last, middle, first);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>使用示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> splice = <span class="hljs-title function_">curry3</span>(<span class="hljs-function">(<span class="hljs-params">a, b, c</span>) =&gt;</span> c + b + a)<br><span class="hljs-title function_">splice</span>(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)(<span class="hljs-number">4</span>) <span class="hljs-comment">// 9</span><br><span class="hljs-title function_">splice</span>(<span class="hljs-string">&#x27;hello &#x27;</span>)(<span class="hljs-string">&#x27;curry&#x27;</span>)(<span class="hljs-string">&#x27;!&#x27;</span>) <span class="hljs-comment">// &#x27;hello curry!&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>curry &#x3D;&gt; partial &#x3D;&gt; compose</p>
+</blockquote>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h3 id="相互递归"><a href="#相互递归" class="headerlink" title="相互递归"></a>相互递归</h3><p>实现判断奇偶性就是一个相互递归的很好的例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">odd</span>(<span class="hljs-params">n</span>) &#123;<br>    <span class="hljs-keyword">if</span>(n === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">even</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">abs</span>(n) - <span class="hljs-number">1</span>);<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">even</span>(<span class="hljs-params">n</span>) &#123;<br>    <span class="hljs-keyword">if</span>(n === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">odd</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">abs</span>(n) - <span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="递归实现深克隆"><a href="#递归实现深克隆" class="headerlink" title="递归实现深克隆"></a>递归实现深克隆</h3><p>简单版本：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">deepClone</span>(<span class="hljs-params">obj</span>) &#123;<br>    <span class="hljs-keyword">if</span>(x == <span class="hljs-literal">null</span> || <span class="hljs-keyword">typeof</span> obj !== <span class="hljs-string">&#x27;object&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> obj;<br>    &#125;<br>    <span class="hljs-keyword">let</span> temp = <span class="hljs-keyword">new</span> obj.<span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> obj) <br>        <span class="hljs-keyword">if</span>(obj.<span class="hljs-title function_">hasOwnProperty</span>(key))<br>            temp[key] = <span class="hljs-title function_">deepClone</span>(obj[key])<br>    <span class="hljs-keyword">return</span> temp;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="JS函数式库"><a href="#JS函数式库" class="headerlink" title="JS函数式库"></a>JS函数式库</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.lodashjs.com/">Lodash</a></li>
+<li><a target="_blank" rel="noopener" href="https://ramda.cn/">Ramda</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.underscorejs.cn/">underscore</a></li>
+<li><a target="_blank" rel="noopener" href="https://rxjs.dev/">RxJS</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/puffnfresh/bilby.js">bilby.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/raganwald/allong.es">allong.es</a></li>
+</ul>
+<h2 id="可编译为js的函数式编程语言"><a href="#可编译为js的函数式编程语言" class="headerlink" title="可编译为js的函数式编程语言"></a>可编译为js的函数式编程语言</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://clojurescript.org/">ClojureScript</a></li>
+<li><a target="_blank" rel="noopener" href="http://coffeescript.org/">CoffeeScript</a></li>
+<li><a target="_blank" rel="noopener" href="https://elm-lang.org/">Elm</a></li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/2021/07/06/javascript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">阅读更多</a>
+                </button>
+            </div>
+        
+    </div>
+
+    <div class="pagination">
+    <div class="paginator">
+        <a class="extend prev" rel="prev" href="/"><i class="fa fa-caret-left" aria-hidden="true"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="paginator-info">
+        <span class="gray">共22篇文章</span>
+    </div>
+</div>
+</article>
+
+            <section class="article-bottom flex-between">
+                <div class="flex-center">
+                    <img src="/imgs/logo.png" class="logo">
+                    <span>长风破浪会有时，直挂云帆济沧海</span>
+                </div>
+                <div class="flex-center">
+                    <a href="mailto:jjack_chen3@163.com" title=" " class="fa fa-envelope"> </a>
+                    <!-- <a href="#">
+                        
+                        <span><i class="fa fa-rss" aria-hidden="true"></i></span>
+                    </a> -->
+                    <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">
+                        <span title="github">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="to-top">
+    <a href="javascript: void(0)" onclick="delicate.toTop()">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <footer>
+        <div class="footer-info gray">
+    <div>
+        <span><a target="_blank" rel="noopener" href="https://github.com/can-dy-jack/hexo-theme-delicate">Delicate</a> theme designed with ❤️ by <a target="_blank" rel="noopener" href="https://github.com/can-dy-jack">can-dy-jack</a></span>
+    </div>
+    <div>
+        <span>Copyright Ⓒ 2023. All rights reserved.</span>
+    </div>
+</div>
+    </footer>
+
+    
+
+
+<script src="/js/index.js"></script>
+
+
+</body>
+
+</html>
