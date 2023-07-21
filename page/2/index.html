@@ -54,11 +54,13 @@
     <nav>
         <a href="/">首页</a>
         
-             | <a href="/delicate/archives/">文章列表</a>
+             | <a href="/delicate/archives/">存档</a>
         
              | <a href="/delicate/tags/">标签云</a>
         
-             | <a href="/delicate/categories/">归档</a>
+             | <a href="/delicate/categories/">分类</a>
+        
+             | <a href="/delicate/about/">关于我</a>
         
     </nav>
 </header>
@@ -69,6 +71,50 @@
     <div class="article-list">
         
             
+            
+            <div class="article-item"> 
+                <div class="article-item-title">
+                    <h1>
+                        <a href="/delicate/2022/12/24/algorithm/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
+                            图 - 最小生成树
+                        </a>
+                    </h1>
+                    <div class="info">
+                        
+                        
+                            <span>
+                                2022/12/24
+                            </span>
+                        
+                    </div>
+                </div>
+                <div class="article-item-excerpt article">
+                    <div>
+                        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul>
+<li>最小生成树相关定理和算法<ul>
+<li>切分定理</li>
+<li>Kruskal 算法</li>
+<li>Prim 算法</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>生成树 指的是<strong>无向图</strong>中，具有该图的 <em>全部顶点</em> 且 <em>边数最少</em> 的连通子图。<br>最小生成树指的是<strong>加权无向图</strong>中总权重最小的生成树。</p>
+</blockquote>
+<h2 id="切分定理"><a href="#切分定理" class="headerlink" title="切分定理"></a>切分定理</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <button type="button" class="read-more">
+                    <a href="/delicate/2022/12/24/algorithm/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">阅读更多</a>
+                </button>
+            </div>
+        
+            
+            
+                <hr>
             
             <div class="article-item"> 
                 <div class="article-item-title">
@@ -100,13 +146,13 @@
 </thead>
 <tbody><tr>
 <td align="center">DFS 遍历所有节点</td>
-<td align="center">$O(V+E)$</td>
-<td align="center">$O(V)$</td>
+<td align="center">$$O(V+E)$$</td>
+<td align="center">\[O(V)\]</td>
 </tr>
 <tr>
 <td align="center">DFS 遍历两点之间所有路径</td>
-<td align="center">$O((2^V)∗(V+E))$</td>
-<td align="center">$O((2^V)∗V)$</td>
+<td align="center">$$O((2^V)∗(V+E))$$</td>
+<td align="center">$$O((2^V)∗V)$$</td>
 </tr>
 </tbody></table>
 <p><code>V</code> 表示顶点数，<code>E</code> 表示边数。</p>
@@ -143,13 +189,13 @@
 </thead>
 <tbody><tr>
 <td align="center"><code>BFS</code> 遍历所有顶点</td>
-<td align="center">$O(V+E)$</td>
-<td align="center">$O(V)$</td>
+<td align="center">$$O(V+E)$$</td>
+<td align="center">$$O(V)$$</td>
 </tr>
 <tr>
 <td align="center"><code>BFS</code> 求两点之间最短路径</td>
-<td align="center">$O(V+E)$</td>
-<td align="center">$O(V)$</td>
+<td align="center">$$O(V+E)$$</td>
+<td align="center">$$O(V)$$</td>
 </tr>
 </tbody></table>
 <p><code>V</code> 表示顶点数，<code>E</code> 表示边数。</p>
@@ -830,99 +876,6 @@
                 </button>
             </div>
         
-            
-            
-                <hr>
-            
-            <div class="article-item"> 
-                <div class="article-item-title">
-                    <h1>
-                        <a href="/delicate/2021/07/06/javascript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">
-                            函数式编程
-                        </a>
-                    </h1>
-                    <div class="info">
-                        
-                        
-                            <span>
-                                2021/07/06
-                            </span>
-                        
-                    </div>
-                </div>
-                <div class="article-item-excerpt article">
-                    <div>
-                        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="函数是一等公民"><a href="#函数是一等公民" class="headerlink" title="函数是一等公民"></a>函数是一等公民</h2><p>函数是一等公民的表现：</p>
-<ol>
-<li>函数可以储存为变量<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> <span class="hljs-title function_">four</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure></li>
-<li>函数可作为数组的一个元素<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> four = [<span class="hljs-number">4</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-number">4</span>]<br></code></pre></td></tr></table></figure></li>
-<li>函数可作为对象的成员<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> four = &#123;<span class="hljs-attr">num</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">func</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-number">4</span>&#125;<br></code></pre></td></tr></table></figure></li>
-<li>函数可以在使用时直接创造出来<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> four = <span class="hljs-number">2</span> + (<span class="hljs-function">() =&gt;</span> <span class="hljs-number">2</span>)()<br></code></pre></td></tr></table></figure></li>
-<li>函数可作为参数传递给另一个函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> <span class="hljs-title function_">four</span> = (<span class="hljs-params">num, f</span>) =&gt; num + <span class="hljs-title function_">f</span>()<br><br><span class="hljs-title function_">four</span>(<span class="hljs-number">2</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure></li>
-<li>函数可以被另一函数返回<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> <span class="hljs-title function_">four</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-function">() =&gt;</span> <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-<blockquote>
-<p>其实，满足第5点或第6点的函数被称为 <strong>高阶函数</strong></p>
-</blockquote>
-<h2 id="Applicative编程"><a href="#Applicative编程" class="headerlink" title="Applicative编程"></a>Applicative编程</h2><p>Applicative编程是函数式编程的一部分(特殊的函数式编程形式)，其典型的代表就是 <code>map</code> 、<code>reduce</code> 以及 <code>filter</code> 函数。</p>
-<p>Applicative编程的其它实例: </p>
-<ul>
-<li>reduceRight</li>
-<li>find</li>
-<li>reject</li>
-<li>all</li>
-<li>any </li>
-<li>sortBy | groupBy | countBy</li>
-</ul>
-<h2 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h2><p>函数柯里化可以保存某些需要多次调用的操作，还可以将多个参数分割，每次只传递一个参数，让函数看起来就像是在一步步的操作数据。 </p>
-<p>一阶柯里化：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">curry</span>(<span class="hljs-params">func</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">arg</span> =&gt;</span> <span class="hljs-title function_">func</span>(arg)<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>使用示例：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> add3 = <span class="hljs-title function_">curry</span>(<span class="hljs-function">(<span class="hljs-params">a</span>) =&gt;</span> a+<span class="hljs-number">3</span>)<br><span class="hljs-title function_">add3</span>(<span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
-
-<p>二阶柯里化（这里选择从右到左）：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">curry2</span>(<span class="hljs-params">func</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">first</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">last</span> =&gt;</span> <span class="hljs-title function_">func</span>(last, first);<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>使用示例：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> add = <span class="hljs-title function_">curry2</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a+b)<br><span class="hljs-title function_">add</span>(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>) <span class="hljs-comment">// 5</span><br><span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;curry!&#x27;</span>)(<span class="hljs-string">&#x27;hello &#x27;</span>) <span class="hljs-comment">// &#x27;hello curry!&#x27;</span><br></code></pre></td></tr></table></figure>
-
-<p>三阶柯里化（从右到左调用参数）：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">curry3</span>(<span class="hljs-params">func</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">first</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">middle</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">last</span> =&gt;</span> <span class="hljs-title function_">func</span>(last, middle, first);<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>使用示例：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> splice = <span class="hljs-title function_">curry3</span>(<span class="hljs-function">(<span class="hljs-params">a, b, c</span>) =&gt;</span> c + b + a)<br><span class="hljs-title function_">splice</span>(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)(<span class="hljs-number">4</span>) <span class="hljs-comment">// 9</span><br><span class="hljs-title function_">splice</span>(<span class="hljs-string">&#x27;hello &#x27;</span>)(<span class="hljs-string">&#x27;curry&#x27;</span>)(<span class="hljs-string">&#x27;!&#x27;</span>) <span class="hljs-comment">// &#x27;hello curry!&#x27;</span><br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>curry &#x3D;&gt; partial &#x3D;&gt; compose</p>
-</blockquote>
-<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h3 id="相互递归"><a href="#相互递归" class="headerlink" title="相互递归"></a>相互递归</h3><p>实现判断奇偶性就是一个相互递归的很好的例子：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">odd</span>(<span class="hljs-params">n</span>) &#123;<br>    <span class="hljs-keyword">if</span>(n === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">even</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">abs</span>(n) - <span class="hljs-number">1</span>);<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">even</span>(<span class="hljs-params">n</span>) &#123;<br>    <span class="hljs-keyword">if</span>(n === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">odd</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">abs</span>(n) - <span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="递归实现深克隆"><a href="#递归实现深克隆" class="headerlink" title="递归实现深克隆"></a>递归实现深克隆</h3><p>简单版本：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">deepClone</span>(<span class="hljs-params">obj</span>) &#123;<br>    <span class="hljs-keyword">if</span>(x == <span class="hljs-literal">null</span> || <span class="hljs-keyword">typeof</span> obj !== <span class="hljs-string">&#x27;object&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> obj;<br>    &#125;<br>    <span class="hljs-keyword">let</span> temp = <span class="hljs-keyword">new</span> obj.<span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> obj) <br>        <span class="hljs-keyword">if</span>(obj.<span class="hljs-title function_">hasOwnProperty</span>(key))<br>            temp[key] = <span class="hljs-title function_">deepClone</span>(obj[key])<br>    <span class="hljs-keyword">return</span> temp;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="JS函数式库"><a href="#JS函数式库" class="headerlink" title="JS函数式库"></a>JS函数式库</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.lodashjs.com/">Lodash</a></li>
-<li><a target="_blank" rel="noopener" href="https://ramda.cn/">Ramda</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.underscorejs.cn/">underscore</a></li>
-<li><a target="_blank" rel="noopener" href="https://rxjs.dev/">RxJS</a></li>
-<li><a href="https://github.com/puffnfresh/bilby.js">bilby.js</a></li>
-<li><a href="https://github.com/raganwald/allong.es">allong.es</a></li>
-</ul>
-<h2 id="可编译为js的函数式编程语言"><a href="#可编译为js的函数式编程语言" class="headerlink" title="可编译为js的函数式编程语言"></a>可编译为js的函数式编程语言</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://clojurescript.org/">ClojureScript</a></li>
-<li><a target="_blank" rel="noopener" href="http://coffeescript.org/">CoffeeScript</a></li>
-<li><a target="_blank" rel="noopener" href="https://elm-lang.org/">Elm</a></li>
-</ul>
-
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: right;">
-                <button type="button" class="read-more">
-                    <a href="/delicate/2021/07/06/javascript/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">阅读更多</a>
-                </button>
-            </div>
-        
     </div>
 
     <div class="pagination">
@@ -930,7 +883,7 @@
         <a class="extend prev" rel="prev" href="/delicate/"><i class="fa fa-caret-left" aria-hidden="true"></i></a><a class="page-number" href="/delicate/">1</a><span class="page-number current">2</span><a class="page-number" href="/delicate/page/3/">3</a><a class="extend next" rel="next" href="/delicate/page/3/"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
     </div>
     <div class="paginator-info">
-        <span class="gray">共22篇文章</span>
+        <span class="gray">共23篇文章</span>
     </div>
 </div>
 </article>

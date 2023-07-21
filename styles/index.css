@@ -32,7 +32,7 @@ html {
   transition: background 260ms ease, color 260ms ease;
 }
 ::selection {
-  background: #0a43b4;
+  background: #0ac3a4;
   color: #fff;
 }
 ::-webkit-scrollbar {
@@ -45,7 +45,7 @@ html {
   -o-border-radius: 6px;
   -ms-border-radius: 6px;
   border-radius: 6px;
-  background: #0a43b4;
+  background: #0ac3a4;
 }
 ::-webkit-scrollbar-track {
   -webkit-border-radius: 0;
@@ -60,7 +60,7 @@ img {
   margin: 10px 0;
 }
 a {
-  color: #0a43b4;
+  color: #0ac3a4;
   text-decoration: none;
   -webkit-transition: 260ms;
   -moz-transition: 260ms;
@@ -171,7 +171,7 @@ html.ie6 .container {
   min-width: 100px;
 }
 .change-link:hover {
-  border-color: #0a43b4;
+  border-color: #0ac3a4;
 }
 .change-link .icon {
   font-size: 1.2rem;
@@ -222,12 +222,12 @@ html.ie6 .container {
   transition: all 300ms;
 }
 .paginator .current {
-  background: rgba(10,67,180,0.2);
-  color: #0a43b4;
+  background: rgba(10,195,164,0.2);
+  color: #0ac3a4;
 }
 .paginator .page-number:hover,
 .paginator .extend:hover {
-  background: rgba(10,67,180,0.2);
+  background: rgba(10,195,164,0.2);
 }
 .paginator-info {
   text-align: center;
@@ -1564,7 +1564,7 @@ nav {
   color: #c4c4c4;
 }
 .toc-container .toc a:hover {
-  color: #0a43b4 !important;
+  color: #0ac3a4 !important;
 }
 .toc-container .toc:hover a {
   color: #808080;
@@ -1575,33 +1575,72 @@ nav {
   padding-left: 0;
 }
 .archive {
-  margin: 20px 50px;
+  margin: 40px;
 }
 .archive .archive-list {
-  margin: 20px 0;
+  margin: 30px 0;
 }
 .archive .year-group {
-  margin-top: 40px;
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  height: 3rem;
+}
+.archive .year-group .circle {
+  height: 14px;
+  width: 14px;
+  background: #ccc;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
 }
 .archive .month-group {
-  padding-left: 20px;
-}
-.archive .post-item {
-  padding: 10px 20px;
+  margin-left: 40px;
+  position: relative;
+  width: fit-content;
+  font-size: 1rem;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px;
+}
+.archive .month-group::before {
+  content: '';
+  height: calc(100% + 40px);
+  width: 2px;
+  background: #ccc;
+  position: absolute;
+  left: -34px;
+  top: -20px;
+}
+.archive .post-item {
+  margin-left: 60px;
+  padding: 10px 20px;
   display: block;
+  position: relative;
   -webkit-transition: all 250ms ease;
   -moz-transition: all 250ms ease;
   -o-transition: all 250ms ease;
   -ms-transition: all 250ms ease;
   transition: all 250ms ease;
 }
+.archive .post-item::before {
+  content: '';
+  height: 100%;
+  width: 2px;
+  background: #ccc;
+  position: absolute;
+  left: -54px;
+  top: 0;
+}
 .archive .post-item:hover {
-  background: rgba(10,67,180,0.1);
+  background: rgba(10,195,164,0.1);
 }
 .tags {
   margin: 50px 50px 10px 50px;
@@ -1637,7 +1676,7 @@ nav {
   border-radius: 5px;
 }
 .tag-container .tag-list .tag-item:hover {
-  background: rgba(10,67,180,0.1);
+  background: rgba(10,195,164,0.1);
 }
 .cates-container {
   margin: 50px 50px 10px 50px;
@@ -1670,7 +1709,7 @@ nav {
   border-radius: 5px;
 }
 .cates-container .cate-list .cate-item:hover {
-  background: rgba(10,67,180,0.1);
+  background: rgba(10,195,164,0.1);
 }
 .to-top {
   position: fixed;
@@ -1699,4 +1738,19 @@ nav {
   display: block;
   height: 40px;
   width: 40px;
+}
+.page-img-container {
+  margin-top: -20px;
+  overflow: hidden;
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  -o-border-radius: 6px 6px 0 0;
+  -ms-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+.page-img-container img {
+  margin: 0;
+}
+.page-container {
+  margin: 20px 50px 50px 50px;
 }
