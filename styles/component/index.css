@@ -11,7 +11,7 @@
   transition: all 250ms ease;
 }
 .to-top:hover {
-  background: #fbf4e2;
+  background: var(--container-color);
 }
 .to-top a {
   display: block;
